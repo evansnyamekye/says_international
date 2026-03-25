@@ -1,0 +1,5 @@
+# .gitignore
+*.mp4
+*.zip
+*.mov
+node_modules/
