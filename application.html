@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <title>SIS: Online Application</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .step {
+      display: none;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .step.active {
+      display: block;
+    }
+    .progress-container {
+      margin-bottom: 30px;
+    }
+    .progress-bar {
+      height: 8px;
+      background-color: #28a745;
+    }
+    .is-invalid {
+      border-color: #dc3545;
+    }
+    .is-invalid:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+    .conditional {
+      display: none;
+    }
+    .yes-no-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .yes-no-btn {
+      flex: 1;
+      position: relative;
+    }
+    .yes-no-btn input { opacity: 0; position: absolute; }
+    .yes-no-btn span {
+      display: block;
+      padding: 16px;
+      text-align: center;
+      background: #f1f3f5;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .yes-no-btn input:checked + span {
+      background: #1d3e66;
+      color: white;
+      border-color: #1d3e66;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(29,62,102,0.2);
+    }
+    .error {
+      color: #dc3545;
+      font-size: 14px;
+      margin-top: 6px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <div class="text-center mb-4">
+        <img src="images/SAYS LOGO.png" alt="Says International School Crest" class="img-fluid" style="max-width: 150px;">
+      </div>
+      <h1 class="text-center mb-4">Says International School</h1>
+      <h2 class="text-center mb-4">Admission: Online Application - 2025/26</h2>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress">
+          <div class="progress-bar" id="progressBar" style="width: 33%"></div>
+        </div>
+        <div class="d-flex justify-content-between mt-2">
+          <span>Personal Info</span>
+          <span>Documents</span>
+          <span>Medical Info</span>
+        </div>
+      </div>
+
+      <!-- Start of form id -->
+      <form id="admissionForm">
+       <!-- Start of Admission form -->
+       <div class="step step-1 active">
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Student's Full Name *</label>
+            <input type="text" class="form-control" name="student_name" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Gender *</label>
+            <select class="form-select" name="gender" required>
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Religion/Faith of Birth *</label>
+            <select class="form-select" name="religion" required>
+              <option value="">Select a grade</option>
+              <option>Christianity</option>
+              <option>Islam</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Nationality *</label>
+            <input type="text" class="form-control" name="nationality" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Parent/Guardian Name *</label>
+            <input type="text" class="form-control" name="parent_name" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Mobile Phone Number *</label>
+            <input type="tel" class="form-control" name="mobile_phone" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Home Phone Number</label>
+            <input type="tel" class="form-control" name="home_phone">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Applying for Grade *</label>
+            <select class="form-select" name="grade" required>
+              <option value="">Select a grade</option>
+              <option>Pre-School</option>
+              <option>Creche</option>
+              <option>Nursery 1</option>
+              <option>Nursery 2</option>
+              <option>KG 1</option>
+              <option>KG 2</option>
+              <option>Grade 1</option>
+              <option>Grade 2</option>
+              <option>Grade 3</option>
+              <option>Grade 4</option>
+              <option>Grade 5</option>
+              <option>Grade 6</option>
+              <option>JHS 1</option>
+              <option>JHS 2</option>
+              <option>JHS 3</option>
+            </select>
+          </div>
+
+           <div class="col-md-7">
+            <label>Have you previously applied to or attended this school? *</label>
+            <div class="yes-no-group">
+              <label class="yes-no-btn"><input type="radio" name="previouslyApplied" value="No" checked><span>No</span></label>
+              <label class="yes-no-btn"><input type="radio" name="previouslyApplied" value="Yes"><span>Yes</span></label>
+            </div>
+            <div class="error" id="previouslyAppliedError">Please select an option.</div>
+          </div>
+
+            <div class="conditional col-12" id="previousYearField">
+            <label for="previousYear">What year did you apply or attend?</label>
+            <input type="text" id="previousYear" placeholder="e.g., 2023">
+          </div>
+
+          <!-- <div class="col-md-7">
+            <label for="message">Why are you interested in our school? (Optional)</label>
+            <textarea id="message" rows="4"></textarea>
+          </div> -->
+
+          <div class="mt-4 text-end">
+            <button type="button" class="btn btn-success" onclick="nextStep()">
+              Next →
+            </button>
+          </div>
+
+        </div>
+       </div>
+
+       <!-- Step 2: Document Upload -->
+       <div class="step step-2">
+
+        <h4 class="mb-3">Required Documents</h4>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Birth Certificate (PDF/JPG/PNG - max 5MB) *</label>
+            <input type="file" class="form-control" name="birth_certificate" accept=".pdf,.jpg,.jpeg,.png" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Passport Photo (JPG/PNG - max 2MB) *</label>
+            <input type="file" class="form-control" name="passport_photo" accept=".jpg,.jpeg,.png" required>
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Previous Report Cards (Optional)</label>
+            <input type="file" class="form-control" name="report_cards" accept=".pdf,.jpg,.jpeg,.png" multiple>
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">
+            ← Previous
+          </button>
+          <button type="button" class="btn btn-success" onclick="nextStep()">
+            Next →
+          </button>
+        </div>
+
+       </div>
+
+       <!-- Step 3: Medical Information -->
+       <div class="step step-3">
+
+        <h4 class="mb-3">Medical Information</h4>
+        <p class="text-muted">Does this child have any problems with the following, which may significantly affect his/her educational experience?</p>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Vision</label>
+            <select class="form-select" name="vision">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label">Hearing</label>
+            <select class="form-select" name="hearing">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Speech or Language</label>
+            <select class="form-select" name="speech">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Development Delays</label>
+            <select class="form-select" name="delays">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Allergies (pollen, penicillin, etc.)</label>
+            <select class="form-select" name="delays">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Carrier of communicable disease?</label>
+            <select class="form-select" name="delays">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label">Health condition requiring emergency care?</label>
+            <select class="form-select" name="delays">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Heart condition limiting exercise?</label>
+            <select class="form-select" name="delays">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Please specify any serious conditions</label>
+            <div class="yes-no-group">
+              <label class="yes-no-btn"><input type="radio" name="specifyCondition" value="Yes"><span>Yes</span></label>
+              <label class="yes-no-btn"><input type="radio" name="specifyCondition" value="No" checked><span>No</span></label>
+            </div>
+          </div>
+
+          <div class="conditional col-12" id="specifyDetails">
+            <label for="conditionDetails">Details</label>
+            <textarea id="conditionDetails" rows="3"></textarea>
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Preferred Hospital</label>
+            <input type="text" class="form-control" name="preferred_hospital">
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Insurance/Health Coverage</label>
+            <input type="text" class="form-control" name="insurance">
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Current Medications / Allergies / Health Concerns</label>
+            <textarea class="form-control" name="medical_notes" rows="3"></textarea>
+          </div>
+
+          <div class="col-md-12">
+            <h5>Emergency Contact</h5>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Relative Name *</label>
+            <input type="text" class="form-control" name="relative_name" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Telephone Number *</label>
+            <input type="tel" class="form-control" name="relative_tel" required>
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">
+            ← Previous
+          </button>
+          <button type="button" class="btn btn-success" onclick="submitForm()">
+            Submit Application
+          </button>
+        </div>
+
+       </div>
+      </form>
+      <!-- End of form -->
+      <p id="submitMessage" class="mt-3 text-center"></p>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/admission.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  function nextStep() {
+    // Validate current step before proceeding
+    if (!validateCurrentStep()) {
+      return; // Stop if validation fails
+    }
+
+    if (currentStep < totalSteps) {
+      document.querySelector(`.step-${currentStep}`).classList.remove('active');
+      currentStep++;
+      document.querySelector(`.step-${currentStep}`).classList.add('active');
+      updateProgress();
+    }
+  }
+
+  function validateCurrentStep() {
+    const currentStepElement = document.querySelector(`.step-${currentStep}`);
+    const requiredFields = currentStepElement.querySelectorAll('input[required], select[required]');
+    let isValid = true;
+
+    // Clear previous validation states
+    currentStepElement.querySelectorAll('.is-invalid').forEach(field => {
+      field.classList.remove('is-invalid');
+    });
+    
+
+    // Check each required field
+    requiredFields.forEach(field => {
+      if (!field.value.trim()) {
+        field.classList.add('is-invalid');
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      // Scroll to first invalid field
+      const firstInvalid = currentStepElement.querySelector('.is-invalid');
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstInvalid.focus();
+      }
+
+      // Show alert
+      alert('Please fill in all required fields marked with * before proceeding.');
+    }
+
+    return isValid;
+  }
+
+  function prevStep() {
+    if (currentStep > 1) {
+      document.querySelector(`.step-${currentStep}`).classList.remove('active');
+      currentStep--;
+      document.querySelector(`.step-${currentStep}`).classList.add('active');
+      updateProgress();
+    }
+  }
+
+  function updateProgress() {
+    const progress = (currentStep / totalSteps) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+  }
+
+  function submitForm() {
+    // Validate all steps before submission
+    let allValid = true;
+
+    // Check all required fields across all steps
+    for (let step = 1; step <= totalSteps; step++) {
+      const stepElement = document.querySelector(`.step-${step}`);
+      const requiredFields = stepElement.querySelectorAll('input[required], select[required]');
+
+      // Clear previous validation states
+      stepElement.querySelectorAll('.is-invalid').forEach(field => {
+        field.classList.remove('is-invalid');
+      });
+
+      // Check each required field
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.classList.add('is-invalid');
+          allValid = false;
+        }
+      });
+    }
+
+    if (!allValid) {
+      // Find first invalid field and scroll to it
+      const firstInvalid = document.querySelector('.is-invalid');
+      if (firstInvalid) {
+        // Switch to the step containing the invalid field
+        const stepElement = firstInvalid.closest('.step');
+        const stepNumber = parseInt(stepElement.className.match(/step-(\d+)/)[1]);
+
+        // Show the correct step
+        document.querySelector(`.step-${currentStep}`).classList.remove('active');
+        document.querySelector(`.step-${stepNumber}`).classList.add('active');
+        currentStep = stepNumber;
+        updateProgress();
+
+        // Scroll to and focus the field
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstInvalid.focus();
+      }
+
+      alert('Please fill in all required fields marked with * before submitting.');
+      return;
+    }
+
+    // All validation passed - submit the form
+    alert('Application submitted successfully! We will contact you soon.');
+    console.log('Form submitted successfully');
+    // Here you would typically send the form data to your server
+  }
+
+  // Conditional field handlers
+  document.querySelectorAll('input[name="previouslyApplied"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.getElementById('previousYearField').style.display = r.value === 'Yes' ? 'block' : 'none';
+    });
+  });
+
+  document.querySelectorAll('input[name="specifyCondition"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.getElementById('specifyDetails').style.display = r.value === 'Yes' ? 'block' : 'none';
+    });
+  });
+
+  // Initialize
+  updateProgress();
+</script>
+
+<!-- <script>
+let currentStep = 1;
+
+function nextStep() {
+  document.querySelector(`.step-${currentStep}`).classList.remove("active");
+  currentStep++;
+  document.querySelector(`.step-${currentStep}`).classList.add("active");
+}
+
+function prevStep() {
+  document.querySelector(`.step-${currentStep}`).classList.remove("active");
+  currentStep--;
+  document.querySelector(`.step-${currentStep}`).classList.add("active");
+}
+</script> -->
+
+
+</body>
+</html>
+
+
+
+
