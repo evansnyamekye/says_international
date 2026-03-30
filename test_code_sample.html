@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Application – 2025/26</title>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Google reCAPTCHA v3 - Temporarily disabled -->
+  <!-- <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY"></script> -->
+
+  <style>
+    :root {
+      --primary: #1d3e66;
+      --success: #28a745;
+      --gray: #6c757d;
+      --light: #f8f9fa;
+      --border: #dee2e6;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 15px;
+      line-height: 1.6;
+    }
+
+    .form-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary), #0d47a1);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .progress-container {
+      padding: 20px;
+      background: #f8f9fa;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .progress-step {
+      text-align: center;
+      flex: 1;
+      position: relative;
+    }
+
+    .progress-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin: 0 auto 10px;
+      transition: all 0.3s;
+      font-size: 18px;
+    }
+
+    .progress-step.active .progress-circle {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .progress-step.completed .progress-circle {
+      background: var(--success);
+      color: white;
+    }
+
+    .progress-label {
+      font-size: 14px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .progress-step.active .progress-label,
+    .progress-step.completed .progress-label {
+      font-weight: 600;
+    }
+
+    .progress-step.active .progress-label { color: var(--primary); }
+    .progress-step.completed .progress-label { color: var(--success); }
+
+    .progress-line {
+      position: absolute;
+      top: 22px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #e0e0e0;
+      z-index: -1;
+    }
+
+    .progress-line-fill {
+      height: 100%;
+      background: var(--success);
+      width: 0;
+      transition: width 0.4s ease;
+    }
+
+    .form-content {
+      padding: 30px 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+      font-size: 15px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(29, 62, 102, 0.15);
+    }
+
+    textarea { min-height: 100px; resize: vertical; }
+
+    .yes-no-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .yes-no-btn {
+      flex: 1;
+      position: relative;
+    }
+
+    .yes-no-btn input { opacity: 0; position: absolute; }
+
+    .yes-no-btn span {
+      display: block;
+      padding: 16px;
+      text-align: center;
+      background: #f1f3f5;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .yes-no-btn input:checked + span {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(29,62,102,0.2);
+    }
+
+    .medical-table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table.medical-table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+    }
+
+    table.medical-table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      text-align: left;
+      padding: 16px;
+    }
+
+    table.medical-table td {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    table.medical-table .radio-cell { text-align: center; }
+
+    table.medical-table input[type="radio"] { transform: scale(1.4); cursor: pointer; }
+
+    .file-info { font-size: 14px; margin-top: 8px; color: #555; }
+    .file-preview { margin-top: 10px; }
+    .file-preview img { max-width: 100%; max-height: 200px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+    .signature-section {
+      grid-column: 1 / -1;
+    }
+
+    .signature-pad {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+      width: 100%;
+      height: 220px;
+      touch-action: none;
+      cursor: crosshair;
+    }
+
+    .signature-controls {
+      text-align: center;
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .signature-hint {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .navigation {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      min-width: 140px;
+      transition: all 0.3s;
+    }
+
+    .btn-back { background: var(--gray); color: white; }
+    .btn-next, .btn-submit { background: var(--success); color: white; }
+    .btn-clear, .btn-save { background: var(--primary); color: white; padding: 12px 24px; font-size: 15px; }
+
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+    .conditional { display: none; margin-top: 20px; grid-column: 1 / -1; }
+    .error { color: #e74c3c; font-size: 14px; margin-top: 6px; display: none; }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .success-message {
+      display: none;
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #d4edda, #c3e6cb);
+    }
+
+    .success-message h3 {
+      font-size: 36px;
+      color: #155724;
+      margin-bottom: 20px;
+    }
+
+    .success-message p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 15px auto;
+      color: #155724;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .progress-steps { flex-direction: column; gap: 20px; }
+      .progress-line { width: 4px; height: calc(100% - 88px); top: 64px; left: 22px; }
+      .progress-line-fill { width: 100%; height: 0; }
+      .yes-no-group { flex-direction: column; }
+      .navigation { flex-direction: column-reverse; }
+      .btn { width: 100%; }
+      .form-content { padding: 20px 15px; }
+      .signature-pad { height: 180px; }
+      .signature-controls { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <div class="header">
+    <h2>Apply for Admission – 2025/26</h2>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-steps">
+      <div class="progress-line"><div class="progress-line-fill" id="progressFill"></div></div>
+      <div class="progress-step active" id="step1">
+        <div class="progress-circle">1</div>
+        <div class="progress-label">Personal Info</div>
+      </div>
+      <div class="progress-step" id="step2">
+        <div class="progress-circle">2</div>
+        <div class="progress-label">Documents</div>
+      </div>
+      <div class="progress-step" id="step3">
+        <div class="progress-circle">3</div>
+        <div class="progress-label">Medical & Submit</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-content" id="formContent">
+    <form id="admissionForm" novalidate>
+
+      <!-- Page 1: Personal Information -->
+      <div class="page active" id="page1">
+        <div class="form-grid">
+          <div>
+            <label for="studentName">Student's Full Name *</label>
+            <input type="text" id="studentName" required>
+            <div class="error" id="studentNameError">Please enter the student's full name.</div>
+          </div>
+
+          <div>
+            <label for="gender">Gender *</label>
+            <select id="gender" required>
+              <option value="">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="error" id="genderError">Please select gender.</div>
+          </div>
+
+          <div>
+            <label for="religion">Religion/Faith of Birth *</label>
+            <select id="religion" required>
+              <option value="">Select religion</option>
+              <option value="Christianity">Christianity</option>
+              <option value="Islam">Islam</option>
+              <option value="Traditional">Traditional</option>
+              <option value="Other">Other</option>
+              <option value="None">None</option>
+            </select>
+            <div class="error" id="religionError">Please select religion/faith.</div>
+          </div>
+
+          <div>
+            <label for="nationality">Nationality *</label>
+            <input type="text" id="nationality" required>
+            <div class="error" id="nationalityError">Please enter nationality.</div>
+          </div>
+
+          <div>
+            <label for="parentName">Parent/Guardian Name *</label>
+            <input type="text" id="parentName" required>
+            <div class="error" id="parentNameError">Please enter parent/guardian name.</div>
+          </div>
+
+          <div>
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" required>
+            <div class="error" id="emailError">Please enter a valid email address.</div>
+          </div>
+
+          <div>
+            <label for="mobilePhone">Mobile Phone Number *</label>
+            <input type="tel" id="mobilePhone" required>
+            <div class="error" id="mobilePhoneError">Please enter a valid mobile number.</div>
+          </div>
+
+          <div>
+            <label for="homePhone">Home Phone Number</label>
+            <input type="tel" id="homePhone">
+          </div>
+
+          <div>
+            <label for="grade">Applying for Grade *</label>
+            <select id="grade" required>
+              <option value="">Select a grade</option>
+              <option value="Creche">Creche</option>
+              <option value="Pre-School">Pre-School</option>
+              <option value="Nursery 1">Nursery 1</option>
+              <option value="Nursery 2">Nursery 2</option>
+              <option value="Kindergarten 1">Kindergarten 1</option>
+              <option value="Kindergarten 2">Kindergarten 2</option>
+              <option value="Grade 1">Grade 1</option>
+              <option value="Grade 2">Grade 2</option>
+              <option value="Grade 3">Grade 3</option>
+              <option value="Grade 4">Grade 4</option>
+              <option value="Grade 5">Grade 5</option>
+              <option value="Grade 6">Grade 6</option>
+              <option value="JHS 1">JHS 1</option>
+              <option value="JHS 2">JHS 2</option>
+              <option value="JHS 3">JHS 3</option>
+            </select>
+            <div class="error" id="gradeError">Please select a grade.</div>
+          </div>
+
+          <div style="grid-column: 1 / -1;">
+            <label>Have you previously applied to or attended this school? *</label>
+            <div class="yes-no-group">
+              <label class="yes-no-btn"><input type="radio" name="previouslyApplied" value="No" checked><span>No</span></label>
+              <label class="yes-no-btn"><input type="radio" name="previouslyApplied" value="Yes"><span>Yes</span></label>
+            </div>
+            <div class="error" id="previouslyAppliedError">Please select an option.</div>
+          </div>
+          
+          <div class="conditional" id="previousYearField" style="grid-column: 1 / -1;">
+            <label for="previousYear">What year did you apply or attend?</label>
+            <input type="text" id="previousYear" placeholder="e.g., 2023">
+          </div>
+
+          <div style="grid-column: 1 / -1;">
+            <label for="message">Why are you interested in our school? (Optional)</label>
+            <textarea id="message" rows="4"></textarea>
+          </div>
+
+          <div class="navigation">
+            <div></div>
+            <button type="button" class="btn btn-next" id="nextToPage2">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 2: Documents -->
+      <div class="page" id="page2">
+        <div class="form-grid">
+          <div style="grid-column: 1 / -1;">
+            <h3>Required Documents</h3>
+            <div class="form-grid">
+              <div>
+                <label>Birth Certificate (PDF/JPG/PNG – max 5MB) *</label>
+                <input type="file" id="birthCert" accept=".pdf,.jpg,.jpeg,.png" required>
+                <div class="file-info" id="birthCertInfo"></div>
+                <div class="file-preview" id="birthCertPreview"></div>
+                <div class="error" id="birthCertError"></div>
+              </div>
+
+              <div>
+                <label>Passport Photo (JPG/PNG – max 2MB) *</label>
+                <input type="file" id="passportPhoto" accept=".jpg,.jpeg,.png" required>
+                <div class="file-info" id="passportInfo"></div>
+                <div class="file-preview" id="passportPreview"></div>
+                <div class="error" id="passportError"></div>
+              </div>
+
+              <div>
+                <label>Previous Report Cards (Optional – multiple)</label>
+                <input type="file" id="reportCards" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                <div class="file-info" id="reportInfo"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="navigation">
+            <button type="button" class="btn btn-back" id="backToPage1">← Back</button>
+            <button type="button" class="btn btn-next" id="nextToPage3">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 3: Medical, Emergency, Signature -->
+      <div class="page" id="page3">
+        <div class="form-grid">
+          <div style="grid-column: 1 / -1;">
+            <h3>Medical Information</h3>
+            <p><strong>Does this child have any problems with the following which may significantly affect his/her educational experience? Kindly tick as appropriate.</strong></p>
+
+            <div class="medical-table-wrapper">
+              <table class="medical-table">
+                <thead>
+                  <tr><th></th><th class="radio-cell">Yes</th><th class="radio-cell">No</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Vision</td><td class="radio-cell"><input type="radio" name="vision" value="Yes"></td><td class="radio-cell"><input type="radio" name="vision" value="No" checked></td></tr>
+                  <tr><td>Hearing</td><td class="radio-cell"><input type="radio" name="hearing" value="Yes"></td><td class="radio-cell"><input type="radio" name="hearing" value="No" checked></td></tr>
+                  <tr><td>Speech or language</td><td class="radio-cell"><input type="radio" name="speech" value="Yes"></td><td class="radio-cell"><input type="radio" name="speech" value="No" checked></td></tr>
+                  <tr><td>Development Delays</td><td class="radio-cell"><input type="radio" name="delays" value="Yes"></td><td class="radio-cell"><input type="radio" name="delays" value="No" checked></td></tr>
+                  <tr><td>Allergies (pollen, penicillin, etc.)</td><td class="radio-cell"><input type="radio" name="allergies" value="Yes"></td><td class="radio-cell"><input type="radio" name="allergies" value="No" checked></td></tr>
+                  <tr><td>Carrier of communicable disease?</td><td class="radio-cell"><input type="radio" name="carrier" value="Yes"></td><td class="radio-cell"><input type="radio" name="carrier" value="No" checked></td></tr>
+                  <tr><td>Health condition requiring emergency care?</td><td class="radio-cell"><input type="radio" name="emergencyCare" value="Yes"></td><td class="radio-cell"><input type="radio" name="emergencyCare" value="No" checked></td></tr>
+                  <tr><td>Heart condition limiting exercise?</td><td class="radio-cell"><input type="radio" name="heart" value="Yes"></td><td class="radio-cell"><input type="radio" name="heart" value="No" checked></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <label>Please specify any serious conditions</label>
+            <div class="yes-no-group">
+              <label class="yes-no-btn"><input type="radio" name="specifyCondition" value="Yes"><span>Yes</span></label>
+              <label class="yes-no-btn"><input type="radio" name="specifyCondition" value="No" checked><span>No</span></label>
+            </div>
+
+            <div class="conditional" id="specifyDetails">
+              <label for="conditionDetails">Details</label>
+              <textarea id="conditionDetails" rows="3"></textarea>
+            </div>
+
+            <label for="preferredHospital">Preferred Hospital</label>
+            <input type="text" id="preferredHospital">
+
+            <label for="insurance">Insurance/Health Coverage</label>
+            <input type="text" id="insurance">
+
+            <label>Current medications, allergies, chronic concerns</label>
+            <textarea id="medList" rows="4"></textarea>
+          </div>
+
+          <div style="grid-column: 1 / -1; margin-top: 40px;">
+            <h3>Alternative Emergency Contact</h3>
+            <div class="form-grid">
+              <div>
+                <label for="relativeName">Relative Name *</label>
+                <input type="text" id="relativeName" required>
+                <div class="error" id="relativeNameError">Please enter relative name.</div>
+              </div>
+              <div>
+                <label for="relativeTel">Tel. Number *</label>
+                <input type="tel" id="relativeTel" required>
+                <div class="error" id="relativeTelError">Please enter phone number.</div>
+              </div>
+              <div>
+                <label for="relativeMobile">Mobile Number</label>
+                <input type="tel" id="relativeMobile">
+              </div>
+            </div>
+          </div>
+
+          <div style="grid-column: 1 / -1;">
+            <label for="formDate">Date *</label>
+            <input type="date" id="formDate" required>
+            <div class="error" id="formDateError">Please select a date.</div>
+          </div>
+
+          <div class="signature-section">
+            <label>Parent/Guardian Signature *</label>
+            <canvas id="signaturePad" class="signature-pad"></canvas>
+            <div class="signature-controls">
+              <button type="button" class="btn btn-clear" id="clearSignature">Clear Signature</button>
+              <button type="button" class="btn btn-save" id="saveSignature">Save Signature to File</button>
+            </div>
+            <p class="signature-hint">Sign above using mouse or touch. You can save a copy for your records.</p>
+            <div class="error" id="signatureError">Please provide a signature before submitting.</div>
+          </div>
+
+          <div style="grid-column: 1 / -1;">
+            <label>Additional Notes</label>
+            <textarea id="additionalNotes" rows="4" placeholder="Any other vital information..."></textarea>
+          </div>
+
+          <div class="navigation">
+            <button type="button" class="btn btn-back" id="backToPage2">← Back</button>
+            <button type="submit" class="btn btn-submit">Submit Application</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="success-message" id="successMessage">
+    <h3>🎉 Application Submitted Successfully!</h3>
+    <p>Thank you! We've received your complete application and will contact you soon.</p>
+    <p>We’re excited about the possibility of welcoming your child!</p>
+  </div>
+</div>
+
+<script>
+  // === REPLACE THESE 4 VALUES WITH YOUR ACTUAL KEYS ===
+  const EMAILJS_USER_ID = '4wssupnN8Kd2OA3UT';           // e.g. 'user_abc123xyz'
+  const EMAILJS_SERVICE_ID = 'service_061vs0n';                   // e.g. 'service_123abc'
+  const EMAILJS_TEMPLATE_ID = 'template_w7zo8e5';                 // e.g. 'template_xyz789'
+  const RECAPTCHA_SITE_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';           // e.g. '6Lc...'
+
+  // Initialize EmailJS
+  emailjs.init(EMAILJS_USER_ID);
+
+  // Elements
+  const pages = [null, document.getElementById('page1'), document.getElementById('page2'), document.getElementById('page3')];
+  const steps = [null, document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3')];
+  const progressFill = document.getElementById('progressFill');
+  const formContent = document.getElementById('formContent');
+  const successMessage = document.getElementById('successMessage');
+
+  function goToPage(num) {
+    pages.forEach((p, i) => { if (p) p.classList.toggle('active', i === num); });
+    steps.forEach((s, i) => {
+      if (s) {
+        s.classList.toggle('active', i === num);
+        s.classList.toggle('completed', i < num);
+      }
+    });
+    progressFill.style.width = `${(num - 1) * 50}%`;
+    if (window.innerWidth <= 768) {
+      progressFill.style.height = `${(num - 1) * 50}%`;
+      progressFill.style.width = '100%';
+    }
+  }
+
+  document.getElementById('nextToPage2').onclick = () => { if (validatePage1()) goToPage(2); };
+  document.getElementById('backToPage1').onclick = () => goToPage(1);
+  document.getElementById('nextToPage3').onclick = () => { if (validatePage2()) goToPage(3); };
+  document.getElementById('backToPage2').onclick = () => goToPage(2);
+
+  // Validation Page 1
+  function validatePage1() {
+    let valid = true;
+    document.querySelectorAll('#page1 .error').forEach(e => e.style.display = 'none');
+
+    const required = ['studentName', 'parentName', 'email', 'mobilePhone', 'gender', 'religion', 'nationality', 'grade'];
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        document.getElementById(id + 'Error').style.display = 'block';
+        valid = false;
+      }
+    });
+
+    const email = document.getElementById('email');
+    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      document.getElementById('emailError').textContent = 'Invalid email address';
+      document.getElementById('emailError').style.display = 'block';
+      valid = false;
+    }
+
+    if (!document.querySelector('input[name="previouslyApplied"]:checked')) {
+      document.getElementById('previouslyAppliedError').style.display = 'block';
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  // Validation Page 2
+  function validatePage2() {
+    let valid = true;
+    document.querySelectorAll('#page2 .error').forEach(e => e.style.display = 'none');
+
+    if (!document.getElementById('birthCert').files.length) {
+      document.getElementById('birthCertError').textContent = 'Please upload birth certificate';
+      document.getElementById('birthCertError').style.display = 'block';
+      valid = false;
+    }
+    if (!document.getElementById('passportPhoto').files.length) {
+      document.getElementById('passportError').textContent = 'Please upload passport photo';
+      document.getElementById('passportError').style.display = 'block';
+      valid = false;
+    }
+    return valid;
+  }
+
+  // Conditional fields
+  document.querySelectorAll('input[name="previouslyApplied"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.getElementById('previousYearField').style.display = r.value === 'Yes' ? 'block' : 'none';
+    });
+  });
+
+  document.querySelectorAll('input[name="specifyCondition"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.getElementById('specifyDetails').style.display = r.value === 'Yes' ? 'block' : 'none';
+    });
+  });
+
+  // File preview & info
+  function setupFileInput(id, infoId, previewId) {
+    const input = document.getElementById(id);
+    const info = document.getElementById(infoId);
+    const preview = previewId ? document.getElementById(previewId) : null;
+    input.addEventListener('change', () => {
+      const files = input.files;
+      info.textContent = '';
+      if (preview) preview.innerHTML = '';
+      if (files.length === 0) return;
+      let text = 'Selected: ';
+      Array.from(files).forEach(f => text += f.name + ', ');
+      info.textContent = text.slice(0, -2);
+      if (preview && files[0].type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = e => preview.innerHTML = `<img src="${e.target.result}">`;
+        reader.readAsDataURL(files[0]);
+      }
+    });
+  }
+
+  setupFileInput('birthCert', 'birthCertInfo', 'birthCertPreview');
+  setupFileInput('passportPhoto', 'passportInfo', 'passportPreview');
+  setupFileInput('reportCards', 'reportInfo', null);
+
+
+// === SIGNATURE PAD – FIXED FOR HIDDEN CANVAS ===
+const canvas = document.getElementById('signaturePad');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+
+// Only resize when canvas is visible and has size
+function resizeCanvas() {
+  if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) {
+    // Canvas is hidden or not sized yet – skip resize
+    return;
+  }
+
+  // Save current drawing
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  // Set new size
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  // Restore drawing
+  ctx.putImageData(imageData, 0, 0);
+
+  // Setup drawing style
+  ctx.strokeStyle = '#333';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+}
+
+// Call resize when window resizes AND when page becomes visible
+window.addEventListener('resize', resizeCanvas);
+
+// Also resize when switching to Page 3
+function goToPage(num) {
+  pages.forEach((p, i) => { if (p) p.classList.toggle('active', i === num); });
+  steps.forEach((s, i) => {
+    if (s) {
+      s.classList.toggle('active', i === num);
+      s.classList.toggle('completed', i < num);
+    }
+  });
+  progressFill.style.width = `${(num - 1) * 50}%`;
+  if (window.innerWidth <= 768) {
+    progressFill.style.height = `${(num - 1) * 50}%`;
+    progressFill.style.width = '100%';
+  }
+
+  // Critical fix: Resize signature canvas when Page 3 becomes active
+  if (num === 3) {
+    setTimeout(resizeCanvas, 100); // Small delay to ensure layout is ready
+  }
+}
+
+// Rest of your navigation remains the same
+document.getElementById('nextToPage2').onclick = () => { if (validatePage1()) goToPage(2); };
+document.getElementById('backToPage1').onclick = () => goToPage(1);
+document.getElementById('nextToPage3').onclick = () => { if (validatePage2()) goToPage(3); };
+document.getElementById('backToPage2').onclick = () => goToPage(2);
+
+// Drawing functions (unchanged)
+function getCoordinates(e) {
+  const rect = canvas.getBoundingClientRect();
+  const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+  const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+  return {
+    x: clientX - rect.left,
+    y: clientY - rect.top
+  };
+}
+
+function startDrawing(e) {
+  isDrawing = true;
+  const pos = getCoordinates(e);
+  ctx.beginPath();
+  ctx.moveTo(pos.x, pos.y);
+}
+
+function draw(e) {
+  if (!isDrawing) return;
+  e.preventDefault();
+  const pos = getCoordinates(e);
+  ctx.lineTo(pos.x, pos.y);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(pos.x, pos.y);
+}
+
+function stopDrawing() {
+  if (isDrawing) {
+    isDrawing = false;
+    ctx.beginPath();
+  }
+}
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseout', stopDrawing);
+
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchmove', draw);
+canvas.addEventListener('touchend', stopDrawing);
+canvas.addEventListener('touchcancel', stopDrawing);
+
+// Clear button
+document.getElementById('clearSignature').addEventListener('click', (e) => {
+  e.preventDefault();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+// Save to file
+document.getElementById('saveSignature').addEventListener('click', (e) => {
+  e.preventDefault();
+  const dataURL = canvas.toDataURL('image/png');
+  if (dataURL.length < 2000) {
+    alert('Please draw your signature first.');
+    return;
+  }
+  const link = document.createElement('a');
+  link.download = 'parent-signature.png';
+  link.href = dataURL;
+  link.click();
+});
+
+  // === FINAL SUBMIT WITH EmailJS + reCAPTCHA v3 ===
+  document.getElementById('admissionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let valid = true;
+    document.querySelectorAll('#page3 .error').forEach(err => err.style.display = 'none');
+
+    if (!document.getElementById('formDate').value) {
+      document.getElementById('formDateError').style.display = 'block';
+      valid = false;
+    }
+    if (!document.getElementById('relativeName').value.trim()) {
+      document.getElementById('relativeNameError').style.display = 'block';
+      valid = false;
+    }
+    if (!document.getElementById('relativeTel').value.trim()) {
+      document.getElementById('relativeTelError').style.display = 'block';
+      valid = false;
+    }
+
+    const signatureData = canvas.toDataURL();
+    if (signatureData.length < 2000) {
+      document.getElementById('signatureError').style.display = 'block';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Show loading state
+    const submitBtn = document.querySelector('.btn-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Submit directly without reCAPTCHA (temporarily disabled)
+    const templateParams = {
+      student_name: document.getElementById('studentName').value,
+      parent_name: document.getElementById('parentName').value,
+      email: document.getElementById('email').value,
+      mobile_phone: document.getElementById('mobilePhone').value,
+      home_phone: document.getElementById('homePhone').value || 'N/A',
+      grade: document.getElementById('grade').value,
+      gender: document.getElementById('gender').value,
+      religion: document.getElementById('religion').value,
+      nationality: document.getElementById('nationality').value,
+      previously_applied: document.querySelector('input[name="previouslyApplied"]:checked')?.value || 'No',
+      previous_year: document.getElementById('previousYear').value || 'N/A',
+      message: document.getElementById('message').value || 'None',
+      preferred_hospital: document.getElementById('preferredHospital').value || 'N/A',
+      insurance: document.getElementById('insurance').value || 'N/A',
+      med_list: document.getElementById('medList').value || 'None',
+      relative_name: document.getElementById('relativeName').value,
+      relative_tel: document.getElementById('relativeTel').value,
+      relative_mobile: document.getElementById('relativeMobile').value || 'N/A',
+      form_date: document.getElementById('formDate').value,
+      additional_notes: document.getElementById('additionalNotes').value || 'None',
+      signature_image: signatureData.split(',')[1], // base64
+      recaptcha_token: 'disabled_for_development'
+    };
+
+        // Attach files as base64
+        let filesProcessed = 0;
+        const totalFiles = 2 + (document.getElementById('reportCards').files.length || 0);
+
+        const processFile = (file, paramName) => {
+          const reader = new FileReader();
+          reader.onload = e => {
+            templateParams[paramName] = {
+              filename: file.name,
+              data: e.target.result.split(',')[1]
+            };
+            filesProcessed++;
+            if (filesProcessed === totalFiles) sendEmail();
+          };
+          reader.readAsDataURL(file);
+        };
+
+        const sendEmail = () => {
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(() => {
+              formContent.style.display = 'none';
+              successMessage.style.display = 'block';
+            })
+            .catch(err => {
+              alert('Failed to send. Please try again or contact the school directly.');
+              console.error(err);
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Submit Application';
+            });
+        };
+
+        // Required files
+        processFile(document.getElementById('birthCert').files[0], 'birth_certificate');
+        processFile(document.getElementById('passportPhoto').files[0], 'passport_photo');
+
+        // Optional report cards
+        const reports = document.getElementById('reportCards').files;
+        if (reports.length > 0) {
+          templateParams.report_cards = [];
+          Array.from(reports).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = e => {
+              templateParams.report_cards.push({
+                filename: file.name,
+                data: e.target.result.split(',')[1]
+              });
+              filesProcessed++;
+              if (filesProcessed === totalFiles) sendEmail();
+            };
+            reader.readAsDataURL(file);
+          });
+        } else {
+          filesProcessed += reports.length;
+          if (filesProcessed === totalFiles) sendEmail();
+        }
+      }).catch(error => {
+        console.error('reCAPTCHA error:', error);
+        alert('reCAPTCHA verification failed. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+      });
+    }).catch(error => {
+      const submitBtn = document.querySelector('.btn-submit');
+      const Itemform = document.getElementById('admissionForm');
+      console.error('reCAPTCHA ready error:', error);
+      // Fallback: submit without reCAPTCHA for development/testing
+      console.warn('Submitting without reCAPTCHA verification');
+      const templateParams = {
+        student_name: document.getElementById('studentName').value,
+        parent_name: document.getElementById('parentName').value,
+        email: document.getElementById('email').value,
+        mobile_phone: document.getElementById('mobilePhone').value,
+        home_phone: document.getElementById('homePhone').value || 'N/A',
+        grade: document.getElementById('grade').value,
+        gender: document.getElementById('gender').value,
+        religion: document.getElementById('religion').value,
+        nationality: document.getElementById('nationality').value,
+        previously_applied: document.querySelector('input[name="previouslyApplied"]:checked')?.value || 'No',
+        previous_year: document.getElementById('previousYear').value || 'N/A',
+        message: document.getElementById('message').value || 'None',
+        preferred_hospital: document.getElementById('preferredHospital').value || 'N/A',
+        insurance: document.getElementById('insurance').value || 'N/A',
+        med_list: document.getElementById('medList').value || 'None',
+        relative_name: document.getElementById('relativeName').value,
+        relative_tel: document.getElementById('relativeTel').value,
+        relative_mobile: document.getElementById('relativeMobile').value || 'N/A',
+        form_date: document.getElementById('formDate').value,
+        additional_notes: document.getElementById('additionalNotes').value || 'None',
+        signature_image: signatureData.split(',')[1], // base64
+        recaptcha_token: 'bypassed_for_development'
+      };
+
+      // Simplified send without file processing for fallback
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(() => {
+          formContent.style.display = 'none';
+          successMessage.style.display = 'block';
+        })
+        .catch(err => {
+          alert('Failed to send. Please try again or contact the school directly.');
+          console.error(err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Application';
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+
