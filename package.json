@@ -10,6 +10,10 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.32.0",
     "hint": "^7.1.13",
     "prettier": "^3.7.4",
     "stylelint": "^13.13.1",
@@ -25,7 +29,7 @@
     "url": "https://github.com/evansnyamekye/says_international/issues"
   },
   "homepage": "https://github.com/evansnyamekye/says_international#readme",
-  "description": "",
+  "description": "🦡🏫 Tech Stack with how this Application was developed will be put in all the README.md file and finish with all the \r requiored that be post for the Admini. or system to see.",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
