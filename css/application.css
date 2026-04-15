@@ -1,142 +1,162 @@
 body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      padding: 20px;
-    }
-    .form-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    h2 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  padding: 20px;
+}
 
-    /* Grid Layout */
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 20px;
-    }
+.form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+h2 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #333;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #1a5fb4;
-      box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.1);
-    }
+/* Grid Layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
 
-    /* Radio buttons styled as buttons (Yes/No) */
-    .yes-no-group {
-      display: flex;
-      gap: 15px;
-      margin-top: 10px;
-    }
-    .yes-no-btn {
-      flex: 1;
-      padding: 12px;
-      text-align: center;
-      background: #f0f0f0;
-      border: 2px solid #ddd;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .yes-no-btn input {
-      display: none;
-    }
-    .yes-no-btn input:checked + span {
-      background: #1a5fb4;
-      color: white;
-    }
-    .yes-no-btn span {
-      display: block;
-      width: 100%;
-      border-radius: 4px;
-    }
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
 
-    /* Table for medical checklist */
-    table.medical-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    table.medical-table th, table.medical-table td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    table.medical-table th {
-      background: #f0f0f0;
-    }
-    table.medical-table .radio-cell {
-      text-align: center;
-    }
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
 
-    /* Conditional field */
-    .conditional {
-      display: none;
-      margin-top: 15px;
-      grid-column: 1 / -1;
-    }
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1a5fb4;
+  box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.1);
+}
 
-    .error {
-      color: #e74c3c;
-      font-size: 14px;
-      margin-top: 5px;
-      display: none;
-    }
+/* Radio buttons styled as buttons (Yes/No) */
+.yes-no-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
 
-    .navigation {
-      grid-column: 1 / -1;
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-    }
-    .btn {
-      padding: 14px 30px;
-      border: none;
-      border-radius: 6px;
-      font-size: 18px;
-      cursor: pointer;
-    }
-    .btn-back {
-      background: #6c757d;
-      color: white;
-    }
-    .btn-next, .btn-submit {
-      background: #28a745;
-      color: white;
-    }
-    .btn:hover { opacity: 0.9; }
+.yes-no-btn {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
-    .page {
-      display: none;
-    }
-    .page.active {
-      display: block;
-    }
+.yes-no-btn input {
+  display: none;
+}
 
-    .success-message {
-      display: none;
-      background: #d4edda;
-      color: #155724;
-      padding: 30px;
-      border-radius: 8px;
-      text-align: center;
-      border: 1px solid #c3e6cb;
-    }
+.yes-no-btn input:checked + span {
+  background: #1a5fb4;
+  color: white;
+}
+
+.yes-no-btn span {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* Table for medical checklist */
+table.medical-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table.medical-table th,
+table.medical-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table.medical-table th {
+  background: #f0f0f0;
+}
+
+table.medical-table .radio-cell {
+  text-align: center;
+}
+
+/* Conditional field */
+.conditional {
+  display: none;
+  margin-top: 15px;
+  grid-column: 1 / -1;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+.navigation {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-back {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-next,
+.btn-submit {
+  background: #28a745;
+  color: white;
+}
+.btn:hover { opacity: 0.9; }
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.success-message {
+  display: none;
+  background: #d4edda;
+  color: #155724;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
+}
