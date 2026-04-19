@@ -14,10 +14,10 @@ window.SAYS_ASSESSMENT_RECORDS = [
     {
         category: 'required',
         subjectName: 'English Language',
-        department: 'lower_primary',
+        department: 'upper_primary',
         campus: 'Emmanuel Block',
-        level: 'lower primary',
-        instructor: 'Abigail Adu',
+        level: 'upper primary',
+        instructor: 'Sir Samuel',
         term: '1st term',
         passMark: '80%',
         classScore: '50%',
@@ -26,7 +26,7 @@ window.SAYS_ASSESSMENT_RECORDS = [
     {
         category: 'required',
         subjectName: 'Integrated Science',
-        department: 'lower_primary',
+        department: 'upper_primary',
         campus: 'Emmanuel Block',
         level: 'lower primary',
         instructor: 'Abigail Adu',
