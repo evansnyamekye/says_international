@@ -1,81 +1,80 @@
 /* ============================= START OF FAQ's ========================= */
 
 .faqs {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
 .academics {
-    width: 80%;
-    margin: 2% auto;
-    padding-top: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+  width: 80%;
+  margin: 2% auto;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .faqs h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .faqs h4 {
-    text-align: left;
+  text-align: left;
 }
 
 .faqs p {
-    text-align: left;
-    color: #999;
+  text-align: left;
+  color: #999;
 }
 
 .question__answer h4 {
-    color: rgb(53, 52, 52);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+  color: rgb(53, 52, 52);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
 .question__answer {
-    flex: 1;
+  flex: 1;
 }
 
 .faq__icon {
-    align-self: flex-start;
-    color: #999;
-    font-size: 1.2rem;
-    flex-shrink: 0;
+  align-self: flex-start;
+  color: #999;
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .faq p {
-    margin-top: 0.8rem;
-    display: none;
-    line-height: 1.6;
+  margin-top: 0.8rem;
+  display: none;
+  line-height: 1.6;
 }
 
 .faq.open p {
-    display: block;
+  display: block;
 }
 
 .faq {
-    padding: 1.5rem;
-    display: flex;
-    gap: 1.4rem;
-    height: fit-content;
-    background: #f9f9f9;
-    cursor: pointer;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.4rem;
+  height: fit-content;
+  background: #f9f9f9;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .faq:hover {
-    background: #f0f0f0;
-    border-color: #d0d0d0;
+  background: #f0f0f0;
+  border-color: #d0d0d0;
 }
 
-@media(max-width: 400px) {
-    .container{
-       width: 80px;
-       grid-template-columns: 1fr;
-    }
-
+@media (max-width: 400px) {
+  .container {
+    width: 80px;
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ======================= END OF FAQ's ========================= */

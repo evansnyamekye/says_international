@@ -5820,6 +5820,14 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
     padding: 40px 0;
   }
 
+  .says-assessment-info-title {
+    text-align: center;
+  }
+
+  .says-assessment-info-title.gdlr-core-left-align .gdlr-core-title-item-title {
+    float: none;
+  }
+
   .says-youtube-header h2 {
     font-size: 24px;
   }
@@ -5835,6 +5843,30 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 
   .says-youtube-videos-grid {
     grid-template-columns: 1fr;
+  }
+
+  .says-contact-form-status {
+    display: none;
+    margin-top: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .says-contact-form-status.is-visible {
+    display: block;
+  }
+
+  .says-contact-form-status.is-success {
+    color: #146c2e;
+  }
+
+  .says-contact-form-status.is-error {
+    color: #9f1f1f;
+  }
+
+  .says-contact-form.is-submitting .submit-button {
+    opacity: 0.72;
+    pointer-events: none;
   }
 
   .says-youtube-info-box {
@@ -6235,3 +6267,4 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   background-size: cover;
   background-position: center;
 }
+ 
