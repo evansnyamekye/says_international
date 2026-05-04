@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#08142d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SIS Admin">
+    <title>SIS: Homework Admin</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel='stylesheet' href='css/style-core.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/says-style-custom.css' type='text/css' media='all' />
+    <link rel="shortcut icon" href="images/apply-logo-blue.png">
+    <link rel="apple-touch-icon" href="images/apply-logo-blue.png">
+    <style>
+        .sis-admin-page {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #eef3fb 0%, #ffffff 35%, #f5f8fc 100%);
+            color: #102758;
+            font-family: Poppins, Arial, sans-serif;
+        }
+
+        .sis-admin-shell {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 36px 0 72px;
+        }
+
+        .sis-admin-topbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .sis-admin-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .sis-admin-brand img {
+            max-height: 56px;
+            width: auto;
+        }
+
+        .sis-admin-brand-copy h1 {
+            margin: 0 0 6px;
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.05;
+            color: #08142d;
+        }
+
+        .sis-admin-brand-copy p,
+        .sis-admin-helper,
+        .sis-admin-status,
+        .sis-admin-field label,
+        .sis-admin-field input,
+        .sis-admin-field textarea {
+            font-size: 15px;
+        }
+
+        .sis-admin-helper {
+            max-width: 720px;
+            line-height: 1.8;
+            color: #52627e;
+        }
+
+        .sis-admin-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .sis-admin-gate {
+            max-width: 620px;
+            margin: 28px auto 0;
+        }
+
+        .sis-admin-install-note {
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: #f8fbff;
+            color: #52627e;
+            line-height: 1.7;
+        }
+
+        .sis-admin-install-note strong {
+            color: #102758;
+        }
+
+        .sis-admin-gate[hidden],
+        .sis-admin-grid[hidden] {
+            display: none;
+        }
+
+        .sis-admin-panel,
+        .sis-admin-class-card {
+            background: #ffffff;
+            border: 1px solid rgba(16, 39, 88, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 18px 40px rgba(16, 39, 88, 0.08);
+        }
+
+        .sis-admin-panel {
+            padding: 28px;
+        }
+
+        .sis-admin-panel h2 {
+            margin: 0 0 8px;
+            font-size: 28px;
+            color: #08142d;
+        }
+
+        .sis-admin-panel p {
+            margin: 0;
+            line-height: 1.7;
+            color: #52627e;
+        }
+
+        .sis-admin-fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .sis-admin-field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .sis-admin-field-full {
+            grid-column: 1 / -1;
+        }
+
+        .sis-admin-field label {
+            font-weight: 700;
+            color: #102758;
+        }
+
+        .sis-admin-field input,
+        .sis-admin-field textarea {
+            width: 100%;
+            border: 1px solid rgba(16, 39, 88, 0.14);
+            border-radius: 16px;
+            padding: 14px 16px;
+            background: #f8fbff;
+            color: #102758;
+            outline: none;
+            transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+        }
+
+        .sis-admin-field input:focus,
+        .sis-admin-field textarea:focus {
+            border-color: #192f59;
+            box-shadow: 0 0 0 4px rgba(25, 47, 89, 0.08);
+            background: #ffffff;
+        }
+
+        .sis-admin-field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .sis-admin-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .sis-admin-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #eef3fb;
+            color: #102758;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .sis-admin-class-list {
+            display: grid;
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .sis-admin-class-card {
+            padding: 20px;
+        }
+
+        .sis-admin-subject-picks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 4px;
+        }
+
+        .sis-admin-subject-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 0 14px;
+            border: 1px solid rgba(16, 39, 88, 0.12);
+            border-radius: 999px;
+            background: #f5f8fc;
+            color: #102758;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+        }
+
+        .sis-admin-subject-chip:hover {
+            transform: translateY(-1px);
+            border-color: rgba(25, 47, 89, 0.24);
+            background: #eef3fb;
+        }
+
+        .sis-admin-class-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .sis-admin-class-head h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #08142d;
+        }
+
+        .sis-admin-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .sis-admin-preset-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: end;
+            margin-top: 22px;
+        }
+
+        .sis-admin-preset-bar .sis-admin-field {
+            flex: 1 1 280px;
+            margin: 0;
+        }
+
+        .sis-admin-button,
+        .sis-admin-button-secondary,
+        .sis-admin-button-danger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            border: 0;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+        }
+
+        .sis-admin-button {
+            background: linear-gradient(135deg, #08142d, #192f59);
+            color: #ffffff;
+            box-shadow: 0 14px 24px rgba(16, 39, 88, 0.22);
+        }
+
+        .sis-admin-button-secondary {
+            background: #eef3fb;
+            color: #102758;
+        }
+
+        .sis-admin-button-danger {
+            background: #fff1f2;
+            color: #b42318;
+        }
+
+        .sis-admin-button:hover,
+        .sis-admin-button-secondary:hover,
+        .sis-admin-button-danger:hover {
+            transform: translateY(-1px);
+        }
+
+        .sis-admin-status {
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            display: none;
+        }
+
+        .sis-admin-status[data-tone="success"] {
+            display: block;
+            background: #edf7f1;
+            color: #0f6b39;
+        }
+
+        .sis-admin-status[data-tone="error"] {
+            display: block;
+            background: #fff1f2;
+            color: #b42318;
+        }
+
+        .sis-admin-status[data-tone="info"] {
+            display: block;
+            background: #eef3fb;
+            color: #102758;
+        }
+
+        .sis-admin-preview-shell {
+            display: grid;
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .sis-admin-preview-hero,
+        .sis-admin-preview-grid,
+        .sis-admin-preview-class {
+            border-radius: 22px;
+            border: 1px solid rgba(16, 39, 88, 0.08);
+            background: #ffffff;
+        }
+
+        .sis-admin-preview-hero {
+            padding: 24px;
+            background: linear-gradient(135deg, #08142d, #192f59);
+            color: #ffffff;
+        }
+
+        .sis-admin-preview-kicker {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .sis-admin-preview-hero h3,
+        .sis-admin-preview-panel h3,
+        .sis-admin-preview-class h4 {
+            margin: 14px 0 10px;
+            color: inherit;
+        }
+
+        .sis-admin-preview-hero p,
+        .sis-admin-preview-panel p,
+        .sis-admin-preview-panel li,
+        .sis-admin-preview-class li {
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .sis-admin-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0;
+            overflow: hidden;
+        }
+
+        .sis-admin-preview-panel {
+            padding: 22px;
+        }
+
+        .sis-admin-preview-panel:first-child {
+            border-right: 1px solid rgba(16, 39, 88, 0.08);
+        }
+
+        .sis-admin-preview-meta {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .sis-admin-preview-meta-item {
+            padding: 14px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sis-admin-preview-meta-item span {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.82;
+        }
+
+        .sis-admin-preview-meta-item strong {
+            display: block;
+            margin-top: 6px;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        .sis-admin-preview-list,
+        .sis-admin-preview-subjects {
+            margin: 14px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .sis-admin-preview-list li,
+        .sis-admin-preview-subjects li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 8px;
+            color: #52627e;
+        }
+
+        .sis-admin-preview-list li::before,
+        .sis-admin-preview-subjects li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #192f59;
+        }
+
+        .sis-admin-preview-classes {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .sis-admin-preview-class {
+            padding: 18px;
+        }
+
+        .sis-admin-preview-class-label {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #eef3fb;
+            color: #102758;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .sis-admin-preview-empty {
+            padding: 26px;
+            border-radius: 20px;
+            background: #f8fbff;
+            color: #52627e;
+            text-align: center;
+        }
+
+        @media (max-width: 767px) {
+            .sis-admin-shell {
+                width: min(100% - 20px, 1120px);
+                padding-top: 24px;
+            }
+
+            .sis-admin-topbar,
+            .sis-admin-actions {
+                align-items: stretch;
+            }
+
+            .sis-admin-topbar > a,
+            .sis-admin-actions > button {
+                width: 100%;
+            }
+
+            .sis-admin-fields {
+                grid-template-columns: 1fr;
+            }
+
+            .sis-admin-preview-grid,
+            .sis-admin-preview-classes,
+            .sis-admin-preview-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .sis-admin-preview-panel:first-child {
+                border-right: 0;
+                border-bottom: 1px solid rgba(16, 39, 88, 0.08);
+            }
+
+            .sis-admin-panel,
+            .sis-admin-class-card {
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="sis-admin-page">
+    <div class="sis-admin-shell">
+        <div class="sis-admin-topbar">
+            <div class="sis-admin-brand">
+                <img src="images/icon-logo.png" alt="Says International School">
+                <div class="sis-admin-brand-copy">
+                    <h1>Homework Admin</h1>
+                    <p class="sis-admin-helper">Use this private page to post the latest homework update from the school WhatsApp message without editing website code.</p>
+                </div>
+            </div>
+            <a href="event-calendar.html" class="sis-admin-button-secondary">Open public homework page</a>
+        </div>
+
+        <section class="sis-admin-panel sis-admin-gate" id="admin-gate-panel">
+            <h2>Protected staff access</h2>
+            <p>This page stays hidden until the correct admin password is verified by the server.</p>
+            <div class="sis-admin-fields">
+                <div class="sis-admin-field sis-admin-field-full">
+                    <label for="unlock-password">Admin password</label>
+                    <input id="unlock-password" type="password" autocomplete="current-password" placeholder="Enter the shared school admin password">
+                </div>
+            </div>
+            <div class="sis-admin-actions">
+                <button class="sis-admin-button" type="button" id="unlock-button">Unlock admin panel</button>
+            </div>
+            <div class="sis-admin-install-note">
+                <strong>Phone shortcut:</strong> open this page once on the teacher's phone, then use <strong>Add to Home Screen</strong> in Chrome or Safari to save it like an app icon.
+            </div>
+            <div class="sis-admin-status" id="unlock-status"></div>
+        </section>
+
+        <div class="sis-admin-grid" id="admin-content" hidden>
+            <section class="sis-admin-panel">
+                <h2>Admin access</h2>
+                <p>Review the last save details below before making any new update.</p>
+                <div class="sis-admin-meta">
+                    <span class="sis-admin-pill" id="admin-last-updated">Last saved: checking...</span>
+                    <span class="sis-admin-pill" id="admin-data-source">Source: checking...</span>
+                </div>
+                <div class="sis-admin-actions">
+                    <button class="sis-admin-button-secondary" type="button" id="lock-admin-button">Lock admin panel</button>
+                </div>
+            </section>
+
+            <section class="sis-admin-panel">
+                <h2>Homework overview</h2>
+                <p>Copy the top section of the WhatsApp homework message here: term, week, day, and date.</p>
+                <div class="sis-admin-fields">
+                    <div class="sis-admin-field sis-admin-field-full">
+                        <label for="headline">Headline</label>
+                        <input id="headline" type="text" placeholder="Home Homework Update (Term Three)">
+                    </div>
+                    <div class="sis-admin-field">
+                        <label for="term">Term</label>
+                        <input id="term" type="text" placeholder="Term Three">
+                    </div>
+                    <div class="sis-admin-field">
+                        <label for="week">Week</label>
+                        <input id="week" type="text" placeholder="2">
+                    </div>
+                    <div class="sis-admin-field">
+                        <label for="day">Day</label>
+                        <input id="day" type="text" placeholder="Tuesday">
+                    </div>
+                    <div class="sis-admin-field">
+                        <label for="date-label">Date</label>
+                        <input id="date-label" type="text" placeholder="28th April, 2026">
+                    </div>
+                    <div class="sis-admin-field sis-admin-field-full">
+                        <label for="updated-label">Small update label</label>
+                        <input id="updated-label" type="text" placeholder="Daily classroom homework notice">
+                    </div>
+                    <div class="sis-admin-field sis-admin-field-full">
+                        <label for="notes">Parent notes</label>
+                        <textarea id="notes" placeholder="One note per line"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sis-admin-panel">
+                <h2>Calendar PDF</h2>
+                <p>Paste the latest calendar PDF path here when the file is uploaded, for example: images/mega_img/Your File.pdf</p>
+                <div class="sis-admin-fields">
+                    <div class="sis-admin-field">
+                        <label for="calendar-title">Calendar title</label>
+                        <input id="calendar-title" type="text" placeholder="Term Three School Calendar PDF">
+                    </div>
+                    <div class="sis-admin-field">
+                        <label for="calendar-file-label">Calendar file label</label>
+                        <input id="calendar-file-label" type="text" placeholder="SAYS 3rd Term Calendar 2026">
+                    </div>
+                    <div class="sis-admin-field sis-admin-field-full">
+                        <label for="calendar-description">Calendar description</label>
+                        <textarea id="calendar-description" placeholder="Short note for parents about the calendar file"></textarea>
+                    </div>
+                    <div class="sis-admin-field sis-admin-field-full">
+                        <label for="calendar-href">Calendar PDF path</label>
+                        <input id="calendar-href" type="text" placeholder="images/mega_img/SAYS 3RD TERM CALENDAR 2026 - P_021551.pdf">
+                    </div>
+                </div>
+            </section>
+
+            <section class="sis-admin-panel">
+                <h2>Class homework</h2>
+                <p>Add one card per class. Enter subjects one per line inside the subject box.</p>
+                <div class="sis-admin-preset-bar">
+                    <div class="sis-admin-field">
+                        <label for="class-preset">Class preset</label>
+                        <select id="class-preset">
+                            <option value="lower-primary">Lower Primary</option>
+                            <option value="upper-primary">Upper Primary</option>
+                            <option value="jhs">Junior High School</option>
+                            <option value="all-school">Whole school list</option>
+                        </select>
+                    </div>
+                    <button class="sis-admin-button-secondary" type="button" id="load-preset-button">Load preset</button>
+                    <button class="sis-admin-button-secondary" type="button" id="replace-with-preset-button">Replace with preset</button>
+                </div>
+                <div class="sis-admin-class-list" id="class-list"></div>
+                <div class="sis-admin-actions">
+                    <button class="sis-admin-button-secondary" type="button" id="add-class-button">Add class</button>
+                </div>
+            </section>
+
+            <section class="sis-admin-panel">
+                <h2>Save update</h2>
+                <p>After saving, refresh the public homework page and the latest update will appear automatically.</p>
+                <div class="sis-admin-actions">
+                    <button class="sis-admin-button-secondary" type="button" id="reload-button">Reload latest saved data</button>
+                    <button class="sis-admin-button" type="button" id="save-button">Save homework update</button>
+                </div>
+                <div class="sis-admin-status" id="admin-status"></div>
+            </section>
+
+            <section class="sis-admin-panel">
+                <h2>Live preview</h2>
+                <p>Review the current form contents before saving. This preview updates as you type.</p>
+                <div class="sis-admin-preview-shell">
+                    <div class="sis-admin-preview-hero">
+                        <span class="sis-admin-preview-kicker">Homework preview</span>
+                        <h3 id="preview-headline">Home Homework Update</h3>
+                        <div class="sis-admin-preview-meta">
+                            <div class="sis-admin-preview-meta-item">
+                                <span>Term</span>
+                                <strong id="preview-term">-</strong>
+                            </div>
+                            <div class="sis-admin-preview-meta-item">
+                                <span>Week</span>
+                                <strong id="preview-week">-</strong>
+                            </div>
+                            <div class="sis-admin-preview-meta-item">
+                                <span>Day</span>
+                                <strong id="preview-day">-</strong>
+                            </div>
+                            <div class="sis-admin-preview-meta-item">
+                                <span>Date</span>
+                                <strong id="preview-date">-</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sis-admin-preview-grid">
+                        <div class="sis-admin-preview-panel">
+                            <h3>Parent notes</h3>
+                            <ul class="sis-admin-preview-list" id="preview-notes"></ul>
+                        </div>
+                        <div class="sis-admin-preview-panel">
+                            <h3 id="preview-calendar-title">School Calendar PDF</h3>
+                            <p id="preview-calendar-description">Calendar description will appear here.</p>
+                            <ul class="sis-admin-preview-list">
+                                <li id="preview-calendar-file">Latest file label will appear here.</li>
+                                <li id="preview-calendar-path">PDF path will appear here.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sis-admin-preview-classes" id="preview-classes"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <template id="class-card-template">
+        <article class="sis-admin-class-card">
+            <div class="sis-admin-class-head">
+                <h3>Class entry</h3>
+                <button class="sis-admin-button-danger" type="button" data-role="remove-class">Remove</button>
+            </div>
+            <div class="sis-admin-fields">
+                <div class="sis-admin-field sis-admin-field-full">
+                    <label>Class name</label>
+                    <input type="text" data-role="class-name" placeholder="Basic 4 Orchid">
+                </div>
+                <div class="sis-admin-field sis-admin-field-full">
+                    <label>Subjects</label>
+                    <div class="sis-admin-subject-picks" data-role="subject-picks">
+                        <button type="button" class="sis-admin-subject-chip" data-subject="English Language">English Language</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="Mathematics">Mathematics</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="Science">Science</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="French">French</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="History">History</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="Twi">Twi</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="Creative Arts">Creative Arts</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="RME">RME</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="Computing">Computing</button>
+                        <button type="button" class="sis-admin-subject-chip" data-subject="Our World Our People">Our World Our People</button>
+                    </div>
+                    <textarea data-role="class-subjects" placeholder="Twi&#10;History&#10;Science"></textarea>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script>
+        (function () {
+            var endpoint = '/api/homework-updates';
+            var sessionPassword = '';
+            var gatePanel = document.getElementById('admin-gate-panel');
+            var adminContent = document.getElementById('admin-content');
+            var unlockPassword = document.getElementById('unlock-password');
+            var unlockButton = document.getElementById('unlock-button');
+            var unlockStatus = document.getElementById('unlock-status');
+            var lockAdminButton = document.getElementById('lock-admin-button');
+            var classList = document.getElementById('class-list');
+            var classTemplate = document.getElementById('class-card-template');
+            var statusBox = document.getElementById('admin-status');
+            var sourceBox = document.getElementById('admin-data-source');
+            var updatedBox = document.getElementById('admin-last-updated');
+            var saveButton = document.getElementById('save-button');
+            var reloadButton = document.getElementById('reload-button');
+            var addClassButton = document.getElementById('add-class-button');
+            var classPreset = document.getElementById('class-preset');
+            var loadPresetButton = document.getElementById('load-preset-button');
+            var replaceWithPresetButton = document.getElementById('replace-with-preset-button');
+            var PRESET_CLASSES = {
+                'lower-primary': [
+                    'Creche',
+                    'Nursery 1',
+                    'Nursery 2',
+                    'Kindergarten',
+                    'Basic 1',
+                    'Basic 2',
+                    'Basic 3'
+                ],
+                'upper-primary': [
+                    'Basic 4 Orchid',
+                    'Basic 4 Lavender',
+                    'Basic 4 Marigold',
+                    'Basic 5',
+                    'Basic 6'
+                ],
+                jhs: [
+                    'JHS 1',
+                    'JHS 2',
+                    'JHS 3'
+                ],
+                'all-school': [
+                    'Creche',
+                    'Nursery 1',
+                    'Nursery 2',
+                    'Kindergarten',
+                    'Basic 1',
+                    'Basic 2',
+                    'Basic 3',
+                    'Basic 4 Orchid',
+                    'Basic 4 Lavender',
+                    'Basic 4 Marigold',
+                    'Basic 5',
+                    'Basic 6',
+                    'JHS 1',
+                    'JHS 2',
+                    'JHS 3'
+                ]
+            };
+
+            function showStatus(message, tone) {
+                statusBox.textContent = message;
+                statusBox.style.display = '';
+                statusBox.setAttribute('data-tone', tone || 'info');
+            }
+
+            function clearStatus() {
+                statusBox.textContent = '';
+                statusBox.style.display = 'none';
+                statusBox.removeAttribute('data-tone');
+            }
+
+            function showUnlockStatus(message, tone) {
+                unlockStatus.textContent = message;
+                unlockStatus.style.display = '';
+                unlockStatus.setAttribute('data-tone', tone || 'info');
+            }
+
+            function clearUnlockStatus() {
+                unlockStatus.textContent = '';
+                unlockStatus.style.display = 'none';
+                unlockStatus.removeAttribute('data-tone');
+            }
+
+            function setUnlockedState(isUnlocked) {
+                if (gatePanel) {
+                    gatePanel.hidden = Boolean(isUnlocked);
+                }
+
+                if (adminContent) {
+                    adminContent.hidden = !isUnlocked;
+                }
+            }
+
+            function lockAdminPanel() {
+                sessionPassword = '';
+                setUnlockedState(false);
+                clearStatus();
+                clearUnlockStatus();
+
+                if (unlockPassword) {
+                    unlockPassword.value = '';
+                    unlockPassword.focus();
+                }
+            }
+
+            function setMeta(source, updatedAt) {
+                sourceBox.textContent = 'Source: ' + (source || 'unknown');
+                updatedBox.textContent = 'Last saved: ' + (updatedAt ? new Date(updatedAt).toLocaleString() : 'not yet saved');
+            }
+
+            function value(id) {
+                var element = document.getElementById(id);
+                return element ? element.value.trim() : '';
+            }
+
+            function setValue(id, nextValue) {
+                var element = document.getElementById(id);
+                if (element) {
+                    element.value = nextValue || '';
+                }
+            }
+
+            function setPreviewText(id, nextValue) {
+                var element = document.getElementById(id);
+                if (element) {
+                    element.textContent = nextValue || '-';
+                }
+            }
+
+            function makeClassCard(entry) {
+                var fragment = classTemplate.content.cloneNode(true);
+                var card = fragment.querySelector('.sis-admin-class-card');
+                var nameInput = fragment.querySelector('[data-role="class-name"]');
+                var subjectsInput = fragment.querySelector('[data-role="class-subjects"]');
+                var removeButton = fragment.querySelector('[data-role="remove-class"]');
+                var subjectButtons = fragment.querySelectorAll('[data-subject]');
+
+                nameInput.value = entry && entry.name ? entry.name : '';
+                subjectsInput.value = entry && Array.isArray(entry.subjects) ? entry.subjects.join('\n') : '';
+
+                removeButton.addEventListener('click', function () {
+                    card.remove();
+                    refreshPreview();
+                });
+
+                Array.prototype.slice.call(subjectButtons).forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        var subject = button.getAttribute('data-subject');
+                        var existing = subjectsInput.value
+                            .split(/\n+/)
+                            .map(function (item) {
+                                return item.replace(/\s+/g, ' ').trim().toLowerCase();
+                            })
+                            .filter(Boolean);
+
+                        if (existing.indexOf(String(subject || '').toLowerCase()) !== -1) {
+                            return;
+                        }
+
+                        subjectsInput.value = subjectsInput.value.trim()
+                            ? subjectsInput.value.replace(/\s*$/, '') + '\n' + subject
+                            : subject;
+                        subjectsInput.dispatchEvent(new Event('input', { bubbles: true }));
+                        refreshPreview();
+                    });
+                });
+
+                nameInput.addEventListener('input', refreshPreview);
+                subjectsInput.addEventListener('input', refreshPreview);
+
+                classList.appendChild(fragment);
+            }
+
+            function createPresetEntries(key) {
+                return (PRESET_CLASSES[key] || []).map(function (name) {
+                    return {
+                        name: name,
+                        subjects: []
+                    };
+                });
+            }
+
+            function loadPreset(mode) {
+                var presetKey = classPreset ? classPreset.value : 'upper-primary';
+                var entries = createPresetEntries(presetKey);
+
+                if (!entries.length) {
+                    showStatus('No preset classes found for that selection.', 'error');
+                    return;
+                }
+
+                if (mode === 'replace') {
+                    classList.innerHTML = '';
+                }
+
+                entries.forEach(function (entry) {
+                    makeClassCard(entry);
+                });
+
+                refreshPreview();
+                showStatus((mode === 'replace' ? 'Preset loaded and replaced current class list.' : 'Preset classes added to the current list.') , 'success');
+            }
+
+            function readClassCards() {
+                return Array.prototype.slice.call(classList.querySelectorAll('.sis-admin-class-card')).map(function (card) {
+                    var name = card.querySelector('[data-role="class-name"]').value.trim();
+                    var subjects = card.querySelector('[data-role="class-subjects"]').value
+                        .split(/\n+/)
+                        .map(function (subject) {
+                            return subject.replace(/\s+/g, ' ').trim();
+                        })
+                        .filter(Boolean);
+
+                    if (!name || !subjects.length) {
+                        return null;
+                    }
+
+                    return {
+                        name: name,
+                        subjects: subjects
+                    };
+                }).filter(Boolean);
+            }
+
+            function populateForm(payload) {
+                var overview = payload.overview || {};
+                var calendar = payload.calendar || {};
+
+                setValue('headline', payload.headline || '');
+                setValue('term', overview.term || '');
+                setValue('week', overview.week || '');
+                setValue('day', overview.day || '');
+                setValue('date-label', overview.dateLabel || '');
+                setValue('updated-label', overview.updatedLabel || '');
+                setValue('notes', Array.isArray(payload.notes) ? payload.notes.join('\n') : '');
+                setValue('calendar-title', calendar.title || '');
+                setValue('calendar-file-label', calendar.fileLabel || '');
+                setValue('calendar-description', calendar.description || '');
+                setValue('calendar-href', calendar.href || '');
+
+                classList.innerHTML = '';
+                (payload.classes || []).forEach(makeClassCard);
+
+                if (!payload.classes || !payload.classes.length) {
+                    makeClassCard();
+                }
+
+                refreshPreview();
+            }
+
+            function ensureStarterClassCard() {
+                if (!classList.querySelector('.sis-admin-class-card')) {
+                    makeClassCard();
+                }
+
+                refreshPreview();
+            }
+
+            function collectPayload() {
+                return {
+                    headline: value('headline'),
+                    overview: {
+                        term: value('term'),
+                        week: value('week'),
+                        day: value('day'),
+                        dateLabel: value('date-label'),
+                        updatedLabel: value('updated-label')
+                    },
+                    calendar: {
+                        title: value('calendar-title'),
+                        fileLabel: value('calendar-file-label'),
+                        description: value('calendar-description'),
+                        href: value('calendar-href')
+                    },
+                    notes: value('notes').split(/\n+/).map(function (note) {
+                        return note.replace(/\s+/g, ' ').trim();
+                    }).filter(Boolean),
+                    classes: readClassCards()
+                };
+            }
+
+            function renderPreview(payload) {
+                var previewNotes = document.getElementById('preview-notes');
+                var previewClasses = document.getElementById('preview-classes');
+                var notes = payload.notes || [];
+                var classes = payload.classes || [];
+                var calendar = payload.calendar || {};
+                var overview = payload.overview || {};
+
+                setPreviewText('preview-headline', payload.headline || 'Home Homework Update');
+                setPreviewText('preview-term', overview.term || '-');
+                setPreviewText('preview-week', overview.week || '-');
+                setPreviewText('preview-day', overview.day || '-');
+                setPreviewText('preview-date', overview.dateLabel || '-');
+                setPreviewText('preview-calendar-title', calendar.title || 'School Calendar PDF');
+                setPreviewText('preview-calendar-description', calendar.description || 'Calendar description will appear here.');
+                setPreviewText('preview-calendar-file', calendar.fileLabel || 'Latest file label will appear here.');
+                setPreviewText('preview-calendar-path', calendar.href || 'PDF path will appear here.');
+
+                if (previewNotes) {
+                    previewNotes.innerHTML = '';
+
+                    if (!notes.length) {
+                        previewNotes.innerHTML = '<li>No parent notes added yet.</li>';
+                    } else {
+                        notes.forEach(function (note) {
+                            var item = document.createElement('li');
+                            item.textContent = note;
+                            previewNotes.appendChild(item);
+                        });
+                    }
+                }
+
+                if (previewClasses) {
+                    previewClasses.innerHTML = '';
+
+                    if (!classes.length) {
+                        previewClasses.innerHTML = '<div class="sis-admin-preview-empty">No class entries added yet.</div>';
+                    } else {
+                        classes.forEach(function (entry) {
+                            var card = document.createElement('article');
+                            card.className = 'sis-admin-preview-class';
+                            card.innerHTML = '<span class="sis-admin-preview-class-label">Subjects given</span><h4>' + entry.name + '</h4>';
+
+                            var list = document.createElement('ul');
+                            list.className = 'sis-admin-preview-subjects';
+
+                            (entry.subjects || []).forEach(function (subject) {
+                                var item = document.createElement('li');
+                                item.textContent = subject;
+                                list.appendChild(item);
+                            });
+
+                            if (!list.children.length) {
+                                var empty = document.createElement('li');
+                                empty.textContent = 'No subjects entered yet.';
+                                list.appendChild(empty);
+                            }
+
+                            card.appendChild(list);
+                            previewClasses.appendChild(card);
+                        });
+                    }
+                }
+            }
+
+            function refreshPreview() {
+                renderPreview(collectPayload());
+            }
+
+            async function loadLatest(options) {
+                var settings = options || {};
+                var showLoadingMessage = settings.showLoadingMessage !== false;
+                var showSuccessMessage = settings.showSuccessMessage !== false;
+
+                clearStatus();
+
+                if (showLoadingMessage) {
+                    showStatus('Loading latest homework update...', 'info');
+                }
+
+                try {
+                    var response = await fetch(endpoint, {
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    var payload = await response.json();
+
+                    if (!response.ok || !payload || !payload.payload) {
+                        throw new Error(payload && payload.error ? payload.error : 'Could not load latest homework update.');
+                    }
+
+                    populateForm(payload.payload);
+                    setMeta(payload.source, payload.updatedAt);
+                    if (showSuccessMessage) {
+                        showStatus('Latest homework update loaded.', 'success');
+                    }
+                } catch (error) {
+                    ensureStarterClassCard();
+                    showStatus(error && error.message ? error.message : 'Could not load latest homework update.', 'error');
+                }
+            }
+
+            async function unlockAdminPanel() {
+                var password = unlockPassword ? unlockPassword.value.trim() : '';
+
+                clearUnlockStatus();
+
+                if (!password) {
+                    showUnlockStatus('Enter the admin password to open the panel.', 'error');
+                    return;
+                }
+
+                unlockButton.disabled = true;
+                showUnlockStatus('Checking password...', 'info');
+
+                try {
+                    var response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            password: password,
+                            verifyOnly: true
+                        })
+                    });
+                    var result = await response.json();
+
+                    if (!response.ok || !result || !result.success) {
+                        throw new Error(result && result.error ? result.error : 'Could not unlock the admin panel.');
+                    }
+
+                    sessionPassword = password;
+                    setUnlockedState(true);
+                    showUnlockStatus('Access granted.', 'success');
+                    await loadLatest({
+                        showLoadingMessage: false,
+                        showSuccessMessage: false
+                    });
+                } catch (error) {
+                    showUnlockStatus(error && error.message ? error.message : 'Could not unlock the admin panel.', 'error');
+                } finally {
+                    unlockButton.disabled = false;
+                }
+            }
+
+            async function saveUpdate() {
+                var password = sessionPassword;
+                var payload = collectPayload();
+
+                if (!password) {
+                    showStatus('Enter the admin password before saving.', 'error');
+                    return;
+                }
+
+                if (!payload.classes.length) {
+                    showStatus('Add at least one class and one subject before saving.', 'error');
+                    return;
+                }
+
+                saveButton.disabled = true;
+                showStatus('Saving homework update...', 'info');
+
+                try {
+                    var response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            password: password,
+                            payload: payload
+                        })
+                    });
+                    var result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(result && result.error ? result.error : 'Could not save homework update.');
+                    }
+
+                    setMeta('database', result.updatedAt);
+                    showStatus('Homework update saved successfully.', 'success');
+                } catch (error) {
+                    showStatus(error && error.message ? error.message : 'Could not save homework update.', 'error');
+                } finally {
+                    saveButton.disabled = false;
+                }
+            }
+
+            addClassButton.addEventListener('click', function () {
+                makeClassCard();
+                refreshPreview();
+            });
+
+            loadPresetButton.addEventListener('click', function () {
+                loadPreset('append');
+            });
+
+            replaceWithPresetButton.addEventListener('click', function () {
+                loadPreset('replace');
+            });
+
+            [
+                'headline',
+                'term',
+                'week',
+                'day',
+                'date-label',
+                'updated-label',
+                'notes',
+                'calendar-title',
+                'calendar-file-label',
+                'calendar-description',
+                'calendar-href'
+            ].forEach(function (id) {
+                var element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', refreshPreview);
+                }
+            });
+
+            reloadButton.addEventListener('click', loadLatest);
+            saveButton.addEventListener('click', saveUpdate);
+            lockAdminButton.addEventListener('click', lockAdminPanel);
+
+            unlockButton.addEventListener('click', unlockAdminPanel);
+
+            unlockPassword.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    unlockAdminPanel();
+                }
+            });
+
+            if ('serviceWorker' in navigator && window.location.protocol.indexOf('http') === 0) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('admin-sw.js').catch(function () {
+                    });
+                });
+            }
+
+            ensureStarterClassCard();
+            refreshPreview();
+            setUnlockedState(false);
+        }());
+    </script>
+</body>
+</html>
