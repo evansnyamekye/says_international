@@ -48,7 +48,7 @@
       if (!input.value.trim()) {
         document.getElementById(id + 'Error').style.display = 'block';
         isValid = false;
-      }
+      } 
     });
 
     // Email format
