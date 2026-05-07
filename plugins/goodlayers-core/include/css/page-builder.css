@@ -1,4 +1,4 @@
-﻿/* theme style to reset wordpress backend */
+/* theme style to reset wordpress backend */
 .gdlr-core-page-builder-body { overflow: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .gdlr-core-page-builder-body p { margin-top: 0; margin-bottom: 20px; font-size: inherit; }
 .gdlr-core-page-builder-body .gdlr-core-no-p-space p { margin-bottom: 0; }
@@ -2275,7 +2275,8 @@ img.logo-img,
   object-fit: contain;   /* preserve aspect ratio, centered inside box */
   object-position: center;
 }
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
   .gdlr-core-gallery-list img,
   img.logo-img,
   .partner-logo img {
@@ -3562,8 +3563,8 @@ ul.gdlr-core-product-sub-category li h3 { font-size: 18px; margin-top: 24px; mar
   .gdlr-core-price-table-item .gdlr-core-price-table { margin-top: 0; margin-bottom: 30px; }
   .gdlr-core-price-table-item .gdlr-core-price-table-column:last-child .gdlr-core-price-table { margin-bottom: 0; }
 
-.gdlr-core-left-align .gdlr-core-title-item-link { position: static; margin-top: 12px; }
--caption-right .gdlr-core-title-item-title-wrap { float: none; margin-bottom: 13px; margin-right: 0; width: auto !important; }
+  .gdlr-core-left-align .gdlr-core-title-item-link { position: static; margin-top: 12px; }
+  -caption-right .gdlr-core-title-item-title-wrap { float: none; margin-bottom: 13px; margin-right: 0; width: auto !important; }
 
   .gdlr-core-newsletter-item.gdlr-core-style-round .gdlr-core-newsletter-email { width: 100%; float: none; }
   .gdlr-core-newsletter-item.gdlr-core-style-round .gdlr-core-newsletter-submit { width: 100%; float: none; margin-top: 17px; }
@@ -3861,4 +3862,3 @@ body.ilightbox-noscroll { overflow: auto; }
 .gdlr-core-widget-box-shortcode .gdlr-core-widget-box-shortcode-icon { font-size: 21px; color: #4d96e9; margin-right: 20px; float: left; }
 .gdlr-core-widget-box-shortcode .gdlr-core-widget-box-shortcode-content { overflow: hidden; }
 .gdlr-core-widget-box-shortcode .gdlr-core-widget-box-shortcode-link { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
-

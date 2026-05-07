@@ -1,4 +1,4 @@
-﻿.mejs-offscreen {
+.mejs-offscreen {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
@@ -762,4 +762,3 @@
   padding: 0 15px;
   width: 100%;
 }
-

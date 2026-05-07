@@ -103,7 +103,7 @@
       </div>
 
       <!-- Start of form id -->
-      <form id="admissionForm">
+      <form id="admissionForm" enctype="multipart/form-data">
        <!-- Start of Admission form -->
        <div class="step step-1 active">
 
@@ -189,7 +189,7 @@
 
             <div class="conditional col-12" id="previousYearField">
             <label for="previousYear">What year did you apply or attend?</label>
-            <input type="text" id="previousYear" placeholder="e.g., 2023">
+            <input type="text" id="previousYear" name="previous_year" placeholder="e.g., 2023">
           </div>
 
           <!-- <div class="col-md-7">
@@ -272,7 +272,7 @@
 
           <div class="col-md-6">
             <label class="form-label">Development Delays</label>
-            <select class="form-select" name="delays">
+            <select class="form-select" name="allergies">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -280,7 +280,7 @@
 
           <div class="col-md-6">
             <label class="form-label">Allergies (pollen, penicillin, etc.)</label>
-            <select class="form-select" name="delays">
+            <select class="form-select" name="communicable_disease">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -288,7 +288,7 @@
 
           <div class="col-md-6">
             <label class="form-label">Carrier of communicable disease?</label>
-            <select class="form-select" name="delays">
+            <select class="form-select" name="emergency_care">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -296,7 +296,7 @@
           
           <div class="col-md-6">
             <label class="form-label">Health condition requiring emergency care?</label>
-            <select class="form-select" name="delays">
+            <select class="form-select" name="heart_condition">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -313,14 +313,14 @@
           <div class="col-md-12">
             <label class="form-label">Please specify any serious conditions</label>
             <div class="yes-no-group">
-              <label class="yes-no-btn"><input type="radio" name="specifyCondition" value="Yes"><span>Yes</span></label>
-              <label class="yes-no-btn"><input type="radio" name="specifyCondition" value="No" checked><span>No</span></label>
+              <label class="yes-no-btn"><input type="radio" name="specify_condition" value="Yes"><span>Yes</span></label>
+              <label class="yes-no-btn"><input type="radio" name="specify_condition" value="No" checked><span>No</span></label>
             </div>
           </div>
 
           <div class="conditional col-12" id="specifyDetails">
             <label for="conditionDetails">Details</label>
-            <textarea id="conditionDetails" rows="3"></textarea>
+            <textarea id="conditionDetails" name="condition_details" rows="3"></textarea>
           </div>
 
           <div class="col-md-12">
@@ -357,7 +357,7 @@
           <button type="button" class="btn btn-secondary" onclick="prevStep()">
             ← Previous
           </button>
-          <button type="button" class="btn btn-success" onclick="submitForm()">
+          <button type="button" class="btn btn-success" id="submitApplicationButton" onclick="submitForm()">
             Submit Application
           </button>
         </div>
@@ -394,9 +394,13 @@
     }
   }
 
+  const admissionForm = document.getElementById('admissionForm');
+  const submitMessage = document.getElementById('submitMessage');
+  const submitButton = document.getElementById('submitApplicationButton');
+
   function validateCurrentStep() {
     const currentStepElement = document.querySelector(`.step-${currentStep}`);
-    const requiredFields = currentStepElement.querySelectorAll('input[required], select[required]');
+    const requiredFields = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
     let isValid = true;
 
     // Clear previous validation states
@@ -442,14 +446,33 @@
     document.getElementById('progressBar').style.width = progress + '%';
   }
 
-  function submitForm() {
+  function setSubmitMessage(message, tone) {
+    submitMessage.textContent = message;
+    submitMessage.className = 'mt-3 text-center ' + (tone || 'text-muted');
+  }
+
+  function resetApplicationForm() {
+    admissionForm.reset();
+    document.querySelector(`.step-${currentStep}`).classList.remove('active');
+    currentStep = 1;
+    document.querySelector('.step-1').classList.add('active');
+    document.getElementById('previousYearField').style.display = 'none';
+    document.getElementById('specifyDetails').style.display = 'none';
+    document.getElementById('previousYear').required = false;
+    document.getElementById('conditionDetails').required = false;
+    admissionForm.querySelectorAll('.is-invalid').forEach(field => field.classList.remove('is-invalid'));
+    updateProgress();
+  }
+
+  async function submitForm() {
     // Validate all steps before submission
     let allValid = true;
+    setSubmitMessage('', 'text-muted');
 
     // Check all required fields across all steps
     for (let step = 1; step <= totalSteps; step++) {
       const stepElement = document.querySelector(`.step-${step}`);
-      const requiredFields = stepElement.querySelectorAll('input[required], select[required]');
+      const requiredFields = stepElement.querySelectorAll('input[required], select[required], textarea[required]');
 
       // Clear previous validation states
       stepElement.querySelectorAll('.is-invalid').forEach(field => {
@@ -488,22 +511,49 @@
       return;
     }
 
-    // All validation passed - submit the form
-    alert('Application submitted successfully! We will contact you soon.');
-    console.log('Form submitted successfully');
-    // Here you would typically send the form data to your server
+    try {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+
+      const formData = new FormData(admissionForm);
+      formData.append('source', 'application.html');
+
+      const response = await fetch('/api/application-submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Application submission failed. Please try again.');
+      }
+
+      setSubmitMessage('Application submitted successfully. The admissions team will receive it by email and follow up with you.', 'text-success');
+      resetApplicationForm();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      setSubmitMessage(error.message || 'Application submission failed. Please try again.', 'text-danger');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Submit Application';
+    }
   }
 
   // Conditional field handlers
   document.querySelectorAll('input[name="previouslyApplied"]').forEach(r => {
     r.addEventListener('change', () => {
-      document.getElementById('previousYearField').style.display = r.value === 'Yes' ? 'block' : 'none';
+      const showPreviousYear = r.value === 'Yes';
+      document.getElementById('previousYearField').style.display = showPreviousYear ? 'block' : 'none';
+      document.getElementById('previousYear').required = showPreviousYear;
     });
   });
 
-  document.querySelectorAll('input[name="specifyCondition"]').forEach(r => {
+  document.querySelectorAll('input[name="specify_condition"]').forEach(r => {
     r.addEventListener('change', () => {
-      document.getElementById('specifyDetails').style.display = r.value === 'Yes' ? 'block' : 'none';
+      const showConditionDetails = r.value === 'Yes';
+      document.getElementById('specifyDetails').style.display = showConditionDetails ? 'block' : 'none';
+      document.getElementById('conditionDetails').required = showConditionDetails;
     });
   });
 

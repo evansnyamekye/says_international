@@ -3,19 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vercel:preview": "vercel",
+    "vercel:prod": "vercel --prod"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "hint": "^7.1.13",
     "prettier": "^3.7.4",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-csstree-validator": "^1.9.0",
-    "stylelint-scss": "^3.21.0"
+    "vercel": "^50.44.0"
   },
   "repository": {
     "type": "git",
@@ -27,8 +25,11 @@
   "homepage": "https://github.com/evansnyamekye/says_international#readme",
   "description": "",
   "dependencies": {
+    "@vercel/postgres": "^0.10.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "node-fetch": "^2.7.0"
+    "formidable": "^3.5.4",
+    "node-fetch": "^2.7.0",
+    "pg": "^8.20.0"
   }
 }

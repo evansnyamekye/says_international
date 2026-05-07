@@ -1,4 +1,4 @@
-﻿.mejs-container {
+.mejs-container {
   clear: both;
   max-width: 100%;
 }
@@ -290,4 +290,3 @@ video.wp-video-shortcode {
 .wp-audio-playlist .me-cannotplay span {
   padding: 5px 15px;
 }
-

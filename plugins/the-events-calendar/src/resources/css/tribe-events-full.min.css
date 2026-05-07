@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --featured-event-bg: #0ea0d7;
 }
 
@@ -2354,4 +2354,3 @@ input[name*="tribe-bar-"]:-moz-placeholder {
     background-image: url(../images/events-bar/icon-map%402x.png);
   }
 }
-

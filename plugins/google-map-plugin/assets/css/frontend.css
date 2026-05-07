@@ -1,4 +1,4 @@
-﻿.wpgmp_map div {
+.wpgmp_map div {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
@@ -12,4 +12,3 @@
 .gm-style-iw .wpgmp_map img {
   max-width: 100%;
 }
-
