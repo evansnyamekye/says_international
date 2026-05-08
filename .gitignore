@@ -3,10 +3,7 @@
 *.zip
 *.mov
 node_modules/
-.github\workflows\linters.yml
-.stylelintrc
 .eslintrc
 .eslintrc.json
-linters.yml
 .vercel
 .env*.local

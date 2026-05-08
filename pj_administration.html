@@ -15,6 +15,167 @@
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
+    <style>
+        .sis-admin-hero-note {
+            max-width: 680px;
+            margin-top: 18px;
+            color: #f6f9ff;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .sis-admin-grid {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .sis-admin-card {
+            background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+            border: 1px solid rgba(25, 47, 89, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 18px 45px rgba(14, 33, 68, 0.08);
+            height: 100%;
+            padding: 30px 28px;
+        }
+
+        .sis-admin-card h3,
+        .sis-admin-card h4 {
+            color: #192f59;
+            margin-bottom: 12px;
+        }
+
+        .sis-admin-card p,
+        .sis-admin-card li {
+            color: #4d617f;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .sis-admin-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sis-admin-card li {
+            margin-bottom: 10px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .sis-admin-card li:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e3a008;
+            left: 0;
+            position: absolute;
+            top: 11px;
+        }
+
+        .sis-admin-stat {
+            background: linear-gradient(145deg, #192f59 0%, #264987 100%);
+            border-radius: 18px;
+            box-shadow: 0 18px 45px rgba(10, 24, 51, 0.24);
+            color: #fff;
+            padding: 24px;
+        }
+
+        .sis-admin-stat strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            font-size: 34px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .sis-admin-panel {
+            background: linear-gradient(135deg, rgba(14, 36, 74, 0.98) 0%, rgba(25, 47, 89, 0.92) 60%, rgba(38, 73, 135, 0.88) 100%);
+            border-radius: 28px;
+            color: #fff;
+            overflow: hidden;
+            padding: 38px;
+            position: relative;
+        }
+
+        .sis-admin-panel:before {
+            background: radial-gradient(circle at top right, rgba(227, 160, 8, 0.32), transparent 42%);
+            content: "";
+            inset: 0;
+            position: absolute;
+        }
+
+        .sis-admin-panel > * {
+            position: relative;
+        }
+
+        .sis-admin-panel p,
+        .sis-admin-panel li,
+        .sis-admin-panel h3,
+        .sis-admin-panel h4 {
+            color: #fff;
+        }
+
+        .sis-admin-panel ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sis-admin-panel li {
+            margin-bottom: 12px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .sis-admin-panel li:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #f5c542;
+            left: 0;
+            position: absolute;
+            top: 11px;
+        }
+
+        .sis-admin-strip {
+            background: linear-gradient(90deg, rgba(25, 47, 89, 0.08) 0%, rgba(38, 73, 135, 0.12) 100%);
+            border-left: 4px solid #192f59;
+            border-radius: 16px;
+            padding: 22px 24px;
+        }
+
+        .sis-admin-strip p {
+            color: #2b3f61;
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .sis-admin-button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .sis-admin-button-row .gdlr-core-button {
+            border-radius: 999px;
+        }
+
+        @media (max-width: 767px) {
+            .sis-admin-hero-note {
+                font-size: 16px;
+            }
+
+            .sis-admin-panel,
+            .sis-admin-card {
+                padding: 24px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -45,86 +206,67 @@
                     <div class="says-mobile-menu"><a class="says-mm-menu-button says-mobile-menu-button says-mobile-button-hamburger" href="#says-mobile-menu"><span></span></a>
                         <div class="says-mm-menu-wrap says-navigation-font" id="says-mobile-menu" data-slide="right">
                             <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Home</a>
+                               <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Homepage</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome</a></li>
-                                     </ul>
+                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome Page</a></li>
+                                    </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about-us.html">About Says</a></li>
-                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="menu-item"><a href="about-us.html">About</a></li>
+                                           <li class="menu-item menu-item-has-children" data-size="60"><a href="pj_administration.html" class="sf-with-ul-pre">Team Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                    <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
+                                                             <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
+                                                          </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Contact</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item"><a href="contact.html">Contact</a></li>
                                                 <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
-                                               
-                                            </ul>
+                                             </ul>
                                         </li>
-                                  </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
+                                     </ul>
+                                 </li>
+                                 <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-has-children"><a>Basic School</a>
+                                        <li class="menu-item menu-item-has-children"><a>Lower Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="academics.html">Lower Primary</a></li>
-                                                <li class="menu-item"><a href="academics.html">Upper Primary</a></li>
-                                                <li class="menu-item"><a href="academics.html">Junior High School</a></li>
-                                                <li class="menu-item"><a href="ucmas.html">Saturday Clinic</a></li>
-                                                <li class="menu-item"><a href="art-science.html">Art &#fff; Science</a></li>
+                                                <li class="menu-item"><a href="#">Pre-School</a></li>
+                                                <li class="menu-item"><a href="#">Crèche</a></li>
+                                                <li class="menu-item"><a href="#">Nursery one</a></li>
+                                                <li class="menu-item"><a href="#">Nursery two</a></li>
+                                                <li class="menu-item"><a href="#">Kindergarten</a></li>
+                                                <li class="menu-item"><a href="#">Grade one</a></li>
+                                                <li class="menu-item"><a href="#">Grade two</a></li>
+                                                <li class="menu-item"><a href="#">Grade three</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">School Programmes</a>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Upper Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="apply-to-says.html">Admissions</a></li>
-                                                <li class="menu-item"><a href="sports.html">Sports</a></li>
-                                                <li class="menu-item"><a href="campus_life.html">Clubs and Activities</a></li>
-                                                <li class="menu-item"><a href="campus_life.html">Music &amp; Arts</a></li>
-                                                <li class="menu-item"><a href="academics.html">ICT</a></li>
+                                                <li class="menu-item"><a href="#">Grade four</a></li>
+                                                <li class="menu-item"><a href="#">Grade five</a></li>
+                                                <li class="menu-item"><a href="#">Grade six</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">Resources</a>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Junior High School</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="academics.html">Academic Overview</a></li>
-                                                <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
-                                                <li class="menu-item"><a href="contact.html">Contact School</a></li>
-                                                <li class="menu-item"><a href="john-hagensy-phd.html">Single Instructor</a></li>
-                                                <li class="menu-item"><a href="introduction-to-financial-accounting.html">Single Course</a></li>
+                                                <li class="menu-item"><a href="#">JHS 1</a></li>
+                                                <li class="menu-item"><a href="#">JHS 2</a></li>
+                                                <li class="menu-item"><a href="#">JHS 3</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item"><a href="#">Logo</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="apply-to-says.html">Admissions</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
                                         <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
-                                        <li class="menu-item"><a href="scholarships.html">Scholarships</a></li>
                                         <li class="menu-item"><a href="sports.html">Sports</a></li>
                                         <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
                                         <li class="menu-item"><a href="alumni.html">Alumni</a></li>
@@ -182,22 +324,16 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="about-us.html">About SIS</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Team Blog</a>
+                                           <li class="menu-item" data-size="60"><a href="about-us.html">About</a></li>
+                                              <li class="menu-item menu-item-has-children" data-size="60"><a href="index.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Teachers</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                      <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
                                                              <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                          </ul>
+                                                        </ul>
                                                     </li>
-
-                                                    
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
@@ -263,100 +399,7 @@
                                     <li class="menu-item says-normal-menu"><a href="campus-life.html">Campus Life</a></li>
                                 </ul>
                                     </li>
-                                    <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="about-us.html">About Says</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog Full</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
-                                                            <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
-                                                            <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
-                                                            <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                            <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                            <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Blog Grid</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                        </ul>
-                                                    </li>
-
-                                                    <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
-                                                    <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
-                                                    
-                                                </ul>
-                                            </li>
-
-                                         </ul>
-                                    </li>
-                                    <li class="menu-item current-menu-item menu-item-has-children says-mega-menu"><a href="academics.html" class="sf-with-ul-pre">Academics</a>
-                                        <div class="sf-mega sf-mega-full megaimg">
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children" data-size="15"><a class="sf-with-ul-pre">Lower Primary</a>
-                                                    <ul class="sub-menu">
-                                                       <li class="menu-item"><a href="Pre_school">Pre-School</a></li>
-                                                        <li class="menu-item"><a href="Creche">Crèche</a></li>
-                                                        <li class="menu-item"><a href="Nursery_one">Nursery one</a></li>
-                                                        <li class="menu-item"><a href="Nursery_two">Nursery two</a></li>
-                                                        <li class="menu-item"><a href="Kindergarten">Kindergarten</a></li>
-                                                        <li class="menu-item"><a href="Grade_one">Grade one</a></li>
-                                                        <li class="menu-item"><a href="Grade_two">Grade two</a></li>
-                                                        <li class="menu-item"><a href="Grade_three">Grade three</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children" data-size="15"><a href="#" class="sf-with-ul-pre">Upper Primary</a>
-                                                <ul class="sub-menu">
-                                                <li class="menu-item"><a href="Grade_four">Grade four</a></li>
-                                                <li class="menu-item"><a href="Grade_five">Grade five</a></li>
-                                                <li class="menu-item"><a href="Grade_six">Grade six</a></li>
-                                            </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children" data-size="15"><a href="#" class="sf-with-ul-pre">Junior High School</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="JHS_1">JHS 1</a></li>
-                                                        <li class="menu-item"><a href="JHS_2">JHS 2</a></li>
-                                                        <li class="menu-item"><a href="JHS_3">JHS 3</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item" data-size="15">
-                                                    <div class="says-mega-menu-section-content"><img src="upload/mega-menu-logo.png" alt="" /> <span>Every Academic offerings at Says comes with a unique curriculum designed to foster critical thinking and creativity.</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children says-normal-menu"><a href="apply-to-says.html" class="sf-with-ul-pre">Admissions</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
-                                            <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
-                                            <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
-                                            <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
-                                            <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="class-list-1.html">Course List 1</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
-                                    <li class="menu-item says-normal-menu"><a href="campus_life.html">Campus Life</a></li>
-                                </ul>
-                                <div class="says-navigation-slide-bar" id="says-navigation-slide-bar"></div>
-                            </div>
+                            
                             <div class="says-main-menu-right-wrap clearfix ">
                                 <div class="says-main-menu-search" id="says-top-search"><i class="icon_search"></i></div>
                                 <div class="says-top-search-wrap">
@@ -379,14 +422,15 @@
             </header>
 
 
-            <div class="says-page-title-wrap  says-style-custom says-left-align" style="background-image: url(upload/shutterstock_59887279.jpg) ;">
+            <div class="says-page-title-wrap  says-style-custom says-left-align" style="background-image: linear-gradient(rgba(10, 24, 51, 0.45), rgba(10, 24, 51, 0.25)), url(upload/shutterstock_59887279.jpg) ;">
                 <div class="says-header-transparent-substitute"></div>
                 <div class="says-page-title-overlay"></div>
                 <div class="says-page-title-bottom-gradient"></div>
                 <div class="says-page-title-container says-container">
                     <div class="says-page-title-content says-item-pdlr" style="padding-top: 400px ;padding-bottom: 60px ;">
-                        <div class="says-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">School Programme</div>
-                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #192f59 ;">Administration and School Services</h1></div>
+                        <div class="says-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;color: #f4c64d ;">Leadership, Support, and Daily Coordination</div>
+                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #ffffff ;">Administration and School Services</h1>
+                        <p class="sis-admin-hero-note">Our administration team keeps school life organised, welcoming, and responsive so pupils can learn well and families stay informed with confidence.</p></div>
                 </div>
             </div>
             <div class="says-breadcrumbs">
@@ -401,225 +445,129 @@
             </div>
             <div class="says-page-wrapper" id="says-page-wrapper">
                 <div class="gdlr-core-page-builder-body">
-                    <div class="gdlr-core-pbf-sidebar-wrapper " style="margin: 0px 0px 30px 0px;">
-                        <div class="gdlr-core-pbf-sidebar-container gdlr-core-line-height-0 clearfix gdlr-core-js gdlr-core-container">
-                            <div class="gdlr-core-pbf-sidebar-content  gdlr-core-column-40 gdlr-core-pbf-sidebar-padding gdlr-core-line-height gdlr-core-column-extend-left" style="padding: 35px 0px 20px 0px;">
-                                <div class="gdlr-core-pbf-sidebar-content-inner">
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                            <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 27px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Outstanding Academics essential business experience</h3></div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;text-transform: none ;">
-                                                <p>This section highlights the systems, routines, and support services that help Says International School run smoothly for pupils, staff, and families.</p>
-                                                <p>At Says International School, learners build strong academic foundations, practical skills, and good character that prepare them for the next stage of school and life. We also emphasise responsibility, leadership, and service so every child grows with confidence and purpose.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 40px ;">
-                                            <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;color: #192f59 ;margin-right: 30px ;">Key Service Areas</h3>
-                                                <div class="gdlr-core-title-item-divider gdlr-core-right gdlr-core-skin-divider" style="font-size: 22px ;border-bottom-width: 3px ;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first">
-                                        <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px -7px 0px 0px;">
-                                            <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                <div class="gdlr-core-pbf-element">
-                                                    <div class="gdlr-core-feature-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                                        <div class="gdlr-core-feature-box gdlr-core-js gdlr-core-feature-box-type-outer" style="background-color: #192f59 ;border-width: 0px 0px 0px 0px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
-                                                            <div class="gdlr-core-feature-box-background" style="background-image: url(upload/shutterstock_209187682.jpg) ;opacity: 0.14 ;"></div>
-                                                            <div class="gdlr-core-feature-box-content gdlr-core-sync-height-content">
-                                                                <h3 class="gdlr-core-feature-box-item-title" style="font-size: 16px ;font-weight: 600 ;">Accounting</h3></div>
-                                                            <a class="gdlr-core-feature-box-link" href="accounting/index.html" target="_self"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-column gdlr-core-column-20">
-                                        <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px -3px 0px -3px;">
-                                            <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                <div class="gdlr-core-pbf-element">
-                                                    <div class="gdlr-core-feature-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                                        <div class="gdlr-core-feature-box gdlr-core-js gdlr-core-feature-box-type-outer" style="background-color: #192f59 ;border-width: 0px 0px 0px 0px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
-                                                            <div class="gdlr-core-feature-box-background" style="background-image: url(upload/major-bg-2.jpg) ;opacity: 0.14 ;"></div>
-                                                            <div class="gdlr-core-feature-box-content gdlr-core-sync-height-content">
-                                                                <h3 class="gdlr-core-feature-box-item-title" style="font-size: 16px ;font-weight: 600 ;">Finance</h3></div>
-                                                            <a class="gdlr-core-feature-box-link" href="finance/index.html" target="_self"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-column gdlr-core-column-20">
-                                        <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px 0px 0px -7px;padding: 0px 0px 45px 0px;">
-                                            <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                <div class="gdlr-core-pbf-element">
-                                                    <div class="gdlr-core-feature-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                                        <div class="gdlr-core-feature-box gdlr-core-js gdlr-core-feature-box-type-outer" style="background-color: #192f59 ;border-width: 0px 0px 0px 0px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
-                                                            <div class="gdlr-core-feature-box-background" style="background-image: url(upload/support-image-3.jpg) ;opacity: 0.14 ;"></div>
-                                                            <div class="gdlr-core-feature-box-content gdlr-core-sync-height-content">
-                                                                <h3 class="gdlr-core-feature-box-item-title" style="font-size: 16px ;font-weight: 600 ;">Marketing</h3></div>
-                                                            <a class="gdlr-core-feature-box-link" href="#" target="_self"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 15px ;">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 21px ;text-transform: none ;color: #192f59 ;">
-                                                <p>This page is useful for parents and visitors who want to understand how school leadership, communication, and student support are organised.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align">
-                                            <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #192f59 ;border-bottom-width: 3px ;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 17px ;text-transform: none ;">
-                                                <p>Provided by the Says Institute of Education, this programme is available by distance learning, allowing you to study flexibly while balancing work and personal lifes. The MSc Finance (EG. Banking) deepens your understanding of banks and financial markets, and how they relate to performance. It will help you to advance your career in finance and policy.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix " style="padding-bottom: 25px ;">
-                                            <ul>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Banking</span></div>
-                                                </li>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Economic Policy</span></div>
-                                                </li>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Financial Sector Management</span></div>
-                                                </li>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Quantitative Finance</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="gdlr-core-pbf-sidebar-right gdlr-core-column-extend-right  says-sidebar-area gdlr-core-column-20 gdlr-core-pbf-sidebar-padding  gdlr-core-line-height" style="padding: 35px 0px 30px 0px;">
-                                <div class="gdlr-core-sidebar-item gdlr-core-item-pdlr">
-                                    <div id="text-18" class="widget widget_text says-widget">
-                                        <div class="textwidget">
-                                            <div class="gdlr-core-widget-box-shortcode " style="color: #192f59 ;padding: 30px 45px;background-color: #192f59 ;">
-                                                <div class="gdlr-core-widget-box-shortcode-content">
-                                                    </p>
-                                                    <h3 style="font-size: 20px; color: #192f59; margin-bottom: 25px;">Department Contact Info</h3>
-                                                    <p><span style="color: #192f59; font-size: 16px; font-weight: 600;">SIS Administration Office</span>
-                                                        <br /> <span style="font-size: 15px;"><br /> 1810 Campus Way NE<br /> Bothell, WA 98011-8246</span></p>
-                                                    <p><span style="font-size: 15px;">+233 30 294 7154<br /> info@saysinternationalschool.com<br /> </span></p>
-                                                    <p><span style="font-size: 16px; color: #192f59;">Mon &#fff; Fri 9:00A.M. &#fff; 5:00P.M.</span></p> <span class="gdlr-core-space-shortcode" style="margin-top: 40px ;"></span>
-                                                    <h3 style="font-size: 20px; color: #192f59; margin-bottom: 15px;">Social Info</h3>
-                                                    <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" style="padding-bottom: 0px ;"><a href="#url" target="_blank" class="gdlr-core-social-network-icon" title="facebook" style="color: #192f59 ;"><i class="fa fa-facebook" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="google-plus" style="color: #192f59 ;"><i class="fa fa-google-plus" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="linkedin" style="color: #192f59 ;"><i class="fa fa-linkedin" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="skype" style="color: #192f59 ;"><i class="fa fa-skype" ></i></a><a href="#url" target="_blank" class="gdlr-core-social-network-icon" title="twitter" style="color: #192f59 ;"><i class="fa fa-twitter" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="instagram" style="color: #192f59 ;"><i class="fa fa-instagram" ></i></a></div> <span class="gdlr-core-space-shortcode" style="margin-top: 40px ;"></span> <a class="gdlr-core-button gdlr-core-button-shortcode  gdlr-core-button-gradient gdlr-core-button-no-border" href="#" style="padding: 16px 27px 18px;margin-right: 20px;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Student Resources</span></a>
-                                                    <p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 90px 0px 60px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #192f59 ;"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-tab-item gdlr-core-js gdlr-core-item-pdb  gdlr-core-left-align gdlr-core-tab-style1-horizontal gdlr-core-item-pdlr">
-                                        <div class="gdlr-core-tab-item-content-image-wrap clearfix">
-                                            <div class="gdlr-core-tab-item-image  gdlr-core-active" data-tab-id="1"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-1-1.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                            <div class="gdlr-core-tab-item-image " data-tab-id="2"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-2.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                            <div class="gdlr-core-tab-item-image " data-tab-id="3"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-3.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                            <div class="gdlr-core-tab-item-image " data-tab-id="4"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-4.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                        </div>
-                                        <div class="gdlr-core-tab-item-wrap">
-                                            <div class="gdlr-core-tab-item-title-wrap clearfix gdlr-core-title-font">
-                                                <div class="gdlr-core-tab-item-title  gdlr-core-active" data-tab-id="1">Benefits</div>
-                                                <div class="gdlr-core-tab-item-title " data-tab-id="2">Self Development</div>
-                                                <div class="gdlr-core-tab-item-title " data-tab-id="3">Spirituality</div>
-                                                <div class="gdlr-core-tab-item-title " data-tab-id="4">Alumni</div>
-                                            </div>
-                                            <div class="gdlr-core-tab-item-content-wrap clearfix">
-                                                <div class="gdlr-core-tab-item-content  gdlr-core-active" data-tab-id="1" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Why Choose Says?<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The Says International School Alumni Network keeps former pupils connected to the SIS community through mentoring, school news, and shared opportunities to support current learners.</p>
-                                                    <p>Says International School was established to provide quality education in a caring environment and is recognised for strong teaching, discipline, and community values.</p>
-                                                </div>
-                                                <div class="gdlr-core-tab-item-content " data-tab-id="2" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Self Development<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The Says International School Alumni Network keeps former pupils connected to the SIS community through mentoring, school news, and shared opportunities to support current learners.</p>
-                                                    <p>Says International School was established to provide quality education in a caring environment and is recognised for strong teaching, discipline, and community values.</p>
-                                                </div>
-                                                <div class="gdlr-core-tab-item-content " data-tab-id="3" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Spirituality<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The Says International School Alumni Network keeps former pupils connected to the SIS community through mentoring, school news, and shared opportunities to support current learners.</p>
-                                                    <p>Says International School was established to provide quality education in a caring environment and is recognised for strong teaching, discipline, and community values.</p>
-                                                </div>
-                                                <div class="gdlr-core-tab-item-content " data-tab-id="4" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Alumni<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The Says International School Alumni Network keeps former pupils connected to the SIS community through mentoring, school news, and shared opportunities to support current learners.</p>
-                                                    <p>Says International School was established to provide quality education in a caring environment and is recognised for strong teaching, discipline, and community values.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 95px 0px 45px 0px;">
+                    <div class="gdlr-core-pbf-wrapper " style="padding: 75px 0px 35px 0px;">
                         <div class="gdlr-core-pbf-background-wrap"></div>
                         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
                             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 35px ;">
-                                        <div class="gdlr-core-title-item-title-wrap clearfix">
-                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 27px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Why Study Here?</h3></div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-40 gdlr-core-column-first">
+                                <div class="gdlr-core-pbf-column gdlr-core-column-35 gdlr-core-column-first">
                                     <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
                                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
                                             <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 5px ;">
-                                                    <div class="gdlr-core-text-box-item-content" style="text-transform: none ;">
-                                                        <p>This section highlights the systems, routines, and support services that help Says International School run smoothly for pupils, staff, and families.</p>
+                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 26px ;">
+                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 34px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;">A calm, organised system behind every school day</h3>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <div class="gdlr-core-text-box-item-content" style="text-transform: none ;">
-                                                        <p>At Says International School, learners build strong academic foundations, practical skills, and good character that prepare them for the next stage of school and life. We also emphasise responsibility, leadership, and service so every child grows with confidence and purpose.</p>
+                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 17px ;text-transform: none ;color: #4d617f ;">
+                                                        <p>The Administration and School Services team supports the daily life of Says International School by coordinating communication, admissions, records, pupil welfare, and the practical systems that keep learning on track.</p>
+                                                        <p>Families should experience a school that is warm, clear, and dependable. From the first enquiry to the final bell, our team works to make every interaction professional, timely, and centred on the needs of children.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gdlr-core-pbf-element gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                                <div class="sis-admin-strip">
+                                                    <p>We combine strong leadership, responsive communication, and careful student support so pupils can learn confidently in a safe and orderly environment.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-pbf-column gdlr-core-column-25">
+                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 8px 0px 0px 30px;">
+                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
+                                            <div class="gdlr-core-pbf-element gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                                <div class="sis-admin-stat">
+                                                    <strong>Parent-first</strong>
+                                                    <span>Clear guidance, dependable updates, and respectful service for every family.</span>
+                                                </div>
+                                            </div>
+                                            <div class="gdlr-core-pbf-element gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                                <div class="sis-admin-stat" style="background: linear-gradient(145deg, #e3a008 0%, #f2c34f 100%); color: #192f59; box-shadow: 0 18px 45px rgba(161, 110, 3, 0.2);">
+                                                    <strong style="color: #192f59;">School-wide support</strong>
+                                                    <span>Admissions, records, welfare, communication, and operational coordination in one connected team.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gdlr-core-pbf-wrapper " style="padding: 20px 0px 40px 0px;">
+                        <div class="gdlr-core-pbf-background-wrap"></div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 28px ;">
+                                        <div class="gdlr-core-title-item-title-wrap clearfix">
+                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 28px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;">Core administration services</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-pbf-element gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                    <div class="sis-admin-grid">
+                                        <div class="sis-admin-card">
+                                            <h3>Admissions and Enquiries</h3>
+                                            <p>We guide parents through applications, class placement, and onboarding so every new pupil joins the school with clarity and confidence.</p>
+                                        </div>
+                                        <div class="sis-admin-card">
+                                            <h3>Parent Communication</h3>
+                                            <p>Notices, reminders, academic updates, and school guidance are shared in a timely way to keep families fully informed.</p>
+                                        </div>
+                                        <div class="sis-admin-card">
+                                            <h3>Student Records</h3>
+                                            <p>Attendance, assessment records, and essential documentation are managed carefully to support continuity and accountability.</p>
+                                        </div>
+                                        <div class="sis-admin-card">
+                                            <h3>Pupil Welfare and Support</h3>
+                                            <p>We work with teachers and families to maintain a safe, orderly, and encouraging environment where children can flourish.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gdlr-core-pbf-wrapper " style="padding: 35px 0px 80px 0px;">
+                        <div class="gdlr-core-pbf-background-wrap"></div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                                <div class="gdlr-core-pbf-column gdlr-core-column-30 gdlr-core-column-first">
+                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
+                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
+                                            <div class="gdlr-core-pbf-element gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                                <div class="sis-admin-panel">
+                                                    <h3 style="font-size: 28px; margin-bottom: 16px;">How we support families</h3>
+                                                    <ul>
+                                                        <li>Prompt response to enquiries and admissions questions.</li>
+                                                        <li>Consistent coordination between administration, teachers, and school leadership.</li>
+                                                        <li>Clear school routines that help pupils develop responsibility and discipline.</li>
+                                                        <li>Welcoming service for both returning and first-time parents.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-pbf-column gdlr-core-column-30">
+                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 0px 0px 0px 30px;">
+                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
+                                            <div class="gdlr-core-pbf-element gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                                <div class="sis-admin-card">
+                                                    <h3>Administration Office</h3>
+                                                    <p>For school records, admissions support, or general information, families can contact the administration office during working hours.</p>
+                                                    <ul>
+                                                        <li>Susan Enclave, #1 Selorm Crescent, behind West Hills Mall</li>
+                                                        <li>+233 30 294 7154</li>
+                                                        <li>WhatsApp: +233 50 927 5198</li>
+                                                        <li>info@saysinternationalschool.com</li>
+                                                        <li>Monday to Friday, 8:00 AM to 4:30 PM</li>
+                                                    </ul>
+                                                    <div class="sis-admin-button-row">
+                                                        <a class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border" href="enquiry.html" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 26px 16px 30px;text-transform: none ;background: #192f59 ;"><span class="gdlr-core-content">Send Enquiry</span><i class="gdlr-core-pos-right fa fa-envelope" style="font-size: 14px ;"></i></a>
+                                                        <a class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border" href="apply-to-says.html" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 26px 16px 30px;text-transform: none ;background: #e3a008 ;color: #192f59 ;"><span class="gdlr-core-content">Start Admission</span><i class="gdlr-core-pos-right fa fa-arrow-right" style="font-size: 14px ;"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -629,34 +577,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 65px 0px 60px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #192f59 ;"></div>
+                    <div class="gdlr-core-pbf-wrapper " style="padding: 90px 0px 80px 0px;">
+                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #f5f9ff ;"></div>
                         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
                             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 45px 0px 0px 0px;">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 20px ;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 23px ;text-transform: none ;color: #192f59 ;">
-                                                        <p>The PLP in Drafting Legislation, Regulation, and Policy has been offered by the Institute of Advanced Legal Studies with considerable success since 2004.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"><a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="#" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 26px 16px 30px;text-transform: none ;margin: 0px 10px 10px 0px;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;background: #fff ;"><span class="gdlr-core-content" >Apply</span><i class="gdlr-core-pos-right fa fa-external-link" style="font-size: 14px ;"  ></i></a><a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="#" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 26px 16px 30px;text-transform: none ;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;background: #fff ;"><span class="gdlr-core-content" >Download Brochure</span><i class="gdlr-core-pos-right fa fa-file-pdf-o" style="font-size: 14px ;"  ></i></a></div>
-                                            </div>
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 18px ;">
+                                        <div class="gdlr-core-title-item-title-wrap clearfix">
+                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 30px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;">What families can expect</h3>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30" id="gdlr-core-column-1">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: -123px 0px 0px 0px;padding: 0px 0px 0px 40px;">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align">
-                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-rectangle" style="border-width: 0px;"><img src="upload/shutterstock_183400235-400x257.jpg" width="700" height="450"  alt="" /></div>
-                                                </div>
-                                            </div>
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align" style="padding-bottom: 28px ;">
+                                        <div class="gdlr-core-text-box-item-content" style="font-size: 17px ;text-transform: none ;color: #4d617f ;">
+                                            <p>Says International School aims to make every administrative process simple, respectful, and child-focused.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-pbf-element gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                    <div class="sis-admin-grid">
+                                        <div class="sis-admin-card">
+                                            <h4>Clarity</h4>
+                                            <p>Parents receive practical guidance on school requirements, fees, schedules, and next steps.</p>
+                                        </div>
+                                        <div class="sis-admin-card">
+                                            <h4>Consistency</h4>
+                                            <p>Records, communication, and school procedures are handled in an organised and dependable way.</p>
+                                        </div>
+                                        <div class="sis-admin-card">
+                                            <h4>Care</h4>
+                                            <p>Every family is treated with courtesy while decisions remain guided by the welfare and progress of pupils.</p>
                                         </div>
                                     </div>
                                 </div>
