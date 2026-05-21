@@ -659,7 +659,40 @@ body.says-full .says-fixed-footer {
   margin-right: -20px;
 }
 
-.gdlr-core-metro-rvpdlr {
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: #001f3f;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 31, 63, 0.24);
+  transition: transform 180ms ease, opacity 180ms ease;
+  z-index: 9999;
+}
+
+.scroll-to-top-btn.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.scroll-to-top-btn:hover {
+  transform: translateY(-2px);
+}
+
+  @media (max-width: 768px) {
+    .scroll-to-top-btn {
+      bottom: 90px;
+    }
+  }
   margin-top: -20px;
   margin-right: -20px;
   margin-bottom: -20px;
@@ -1445,6 +1478,7 @@ body.says-boxed .says-fixed-footer .says-copyright-wrapper {
 
   .says-hero-dock-toggle {
     right: 20px;
+    left: auto;
     bottom: 20px;
   }
 
@@ -2491,11 +2525,11 @@ a .says-page-title-wrap .says-page-caption .woocommerce-breadcrumb,
 }
 
 .says-body a {
-  color: #545454;
+  color: #c2c2c2;
 }
 
 .says-body a:hover {
-  color: #131272;
+  color: #c2c2c2;
 }
 
 .says-body * {
@@ -5315,7 +5349,7 @@ html .woocommerce span.onsale {
 
 .sis-admission-secondary-link {
   background: transparent;
-  color: #102758;
+  color: #0a0a0a;
   border: 1px solid rgba(16, 39, 88, 0.16);
 }
 
@@ -6074,6 +6108,80 @@ html .woocommerce span.onsale {
 .sis-homework-card {
   padding: 28px 24px;
 }
+
+@media (max-width: 980px) {
+  .sis-homework-shell {
+    width: min(100%, calc(100% - 30px));
+    margin: 0 auto;
+  }
+
+  .sis-homework-hero-grid,
+  .sis-homework-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sis-homework-stat-grid,
+  .sis-homework-overview-grid,
+  .sis-homework-action-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-homework-note-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sis-homework-card,
+  .sis-homework-side-card,
+  .sis-homework-summary-card,
+  .sis-homework-note-box {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sis-homework-kicker {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  .sis-homework-intro-card h2,
+  .sis-homework-side-card h3,
+  .sis-homework-summary-card h3,
+  .sis-homework-section-head h3,
+  .sis-homework-note-box h3 {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .sis-homework-chip-row {
+    gap: 8px;
+  }
+
+  .sis-homework-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-homework-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-homework-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sis-homework-action-row {
+    flex-direction: column;
+  }
+
+  .sis-homework-primary-link,
+  .sis-homework-secondary-link {
+    width: 100%;
+  }
+}
+
 
 .sis-homework-card-title {
   margin-bottom: 8px;
