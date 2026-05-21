@@ -45,11 +45,7 @@
                     <div class="says-mobile-menu"><a class="says-mm-menu-button says-mobile-menu-button says-mobile-button-hamburger" href="#says-mobile-menu"><span></span></a>
                         <div class="says-mm-menu-wrap says-navigation-font" id="says-mobile-menu" data-slide="right">
                              <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Homepage</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome Page</a></li>
-                                    </ul>
-                                </li>
+                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Welcome</a></li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="about-us.html">About</a></li>
@@ -114,7 +110,7 @@
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Courses</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="class-list-1.html">Course List 1</a></li>
+                                        <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item"><a href="gallery.html">Gallery</a></li>
@@ -231,7 +227,7 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="class-list-1.html">Course List 1</a></li>
+                                            <li class="menu-item" data-size="60"><a href="assessment-info.html">Assessment Info</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
@@ -466,7 +462,7 @@
                                                 <div class="gdlr-core-contact-form-7-item gdlr-core-item-pdlr gdlr-core-item-pdb ">
                                                     <div role="form" class="wpcf7" id="wpcf7-f5439-p5433-o1" lang="en-US" dir="ltr">
                                                         <div class="screen-reader-response"></div>
-                                                        <form action="#" method="post" class="wpcf7-form" novalidate="novalidate">
+                                                        <form action="/api/campus-tour" method="post" class="wpcf7-form" novalidate="novalidate">
       
                                                             <p><span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Full name*" /></span></p>
                                                             <p><span class="wpcf7-form-control-wrap tour-date"><input type="date" name="tour-date" value="" class="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date" min="2018-08-01" max="2058-12-31" aria-required="true" aria-invalid="false" placeholder="Select Date*" /></span></p>
@@ -642,6 +638,106 @@
         };
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
+<!-- scroll-to-top button -->
+<script>
+// Campus Tour Form Handler
+(function() {
+    const form = document.querySelector('.wpcf7-form');
+    const responseOutput = document.querySelector('.wpcf7-response-output');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Clear previous messages
+        if (responseOutput) {
+            responseOutput.className = 'wpcf7-response-output wpcf7-display-none';
+            responseOutput.textContent = '';
+        }
+
+        // Disable submit button
+        const submitBtn = form.querySelector('input[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.value = 'Submitting...';
+        }
+
+        try {
+            const payload = {
+                'your-name': form.querySelector('[name="your-name"]').value,
+                'tour-date': form.querySelector('[name="tour-date"]').value,
+                'tour-time': form.querySelector('[name="tour-time"]').value,
+                'your-phone': form.querySelector('[name="your-phone"]').value,
+                'your-email': form.querySelector('[name="your-email"]').value,
+                'special-request': form.querySelector('[name="special-request"]').value
+            };
+
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                // Success
+                if (responseOutput) {
+                    responseOutput.className = 'wpcf7-response-output wpcf7-mail-sent-ok';
+                    responseOutput.textContent = result.message;
+                }
+                form.reset();
+                // Scroll to response message
+                responseOutput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                // Error
+                if (responseOutput) {
+                    responseOutput.className = 'wpcf7-response-output wpcf7-validation-errors';
+                    responseOutput.textContent = result.error || 'An error occurred. Please try again.';
+                }
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            if (responseOutput) {
+                responseOutput.className = 'wpcf7-response-output wpcf7-validation-errors';
+                responseOutput.textContent = 'Network error. Please check your connection and try again.';
+            }
+        } finally {
+            // Re-enable submit button
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.value = 'Submit Now';
+            }
+        }
+    });
+})();
+</script>
+<script>
+(function () {
+  if (document.querySelector('.scroll-to-top-btn')) { return; }
+  var button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'scroll-to-top-btn';
+  button.title = 'Scroll to top';
+  button.setAttribute('aria-label', 'Scroll to top');
+  button.textContent = '↑';
+  document.body.appendChild(button);
+  var threshold = 300;
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > threshold) {
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+  });
+  button.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>
 
