@@ -123,19 +123,14 @@ async function saveHomeworkData(payload) {
 
     const db = await getPool();
 
-    const existing = await db.query('SELECT id FROM homework_updates ORDER BY updated_at DESC LIMIT 1');
+    const existing = await db.query('SELECT singleton_key FROM homework_updates ORDER BY updated_at DESC LIMIT 1');
+    const key = existing.rows.length > 0 ? existing.rows[0].singleton_key : 'main';
 
-    if (existing.rows.length > 0) {
-        await db.query(
-            'UPDATE homework_updates SET payload = $1, updated_at = NOW() WHERE id = $2',
-            [payload, existing.rows[0].id]
-        );
-    } else {
-        await db.query(
-            'INSERT INTO homework_updates (singleton_key, payload) VALUES ($1, $2)',
-            ['main', payload]
-        );
-    }
+    await db.query(
+        'INSERT INTO homework_updates (singleton_key, payload, updated_at) VALUES ($1, $2, NOW()) ' +
+        'ON CONFLICT (singleton_key) DO UPDATE SET payload = EXCLUDED.payload, updated_at = NOW()',
+        [key, payload]
+    );
 
     return { success: true, updatedAt: new Date().toISOString() };
 }
