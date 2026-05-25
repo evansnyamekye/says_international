@@ -39,12 +39,6 @@ export default async function handler(req, res) {
                     throw new Error('Invalid upload path');
                 }
                 return {
-                    allowedContentTypes: [
-                        'image/jpeg',
-                        'image/png',
-                        'image/jpg',
-                        'application/pdf',
-                    ],
                     maximumSizeInBytes: 15 * 1024 * 1024,
                     addRandomSuffix: true,
                     tokenPayload: '',
