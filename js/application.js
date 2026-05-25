@@ -252,7 +252,7 @@ async function submitForm() {
     async function uploadOne(file, prefix) {
       const pathname = 'admissions/' + prefix + '/' + Date.now() + '-' + file.name;
       const blob = await window.vercelBlobUpload(pathname, file, {
-        access: 'public',
+        access: 'private',
         contentType: file.type || 'application/octet-stream',
         handleUploadUrl: '/api/admission-upload-token',
       });
