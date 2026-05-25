@@ -123,18 +123,19 @@ async function saveHomeworkData(payload) {
 
     const db = await getPool();
 
-    await db.query(`
-        CREATE TABLE IF NOT EXISTS homework_updates (
-            id SERIAL PRIMARY KEY,
-            payload JSONB NOT NULL,
-            updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-        );
-    `);
+    const existing = await db.query('SELECT id FROM homework_updates ORDER BY updated_at DESC LIMIT 1');
 
-    await db.query(`
-        INSERT INTO homework_updates (payload)
-        VALUES ($1)
-    `, [payload]);
+    if (existing.rows.length > 0) {
+        await db.query(
+            'UPDATE homework_updates SET payload = $1, updated_at = NOW() WHERE id = $2',
+            [payload, existing.rows[0].id]
+        );
+    } else {
+        await db.query(
+            'INSERT INTO homework_updates (singleton_key, payload) VALUES ($1, $2)',
+            ['main', payload]
+        );
+    }
 
     return { success: true, updatedAt: new Date().toISOString() };
 }
