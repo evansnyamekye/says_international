@@ -1,11 +1,5 @@
 const RESEND_API_URL = 'https://api.resend.com/emails';
 
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
-
 let poolPromise;
 
 function getConnectionString() {
@@ -37,42 +31,10 @@ function escapeHtml(value) {
         .replace(/'/g, '&#39;');
 }
 
-function parseForm(req) {
-    return new Promise(function (resolve, reject) {
-        import('formidable').then(function (mod) {
-            const formidable = mod.default || mod;
-            const form = formidable({ multiples: true, keepExtensions: true });
-            form.parse(req, function (err, fields, files) {
-                if (err) return reject(err);
-                const flatFields = {};
-                for (const key of Object.keys(fields)) {
-                    const value = fields[key];
-                    flatFields[key] = Array.isArray(value) ? value[0] : value;
-                }
-                resolve({ fields: flatFields, files: files });
-            });
-        }).catch(reject);
-    });
-}
-
-async function uploadOne(file, prefix) {
-    const fs = await import('node:fs/promises');
-    const blobMod = await import('@vercel/blob');
-    const buffer = await fs.readFile(file.filepath);
-    const blob = await blobMod.put(
-        'admissions/' + prefix + '/' + Date.now() + '-' + file.originalFilename,
-        buffer,
-        { access: 'public', contentType: file.mimetype || undefined }
-    );
-    return blob.url;
-}
-
-async function uploadField(files, key, prefix) {
-    const entry = files[key];
-    if (!entry) return null;
-    const list = Array.isArray(entry) ? entry : [entry];
-    const urls = await Promise.all(list.map(function (f) { return uploadOne(f, prefix); }));
-    return urls;
+function pickArray(value) {
+    if (!value) return null;
+    if (Array.isArray(value)) return value.filter(Boolean);
+    return [String(value)];
 }
 
 async function sendAdmissionEmail(fields, attachmentSummary) {
@@ -203,9 +165,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const parsed = await parseForm(req);
-        const fields = parsed.fields;
-        const files = parsed.files;
+        const fields = req.body && typeof req.body === 'object' ? req.body : {};
 
         if (!fields.student_name) {
             return res.status(400).json({ error: 'Student name is required' });
@@ -215,18 +175,9 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Email is required' });
         }
 
-        const uploads = await Promise.all([
-            uploadField(files, 'birth_certificate', 'birth-certificates'),
-            uploadField(files, 'passport_photo', 'passport-photos'),
-            uploadField(files, 'report_cards', 'report-cards'),
-        ]);
-
-        const birthCertUrls = uploads[0];
-        const passportUrls = uploads[1];
-        const reportCardUrls = uploads[2];
-
-        const birthCertUrl = (birthCertUrls && birthCertUrls[0]) || null;
-        const passportUrl = (passportUrls && passportUrls[0]) || null;
+        const birthCertUrl = fields.birth_certificate_url || null;
+        const passportUrl = fields.passport_photo_url || null;
+        const reportCardUrls = pickArray(fields.report_card_urls);
 
         await storeAdmission(fields, { birthCertUrl: birthCertUrl, passportUrl: passportUrl, reportCardUrls: reportCardUrls }, req);
 
