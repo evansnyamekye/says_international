@@ -1,109 +1,243 @@
-// import { sql } from '@vercel/postgres';
+import { sql } from '@vercel/postgres';
+import { put } from '@vercel/blob';
+import formidable from 'formidable';
+import { readFile } from 'node:fs/promises';
 
-// export default async function handler(req, res) {
+const RESEND_API_URL = 'https://api.resend.com/emails';
 
-//     res.setHeader('Cache-Control', 'no-store');
+export const config = {
+    api: {
+        bodyParser: false,
+    },
+};
 
-//     if (req.method !== 'POST') {
-//         return res.status(405).json({ error: 'Method not allowed' });
-//     }
+function escapeHtml(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
 
-//     try {
+async function sendAdmissionEmail(fields, attachmentSummary) {
+    const apiKey = String(process.env.RESEND_API_KEY || '').trim();
+    if (!apiKey) return false;
 
-//         const body = req.body;
+    const to = String(process.env.APPLICATION_NOTIFY_TO || 'info@saysinternationalschool.com').trim();
+    const from = String(process.env.APPLICATION_NOTIFY_FROM || 'Says International School <onboarding@resend.dev>').trim();
+    const replyTo = String(process.env.APPLICATION_REPLY_TO || fields.email || '').trim();
 
-//         console.log('Received:', body);
+    const rows = [
+        ['Student', fields.student_name],
+        ['Gender', fields.gender],
+        ['Religion', fields.religion],
+        ['Nationality', fields.nationality],
+        ['Grade applying for', fields.grade],
+        ['Parent / guardian', fields.parent_name],
+        ['Email', fields.email],
+        ['Mobile', fields.mobile_phone],
+        ['Home phone', fields.home_phone],
+        ['Previously applied', fields.previouslyApplied + (fields.previous_year ? ' (' + fields.previous_year + ')' : '')],
+        ['Vision issues', fields.vision],
+        ['Hearing issues', fields.hearing],
+        ['Speech / language issues', fields.speech],
+        ['Development delays', fields.development_delays],
+        ['Allergies', fields.allergies],
+        ['Communicable disease', fields.communicable_disease],
+        ['Emergency-care condition', fields.emergency_care],
+        ['Heart condition', fields.heart_condition],
+        ['Medical notes', fields.medical_notes],
+        ['Preferred hospital', fields.preferred_hospital],
+        ['Insurance', fields.insurance],
+        ['Serious condition details', fields.condition_details],
+        ['Emergency contact', (fields.relative_name || '') + (fields.relative_tel ? ' — ' + fields.relative_tel : '')],
+        ['Documents uploaded', attachmentSummary || 'None'],
+    ];
 
-//         // Basic required validation
-//         if (!body.student_name) {
-//             return res.status(400).json({ error: 'Student name is required' });
-//         }
+    const text = rows.map(([k, v]) => k + ': ' + (v || '—')).join('\n');
+    const html = '<h2>New admission application</h2>' +
+        '<table style="border-collapse:collapse">' +
+        rows.map(([k, v]) =>
+            '<tr><td style="padding:4px 12px 4px 0;vertical-align:top"><strong>' +
+            escapeHtml(k) + '</strong></td><td style="padding:4px 0">' +
+            escapeHtml(v || '—') + '</td></tr>'
+        ).join('') +
+        '</table>';
 
-//         if (!body.email) {
-//             return res.status(400).json({ error: 'Email is required' });
-//         }
+    const response = await fetch(RESEND_API_URL, {
+        method: 'POST',
+        headers: {
+            Authorization: 'Bearer ' + apiKey,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            from,
+            to: [to],
+            reply_to: replyTo || undefined,
+            subject: 'New admission application: ' + (fields.student_name || 'Unknown student'),
+            text,
+            html,
+        }),
+    });
 
-//         // Insert into database
-//         await sql`
-//             INSERT INTO student_admissions (
-//                 student_name,
-//                 gender,
-//                 religion,
-//                 nationality,
-//                 parent_name,
-//                 email,
-//                 mobile_phone,
-//                 home_phone,
-//                 grade,
-//                 previously_applied,
-//                 previous_year,
-//                 vision,
-//                 hearing,
-//                 speech,
-//                 development_delays,
-//                 allergies,
-//                 communicable_disease,
-//                 emergency_care,
-//                 heart_condition,
-//                 medical_notes,
-//                 relative_name,
-//                 relative_tel,
-//                 preferred_hospital,
-//                 insurance,
-//                 condition_details,
-//                 ip_address,
-//                 user_agent
-//             )
-//             VALUES (
-//                 ${body.student_name},
-//                 ${body.gender},
-//                 ${body.religion},
-//                 ${body.nationality},
-//                 ${body.parent_name},
-//                 ${body.email},
-//                 ${body.mobile_phone},
-//                 ${body.home_phone},
-//                 ${body.grade},
-//                 ${body.previously_applied},
-//                 ${body.previous_year},
-//                 ${body.vision},
-//                 ${body.hearing},
-//                 ${body.speech},
-//                 ${body.development_delays},
-//                 ${body.allergies},
-//                 ${body.communicable_disease},
-//                 ${body.emergency_care},
-//                 ${body.heart_condition},
-//                 ${body.medical_notes},
-//                 ${body.relative_name},
-//                 ${body.relative_tel},
-//                 ${body.preferred_hospital},
-//                 ${body.insurance},
-//                 ${body.condition_details},
-//                 ${body.ip_address || null},
-//                 ${body.user_agent || null}
-//             );
-//         `;
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error('Resend request failed with status ' + response.status + ': ' + errorText);
+    }
 
-//         return res.status(201).json({
-//             success: true,
-//             message: 'Application saved successfully'
-//         });
+    return true;
+}
 
-//     } catch (error) {
+function parseForm(req) {
+    return new Promise((resolve, reject) => {
+        const form = formidable({ multiples: true, keepExtensions: true });
+        form.parse(req, (err, fields, files) => {
+            if (err) return reject(err);
+            const flatFields = {};
+            for (const [key, value] of Object.entries(fields)) {
+                flatFields[key] = Array.isArray(value) ? value[0] : value;
+            }
+            resolve({ fields: flatFields, files });
+        });
+    });
+}
 
-//         console.error('DB Error:', error);
+async function uploadOne(file, prefix) {
+    const buffer = await readFile(file.filepath);
+    const blob = await put(
+        `admissions/${prefix}/${Date.now()}-${file.originalFilename}`,
+        buffer,
+        { access: 'private', contentType: file.mimetype || undefined }
+    );
+    return blob.url;
+}
 
-//         return res.status(500).json({
-//             error: 'Failed to save application'
-//         });
-//     }
-// }
+async function uploadField(files, key, prefix) {
+    const entry = files[key];
+    if (!entry) return null;
+    const list = Array.isArray(entry) ? entry : [entry];
+    const urls = await Promise.all(list.map(f => uploadOne(f, prefix)));
+    return urls;
+}
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'no-store');
 
-    return res.status(200).json({
-        success: true,
-        message: 'Backend working'
-    });
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+
+    try {
+        const { fields, files } = await parseForm(req);
+
+        if (!fields.student_name) {
+            return res.status(400).json({ error: 'Student name is required' });
+        }
+
+        if (!fields.email) {
+            return res.status(400).json({ error: 'Email is required' });
+        }
+
+        const [birthCertUrls, passportUrls, reportCardUrls] = await Promise.all([
+            uploadField(files, 'birth_certificate', 'birth-certificates'),
+            uploadField(files, 'passport_photo', 'passport-photos'),
+            uploadField(files, 'report_cards', 'report-cards'),
+        ]);
+
+        const birthCertUrl = birthCertUrls?.[0] || null;
+        const passportUrl = passportUrls?.[0] || null;
+
+        await sql`
+            INSERT INTO student_admissions (
+                student_name,
+                gender,
+                religion,
+                nationality,
+                parent_name,
+                email,
+                mobile_phone,
+                home_phone,
+                grade,
+                previously_applied,
+                previous_year,
+                vision,
+                hearing,
+                speech,
+                development_delays,
+                allergies,
+                communicable_disease,
+                emergency_care,
+                heart_condition,
+                medical_notes,
+                relative_name,
+                relative_tel,
+                preferred_hospital,
+                insurance,
+                condition_details,
+                birth_certificate_url,
+                passport_photo_url,
+                report_card_urls,
+                ip_address,
+                user_agent
+            )
+            VALUES (
+                ${fields.student_name},
+                ${fields.gender},
+                ${fields.religion},
+                ${fields.nationality},
+                ${fields.parent_name},
+                ${fields.email},
+                ${fields.mobile_phone},
+                ${fields.home_phone},
+                ${fields.grade},
+                ${fields.previouslyApplied},
+                ${fields.previous_year},
+                ${fields.vision},
+                ${fields.hearing},
+                ${fields.speech},
+                ${fields.development_delays},
+                ${fields.allergies},
+                ${fields.communicable_disease},
+                ${fields.emergency_care},
+                ${fields.heart_condition},
+                ${fields.medical_notes},
+                ${fields.relative_name},
+                ${fields.relative_tel},
+                ${fields.preferred_hospital},
+                ${fields.insurance},
+                ${fields.condition_details},
+                ${birthCertUrl},
+                ${passportUrl},
+                ${reportCardUrls},
+                ${req.headers['x-forwarded-for'] || null},
+                ${req.headers['user-agent'] || null}
+            );
+        `;
+
+        const attachmentSummary = [
+            birthCertUrl && 'birth certificate',
+            passportUrl && 'passport photo',
+            reportCardUrls?.length && (reportCardUrls.length + ' report card' + (reportCardUrls.length > 1 ? 's' : '')),
+        ].filter(Boolean).join(', ');
+
+        let emailed = false;
+        try {
+            emailed = await sendAdmissionEmail(fields, attachmentSummary);
+        } catch (emailError) {
+            console.error('admission-submit: email delivery failed:', emailError.message);
+        }
+
+        return res.status(201).json({
+            success: true,
+            emailed,
+            message: 'Application saved successfully'
+        });
+
+    } catch (error) {
+        console.error('Submission error:', error);
+        return res.status(500).json({
+            error: 'Failed to save application'
+        });
+    }
 }

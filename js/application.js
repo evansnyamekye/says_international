@@ -239,17 +239,9 @@ async function submitForm() {
     submitButton.disabled = true;
     submitButton.textContent = 'Submitting...';
 
-    // Convert form to JSON
-    const formData = Object.fromEntries(
-      new FormData(admissionForm)
-    );
-
     const response = await fetch('/api/admission-submit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
+      body: new FormData(admissionForm)
     });
 
     const result = await response.json();
