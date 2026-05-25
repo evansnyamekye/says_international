@@ -249,10 +249,12 @@ export default async function handler(req, res) {
             message: 'Application saved successfully',
         });
     } catch (error) {
-        console.error('admission-submit: runtime error', {
-            message: error && error.message ? error.message : 'unknown',
-            code: error && error.code ? error.code : 'n/a',
+        const message = error && error.message ? error.message : 'unknown';
+        const code = error && error.code ? error.code : 'n/a';
+        console.error('admission-submit: runtime error', { message: message, code: code });
+        return res.status(500).json({
+            error: 'Failed to save application',
+            debug: { message: message, code: code },
         });
-        return res.status(500).json({ error: 'Failed to save application' });
     }
 }

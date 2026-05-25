@@ -247,7 +247,8 @@ async function submitForm() {
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(result.error || 'Submission failed');
+      const detail = result && result.debug && result.debug.message ? ' — ' + result.debug.message : '';
+      throw new Error((result.error || 'Submission failed') + detail);
     }
 
 
