@@ -13,7 +13,7 @@
   "type": "commonjs",
   "devDependencies": {
     "prettier": "^3.7.4",
-    "vercel": "^50.44.0"
+    "vercel": "^54.5.0"
   },
   "repository": {
     "type": "git",
