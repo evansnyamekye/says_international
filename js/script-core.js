@@ -3,6 +3,11 @@
 
 var $ = jQuery.noConflict();
 
+function isHomePage() {
+	var path = window.location.pathname || '';
+	return path === '/' || /\/index\.html?$/i.test(path);
+}
+
 $(document).on('ready',function($) {
 	"use strict";
 
@@ -46,6 +51,13 @@ $(document).on('ready',function($) {
 
 
 	$(window).load(function() { // makes sure the whole site is loaded
+		if (!isHomePage()) {
+			$('#status').hide();
+			$('#preloader').hide();
+			$('body').css({'overflow':'visible'});
+			return;
+		}
+
 		$('#status').fadeOut(); // will first fade out the loading animation
 		$('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
 		$('body').delay(350).css({'overflow':'visible'});
