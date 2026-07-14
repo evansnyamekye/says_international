@@ -416,9 +416,8 @@
             "home_url": "index.html"
         };
     </script>
-    <script type='text/javascript' src='js/plugins.min.js'></script>
-
-    <!-- Campus Tour Admin Script -->
+    <script type='text/javascript' src='js/reveal-on-scroll.js'></script>
+<!-- Campus Tour Admin Script -->
     <script>
     (function() {
         const ADMIN_PASSWORD = 'saysadmin2024'; // Same password as homework admin
@@ -457,6 +456,12 @@
 
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
                 modal.style.display = 'none';
             }
         });
@@ -578,8 +583,8 @@
                         <td><span class="status-badge ${statusClass}">${status.charAt(0).toUpperCase() + status.slice(1)}</span></td>
                         <td>${formattedSubmitted}</td>
                         <td>
-                            <button class="action-btn btn-view" onclick="viewBooking(${booking.id})">View</button>
-                            <button class="action-btn btn-delete" onclick="deleteBooking(${booking.id})">Delete</button>
+                            <button type="button" class="action-btn btn-view" onclick="viewBooking(${booking.id})">View</button>
+                            <button type="button" class="action-btn btn-delete" onclick="deleteBooking(${booking.id})">Delete</button>
                         </td>
                     </tr>
                 `;
@@ -604,7 +609,7 @@
 
         function formatDateTime(dateStr) {
             const date = new Date(dateStr);
-            return date.toLocaleDateString('en-US', {
+            return date.toLocaleString('en-US', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric',

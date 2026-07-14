@@ -814,6 +814,54 @@ body.says-boxed .says-fixed-footer .says-copyright-wrapper {
   transform: translate3d(0, 0, 0);
 }
 
+.sis-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sis-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal-left.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sis-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal-right.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sis-reveal-pop {
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.22, 1.4, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal-pop.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .says-home-impact-section {
   position: relative;
   overflow: hidden;
@@ -6304,7 +6352,7 @@ html .woocommerce span.onsale {
   border-radius: 32px;
   background:
     linear-gradient(180deg, rgba(16, 39, 88, 0.16), rgba(16, 39, 88, 0.72)),
-    url('../upload/life-title-bg.jpg') center/cover no-repeat;
+    url('../images/mega_img/lifestyle.jpg') center/cover no-repeat;
   box-shadow: 0 20px 54px rgba(16, 39, 88, 0.16);
 }
 
@@ -6412,7 +6460,7 @@ html .woocommerce span.onsale {
 .sis-campus-quote-visual {
   min-height: 420px;
   border-radius: 28px;
-  background: url('../images/mega_img/IMG_20250623_110459.jpg') center/cover no-repeat;
+  background: url('../images/mega_img/head_332.jpg') center/cover no-repeat;
   box-shadow: 0 20px 54px rgba(16, 39, 88, 0.16);
 }
 
@@ -9263,7 +9311,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-  color: #344c78;
+  color: #fff;
 }
 
 #div_983a_14 {
@@ -9285,7 +9333,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-  color: #344c78;
+  color: #fff;
 }
 
 #div_983a_17 {
@@ -9307,7 +9355,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-  color: #344c78;
+  color: #fff;
 }
 
 #div_983a_20 {
@@ -9353,7 +9401,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 }
 
 #div_983a_28 {
-  background-image: linear-gradient(rgba(12, 34, 62, 0.14), rgba(12, 34, 62, 0.14)), url(../images/mega_img/IMG_20250623_105827.jpg);
+  background-image: linear-gradient(rgba(12, 34, 62, 0.14), rgba(12, 34, 62, 0.14)), url(../images/mega_img/about_242.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -9367,7 +9415,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 }
 
 #div_983a_31 {
-  background-image: linear-gradient(rgba(12, 34, 62, 0.12), rgba(12, 34, 62, 0.12)), url(../images/mega_img/IMG_20250623_110354.jpg);
+  background-image: linear-gradient(rgba(12, 34, 62, 0.12), rgba(12, 34, 62, 0.12)), url(../images/mega_img/about_278.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -9437,7 +9485,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 }
 
 #div_983a_44 {
-  background-image: linear-gradient(rgba(12, 34, 62, 0.12), rgba(12, 34, 62, 0.12)), url(../images/mega_img/IMG_20250623_104417.jpg);
+  background-image: linear-gradient(rgba(12, 34, 62, 0.12), rgba(12, 34, 62, 0.12)), url(../images/mega_img/about_264.jpg);
   background-size: cover;
   background-position: center;
 }
