@@ -13,7 +13,7 @@
   "type": "commonjs",
   "devDependencies": {
     "prettier": "^3.7.4",
-    "vercel": "^50.44.0"
+    "vercel": "^54.5.0"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/evansnyamekye/says_international#readme",
   "description": "",
   "dependencies": {
+    "@vercel/blob": "^2.3.0",
     "@vercel/postgres": "^0.10.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",

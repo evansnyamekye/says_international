@@ -198,7 +198,7 @@
           </div> -->
 
           <div class="mt-4 text-end">
-            <button type="submit" class="btn btn-success" onclick="nextStep()">
+            <button type="button" class="btn btn-success" onclick="nextStep()">
               Next →
             </button>
           </div>
@@ -229,10 +229,10 @@
         </div>
 
         <div class="mt-4 d-flex justify-content-between">
-          <button type="submit" class="btn btn-secondary" onclick="prevStep()">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">
             ← Previous
           </button>
-          <button type="submit" class="btn btn-success" onclick="nextStep()">
+          <button type="button" class="btn btn-success" onclick="nextStep()">
             Next →
           </button>
         </div>
@@ -272,7 +272,7 @@
 
           <div class="col-md-6">
             <label class="form-label">Development Delays</label>
-            <select class="form-select" name="allergies">
+            <select class="form-select" name="development_delays">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -280,7 +280,7 @@
 
           <div class="col-md-6">
             <label class="form-label">Allergies (pollen, penicillin, etc.)</label>
-            <select class="form-select" name="communicable_disease">
+            <select class="form-select" name="allergies">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -288,15 +288,15 @@
 
           <div class="col-md-6">
             <label class="form-label">Carrier of communicable disease?</label>
-            <select class="form-select" name="emergency_care">
+            <select class="form-select" name="communicable_disease">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
           </div>
-          
+
           <div class="col-md-6">
             <label class="form-label">Health condition requiring emergency care?</label>
-            <select class="form-select" name="heart_condition">
+            <select class="form-select" name="emergency_care">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -304,7 +304,7 @@
 
           <div class="col-md-6">
             <label class="form-label">Heart condition limiting exercise?</label>
-            <select class="form-select" name="delays">
+            <select class="form-select" name="heart_condition">
               <option value="No">No</option>
               <option value="Yes">Yes</option>
             </select>
@@ -354,7 +354,7 @@
         </div>
 
         <div class="mt-4 d-flex justify-content-between">
-          <button type="submit" class="btn btn-secondary" onclick="prevStep()">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">
             ← Previous
           </button>
           <button type="submit" class="btn btn-success" id="submitApplicationButton">
@@ -365,10 +365,7 @@
        </div>
       </form>
       <!-- End of form -->
-      <!-- <p id="submitMessage" class="mt-3 text-center"></p> -->
-        <div id="successMessage" class="alert alert-success mt-3" style="display:none;">
-           Application submitted successfully.
-        </div>
+      <p id="submitMessage" class="mt-3 text-center"></p>
       
     </div>
   </div>
@@ -376,6 +373,10 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module">
+  import { upload } from 'https://esm.sh/@vercel/blob@2.3.0/client';
+  window.vercelBlobUpload = upload;
+</script>
 <script src="js/application.js"></script>
 
 </body>

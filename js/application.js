@@ -237,25 +237,68 @@ async function submitForm() {
   try {
 
     submitButton.disabled = true;
+    submitButton.textContent = 'Uploading files...';
+
+    if (!window.vercelBlobUpload) {
+      throw new Error('Upload library not loaded. Please refresh the page and try again.');
+    }
+
+    const fileInputs = {
+      birth_certificate: admissionForm.querySelector('input[name="birth_certificate"]'),
+      passport_photo: admissionForm.querySelector('input[name="passport_photo"]'),
+      report_cards: admissionForm.querySelector('input[name="report_cards"]'),
+    };
+
+    async function uploadOne(file, prefix) {
+      const pathname = 'admissions/' + prefix + '/' + Date.now() + '-' + file.name;
+      const blob = await window.vercelBlobUpload(pathname, file, {
+        access: 'private',
+        contentType: file.type || 'application/octet-stream',
+        handleUploadUrl: '/api/admission-upload-token',
+      });
+      return blob.url;
+    }
+
+    let birthCertUrl = null;
+    if (fileInputs.birth_certificate && fileInputs.birth_certificate.files.length > 0) {
+      birthCertUrl = await uploadOne(fileInputs.birth_certificate.files[0], 'birth-certificates');
+    }
+
+    let passportUrl = null;
+    if (fileInputs.passport_photo && fileInputs.passport_photo.files.length > 0) {
+      passportUrl = await uploadOne(fileInputs.passport_photo.files[0], 'passport-photos');
+    }
+
+    const reportCardUrls = [];
+    if (fileInputs.report_cards && fileInputs.report_cards.files.length > 0) {
+      for (const file of fileInputs.report_cards.files) {
+        reportCardUrls.push(await uploadOne(file, 'report-cards'));
+      }
+    }
+
     submitButton.textContent = 'Submitting...';
 
-    // Convert form to JSON
-    const formData = Object.fromEntries(
-      new FormData(admissionForm)
-    );
+    const formData = new FormData(admissionForm);
+    const payload = {};
+    for (const [key, value] of formData.entries()) {
+      if (value instanceof File) continue;
+      payload[key] = value;
+    }
+    payload.birth_certificate_url = birthCertUrl;
+    payload.passport_photo_url = passportUrl;
+    payload.report_card_urls = reportCardUrls;
 
     const response = await fetch('/api/admission-submit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
 
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(result.error || 'Submission failed');
+      const detail = result && result.debug && result.debug.message ? ' — ' + result.debug.message : '';
+      throw new Error((result.error || 'Submission failed') + detail);
     }
 
 
