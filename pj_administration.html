@@ -651,7 +651,8 @@
 })();
 
 (function () {
-  var targets = document.querySelectorAll('#says-page-wrapper section, #says-page-wrapper .sis-admission-service-card, #says-page-wrapper .sis-admission-process-card, #says-page-wrapper .sis-admission-panel');
+  var targets = document.querySelectorAll
+  ('#says-page-wrapper section, #says-page-wrapper .sis-admission-service-card, #says-page-wrapper .sis-admission-process-card, #says-page-wrapper .sis-admission-panel');
   if (!targets.length) { return; }
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   targets.forEach(function (el) { el.classList.add('pj-scroll-reveal'); });
