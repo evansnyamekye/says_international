@@ -39,6 +39,10 @@
         '  opacity: 1 !important;',
         '  transform: none !important;',
         '  -webkit-transform: none !important;',
+        '}',
+        'body.sis-animations-disabled [class*="-scroll-reveal"] {',
+        '  transition: opacity 0.7s ease-out, transform 0.7s ease-out !important;',
+        '  -webkit-transition: opacity 0.7s ease-out, transform 0.7s ease-out !important;',
         '}'
       ].join('\n');
       document.head.appendChild(style);
