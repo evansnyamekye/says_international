@@ -77,8 +77,25 @@
             transform: translateY(-1px);
         }
 
+        .sis-admin-topbar-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #logout-btn {
+            font-family: Poppins, Arial, sans-serif;
+            background: #fdeaea;
+            color: #a01f2c;
+        }
+
         @media (max-width: 640px) {
-            .sis-admin-topbar > a {
+            .sis-admin-topbar-actions {
+                width: 100%;
+            }
+
+            .sis-admin-topbar-actions > a,
+            .sis-admin-topbar-actions > button {
                 width: 100%;
             }
         }
@@ -263,6 +280,7 @@
             margin-right: 10px;
             border: 1px solid #ced4da;
             border-radius: 4px;
+            vertical-align: middle;
         }
         .unlock-btn {
             background: white;
@@ -272,6 +290,9 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: 500;
+            vertical-align: middle;
+            margin-top: 16px;
+            display: inline-block;
         }
         .unlock-btn:hover {
             background: #f8f9fa;
@@ -411,7 +432,10 @@
                     <p class="sis-admin-helper">Manage campus tour bookings and appointments.</p>
                 </div>
             </div>
-            <a href="campus-tour.html" class="sis-admin-button-secondary">Open public campus tour page</a>
+            <div class="sis-admin-topbar-actions">
+                <a href="campus-tour.html" class="sis-admin-button-secondary">Open public campus tour page</a>
+                <button type="button" id="logout-btn" class="sis-admin-button-secondary" style="display: none;">Log out</button>
+            </div>
         </div>
 
         <div id="lock-panel" class="lock-panel">
@@ -499,11 +523,14 @@
         const adminContent = document.getElementById('admin-content');
         const passwordInput = document.getElementById('admin-password');
         const unlockBtn = document.getElementById('unlock-btn');
+        const logoutBtn = document.getElementById('logout-btn');
 
         unlockBtn.addEventListener('click', function() {
             if (passwordInput.value === ADMIN_PASSWORD) {
                 lockPanel.style.display = 'none';
                 adminContent.style.display = 'block';
+                logoutBtn.style.display = 'inline-flex';
+                passwordInput.value = '';
                 loadBookings();
             } else {
                 alert('Incorrect password. Access denied.');
@@ -515,6 +542,15 @@
             if (e.key === 'Enter') {
                 unlockBtn.click();
             }
+        });
+
+        logoutBtn.addEventListener('click', function() {
+            adminContent.style.display = 'none';
+            logoutBtn.style.display = 'none';
+            lockPanel.style.display = 'block';
+            allBookings = [];
+            passwordInput.value = '';
+            passwordInput.focus();
         });
 
         // Modal handling
