@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Campus Tour Admin - Says International School</title>
+    <link rel="stylesheet" href="css/style-core.css">
+    <link rel="stylesheet" href="css/says-style-custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic">
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .stat-label {
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .bookings-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .bookings-table th,
+        .bookings-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .bookings-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        .bookings-table tr:hover {
+            background: #f8f9fa;
+        }
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.875em;
+            font-weight: 500;
+        }
+        .status-upcoming {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-past {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .status-today {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875em;
+            margin-right: 5px;
+        }
+        .btn-view {
+            background: #007bff;
+            color: white;
+        }
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #6c757d;
+        }
+        .detail-row {
+            margin-bottom: 10px;
+        }
+        .detail-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .detail-value {
+            color: #6c757d;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .search-filter {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .search-input {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            flex: 1;
+        }
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        .lock-panel {
+            background: #dc3545;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .lock-panel h3 {
+            margin: 0 0 10px 0;
+        }
+        .password-input {
+            padding: 8px 12px;
+            margin-right: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        .unlock-btn {
+            background: white;
+            color: #dc3545;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .unlock-btn:hover {
+            background: #f8f9fa;
+        }
+
+        @media (max-width: 960px) {
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .search-filter {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-filter .filter-select,
+            .search-filter .search-input {
+                width: 100%;
+            }
+
+            .bookings-table {
+                display: block;
+                overflow-x: auto;
+                width: 100%;
+            }
+
+            .bookings-table th,
+            .bookings-table td {
+                white-space: nowrap;
+            }
+
+            .admin-container {
+                padding: 15px;
+            }
+
+            .lock-panel {
+                padding: 18px;
+            }
+
+            .modal-content {
+                width: calc(100% - 30px);
+                margin: 10% auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stat-card {
+                padding: 16px;
+            }
+
+            .action-btn {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+
+            .detail-row {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+    <style>
+        .campus-tour-admin-scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .campus-tour-admin-scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+
+</head>
+<body>
+    <div class="says-body-outer-wrapper">
+        <div class="says-body-wrapper">
+            <header class="says-header-wrap">
+                <div class="says-header-container says-container">
+                    <div class="says-header-content says-item-pdlr">
+                        <div class="says-logo says-item-pdb">
+                            <div class="says-logo-inner">
+                                <a href="index.html">
+                                    <img src="images/logo.png" alt="Says International School" width="150" height="50">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="says-navigation says-item-pdlr says-navigation-top says-style-center">
+                            <div class="says-main-menu" id="says-main-menu">
+                                <ul id="menu-main-navigation" class="sf-menu">
+                                    <li class="menu-item"><a href="index.html">Home</a></li>
+                                    <li class="menu-item"><a href="about-us.html">About</a></li>
+                                    <li class="menu-item"><a href="academics.html">Academics</a></li>
+                                    <li class="menu-item"><a href="apply-to-says.html">Admissions</a></li>
+                                    <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
+                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="says-page-wrapper" id="says-page-wrapper">
+                <div class="gdlr-core-page-builder-body">
+                    <div class="gdlr-core-pbf-wrapper">
+                        <div class="gdlr-core-pbf-background-wrap">
+                            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js"></div>
+                        </div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-title-item gdlr-core-item-pdb gdlr-core-center-align">
+                                        <div class="gdlr-core-title-item-title-wrap">
+                                            <h3 class="gdlr-core-title-item-title">Campus Tour Administration</h3>
+                                            <div class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">
+                                                Manage campus tour bookings and appointments
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="lock-panel" class="lock-panel">
+                                    <h3>🔒 Access Restricted</h3>
+                                    <p>Enter the administrator password to access campus tour bookings.</p>
+                                    <input type="password" id="admin-password" class="password-input" placeholder="Enter password">
+                                    <button id="unlock-btn" class="unlock-btn">Unlock</button>
+                                </div>
+
+                                <div id="admin-content" style="display: none;">
+                                    <div class="admin-container">
+                                        <div class="admin-header">
+                                            <h2>Campus Tour Bookings Management</h2>
+                                        </div>
+
+                                        <div id="stats-container" class="admin-stats">
+                                            <!-- Stats will be populated by JavaScript -->
+                                        </div>
+
+                                        <div class="search-filter">
+                                            <input type="text" id="search-input" class="search-input" placeholder="Search by name, email, or phone...">
+                                            <select id="status-filter" class="filter-select">
+                                                <option value="">All Status</option>
+                                                <option value="upcoming">Upcoming</option>
+                                                <option value="today">Today</option>
+                                                <option value="past">Past</option>
+                                            </select>
+                                            <select id="time-filter" class="filter-select">
+                                                <option value="">All Times</option>
+                                                <option value="11 a.m.">11 AM</option>
+                                                <option value="3 p.m.">3 PM</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="error-message" class="error" style="display: none;"></div>
+
+                                        <div id="loading" class="loading">
+                                            <p>Loading campus tour bookings...</p>
+                                        </div>
+
+                                        <table id="bookings-table" class="bookings-table" style="display: none;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Phone</th>
+                                                    <th>Date</th>
+                                                    <th>Time</th>
+                                                    <th>Status</th>
+                                                    <th>Submitted</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="bookings-tbody">
+                                                <!-- Bookings will be populated by JavaScript -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for viewing booking details -->
+            <div id="booking-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Booking Details</h3>
+                        <button class="modal-close" id="modal-close">&times;</button>
+                    </div>
+                    <div id="booking-details">
+                        <!-- Details will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <footer class="says-footer-wrap">
+                <div class="says-footer-container says-container">
+                    <div class="says-footer-content says-item-pdlr">
+                        <div class="says-copyright-wrapper">
+                            <div class="says-copyright-container says-container clearfix">
+                                <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2025 - All Rights Reserved - Says International School.</div>
+                                <div class="says-copyright-right says-item-pdlr">
+                                    <a class="says-footer-credit" href="https://evans-portfolio-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" title="Visit the Nested Solutions portfolio">Powered by <strong><span class="says-footer-credit-nested">Nested</span> <span class="says-footer-credit-solutions">Solutions</span></strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='js/jquery/jquery.js'></script>
+    <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='plugins/goodlayers-core/plugins/combine/script.js'></script>
+    <script type='text/javascript'>
+        var gdlr_core_pbf = {
+            "admin": "",
+            "video": {
+                "width": "640",
+                "height": "360"
+            },
+            "ajax_url": "#"
+        };
+    </script>
+    <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
+    <script type='text/javascript' src='js/jquery/ui/effect.min.js'></script>
+    <script type='text/javascript'>
+        var says_script_core = {
+            "home_url": "index.html"
+        };
+    </script>
+    <script type='text/javascript' src='js/reveal-on-scroll.js'></script>
+<!-- Campus Tour Admin Script -->
+    <script>
+    (function() {
+        const ADMIN_PASSWORD = 'saysadmin2024'; // Same password as homework admin
+        let allBookings = [];
+
+        // Authentication
+        const lockPanel = document.getElementById('lock-panel');
+        const adminContent = document.getElementById('admin-content');
+        const passwordInput = document.getElementById('admin-password');
+        const unlockBtn = document.getElementById('unlock-btn');
+
+        unlockBtn.addEventListener('click', function() {
+            if (passwordInput.value === ADMIN_PASSWORD) {
+                lockPanel.style.display = 'none';
+                adminContent.style.display = 'block';
+                loadBookings();
+            } else {
+                alert('Incorrect password. Access denied.');
+                passwordInput.value = '';
+            }
+        });
+
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                unlockBtn.click();
+            }
+        });
+
+        // Modal handling
+        const modal = document.getElementById('booking-modal');
+        const modalClose = document.getElementById('modal-close');
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Search and filter
+        const searchInput = document.getElementById('search-input');
+        const statusFilter = document.getElementById('status-filter');
+        const timeFilter = document.getElementById('time-filter');
+
+        searchInput.addEventListener('input', filterBookings);
+        statusFilter.addEventListener('change', filterBookings);
+        timeFilter.addEventListener('change', filterBookings);
+
+        function filterBookings() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const statusValue = statusFilter.value;
+            const timeValue = timeFilter.value;
+
+            const filtered = allBookings.filter(booking => {
+                const matchesSearch = !searchTerm ||
+                    booking.full_name.toLowerCase().includes(searchTerm) ||
+                    booking.email.toLowerCase().includes(searchTerm) ||
+                    booking.phone.includes(searchTerm);
+
+                const matchesStatus = !statusValue || getBookingStatus(booking.tour_date) === statusValue;
+                const matchesTime = !timeValue || booking.tour_time === timeValue;
+
+                return matchesSearch && matchesStatus && matchesTime;
+            });
+
+            renderBookings(filtered);
+        }
+
+        async function loadBookings() {
+            const loading = document.getElementById('loading');
+            const errorMsg = document.getElementById('error-message');
+            const table = document.getElementById('bookings-table');
+
+            loading.style.display = 'block';
+            errorMsg.style.display = 'none';
+            table.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/campus-tour-admin', {
+                    headers: {
+                        'Authorization': 'Bearer ' + ADMIN_PASSWORD
+                    }
+                });
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to load bookings');
+                }
+
+                allBookings = data.bookings || [];
+                renderStats(allBookings);
+                renderBookings(allBookings);
+
+                loading.style.display = 'none';
+                table.style.display = 'table';
+            } catch (error) {
+                console.error('Error loading bookings:', error);
+                loading.style.display = 'none';
+                errorMsg.textContent = error.message;
+                errorMsg.style.display = 'block';
+            }
+        }
+
+        function renderStats(bookings) {
+            const statsContainer = document.getElementById('stats-container');
+            const today = new Date().toISOString().split('T')[0];
+
+            const total = bookings.length;
+            const upcoming = bookings.filter(b => b.tour_date > today).length;
+            const todayBookings = bookings.filter(b => b.tour_date === today).length;
+            const past = bookings.filter(b => b.tour_date < today).length;
+
+            statsContainer.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${total}</div>
+                    <div class="stat-label">Total Bookings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${upcoming}</div>
+                    <div class="stat-label">Upcoming Tours</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${todayBookings}</div>
+                    <div class="stat-label">Today's Tours</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${past}</div>
+                    <div class="stat-label">Past Tours</div>
+                </div>
+            `;
+        }
+
+        function renderBookings(bookings) {
+            const tbody = document.getElementById('bookings-tbody');
+
+            if (bookings.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px; color: #6c757d;">No bookings found</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = bookings.map(booking => {
+                const status = getBookingStatus(booking.tour_date);
+                const statusClass = `status-${status}`;
+                const formattedDate = formatDate(booking.tour_date);
+                const formattedSubmitted = formatDateTime(booking.submitted_at);
+
+                return `
+                    <tr>
+                        <td>${escapeHtml(booking.full_name)}</td>
+                        <td>${escapeHtml(booking.email)}</td>
+                        <td>${escapeHtml(booking.phone)}</td>
+                        <td>${formattedDate}</td>
+                        <td>${escapeHtml(booking.tour_time)}</td>
+                        <td><span class="status-badge ${statusClass}">${status.charAt(0).toUpperCase() + status.slice(1)}</span></td>
+                        <td>${formattedSubmitted}</td>
+                        <td>
+                            <button type="button" class="action-btn btn-view" onclick="viewBooking(${booking.id})">View</button>
+                            <button type="button" class="action-btn btn-delete" onclick="deleteBooking(${booking.id})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function getBookingStatus(tourDate) {
+            const today = new Date().toISOString().split('T')[0];
+            if (tourDate > today) return 'upcoming';
+            if (tourDate === today) return 'today';
+            return 'past';
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        function formatDateTime(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        window.viewBooking = function(id) {
+            const booking = allBookings.find(b => b.id === id);
+            if (!booking) return;
+
+            const details = document.getElementById('booking-details');
+            details.innerHTML = `
+                <div class="detail-row">
+                    <span class="detail-label">Full Name:</span>
+                    <span class="detail-value">${escapeHtml(booking.full_name)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">${escapeHtml(booking.email)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Phone:</span>
+                    <span class="detail-value">${escapeHtml(booking.phone)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Tour Date:</span>
+                    <span class="detail-value">${formatDate(booking.tour_date)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Tour Time:</span>
+                    <span class="detail-value">${escapeHtml(booking.tour_time)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Special Request:</span>
+                    <span class="detail-value">${escapeHtml(booking.special_request || 'None')}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Submitted:</span>
+                    <span class="detail-value">${formatDateTime(booking.submitted_at)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">IP Address:</span>
+                    <span class="detail-value">${escapeHtml(booking.ip_address || 'N/A')}</span>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        };
+
+        window.deleteBooking = async function(id) {
+            if (!confirm('Are you sure you want to delete this booking? This action cannot be undone.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/campus-tour-admin?id=${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'Bearer ' + ADMIN_PASSWORD
+                    }
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to delete booking');
+                }
+
+                // Remove from local array and re-render
+                allBookings = allBookings.filter(b => b.id !== id);
+                renderStats(allBookings);
+                filterBookings();
+
+                alert('Booking deleted successfully');
+            } catch (error) {
+                console.error('Error deleting booking:', error);
+                alert('Error deleting booking: ' + error.message);
+            }
+        };
+    })();
+    </script>
+
+    <!-- scroll-to-top button -->
+    <script>
+    (function () {
+      if (document.querySelector('.scroll-to-top-btn')) { return; }
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'scroll-to-top-btn';
+      button.title = 'Scroll to top';
+      button.setAttribute('aria-label', 'Scroll to top');
+      button.textContent = '↑';
+      document.body.appendChild(button);
+      var threshold = 300;
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > threshold) {
+          button.classList.add('visible');
+        } else {
+          button.classList.remove('visible');
+        }
+      });
+      button.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+<script>
+(function () {
+  var targets = document.querySelectorAll('#says-page-wrapper section, #says-page-wrapper .gdlr-core-pbf-wrapper-content.gdlr-core-js');
+  if (!targets.length) { return; }
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  targets.forEach(function (el) { el.classList.add('campus-tour-admin-scroll-reveal'); });
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+  targets.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>

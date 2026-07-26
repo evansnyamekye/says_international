@@ -15,10 +15,9 @@ function getConnectionString() {
 
 async function getPool() {
     if (!poolPromise) {
-        poolPromise = import('pg').then(function ({ Pool }) {
-            return new Pool({
-                connectionString: getConnectionString(),
-                ssl: getConnectionString().indexOf('sslmode=') === -1 ? { rejectUnauthorized: false } : undefined
+        poolPromise = import('@vercel/postgres').then(function ({ createPool }) {
+            return createPool({
+                connectionString: getConnectionString()
             });
         });
     }
@@ -33,6 +32,18 @@ function normalizeEmail(value) {
 function normalizeSource(value) {
     const source = String(value || 'website').trim();
     return source.slice(0, 120);
+}
+
+function parseBody(body) {
+    if (typeof body === 'string') {
+        try {
+            return JSON.parse(body || '{}');
+        } catch (error) {
+            return {};
+        }
+    }
+
+    return body || {};
 }
 
 export default async function handler(request, response) {
@@ -51,8 +62,7 @@ export default async function handler(request, response) {
             });
         }
 
-        const pool = await getPool();
-        const body = typeof request.body === 'string' ? JSON.parse(request.body || '{}') : (request.body || {});
+        const body = parseBody(request.body);
         const email = normalizeEmail(body.email);
         const source = normalizeSource(body.source);
 
@@ -60,7 +70,9 @@ export default async function handler(request, response) {
             return response.status(400).json({ error: 'Please provide a valid email address.' });
         }
 
-        await pool.query(`
+        const db = await getPool();
+
+        await db.query(`
             CREATE TABLE IF NOT EXISTS newsletter_subscribers (
                 id SERIAL PRIMARY KEY,
                 email TEXT UNIQUE NOT NULL,
@@ -69,7 +81,7 @@ export default async function handler(request, response) {
             );
         `);
 
-        const existing = await pool.query(`
+        const existing = await db.query(`
             SELECT id
             FROM newsletter_subscribers
             WHERE email = $1
@@ -77,7 +89,7 @@ export default async function handler(request, response) {
         `, [email]);
 
         if (existing.rowCount > 0) {
-            await pool.query(`
+            await db.query(`
                 UPDATE newsletter_subscribers
                 SET source_page = $1, subscribed_at = NOW()
                 WHERE email = $2;
@@ -90,7 +102,7 @@ export default async function handler(request, response) {
             });
         }
 
-        await pool.query(`
+        await db.query(`
             INSERT INTO newsletter_subscribers (email, source_page)
             VALUES ($1, $2);
         `, [email, source]);

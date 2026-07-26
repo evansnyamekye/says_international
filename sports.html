@@ -16,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 
+    <style>
+        .sports-scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .sports-scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+
 </head>
 
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js says-body says-body-front says-full  says-with-sticky-navigation  says-blockquote-style-1 gdlr-core-link-to-lightbox">
@@ -45,50 +50,34 @@
                     <div class="says-mobile-menu"><a class="says-mm-menu-button says-mobile-menu-button says-mobile-button-hamburger" href="#says-mobile-menu"><span></span></a>
                         <div class="says-mm-menu-wrap says-navigation-font" id="says-mobile-menu" data-slide="right">
                             <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Home</a>
+                                        <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Homepage</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome</a></li>
-                                        
+                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome Page</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about-us.html">About Says</a></li>
-                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Team Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="menu-item"><a href="about-us.html">About</a></li>
+                                           <li class="menu-item menu-item-has-children" data-size="60"><a href="sports.html" class="sf-with-ul-pre">Team Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                    <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
+                                                             <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
+                                                          </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Contact</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="contact.html">Map</a></li>
+                                                <li class="menu-item"><a href="contact.html">Contact</a></li>
                                                 <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
                                              </ul>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
+                                     </ul>
+                                 </li>
+                                 <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item menu-item-has-children"><a>Lower Primary</a>
                                             <ul class="sub-menu">
@@ -122,7 +111,6 @@
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
                                         <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
-                                        <li class="menu-item"><a href="scholarships.html">Scholarships</a></li>
                                         <li class="menu-item"><a href="sports.html">Sports</a></li>
                                         <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
                                         <li class="menu-item"><a href="alumni.html">Alumni</a></li>
@@ -131,8 +119,10 @@
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Courses</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course-list-1.html">Course List 1</a></li>
-                                     </ul>
+                                        <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
+                                    </ul>
                                 </li>
                                 <li class="menu-item"><a href="gallery.html">Gallery</a></li>
                                 <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
@@ -180,22 +170,16 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="about-us.html">About SIS</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Team Blog</a>
+                                        <li class="menu-item" data-size="60"><a href="about-us.html">About</a></li>
+                                              <li class="menu-item menu-item-has-children" data-size="60"><a href="index.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Teachers</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                      <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
                                                              <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                          </ul>
+                                                        </ul>
                                                     </li>
-
-                                                    
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
@@ -207,7 +191,7 @@
                                         
                                        </ul>
                                     </li>
-                                    <li class="menu-item menu-item-has-children says-mega-menu"><a href="bachelor-of-science-in-business-administration.html" class="sf-with-ul-pre">Academics</a>
+                                    <li class="menu-item menu-item-has-children says-mega-menu"><a href="academics.html" class="sf-with-ul-pre">Academics</a>
                                         <div class="sf-mega sf-mega-full megaimg">
                                             <ul class="sub-menu">
                                                 <li class="menu-item menu-item-has-children" data-size="15"><a class="sf-with-ul-pre">Lower Primary</a>
@@ -245,18 +229,21 @@
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="apply-to-says.html" class="sf-with-ul-pre">Admissions</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                            <li class="menu-item" data-size="60"><a href="pj_administration.html">Administration</a></li>
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                            <li class="menu-item" data-size="60"><a href="athletics.html">Athletics</a></li>
+                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
                                             <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                            <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="course-list-1.html">Course List 1</a></li>
-                                            <li class="menu-item" data-size="60"><a href="course-list-2.html">Course List 2</a></li>
-                                        </ul>
+                                    <ul class="sub-menu">
+                                         <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
+                                    </ul>
                                     </li>
                                     <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
                                     <li class="menu-item says-normal-menu"><a href="campus_life.html">Campus Life</a></li>
@@ -285,199 +272,156 @@
             </header>
 
 
-
-            <div class="says-page-title-wrap  says-style-custom says-left-align" style="background-image: url(upload/page-title-athletics.jpg) ;">
+            <div class="says-page-title-wrap  says-style-custom says-left-align" style="background-image: url(upload/page-title-sports.jpg) ;">
                 <div class="says-header-transparent-substitute"></div>
                 <div class="says-page-title-overlay"></div>
                 <div class="says-page-title-bottom-gradient"></div>
                 <div class="says-page-title-container says-container">
                     <div class="says-page-title-content says-item-pdlr" style="padding-top: 550px ;padding-bottom: 60px ;">
                         <div class="says-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">Go For Says Team!</div>
-                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #192f59 ;">Athletics</h1></div>
+                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #81848a ;">Sports</h1></div>
                 </div>
             </div>
             <div class="says-breadcrumbs">
                 <div class="says-breadcrumbs-container says-container">
                     <div class="says-breadcrumbs-item says-item-pdlr"> <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to says." href="index.html" class="home"><span property="name">Home</span></a>
                         <meta property="position" content="1">
-                        </span>&gt;<span property="itemListElement" typeof="ListItem"><span property="name">Athletics</span>
+                        </span>&gt;<span property="itemListElement" typeof="ListItem"><span property="name">Sports</span>
                         <meta property="position" content="2">
                         </span>
                     </div>
                 </div>
             </div>
             <div class="says-page-wrapper" id="says-page-wrapper">
-                <div class="gdlr-core-page-builder-body">
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 0px 0px 0px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-left-align" style="margin-bottom: 25px ;">
-                                        <div class="gdlr-core-divider-container" style="max-width: 305px ;">
-                                            <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #192f59 ;border-bottom-width: 4px ;"></div>
-                                        </div>
-                                    </div>
+                <div class="sis-sports-modern">
+                    <section class="sis-sports-hero-section">
+                        <div class="sis-sports-shell sis-sports-hero-grid">
+                            <div class="sis-sports-intro-card">
+                                <span class="sis-sports-kicker">Friday sports programme</span>
+                                <h2>Sports at SIS are active, structured, and part of the weekly school rhythm.</h2>
+                                <p>The school organizes different sport activities every Friday at 1pm, giving pupils a regular time to train, compete, and build teamwork through movement.</p>
+                                <div class="sis-sports-chip-row">
+                                    <span>Every Friday</span>
+                                    <span>1pm sports block</span>
+                                    <span>Teamwork and fitness</span>
                                 </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px ;">
-                                        <div class="gdlr-core-text-box-item-content" style="font-size: 19px ;text-transform: none ;color: #192f59 ;">
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                                <br /> there live the blind texts. Separated they live in</p>
-                                        </div>
+                                <div class="sis-sports-stat-grid">
+                                    <div class="sis-sports-stat-card">
+                                        <strong>1</strong>
+                                        <span>weekly time slot</span>
                                     </div>
-                                </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                        <div class="gdlr-core-text-box-item-content" style="font-size: 18px ;text-transform: none ;color: #192f59 ;">
-                                            <p>Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so.</p>
-                                        </div>
+                                    <div class="sis-sports-stat-card">
+                                        <strong>4+</strong>
+                                        <span>activity types</span>
                                     </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-40 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px 20px 0px 0px;padding: 30px 0px 0px 0px;">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-blog-item gdlr-core-item-pdb clearfix  gdlr-core-style-blog-widget">
-                                                    <div class="gdlr-core-block-item-title-wrap  gdlr-core-left-align gdlr-core-item-mglr" style="margin-bottom: 35px ;">
-                                                        <div class="gdlr-core-block-item-title-inner clearfix">
-                                                            <h3 class="gdlr-core-block-item-title" style="font-size: 24px ;font-style: normal ;text-transform: none ;letter-spacing: 0px ;color: #192f59 ;">News & Updates</h3>
-                                                            <div class="gdlr-core-block-item-title-divider" style="font-size: 24px ;border-bottom-width: 3px ;"></div>
-                                                        </div><a class="gdlr-core-block-item-read-more" href="#" target="_self" style="color: #192f59 ;">Read All News</a></div>
-                                                    <div class="gdlr-core-blog-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
-                                                        <div class="gdlr-core-item-list-wrap gdlr-core-column-30">
-                                                            <div class="gdlr-core-item-list-inner gdlr-core-item-mglr">
-                                                                <div class="gdlr-core-blog-grid ">
-                                                                    <div class="gdlr-core-blog-thumbnail gdlr-core-media-image  gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-                                                                        <a href="#"><img src="upload/shutterstock_135948689-400x245.jpg" width="700" height="430"  alt="" /></a>
-                                                                    </div>
-                                                                    <div class="gdlr-core-blog-grid-content-wrap">
-                                                                        <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><a href="#">June 6, 2016</a></span><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-tag"><a href="#" rel="tag">Admission</a><span class="gdlr-core-sep">,</span> <a href="#" rel="tag">Student</a></span>
-                                                                        </div>
-                                                                        <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 19px ;font-weight: 700 ;letter-spacing: 0px ;"><a href="#" >Professor Albert joint research on mobile money in Tanzania</a></h3></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="gdlr-core-item-list-wrap gdlr-core-column-30">
-                                                            <div class="gdlr-core-item-list gdlr-core-blog-widget gdlr-core-item-mglr clearfix gdlr-core-style-small">
-                                                                <div class="gdlr-core-blog-thumbnail gdlr-core-media-image  gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-                                                                    <a href="#"><img src="upload/shutterstock_218235004-150x150.jpg" alt="" width="150" height="150" title="Student" /></a>
-                                                                </div>
-                                                                <div class="gdlr-core-blog-widget-content">
-                                                                    <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><a href="#">June 6, 2016</a></span><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-tag"><a href="#" rel="tag">Hot</a><span class="gdlr-core-sep">,</span> <a href="#" rel="tag">Updates</a></span>
-                                                                    </div>
-                                                                    <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 16px ;font-weight: 700 ;letter-spacing: 0px ;"><a href="#" >A Global MBA for the next generation of business leaders</a></h3></div>
-                                                            </div>
-                                                            <div class="gdlr-core-item-list gdlr-core-blog-widget gdlr-core-item-mglr clearfix gdlr-core-style-small">
-                                                                <div class="gdlr-core-blog-thumbnail gdlr-core-media-image  gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-                                                                    <a href="#"><img src="upload/shutterstock_481869205-150x150.jpg" alt="" width="150" height="150" title="shutterstock_481869205" /></a>
-                                                                </div>
-                                                                <div class="gdlr-core-blog-widget-content">
-                                                                    <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><a href="#">June 6, 2016</a></span><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-tag"><a href="#" rel="tag">Admission</a><span class="gdlr-core-sep">,</span> <a href="#" rel="tag">Event</a></span>
-                                                                    </div>
-                                                                    <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 16px ;font-weight: 700 ;letter-spacing: 0px ;"><a href="#" >Professor Tom comments on voluntary recalls by snack brands</a></h3></div>
-                                                            </div>
-                                                            <div class="gdlr-core-item-list gdlr-core-blog-widget gdlr-core-item-mglr clearfix gdlr-core-style-small">
-                                                                <div class="gdlr-core-blog-thumbnail gdlr-core-media-image  gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-                                                                    <a href="#"><img src="upload/shutterstock_361397258-150x150.jpg" alt="" width="150" height="150" title="shutterstock_361397258" /></a>
-                                                                </div>
-                                                                <div class="gdlr-core-blog-widget-content">
-                                                                    <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><a href="#">June 6, 2016</a></span><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-tag"><a href="#" rel="tag">Article</a><span class="gdlr-core-sep">,</span> <a href="#" rel="tag">Research</a></span>
-                                                                    </div>
-                                                                    <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 16px ;font-weight: 700 ;letter-spacing: 0px ;"><a href="#" >Professor Alexa is interviewed about Twitter&#fff;s valuation</a></h3></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-20">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px 20px 0px 0px;padding: 30px 0px 0px 0px;">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-event-item gdlr-core-item-pdb" style="padding-bottom: 0px ;">
-                                                    <div class="gdlr-core-block-item-title-wrap  gdlr-core-left-align gdlr-core-item-mglr" style="margin-bottom: 58px ;">
-                                                        <div class="gdlr-core-block-item-title-inner clearfix">
-                                                            <h3 class="gdlr-core-block-item-title" style="font-size: 22px ;font-style: normal ;text-transform: none ;letter-spacing: 0px ;color: #192f59 ;">Upcoming Events</h3>
-                                                            <div class="gdlr-core-block-item-title-divider" style="font-size: 22px ;border-bottom-color: #192f59 ;border-bottom-width: 2px ;"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="gdlr-core-event-item-holder clearfix">
-                                                        <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr  clearfix" style="margin-bottom: 38px ;"><span class="gdlr-core-event-item-info gdlr-core-type-start-date-month"><span class="gdlr-core-date" >07</span><span class="gdlr-core-month">Jan</span></span>
-                                                            <div class="gdlr-core-event-item-content-wrap">
-                                                                <h3 class="gdlr-core-event-item-title"><a href="#" >Reunion Event : says’s Alumni Golf Tour</a></h3>
-                                                                <div class="gdlr-core-event-item-info-wrap"><span class="gdlr-core-event-item-info gdlr-core-type-time"><span class="gdlr-core-head" ><i class="icon_clock_alt" ></i></span><span class="gdlr-core-tail">7:00 am - 11:30 pm</span></span><span class="gdlr-core-event-item-info gdlr-core-type-location"><span class="gdlr-core-head" ><i class="icon_pin_alt" ></i></span><span class="gdlr-core-tail">says Grand Hall</span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr  clearfix" style="margin-bottom: 38px ;"><span class="gdlr-core-event-item-info gdlr-core-type-start-date-month"><span class="gdlr-core-date" >01</span><span class="gdlr-core-month">Jan</span></span>
-                                                            <div class="gdlr-core-event-item-content-wrap">
-                                                                <h3 class="gdlr-core-event-item-title"><a href="#" >says’s Alumni Hot Air Ballon Trip in Turkey</a></h3>
-                                                                <div class="gdlr-core-event-item-info-wrap"><span class="gdlr-core-event-item-info gdlr-core-type-time"><span class="gdlr-core-head" ><i class="icon_clock_alt" ></i></span><span class="gdlr-core-tail">10:00 am - 4:30 pm</span></span><span class="gdlr-core-event-item-info gdlr-core-type-location"><span class="gdlr-core-head" ><i class="icon_pin_alt" ></i></span><span class="gdlr-core-tail">says Grand Hall</span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr  clearfix" style="margin-bottom: 38px ;"><span class="gdlr-core-event-item-info gdlr-core-type-start-date-month"><span class="gdlr-core-date" >17</span><span class="gdlr-core-month">Dec</span></span>
-                                                            <div class="gdlr-core-event-item-content-wrap">
-                                                                <h3 class="gdlr-core-event-item-title"><a href="#" >Fintech &#fff; Key Investment Conference</a></h3>
-                                                                <div class="gdlr-core-event-item-info-wrap"><span class="gdlr-core-event-item-info gdlr-core-type-time"><span class="gdlr-core-head" ><i class="icon_clock_alt" ></i></span><span class="gdlr-core-tail">1:00 pm - 5:00 pm</span></span><span class="gdlr-core-event-item-info gdlr-core-type-location"><span class="gdlr-core-head" ><i class="icon_pin_alt" ></i></span><span class="gdlr-core-tail">says Grand Hall</span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"><a class="gdlr-core-button  gdlr-core-button-transparent gdlr-core-button-no-border" href="#" style="font-size: 14px ;letter-spacing: 1px ;color: #192f59 ;padding: 0px 0px 0px 0px;text-transform: none ;border-radius: 0px;-moz-border-radius: 0px;-webkit-border-radius: 0px;"><span class="gdlr-core-content" >View All Events</span><i class="gdlr-core-pos-right fa fa-long-arrow-right" style="color: #192f59 ;"  ></i></a></div>
-                                            </div>
-                                        </div>
+                                    <div class="sis-sports-stat-card">
+                                        <strong>100%</strong>
+                                        <span>student energy</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper " style="margin: 0px auto 0px auto;padding: 0px 0px 0px 0px;max-width: 100% ;">
-                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #192f59 ;"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js " data-gdlr-animation="fadeIn" data-gdlr-animation-duration="600ms" data-gdlr-animation-offset="0.8">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js  gdlr-core-column-extend-left" data-sync-height="quote-height">
-                                        <div class="gdlr-core-pbf-background-wrap">
-                                            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" style="background-image: url(upload/shutterstock_167044400.jpg) ;background-size: cover ;background-position: top right ;" data-parallax-speed="0"></div>
-                                        </div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js  gdlr-core-sync-height-content"></div>
-                                    </div>
+                            <aside class="sis-sports-contact-card">
+                                <p class="sis-sports-card-label">Sports desk</p>
+                                <h3>Keep families informed about weekly activities and match days.</h3>
+                                <p>Susan Enclave, #1 Selorm Crescent, Behind West Hills Mall</p>
+                                <ul class="sis-sports-contact-list">
+                                    <li>Friday sports activities begin at 1pm</li>
+                                    <li>030 294 7154</li>
+                                    <li>info@saysinternationalschool.com</li>
+                                </ul>
+                                <div class="sis-sports-action-row">
+                                    <a href="contact.html" class="sis-sports-primary-link">Contact School</a>
+                                    <a href="event-calendar.html" class="sis-sports-secondary-link">View Events</a>
                                 </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 160px 60px 140px 75px;" data-sync-height="quote-height" data-sync-height-center>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js  gdlr-core-sync-height-content">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-blockquote-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-left-align gdlr-core-large-size" style="padding-bottom: 0px ;">
-                                                    <div class="gdlr-core-blockquote gdlr-core-info-font">
-                                                        <div class="gdlr-core-blockquote-item-quote gdlr-core-quote-font gdlr-core-skin-icon" style="font-size: 170px ;">&#fff;</div>
-                                                        <div class="gdlr-core-blockquote-item-content-wrap">
-                                                            <div class="gdlr-core-blockquote-item-content gdlr-core-skin-content" style="font-size: 21px ;font-weight: 600 ;letter-spacing: 0px ;">
-                                                                <p>Our goal is to be at the heart of the financial services industry as businesses expand across.</p>
-                                                            </div>
-                                                            <div class="gdlr-core-blockquote-item-author gdlr-core-skin-caption" style="font-size: 18px ;font-weight: 600 ;">John Smith<span class="gdlr-core-blockquote-item-author-position" style="font-size: 18px ;font-weight: 600 ;">CEO Of Financity</span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <section class="sis-sports-overview-section">
+                        <div class="sis-sports-shell sis-sports-overview-grid">
+                            <div class="sis-sports-story-card">
+                                <span class="sis-sports-kicker">Why sports matter</span>
+                                <h3>Sport at SIS helps learners grow in confidence, discipline, and school spirit.</h3>
+                                <p>Sports sessions are designed to be more than recreation. Pupils learn how to cooperate, compete fairly, stay active, and represent their teams with pride.</p>
+                                <div class="sis-sports-highlight-list">
+                                    <div>
+                                        <strong>Weekly consistency</strong>
+                                        <p>Friday at 1pm gives the whole school a dependable slot for physical activity and structured play.</p>
+                                    </div>
+                                    <div>
+                                        <strong>Different sport activities</strong>
+                                        <p>Students can take part in varied activities that build agility, stamina, teamwork, and confidence.</p>
+                                    </div>
+                                    <div>
+                                        <strong>School community energy</strong>
+                                        <p>Sport days help create excitement across campus and keep pupils engaged beyond the classroom.</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="sis-sports-feature-card">
+                                <div class="sis-sports-feature-media" style="background-image: url('images/mega_img/dasports.jpg');"></div>
+                                <div class="sis-sports-feature-copy">
+                                    <span class="sis-sports-kicker">Weekly note</span>
+                                    <h3>The school organizes different sport activities at every Friday 1pm.</h3>
+                                    <p>This regular session gives students a visible place in the timetable for football, running drills, team games, and active participation with their peers.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 60px 0px 20px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #192f59 ;"></div>
+                    </section>
+
+                    <section class="sis-sports-activity-section">
+                        <div class="sis-sports-shell">
+                            <div class="sis-sports-section-head">
+                                <span class="sis-sports-kicker">Sports life</span>
+                                <h3>A clearer view of how the programme feels on campus</h3>
+                            </div>
+                            <div class="sis-sports-activity-grid">
+                                <article class="sis-sports-activity-card">
+                                    <div class="sis-sports-activity-media" style="background-image: url('images/mega_img/IMG_20250623_110430.jpg');"></div>
+                                    <div class="sis-sports-activity-body">
+                                        <h4>Team games</h4>
+                                        <p>Students take part in organized team activities that build cooperation, communication, and school spirit.</p>
+                                    </div>
+                                </article>
+                                <article class="sis-sports-activity-card">
+                                    <div class="sis-sports-activity-media" style="background-image: url('images/mega_img/IMG_20250623_110354.jpg');"></div>
+                                    <div class="sis-sports-activity-body">
+                                        <h4>Fitness and movement</h4>
+                                        <p>Friday sessions support stamina, coordination, and healthy routines through active movement and guided drills.</p>
+                                    </div>
+                                </article>
+                                <article class="sis-sports-activity-card">
+                                    <div class="sis-sports-activity-media" style="background-image: url('images/mega_img/IMG_20250623_105827.jpg');"></div>
+                                    <div class="sis-sports-activity-body">
+                                        <h4>Student participation</h4>
+                                        <p>Different sport activities create room for more pupils to join in, discover strengths, and enjoy the school sports environment.</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="sis-sports-band-section">
+                        <div class="sis-sports-shell sis-sports-band-box">
+                            <div>
+                                <span class="sis-sports-kicker">Match rhythm</span>
+                                <h3>Friday 1pm is not an afterthought. It is part of the SIS week.</h3>
+                                <p>That regular timing makes sports visible, expected, and shared across the school community, helping students look forward to healthy competition and active participation.</p>
+                            </div>
+                            <div class="sis-sports-action-row">
+                                <a href="gallery.html" class="sis-sports-primary-link">View Gallery</a>
+                                <a href="campus_life.html" class="sis-sports-secondary-link">Campus Life</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+                  <div class="gdlr-core-pbf-wrapper " id="div_1dd7_107">
+                        <div class="gdlr-core-pbf-background-wrap" id="div_1dd7_108"></div>
                         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" style="max-width: 1440px ;">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" id="div_1dd7_109">
                                 <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix  gdlr-core-gallery-item-style-grid" style="padding-bottom: 0px ;">
+                                    <div class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix  gdlr-core-gallery-item-style-grid" id="div_1dd7_110">
                                         <div class="gdlr-core-gallery-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
                                             <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
                                                 <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-1.png" alt="" width="248" height="120" title="banner-1" /></div>
@@ -489,7 +433,7 @@
                                                 <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-3.png" alt="" width="248" height="120" title="banner-3" /></div>
                                             </div>
                                             <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-4-1.png" alt="" width="248" height="120" title="banner-4" /></div>
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-4.png" alt="" width="248" height="120" title="banner-4" /></div>
                                             </div>
                                             <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
                                                 <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-5.png" alt="" width="248" height="120" title="banner-5" /></div>
@@ -500,68 +444,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 80px 0px 50px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 0px 40px 0px 0px;">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 23px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;">Says Team Has A Long Story</h3></div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px ;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 19px ;text-transform: none ;color: #192f59 ;">
-                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;text-transform: none ;">
-                                                        <p>Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-left-align" style="margin-bottom: 50px ;">
-                                                    <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #192f59 ;border-bottom-width: 3px ;"></div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 23px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;">How To Participate?</h3></div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 10px ;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;text-transform: none ;">
-                                                        <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"><a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="#" style="font-size: 16px ;font-weight: 700 ;letter-spacing: 0px ;padding: 15px 29px 19px 29px;text-transform: none ;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Athletics Guide Book</span><i class="gdlr-core-pos-right fa fa-file-pdf-o"  ></i></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
             <footer>
@@ -571,68 +453,73 @@
                             <div id="text-2" class="widget widget_text says-widget">
                                 <div class="textwidget">
                                     <p><img src="upload/footer-logo.png" alt="" />
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_10"></span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: 5px ;"></span>
                                         <br /> Susan Enclave
-                                        <br />#1 Selorm Crescent
+                                        <br /> #1 Selorm Crescent
                                         <br /> Behind West Hills Mall</p>
-                                    <p><span id="span_1dd7_11">Tel: +233 30 294 7154</span>
-                                    <p><span id="span_1dd7_11">WhatsApp +233 50 927 5198</span>
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_12"></span>
-                                        <br /> <a id="a_1dd7_8" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
+                                    <p><span style="font-size: 15px; color: #ffffff;">+233 30 294 7154</span>
+                                        <br /><span style="font-size: 15px; color: #ffffff;">WhatsApp +233 50 927 5198</span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: -20px ;"></span>
+                                        <br /> <a style="font-size: 15px; color: #ffffff;" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
                                     <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align">
-                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" id="div_1dd7_111"></div>
+                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #3db166 ;border-bottom-width: 2px ;"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                     
+                        <div class="says-footer-column says-item-pdlr says-column-15">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
+                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <div class="menu-our-campus-container">
+                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
+                                        <li class="menu-item"><a href="academics.html">About Us</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Administration</a></li>
+                                        <li class="menu-item"><a href="faq.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="contact.html">School Office</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
+                                        <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-3" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
                                 <div class="menu-campus-life-container">
                                     <ul id="menu-campus-life" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#">About Us</a></li>
-                                        <li class="menu-item"><a href="#">FAQ</a></li>
-                                        <li class="menu-item"><a href="#">Contact</a></li>
-                                        <li class="menu-item"><a href="#">Educational Quote</a></li>
-                                     </ul>
+                                        <li class="menu-item"><a href="terms-of-use.html">Terms of Use</a></li>
+                                        <li class="menu-item"><a href="disclaimer.html">Disclaimer</a></li>
+                                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Student Life</a></li>
+                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
+                                        <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-4" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
                                 <div class="menu-academics-container">
                                     <ul id="menu-academics" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#"></a></li>
-                                        <li class="menu-item"><a href="#">Terms of Use</a></li>
-                                        <li class="menu-item"><a href="#">Privacy Policy</a></li>
-                                        <li class="menu-item"><a href="#">Disclaimer</a></li>
+                                        <li class="menu-item"><a href="academics.html">Curriculum</a></li>
+                                        <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
+                                        <li class="menu-item"><a href="event-calendar.html">School Calendar</a></li>
+                                        <li class="menu-item"><a href="ucmas.html">UCMAS</a></li>
+                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                           <div class="says-footer-column says-item-pdlr says-column-15">
-                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
-                                <div class="menu-our-campus-container">
-                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#">Acedemic</a></li>
-                                        <li class="menu-item"><a href="#">Administration</a></li>
-                                        <li class="menu-item"><a href="#"> SIS Campus Safety</a></li>
-                                        <li class="menu-item"><a href="#">Office of the Head Master</a></li>
-                                        </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                  <div class="says-copyright-wrapper">
+                <div class="says-copyright-wrapper">
                     <div class="says-copyright-container says-container clearfix">
-                        <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2025 - All Rights Reserved - Says International School.</div>
+                        <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2026 - All Rights Reserved - Says International School.</div>
                         <div class="says-copyright-right says-item-pdlr">
-                           <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" id="div_983a_50">
+                            <a class="says-footer-credit" href="https://evans-portfolio-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" title="Visit the Nested Solutions portfolio">Powered by <strong><span class="says-footer-credit-nested">Nested</span> <span class="says-footer-credit-solutions">Solutions</span></strong></a>
+                            <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" id="div_983a_50">
                                 <a href="https://facebook.com/SAYS-international-School-106769111122347" target="_blank" class="gdlr-core-social-network-icon" title="facebook">
                                     <i class="fa fa-facebook" ></i>
                                 </a>
@@ -644,6 +531,9 @@
                                 </a> -->
                                 <a href="https://x.com/SInterscho1049" target="_blank" class="gdlr-core-social-network-icon" title="twitter">
                                     <i class="fa fa-twitter" ></i>
+                                </a>
+                                <a href="https://www.youtube.com/@Saysinterschool" target="_blank" class="gdlr-core-social-network-icon" title="youtube">
+                                    <i class="fa fa-youtube" ></i>
                                 </a>
                                 <a href="https://saysinterschool2019" target="_blank" class="gdlr-core-social-network-icon" title="instagram">
                                     <i class="fa fa-instagram" ></i>
@@ -678,9 +568,53 @@
         };
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
+    <!-- scroll-to-top button -->
+<script>
+(function () {
+  if (document.querySelector('.scroll-to-top-btn')) { return; }
+  var button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'scroll-to-top-btn';
+  button.title = 'Scroll to top';
+  button.setAttribute('aria-label', 'Scroll to top');
+  button.textContent = '↑';
+  document.body.appendChild(button);
+  var threshold = 300;
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > threshold) {
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+  });
+  button.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+(function () {
+  var targets = document.querySelectorAll('#says-page-wrapper section, #says-page-wrapper .gdlr-core-pbf-wrapper-content.gdlr-core-js');
+  if (!targets.length) { return; }
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  targets.forEach(function (el) { el.classList.add('sports-scroll-reveal'); });
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+  targets.forEach(function (el) { observer.observe(el); });
+})();
+</script>
 </body>
 </html>
-
 
 
 

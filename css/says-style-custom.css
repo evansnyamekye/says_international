@@ -659,7 +659,40 @@ body.says-full .says-fixed-footer {
   margin-right: -20px;
 }
 
-.gdlr-core-metro-rvpdlr {
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: #001f3f;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 31, 63, 0.24);
+  transition: transform 180ms ease, opacity 180ms ease;
+  z-index: 9999;
+}
+
+.scroll-to-top-btn.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.scroll-to-top-btn:hover {
+  transform: translateY(-2px);
+}
+
+  @media (max-width: 768px) {
+    .scroll-to-top-btn {
+      bottom: 90px;
+    }
+  }
   margin-top: -20px;
   margin-right: -20px;
   margin-bottom: -20px;
@@ -777,6 +810,54 @@ body.says-boxed .says-fixed-footer .says-copyright-wrapper {
 }
 
 .home .says-reveal-target.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sis-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sis-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal-left.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sis-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal-right.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sis-reveal-pop {
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.22, 1.4, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.sis-reveal-pop.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
@@ -1445,6 +1526,7 @@ body.says-boxed .says-fixed-footer .says-copyright-wrapper {
 
   .says-hero-dock-toggle {
     right: 20px;
+    left: auto;
     bottom: 20px;
   }
 
@@ -2491,11 +2573,11 @@ a .says-page-title-wrap .says-page-caption .woocommerce-breadcrumb,
 }
 
 .says-body a {
-  color: #545454;
+  color: #c2c2c2;
 }
 
 .says-body a:hover {
-  color: #131272;
+  color: #c2c2c2;
 }
 
 .says-body * {
@@ -2700,6 +2782,254 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
   color: #b5b5b5;
 }
 
+.says-x-feed-live {
+  position: relative;
+  padding: 24px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(198, 145, 32, 0.18), transparent 32%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+  border: 1px solid rgba(16, 39, 88, 0.08);
+  box-shadow: 0 22px 55px rgba(16, 39, 88, 0.12);
+}
+
+.says-social-updates-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.says-social-updates-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+.says-social-updates-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.says-social-updates-topbar-wide {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 18px;
+}
+
+.says-social-updates-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(16, 39, 88, 0.08);
+  color: #8c5b16;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.says-social-updates-label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ec77a;
+  box-shadow: 0 0 0 rgba(46, 199, 122, 0.4);
+  animation: says-x-pulse 1.8s infinite;
+}
+
+.says-social-updates-channel {
+  color: #607391;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.says-social-updates-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(16, 39, 88, 0.08);
+  color: #607391;
+  font-size: 13px;
+}
+
+.says-social-updates-footer a {
+  font-weight: 700;
+}
+
+.says-social-updates-footer-inline {
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.says-x-feed-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.says-x-feed-kicker {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(16, 39, 88, 0.08);
+  color: #8c5b16;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.says-x-feed-live h3 {
+  margin-bottom: 8px;
+  color: #102758;
+  font-size: 30px;
+  line-height: 1.08;
+}
+
+.says-x-feed-intro {
+  max-width: 460px;
+  margin-bottom: 0;
+  color: #5b6e8a;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.says-x-feed-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #102758;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 12px 28px rgba(16, 39, 88, 0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.says-x-feed-link:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.says-x-feed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #51627f;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.says-x-feed-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.says-x-feed-chip-row span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(16, 39, 88, 0.06);
+  color: #48607f;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.says-x-feed-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2ec77a;
+  box-shadow: 0 0 0 rgba(46, 199, 122, 0.4);
+  animation: says-x-pulse 1.8s infinite;
+}
+
+.says-x-feed-embed {
+  position: relative;
+  min-height: 302px;
+  padding: 10px;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 249, 255, 0.98) 100%);
+  border: 1px solid rgba(16, 39, 88, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.says-x-feed-embed.is-loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(238, 244, 255, 0.85) 25%, rgba(255, 255, 255, 0.95) 50%, rgba(238, 244, 255, 0.85) 75%);
+  background-size: 200% 100%;
+  animation: says-x-shimmer 1.4s infinite linear;
+  z-index: 0;
+}
+
+.says-x-feed-embed > * {
+  position: relative;
+  z-index: 1;
+}
+
+.says-x-feed-embed iframe,
+.says-x-feed-embed .twitter-timeline {
+  border-radius: 16px !important;
+}
+
+.says-x-feed-fallback {
+  margin-top: 10px;
+  color: #667891;
+  font-size: 13px;
+}
+
+.says-x-feed-fallback a {
+  font-weight: 600;
+}
+
+@keyframes says-x-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 199, 122, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(46, 199, 122, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 199, 122, 0);
+  }
+}
+
+@keyframes says-x-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 .gdlr-core-video-widget i {
   background-color: #131272;
 }
@@ -2767,6 +3097,110 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 
 .says-copyright-wrapper a:hover {
   color: #fff;
+}
+
+.says-copyright-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.says-copyright-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.says-footer-credit {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(80, 189, 119, 0.12);
+  border: 1px solid rgba(80, 189, 119, 0.28);
+  color: #d9e9df;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.says-footer-credit strong {
+  margin-left: 6px;
+  font-weight: 700;
+}
+
+.says-footer-credit-nested {
+  color: #7c3aed;
+}
+
+.says-footer-credit-solutions {
+  color: #ec4899;
+}
+
+.says-footer-credit:hover {
+  background: rgba(80, 189, 119, 0.2);
+  border-color: rgba(80, 189, 119, 0.42);
+  transform: translateY(-1px);
+}
+
+.says-footer-credit:hover strong {
+  color: inherit;
+}
+
+.says-footer-credit:hover .says-footer-credit-nested {
+  color: #a78bfa;
+}
+
+.says-footer-credit:hover .says-footer-credit-solutions {
+  color: #f472b6;
+}
+
+.says-copyright-right .gdlr-core-social-network-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 0;
+}
+
+.says-copyright-right .gdlr-core-social-network-item .gdlr-core-social-network-icon {
+  margin-left: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f7fb;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.says-copyright-right .gdlr-core-social-network-item .gdlr-core-social-network-icon:hover {
+  transform: translateY(-2px);
+  background: #50bd77;
+  border-color: #50bd77;
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .says-copyright-left,
+  .says-copyright-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .says-copyright-right {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
 
 .says-footer-back-to-top-button {
@@ -3990,6 +4424,2690 @@ table tr:nth-child(even) {
 html .woocommerce input.button,
 html .woocommerce span.onsale {
   background-color: #344c78;
+}
+
+.sis-academics-modern {
+  background:
+    radial-gradient(circle at top left, rgba(198, 145, 32, 0.08), transparent 34%),
+    linear-gradient(180deg, #f7f3ea 0%, #ffffff 25%, #eef3fb 100%);
+}
+
+.sis-academics-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sis-academics-hero-section,
+.sis-academics-stage-section,
+.sis-academics-pillar-section,
+.sis-academics-story-section,
+.sis-academics-outcome-section,
+.sis-academics-cta-section {
+  padding: 54px 0;
+}
+
+.sis-academics-hero-section {
+  padding-top: 42px;
+}
+
+.sis-academics-hero-section .sis-academics-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(290px, 0.82fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.sis-academics-intro-card,
+.sis-academics-contact-card,
+.sis-academics-stage-card,
+.sis-academics-pillar-card,
+.sis-academics-outcome-panel,
+.sis-academics-cta-box {
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+}
+
+.sis-academics-intro-card {
+  padding: 38px;
+  background: linear-gradient(135deg, rgba(18, 43, 111, 0.98), rgba(23, 77, 160, 0.9));
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.sis-academics-intro-card::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -40px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sis-academics-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-academics-intro-card h2,
+.sis-academics-section-head h3,
+.sis-academics-story-copy h3,
+.sis-academics-outcome-copy h3,
+.sis-academics-cta-box h3,
+.sis-academics-contact-card h3 {
+  margin-bottom: 16px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.08;
+  color: inherit;
+}
+
+.sis-academics-intro-card p,
+.sis-academics-contact-card p,
+.sis-academics-stage-body p,
+.sis-academics-pillar-card p,
+.sis-academics-story-copy p,
+.sis-academics-highlight-list p,
+.sis-academics-outcome-copy p,
+.sis-academics-cta-box p {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.sis-academics-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.sis-academics-chip-row span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sis-academics-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.sis-academics-stat-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.sis-academics-stat-card strong {
+  display: block;
+  font-size: 34px;
+  line-height: 1;
+  color: #f8d27b;
+}
+
+.sis-academics-stat-card span,
+.sis-academics-contact-list li,
+.sis-academics-outcome-metrics span {
+  font-size: 14px;
+}
+
+.sis-academics-contact-card {
+  padding: 34px 30px;
+  background: #fffaf0;
+  color: #102758;
+  border: 1px solid rgba(17, 39, 88, 0.08);
+}
+
+.sis-academics-card-label {
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sis-academics-contact-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-academics-contact-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(16, 39, 88, 0.12);
+}
+
+.sis-academics-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sis-academics-primary-link,
+.sis-academics-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.sis-academics-primary-link {
+  background: #102758;
+  color: #ffffff;
+  box-shadow: 0 14px 24px rgba(16, 39, 88, 0.2);
+}
+
+.sis-academics-secondary-link {
+  background: transparent;
+  color: #102758;
+  border: 1px solid rgba(16, 39, 88, 0.16);
+}
+
+.sis-academics-primary-link:hover,
+.sis-academics-secondary-link:hover {
+  transform: translateY(-2px);
+}
+
+.sis-alumni-modern {
+  background:
+    radial-gradient(circle at top left, rgba(198, 145, 32, 0.08), transparent 34%),
+    linear-gradient(180deg, #f7f3ea 0%, #ffffff 25%, #eef3fb 100%);
+}
+
+.sis-alumni-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sis-alumni-hero-section,
+.sis-alumni-feature-section,
+.sis-alumni-event-section,
+.sis-alumni-story-section,
+.sis-alumni-outcome-section,
+.sis-alumni-cta-section {
+  padding: 54px 0;
+}
+
+.sis-alumni-hero-section {
+  padding-top: 42px;
+}
+
+.sis-alumni-hero-section .sis-alumni-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(290px, 0.82fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.sis-alumni-intro-card,
+.sis-alumni-contact-card,
+.sis-alumni-feature-card,
+.sis-alumni-event-card,
+.sis-alumni-outcome-panel,
+.sis-alumni-cta-box {
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+}
+
+.sis-alumni-intro-card {
+  padding: 38px;
+  background: linear-gradient(135deg, rgba(18, 43, 111, 0.98), rgba(26, 82, 154, 0.92));
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.sis-alumni-intro-card::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -40px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sis-alumni-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-alumni-intro-card h2,
+.sis-alumni-section-head h3,
+.sis-alumni-story-copy h3,
+.sis-alumni-outcome-copy h3,
+.sis-alumni-cta-box h3,
+.sis-alumni-contact-card h3 {
+  margin-bottom: 16px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.08;
+  color: inherit;
+}
+
+.sis-alumni-intro-card p,
+.sis-alumni-contact-card p,
+.sis-alumni-feature-card p,
+.sis-alumni-event-body p,
+.sis-alumni-story-copy p,
+.sis-alumni-highlight-list p,
+.sis-alumni-outcome-copy p,
+.sis-alumni-cta-box p {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.sis-alumni-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.sis-alumni-chip-row span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sis-alumni-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.sis-alumni-stat-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.sis-alumni-stat-card strong {
+  display: block;
+  font-size: 34px;
+  line-height: 1;
+  color: #f8d27b;
+}
+
+.sis-alumni-stat-card span,
+.sis-alumni-contact-list li,
+.sis-alumni-outcome-metrics span {
+  font-size: 14px;
+}
+
+.sis-alumni-contact-card {
+  padding: 34px 30px;
+  background: #fffaf0;
+  color: #102758;
+  border: 1px solid rgba(17, 39, 88, 0.08);
+}
+
+.sis-alumni-card-label {
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sis-alumni-contact-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-alumni-contact-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(16, 39, 88, 0.12);
+}
+
+.sis-alumni-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sis-alumni-primary-link,
+.sis-alumni-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.sis-alumni-primary-link {
+  background: #102758;
+  color: #ffffff;
+  box-shadow: 0 14px 24px rgba(16, 39, 88, 0.2);
+}
+
+.sis-alumni-secondary-link {
+  background: transparent;
+  color: #102758;
+  border: 1px solid rgba(16, 39, 88, 0.16);
+}
+
+.sis-alumni-primary-link:hover,
+.sis-alumni-secondary-link:hover {
+  transform: translateY(-2px);
+}
+
+.sis-alumni-section-head {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #102758;
+}
+
+.sis-alumni-section-head h3,
+.sis-alumni-story-copy h3,
+.sis-alumni-outcome-copy h3,
+.sis-alumni-cta-box h3,
+.sis-alumni-contact-card h3 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.sis-alumni-section-head p,
+.sis-alumni-section-head-light p {
+  color: #53627f;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.sis-alumni-feature-grid,
+.sis-alumni-event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.sis-alumni-feature-card,
+.sis-alumni-event-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-alumni-feature-card {
+  padding: 24px;
+}
+
+.sis-alumni-feature-tag,
+.sis-alumni-event-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-alumni-feature-card h4,
+.sis-alumni-event-body h4 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #102758;
+}
+
+.sis-alumni-event-section {
+  background: linear-gradient(135deg, #102758, #173b87);
+}
+
+.sis-alumni-section-head-light {
+  color: #ffffff;
+}
+
+.sis-alumni-section-head-light p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.sis-alumni-event-card {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.sis-alumni-event-media {
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-alumni-event-body {
+  padding: 24px;
+}
+
+.sis-alumni-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.sis-alumni-visual-stack {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.sis-alumni-visual {
+  min-height: 200px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 16px 36px rgba(16, 39, 88, 0.12);
+}
+
+.sis-alumni-visual-large {
+  min-height: 460px;
+  grid-row: span 2;
+}
+
+.sis-alumni-highlight-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.sis-alumni-highlight-list div {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+  box-shadow: 0 14px 32px rgba(16, 39, 88, 0.08);
+}
+
+.sis-alumni-highlight-list strong,
+.sis-alumni-outcome-metrics strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #102758;
+  font-size: 17px;
+}
+
+.sis-alumni-outcome-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 24px;
+  padding: 30px;
+  background: linear-gradient(180deg, #fffdf8, #ffffff);
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-alumni-outcome-metrics {
+  display: grid;
+  gap: 16px;
+}
+
+.sis-alumni-outcome-metrics div {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #f5f7fb;
+  border: 1px solid rgba(16, 39, 88, 0.06);
+}
+
+.sis-alumni-cta-box {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 30px;
+  background: linear-gradient(135deg, rgba(198, 145, 32, 0.12), rgba(16, 39, 88, 0.08));
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-academics-stage-grid,
+.sis-academics-pillar-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.sis-academics-stage-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sis-academics-section-head {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #102758;
+}
+
+.sis-academics-section-head h3,
+.sis-academics-story-copy h3,
+.sis-academics-outcome-copy h3,
+.sis-academics-cta-box h3,
+.sis-academics-contact-card h3 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.sis-academics-section-head p,
+.sis-academics-section-head-light p {
+  color: #53627f;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.sis-academics-stage-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-academics-stage-media {
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-academics-stage-body {
+  padding: 24px;
+}
+
+.sis-academics-stage-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-academics-stage-body h4,
+.sis-academics-pillar-card h4 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #102758;
+}
+
+.sis-academics-stage-body ul {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-academics-stage-body li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: #53627f;
+  font-size: 15px;
+}
+
+.sis-academics-stage-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c69220;
+}
+
+.sis-academics-pillar-section {
+  background: linear-gradient(135deg, #102758, #173b87);
+}
+
+.sis-academics-section-head-light {
+  color: #ffffff;
+}
+
+.sis-academics-section-head-light p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.sis-academics-pillar-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sis-academics-pillar-card {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sis-academics-pillar-number {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #f8d27b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.sis-academics-pillar-card h4 {
+  color: #ffffff;
+}
+
+.sis-academics-pillar-card p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.sis-academics-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.sis-academics-visual-stack {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.sis-academics-visual {
+  min-height: 200px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 16px 36px rgba(16, 39, 88, 0.12);
+}
+
+.sis-academics-visual-large {
+  min-height: 460px;
+  grid-row: span 2;
+}
+
+.sis-academics-highlight-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.sis-academics-highlight-list div {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+  box-shadow: 0 14px 32px rgba(16, 39, 88, 0.08);
+}
+
+.sis-academics-highlight-list strong,
+.sis-academics-outcome-metrics strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #102758;
+  font-size: 17px;
+}
+
+.sis-academics-outcome-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 24px;
+  padding: 30px;
+  background: linear-gradient(180deg, #fffdf8, #ffffff);
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-academics-outcome-metrics {
+  display: grid;
+  gap: 16px;
+}
+
+.sis-academics-outcome-metrics div {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #eef3fb;
+}
+
+.sis-academics-cta-section {
+  padding-top: 12px;
+  padding-bottom: 70px;
+}
+
+.sis-academics-cta-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 34px;
+  background: linear-gradient(135deg, #c69220, #dbaa45);
+  color: #102758;
+}
+
+.sis-academics-cta-box .sis-academics-kicker {
+  background: rgba(16, 39, 88, 0.08);
+}
+
+.sis-admission-modern {
+  background:
+    radial-gradient(circle at top right, rgba(198, 145, 32, 0.12), transparent 30%),
+    linear-gradient(180deg, #f8f3ea 0%, #ffffff 24%, #edf4fb 100%);
+}
+
+.sis-admission-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sis-admission-hero-section,
+.sis-admission-service-section,
+.sis-admission-visual-section,
+.sis-admission-process-section,
+.sis-admission-detail-section {
+  padding: 54px 0;
+}
+
+.sis-admission-hero-section {
+  padding-top: 42px;
+}
+
+.sis-admission-hero-section .sis-admission-shell,
+.sis-admission-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.82fr);
+  gap: 28px;
+}
+
+.sis-admission-intro-card,
+.sis-admission-contact-card,
+.sis-admission-service-card,
+.sis-admission-process-card,
+.sis-admission-panel,
+.sis-admission-visual-frame {
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+}
+
+.sis-admission-intro-card {
+  padding: 38px;
+  background: linear-gradient(135deg, rgba(18, 43, 111, 0.98), rgba(20, 74, 153, 0.92));
+  color: #ffffff;
+}
+
+.sis-admission-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-admission-intro-card h2,
+.sis-admission-contact-card h3,
+.sis-admission-section-head h3,
+.sis-admission-visual-copy h3,
+.sis-admission-panel h3 {
+  margin-bottom: 16px;
+  font-size: clamp(28px, 3.8vw, 46px);
+  line-height: 1.08;
+  color: inherit;
+}
+
+.sis-admission-copy-block p,
+.sis-admission-contact-card p,
+.sis-admission-service-card p,
+.sis-admission-process-card p,
+.sis-admission-panel p,
+.sis-admission-address-block p,
+.sis-admission-address-block address,
+.sis-admission-visual-copy p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.sis-admission-requirement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.sis-admission-copy-block {
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.sis-admission-copy-block p {
+  margin-bottom: 14px;
+}
+
+.sis-admission-copy-block p:last-child {
+  margin-bottom: 0;
+}
+
+.sis-admission-contact-card {
+  padding: 34px 30px;
+  background: #fffaf0;
+  color: #102758;
+  border: 1px solid rgba(17, 39, 88, 0.08);
+}
+
+.sis-admission-card-label {
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sis-admission-contact-list,
+.sis-admission-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-admission-contact-list li,
+.sis-admission-list li {
+  position: relative;
+  padding: 12px 0 12px 18px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.sis-admission-contact-list li {
+  padding-left: 0;
+  border-top: 1px solid rgba(16, 39, 88, 0.12);
+}
+
+.sis-admission-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c69220;
+}
+
+.sis-admission-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sis-admission-primary-link,
+.sis-admission-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.sis-admission-primary-link {
+  background: #102758;
+  color: #ffffff;
+  box-shadow: 0 14px 24px rgba(16, 39, 88, 0.2);
+}
+
+.sis-admission-secondary-link {
+  background: transparent;
+  color: #0a0a0a;
+  border: 1px solid rgba(16, 39, 88, 0.16);
+}
+
+.sis-admission-primary-link:hover,
+.sis-admission-secondary-link:hover {
+  transform: translateY(-2px);
+}
+
+.sis-admission-service-section {
+  background: linear-gradient(135deg, #102758, #173b87);
+}
+
+.sis-admission-service-grid,
+.sis-admission-process-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.sis-admission-service-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sis-admission-service-card {
+  padding: 26px 24px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sis-admission-service-card img {
+  margin-bottom: 24px;
+}
+
+.sis-admission-service-card h3,
+.sis-admission-process-card h4,
+.sis-admission-address-block h4 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.sis-admission-service-card p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sis-admission-visual-frame {
+  min-height: 420px;
+  padding: 38px;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(16, 39, 88, 0.12), rgba(16, 39, 88, 0.8)),
+    url('../images/mega_img/IMG_20250623_104439.jpg') center/cover no-repeat;
+  color: #ffffff;
+}
+
+.sis-admission-visual-copy {
+  max-width: 560px;
+}
+
+.sis-admission-visual-copy p {
+  margin-bottom: 0;
+}
+
+.sis-admission-section-head {
+  max-width: 680px;
+  margin-bottom: 28px;
+  color: #102758;
+}
+
+.sis-admission-process-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sis-admission-process-card,
+.sis-admission-panel {
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-admission-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: #eef3fb;
+  color: #102758;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.sis-admission-process-card p,
+.sis-admission-panel p,
+.sis-admission-address-block p,
+.sis-admission-address-block address {
+  margin-bottom: 0;
+  color: #53627f;
+}
+
+.sis-admission-panel-alt {
+  background: linear-gradient(180deg, #fffdf8, #ffffff);
+}
+
+.sis-admission-table-wrap {
+  overflow-x: auto;
+  margin: 22px 0 28px;
+}
+
+.sis-admission-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.sis-admission-table th,
+.sis-admission-table td {
+  padding: 16px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(16, 39, 88, 0.1);
+}
+
+.sis-admission-table th {
+  background: #102758;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.sis-admission-table td {
+  color: #53627f;
+  background: #ffffff;
+}
+
+.sis-admission-address-block {
+  padding: 24px;
+  border-radius: 22px;
+  background: #eef3fb;
+}
+
+.sis-admission-address-block h4 {
+  color: #102758;
+}
+
+.sis-admission-address-block address {
+  margin-top: 16px;
+  color: #102758;
+  font-style: normal;
+}
+
+.sis-events-modern {
+  background:
+    radial-gradient(circle at top left, rgba(198, 145, 32, 0.08), transparent 32%),
+    linear-gradient(180deg, #f7f3ea 0%, #ffffff 24%, #eef4fb 100%);
+}
+
+.sis-events-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sis-events-hero-section,
+.sis-events-highlight-section,
+.sis-events-grid-section,
+.sis-events-note-section {
+  padding: 54px 0;
+}
+
+.sis-events-hero-section {
+  padding-top: 42px;
+}
+
+.sis-events-hero-section .sis-events-shell,
+.sis-events-highlight-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
+  gap: 28px;
+}
+
+.sis-events-intro-card,
+.sis-events-contact-card,
+.sis-events-feature-card,
+.sis-events-month-panel,
+.sis-events-card,
+.sis-events-note-box {
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+}
+
+.sis-events-intro-card {
+  padding: 38px;
+  background: linear-gradient(135deg, rgba(18, 43, 111, 0.98), rgba(23, 77, 160, 0.9));
+  color: #ffffff;
+}
+
+.sis-events-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-events-intro-card h2,
+.sis-events-contact-card h3,
+.sis-events-feature-copy h3,
+.sis-events-month-panel h3,
+.sis-events-section-head h3,
+.sis-events-note-box h3 {
+  margin-bottom: 16px;
+  font-size: clamp(28px, 3.7vw, 46px);
+  line-height: 1.08;
+  color: inherit;
+}
+
+.sis-events-intro-card p,
+.sis-events-contact-card p,
+.sis-events-feature-copy p,
+.sis-events-month-panel p,
+.sis-events-card-body li,
+.sis-events-note-box p {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.sis-events-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.sis-events-chip-row span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sis-events-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.sis-events-stat-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.sis-events-stat-card strong {
+  display: block;
+  font-size: 34px;
+  line-height: 1;
+  color: #f8d27b;
+}
+
+.sis-events-stat-card span,
+.sis-events-contact-list li,
+.sis-events-month-list span {
+  font-size: 14px;
+}
+
+.sis-events-contact-card {
+  padding: 34px 30px;
+  background: #fffaf0;
+  color: #102758;
+  border: 1px solid rgba(17, 39, 88, 0.08);
+}
+
+.sis-events-card-label {
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sis-events-contact-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-events-contact-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(16, 39, 88, 0.12);
+}
+
+.sis-events-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sis-events-primary-link,
+.sis-events-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.sis-events-primary-link {
+  background: #102758;
+  color: #ffffff;
+  box-shadow: 0 14px 24px rgba(16, 39, 88, 0.2);
+}
+
+.sis-events-secondary-link {
+  background: transparent;
+  color: #102758;
+  border: 1px solid rgba(16, 39, 88, 0.16);
+}
+
+.sis-events-primary-link:hover,
+.sis-events-secondary-link:hover {
+  transform: translateY(-2px);
+}
+
+.sis-events-feature-card,
+.sis-events-month-panel,
+.sis-events-note-box {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-events-feature-media {
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-events-feature-copy,
+.sis-events-month-panel {
+  padding: 28px;
+  color: #102758;
+}
+
+.sis-events-month-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0 18px;
+}
+
+.sis-events-month-list span {
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #eef3fb;
+  color: #102758;
+  font-weight: 700;
+}
+
+.sis-events-section-head {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #102758;
+}
+
+.sis-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.sis-events-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-events-card-media {
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-events-date-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-width: 64px;
+  padding: 12px 10px;
+  border-radius: 18px;
+  background: rgba(16, 39, 88, 0.9);
+  color: #ffffff;
+  box-shadow: 0 14px 24px rgba(16, 39, 88, 0.2);
+}
+
+.sis-events-date-badge strong {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.sis-events-card-body {
+  padding: 24px;
+}
+
+.sis-events-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-events-card-body h4 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #102758;
+}
+
+.sis-events-card-body ul {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-events-card-body li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: #53627f;
+}
+
+.sis-events-card-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c69220;
+}
+
+.sis-events-note-section {
+  padding-top: 12px;
+  padding-bottom: 70px;
+}
+
+.sis-events-note-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 34px;
+  background: linear-gradient(135deg, #c69220, #dbaa45);
+  color: #102758;
+}
+
+.sis-events-note-box .sis-events-kicker {
+  background: rgba(16, 39, 88, 0.08);
+}
+
+.sis-homework-modern {
+  background:
+    radial-gradient(circle at top left, rgba(16, 39, 88, 0.09), transparent 32%),
+    radial-gradient(circle at top right, rgba(25, 47, 89, 0.08), transparent 28%),
+    linear-gradient(180deg, #f3f7fc 0%, #ffffff 26%, #edf3fa 100%);
+}
+
+.sis-homework-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sis-homework-hero-section,
+.sis-homework-summary-section,
+.sis-homework-grid-section,
+.sis-homework-note-section {
+  padding: 54px 0;
+}
+
+.sis-homework-hero-section {
+  padding-top: 42px;
+}
+
+.sis-homework-hero-grid,
+.sis-homework-summary-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.sis-homework-hero-grid {
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
+}
+
+.sis-homework-summary-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+}
+
+.sis-homework-intro-card,
+.sis-homework-side-card,
+.sis-homework-summary-card,
+.sis-homework-card,
+.sis-homework-note-box {
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+}
+
+.sis-homework-intro-card {
+  padding: 38px;
+  background: linear-gradient(135deg, rgba(8, 20, 45, 0.98), rgba(25, 47, 89, 0.94));
+  color: #ffffff;
+}
+
+.sis-homework-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-homework-intro-card h2,
+.sis-homework-side-card h3,
+.sis-homework-summary-card h3,
+.sis-homework-section-head h3,
+.sis-homework-note-box h3 {
+  margin-bottom: 16px;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.08;
+  color: inherit;
+}
+
+.sis-homework-intro-card p,
+.sis-homework-side-card p,
+.sis-homework-summary-card p,
+.sis-homework-note-box p,
+.sis-homework-note-list li,
+.sis-homework-subject-list li {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.sis-homework-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.sis-homework-chip-row span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sis-homework-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.sis-homework-stat-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sis-homework-stat-card strong {
+  display: block;
+  font-size: 34px;
+  line-height: 1;
+  color: #f8d27b;
+}
+
+.sis-homework-stat-card span,
+.sis-homework-file-meta,
+.sis-homework-card-label,
+.sis-homework-overview-item span,
+.sis-homework-card-label-text {
+  font-size: 14px;
+}
+
+.sis-homework-side-card,
+.sis-homework-summary-card,
+.sis-homework-card {
+  background: #ffffff;
+  color: #102758;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-homework-side-card,
+.sis-homework-summary-card {
+  padding: 34px 30px;
+}
+
+.sis-homework-card-label,
+.sis-homework-card-label-text {
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sis-homework-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sis-homework-primary-link,
+.sis-homework-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.sis-homework-primary-link {
+  background: linear-gradient(135deg, #08142d, #192f59);
+  color: #ffffff;
+  box-shadow: 0 14px 24px rgba(16, 39, 88, 0.24);
+}
+
+.sis-homework-primary-link-disabled {
+  background: #d7dce7;
+  color: #6e7789;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.sis-homework-secondary-link {
+  background: transparent;
+  color: #102758;
+  border: 1px solid rgba(16, 39, 88, 0.16);
+}
+
+.sis-homework-secondary-link-light {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+.sis-homework-primary-link:hover,
+.sis-homework-secondary-link:hover {
+  transform: translateY(-2px);
+}
+
+.sis-homework-file-meta {
+  margin-top: 18px;
+  color: #64748b;
+}
+
+.sis-homework-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.sis-homework-overview-item {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #eef3fb;
+}
+
+.sis-homework-overview-item strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #102758;
+}
+
+.sis-homework-note-list,
+.sis-homework-subject-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-homework-note-list li,
+.sis-homework-subject-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: #53627f;
+}
+
+.sis-homework-note-list li::before,
+.sis-homework-subject-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #192f59;
+}
+
+.sis-homework-section-head {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #102758;
+}
+
+.sis-homework-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.sis-homework-card {
+  padding: 28px 24px;
+}
+
+@media (max-width: 980px) {
+  .sis-homework-shell {
+    width: min(100%, calc(100% - 30px));
+    margin: 0 auto;
+  }
+
+  .sis-homework-hero-grid,
+  .sis-homework-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sis-homework-stat-grid,
+  .sis-homework-overview-grid,
+  .sis-homework-action-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-homework-note-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sis-homework-card,
+  .sis-homework-side-card,
+  .sis-homework-summary-card,
+  .sis-homework-note-box {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sis-homework-kicker {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  .sis-homework-intro-card h2,
+  .sis-homework-side-card h3,
+  .sis-homework-summary-card h3,
+  .sis-homework-section-head h3,
+  .sis-homework-note-box h3 {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .sis-homework-chip-row {
+    gap: 8px;
+  }
+
+  .sis-homework-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-homework-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-homework-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sis-homework-action-row {
+    flex-direction: column;
+  }
+
+  .sis-homework-primary-link,
+  .sis-homework-secondary-link {
+    width: 100%;
+  }
+}
+
+
+.sis-homework-card-title {
+  margin-bottom: 8px;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #102758;
+}
+
+.sis-homework-note-section {
+  padding-top: 12px;
+  padding-bottom: 70px;
+}
+
+.sis-homework-note-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 34px;
+  background: linear-gradient(135deg, #08142d, #192f59);
+  color: #ffffff;
+}
+
+.sis-homework-note-box .sis-homework-kicker {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sis-campus-modern {
+  background:
+    radial-gradient(circle at top right, rgba(198, 145, 32, 0.08), transparent 30%),
+    linear-gradient(180deg, #f7f3ea 0%, #ffffff 24%, #eef4fb 100%);
+}
+
+.sis-campus-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sis-campus-hero-section,
+.sis-campus-overview-section,
+.sis-campus-band-section,
+.sis-campus-facilities-section,
+.sis-campus-quote-section {
+  padding: 54px 0;
+}
+
+.sis-campus-hero-section {
+  padding-top: 28px;
+}
+
+.sis-campus-hero-shell,
+.sis-campus-overview-grid,
+.sis-campus-quote-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.sis-campus-hero-shell,
+.sis-campus-overview-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+}
+
+.sis-campus-hero-copy,
+.sis-campus-story-card,
+.sis-campus-service-card,
+.sis-campus-band-box,
+.sis-campus-facility-card,
+.sis-campus-quote-card {
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+}
+
+.sis-campus-hero-copy {
+  padding: 38px;
+  background: linear-gradient(135deg, rgba(18, 43, 111, 0.98), rgba(23, 77, 160, 0.9));
+  color: #ffffff;
+}
+
+.sis-campus-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-campus-hero-copy h1,
+.sis-campus-hero-copy h2,
+.sis-campus-story-card h2,
+.sis-campus-band-box h2,
+.sis-campus-section-head h2,
+.sis-campus-quote-card blockquote {
+  margin-bottom: 16px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.08;
+  color: inherit;
+}
+
+.sis-campus-hero-copy p,
+.sis-campus-story-card p,
+.sis-campus-mini-card p,
+.sis-campus-service-copy p,
+.sis-campus-band-box p,
+.sis-campus-facility-body p,
+.sis-campus-quote-card p,
+.sis-campus-quote-card span {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.sis-campus-hero-visual {
+  min-height: 420px;
+  border-radius: 32px;
+  background:
+    linear-gradient(180deg, rgba(16, 39, 88, 0.16), rgba(16, 39, 88, 0.72)),
+    url('../images/mega_img/lifestyle.jpg') center/cover no-repeat;
+  box-shadow: 0 20px 54px rgba(16, 39, 88, 0.16);
+}
+
+.sis-campus-story-card,
+.sis-campus-service-card,
+.sis-campus-facility-card,
+.sis-campus-quote-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-campus-story-card,
+.sis-campus-service-copy,
+.sis-campus-band-box,
+.sis-campus-facility-body,
+.sis-campus-quote-card {
+  padding: 30px;
+}
+
+.sis-campus-lead {
+  margin-bottom: 14px;
+  color: #102758;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sis-campus-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.sis-campus-mini-card {
+  padding: 22px;
+  border-radius: 22px;
+  background: #eef3fb;
+}
+
+.sis-campus-mini-card img {
+  margin-bottom: 18px;
+}
+
+.sis-campus-mini-card h3,
+.sis-campus-inline-head h3,
+.sis-campus-facility-body h3 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #102758;
+}
+
+.sis-campus-service-media {
+  min-height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-campus-inline-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.sis-campus-inline-head-spaced {
+  margin-top: 24px;
+}
+
+.sis-campus-band-box {
+  background:
+    linear-gradient(180deg, rgba(16, 39, 88, 0.55), rgba(16, 39, 88, 0.8)),
+    url('../upload/life-bg.jpg') center/cover no-repeat;
+  color: #ffffff;
+}
+
+.sis-campus-band-box .sis-campus-kicker {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.sis-campus-section-head {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #102758;
+}
+
+.sis-campus-facility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.sis-campus-facility-media {
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-campus-quote-grid {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+}
+
+.sis-campus-quote-visual {
+  min-height: 420px;
+  border-radius: 28px;
+  background: url('../images/mega_img/head_332.jpg') center/cover no-repeat;
+  box-shadow: 0 20px 54px rgba(16, 39, 88, 0.16);
+}
+
+.sis-campus-quote-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #fffdf8, #ffffff);
+}
+
+.sis-campus-quote-card blockquote {
+  margin: 0 0 18px;
+  color: #102758;
+}
+
+.sis-campus-quote-card p {
+  margin-top: 4px;
+  color: #102758;
+  font-weight: 700;
+}
+
+.sis-campus-quote-card span {
+  color: #ad7036;
+  font-weight: 700;
+}
+
+.sis-sports-modern {
+  background:
+    radial-gradient(circle at top left, rgba(198, 145, 32, 0.1), transparent 32%),
+    linear-gradient(180deg, #f7f3ea 0%, #ffffff 26%, #edf4fb 100%);
+}
+
+.sis-sports-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sis-sports-hero-section,
+.sis-sports-overview-section,
+.sis-sports-activity-section,
+.sis-sports-band-section {
+  padding: 54px 0;
+}
+
+.sis-sports-hero-section {
+  padding-top: 40px;
+}
+
+.sis-sports-hero-grid,
+.sis-sports-overview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
+  gap: 28px;
+}
+
+.sis-sports-intro-card,
+.sis-sports-contact-card,
+.sis-sports-story-card,
+.sis-sports-feature-card,
+.sis-sports-activity-card,
+.sis-sports-band-box {
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+}
+
+.sis-sports-intro-card {
+  padding: 38px;
+  background: linear-gradient(135deg, rgba(18, 43, 111, 0.98), rgba(15, 101, 122, 0.9));
+  color: #ffffff;
+}
+
+.sis-sports-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sis-sports-intro-card h2,
+.sis-sports-contact-card h3,
+.sis-sports-story-card h3,
+.sis-sports-feature-copy h3,
+.sis-sports-section-head h3,
+.sis-sports-band-box h3 {
+  margin-bottom: 16px;
+  font-size: clamp(28px, 3.8vw, 46px);
+  line-height: 1.08;
+  color: inherit;
+}
+
+.sis-sports-intro-card p,
+.sis-sports-contact-card p,
+.sis-sports-story-card p,
+.sis-sports-highlight-list p,
+.sis-sports-feature-copy p,
+.sis-sports-activity-body p,
+.sis-sports-band-box p {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.sis-sports-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.sis-sports-chip-row span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sis-sports-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.sis-sports-stat-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.sis-sports-stat-card strong {
+  display: block;
+  font-size: 34px;
+  line-height: 1;
+  color: #f8d27b;
+}
+
+.sis-sports-stat-card span,
+.sis-sports-contact-list li {
+  font-size: 14px;
+}
+
+.sis-sports-contact-card,
+.sis-sports-story-card,
+.sis-sports-feature-card,
+.sis-sports-activity-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(16, 39, 88, 0.08);
+}
+
+.sis-sports-contact-card {
+  padding: 34px 30px;
+  color: #102758;
+  background: #fffaf0;
+}
+
+.sis-sports-card-label {
+  margin-bottom: 12px;
+  color: #ad7036;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sis-sports-contact-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sis-sports-contact-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(16, 39, 88, 0.12);
+}
+
+.sis-sports-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sis-sports-primary-link,
+.sis-sports-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.sis-sports-primary-link {
+  background: #102758;
+  color: #ffffff;
+  box-shadow: 0 14px 24px rgba(16, 39, 88, 0.2);
+}
+
+.sis-sports-secondary-link {
+  background: transparent;
+  color: #102758;
+  border: 1px solid rgba(16, 39, 88, 0.16);
+}
+
+.sis-sports-primary-link:hover,
+.sis-sports-secondary-link:hover {
+  transform: translateY(-2px);
+}
+
+.sis-sports-story-card,
+.sis-sports-feature-copy,
+.sis-sports-activity-body,
+.sis-sports-band-box {
+  padding: 30px;
+}
+
+.sis-sports-highlight-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.sis-sports-highlight-list div {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #eef3fb;
+}
+
+.sis-sports-highlight-list strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #102758;
+  font-size: 17px;
+}
+
+.sis-sports-feature-media {
+  min-height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-sports-feature-copy {
+  color: #102758;
+}
+
+.sis-sports-section-head {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #102758;
+}
+
+.sis-sports-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.sis-sports-activity-media {
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sis-sports-activity-body h4 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #102758;
+}
+
+.sis-sports-band-section {
+  padding-top: 12px;
+  padding-bottom: 70px;
+}
+
+.sis-sports-band-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, #c69220, #dbaa45);
+  color: #102758;
+}
+
+.sis-sports-band-box .sis-sports-kicker {
+  background: rgba(16, 39, 88, 0.08);
+}
+
+@media (max-width: 1100px) {
+  .sis-academics-stage-grid,
+  .sis-academics-pillar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sis-alumni-feature-grid,
+  .sis-alumni-event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sis-admission-service-grid,
+  .sis-admission-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sis-events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sis-academics-story-grid,
+  .sis-academics-outcome-panel,
+  .sis-academics-hero-section .sis-academics-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-alumni-story-grid,
+  .sis-alumni-outcome-panel,
+  .sis-alumni-hero-section .sis-alumni-shell,
+  .sis-alumni-cta-box {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-admission-hero-section .sis-admission-shell,
+  .sis-admission-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-events-hero-section .sis-events-shell,
+  .sis-events-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-campus-hero-shell,
+  .sis-campus-overview-grid,
+  .sis-campus-quote-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-campus-facility-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sis-sports-hero-grid,
+  .sis-sports-overview-grid,
+  .sis-sports-activity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .sis-academics-hero-section,
+  .sis-academics-stage-section,
+  .sis-academics-pillar-section,
+  .sis-academics-story-section,
+  .sis-academics-outcome-section,
+  .sis-academics-cta-section {
+    padding: 34px 0;
+  }
+
+  .sis-alumni-hero-section,
+  .sis-alumni-feature-section,
+  .sis-alumni-event-section,
+  .sis-alumni-story-section,
+  .sis-alumni-outcome-section,
+  .sis-alumni-cta-section {
+    padding: 34px 0;
+  }
+
+  .sis-academics-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .sis-alumni-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .sis-admission-hero-section,
+  .sis-admission-service-section,
+  .sis-admission-visual-section,
+  .sis-admission-process-section,
+  .sis-admission-detail-section {
+    padding: 34px 0;
+  }
+
+  .sis-events-hero-section,
+  .sis-events-highlight-section,
+  .sis-events-grid-section,
+  .sis-events-note-section {
+    padding: 34px 0;
+  }
+
+  .sis-campus-hero-section,
+  .sis-campus-overview-section,
+  .sis-campus-band-section,
+  .sis-campus-facilities-section,
+  .sis-campus-quote-section {
+    padding: 34px 0;
+  }
+
+  .sis-sports-hero-section,
+  .sis-sports-overview-section,
+  .sis-sports-activity-section,
+  .sis-sports-band-section {
+    padding: 34px 0;
+  }
+
+  .sis-admission-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .sis-events-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .sis-campus-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .sis-sports-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .sis-academics-intro-card,
+  .sis-academics-contact-card,
+  .sis-academics-outcome-panel,
+  .sis-academics-cta-box {
+    padding: 24px;
+  }
+
+  .sis-admission-intro-card,
+  .sis-admission-contact-card,
+  .sis-admission-process-card,
+  .sis-admission-panel,
+  .sis-admission-visual-frame {
+    padding: 24px;
+  }
+
+  .sis-events-intro-card,
+  .sis-events-contact-card,
+  .sis-events-feature-copy,
+  .sis-events-month-panel,
+  .sis-events-note-box {
+    padding: 24px;
+  }
+
+  .sis-campus-hero-copy,
+  .sis-campus-story-card,
+  .sis-campus-service-copy,
+  .sis-campus-band-box,
+  .sis-campus-facility-body,
+  .sis-campus-quote-card {
+    padding: 24px;
+  }
+
+  .sis-sports-intro-card,
+  .sis-sports-contact-card,
+  .sis-sports-story-card,
+  .sis-sports-feature-copy,
+  .sis-sports-activity-body,
+  .sis-sports-band-box {
+    padding: 24px;
+  }
+
+  .sis-academics-stat-grid,
+  .sis-academics-stage-grid,
+  .sis-academics-pillar-grid,
+  .sis-academics-visual-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-admission-requirement-grid,
+  .sis-admission-service-grid,
+  .sis-admission-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-events-stat-grid,
+  .sis-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-campus-mini-grid,
+  .sis-campus-facility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-sports-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-academics-visual-large,
+  .sis-academics-visual-small {
+    min-height: 240px;
+    grid-row: auto;
+  }
+
+  .sis-admission-visual-frame {
+    min-height: 280px;
+  }
+
+  .sis-events-feature-media,
+  .sis-events-card-media {
+    min-height: 240px;
+  }
+
+  .sis-campus-hero-visual,
+  .sis-campus-service-media,
+  .sis-campus-facility-media,
+  .sis-campus-quote-visual {
+    min-height: 240px;
+  }
+
+  .sis-sports-feature-media,
+  .sis-sports-activity-media {
+    min-height: 240px;
+  }
+
+  .sis-academics-intro-card h2,
+  .sis-academics-section-head h3,
+  .sis-academics-story-copy h3,
+  .sis-academics-outcome-copy h3,
+  .sis-academics-cta-box h3,
+  .sis-academics-contact-card h3 {
+    font-size: 30px;
+  }
+
+  .sis-admission-intro-card h2,
+  .sis-admission-contact-card h3,
+  .sis-admission-section-head h3,
+  .sis-admission-visual-copy h3,
+  .sis-admission-panel h3 {
+    font-size: 30px;
+  }
+
+  .sis-events-intro-card h2,
+  .sis-events-contact-card h3,
+  .sis-events-feature-copy h3,
+  .sis-events-month-panel h3,
+  .sis-events-section-head h3,
+  .sis-events-note-box h3 {
+    font-size: 30px;
+  }
+
+  .sis-campus-hero-copy h1,
+  .sis-campus-hero-copy h2,
+  .sis-campus-story-card h2,
+  .sis-campus-band-box h2,
+  .sis-campus-section-head h2,
+  .sis-campus-quote-card blockquote {
+    font-size: 30px;
+  }
+
+  .sis-sports-intro-card h2,
+  .sis-sports-contact-card h3,
+  .sis-sports-story-card h3,
+  .sis-sports-feature-copy h3,
+  .sis-sports-section-head h3,
+  .sis-sports-band-box h3 {
+    font-size: 30px;
+  }
+
+  .sis-admission-detail-grid {
+    gap: 20px;
+  }
+
+  .sis-admission-action-row {
+    flex-direction: column;
+  }
+
+  .sis-admission-primary-link,
+  .sis-admission-secondary-link {
+    width: 100%;
+  }
+
+  .sis-admission-table {
+    min-width: 0;
+  }
+
+  .sis-admission-table th,
+  .sis-admission-table td {
+    padding: 14px 12px;
+    font-size: 14px;
+  }
+
+  .sis-admission-address-block {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .sis-admission-panel,
+  .sis-admission-panel-alt {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .sis-admission-panel h3 {
+    margin-bottom: 14px;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .sis-admission-service-card h3,
+  .sis-admission-process-card h4,
+  .sis-admission-address-block h4 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .sis-admission-panel p,
+  .sis-admission-address-block p,
+  .sis-admission-address-block address,
+  .sis-admission-list li {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .sis-admission-list li {
+    padding: 10px 0 10px 18px;
+  }
+
+  .sis-admission-list li::before {
+    top: 18px;
+  }
+
+  .sis-admission-table-wrap {
+    margin: 18px -4px 22px;
+  }
+
+  .sis-admission-table th,
+  .sis-admission-table td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
 }
 
 span.woocommerce-Price-amount.amount {
@@ -5614,12 +8732,134 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   filter: brightness(1.2);
 }
 
+.sis-gallery-showcase .filter ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0 0 34px;
+  padding: 0;
+}
+
+.sis-gallery-showcase .filter li {
+  margin: 0;
+  list-style: none;
+}
+
+.sis-gallery-showcase .filter a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 12px 22px;
+  border: 1px solid rgba(16, 42, 67, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #16324f;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+  box-shadow: 0 12px 30px rgba(16, 42, 67, 0.08);
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sis-gallery-showcase .filter a:hover,
+.sis-gallery-showcase .filter a.active {
+  background: #919bad;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(22, 50, 79, 0.18);
+}
+
+.sis-gallery-showcase .gdlr-core-item-list {
+  margin-bottom: 26px;
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-grid {
+  overflow: hidden;
+  height: 100%;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(14, 30, 37, 0.10);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-grid:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(14, 30, 37, 0.16);
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-thumbnail {
+  margin-bottom: 0;
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-thumbnail-image-wrap {
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-thumbnail img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-content-wrap {
+  min-height: 96px;
+  padding: 20px 22px 24px;
+  border-top: none;
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-title {
+  margin-bottom: 0;
+}
+
+.sis-gallery-showcase .gdlr-core-portfolio-title a {
+  color: #102a43;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+  .sis-gallery-showcase .filter ul {
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+
+  .sis-gallery-showcase .filter a {
+    min-width: 0;
+    width: auto;
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
+  .sis-gallery-showcase .gdlr-core-portfolio-content-wrap {
+    min-height: auto;
+    padding: 16px 18px 20px;
+  }
+}
+
 /* YouTube Section Styling */
 .says-youtube-section {
   background: linear-gradient(135deg, #f3f6fb 0%, #e8f0f8 100%);
   padding: 60px 0;
   margin: 40px 0 0 0;
   border-top: 3px solid #192f59;
+}
+
+.says-social-updates-frame-youtube {
+  position: relative;
+  border-top: 0;
+}
+
+.says-social-updates-frame-youtube::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(229, 57, 53, 0.08), transparent 28%);
+  pointer-events: none;
 }
 
 .says-youtube-header {
@@ -5812,6 +9052,43 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   font-size: 12px;
   color: #999;
   margin: 0;
+}
+
+@media (max-width: 767px) {
+  .says-social-updates-topbar,
+  .says-social-updates-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .says-social-updates-topbar-wide {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .says-x-feed-live {
+    padding: 18px;
+  }
+
+  .says-x-feed-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .says-x-feed-intro {
+    max-width: none;
+  }
+
+  .says-x-feed-chip-row {
+    margin-bottom: 12px;
+  }
+
+  .says-x-feed-link {
+    width: 100%;
+  }
+
+  .says-x-feed-live h3 {
+    font-size: 24px;
+  }
 }
 
 /* Responsive YouTube Section */
@@ -6034,7 +9311,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-  color: #344c78;
+  color: #fff;
 }
 
 #div_983a_14 {
@@ -6056,7 +9333,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-  color: #344c78;
+  color: #fff;
 }
 
 #div_983a_17 {
@@ -6078,7 +9355,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-  color: #344c78;
+  color: #fff;
 }
 
 #div_983a_20 {
@@ -6124,7 +9401,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 }
 
 #div_983a_28 {
-  background-image: url(../upload/nathan-dumlao-572047-unsplash.jpg);
+  background-image: linear-gradient(rgba(12, 34, 62, 0.14), rgba(12, 34, 62, 0.14)), url(../images/mega_img/about_242.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -6138,7 +9415,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 }
 
 #div_983a_31 {
-  background-image: url(../upload/shutterstock_400221589.jpg);
+  background-image: linear-gradient(rgba(12, 34, 62, 0.12), rgba(12, 34, 62, 0.12)), url(../images/mega_img/about_278.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -6208,7 +9485,7 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 }
 
 #div_983a_44 {
-  background-image: url(../upload/shutterstock_547272460.jpg);
+  background-image: linear-gradient(rgba(12, 34, 62, 0.12), rgba(12, 34, 62, 0.12)), url(../images/mega_img/about_264.jpg);
   background-size: cover;
   background-position: center;
 }

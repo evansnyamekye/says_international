@@ -1,4 +1,5 @@
-﻿
+
+
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
 <head>
@@ -17,6 +18,66 @@
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
+
+    <style>
+        .sis-worker-teaser-section { padding: 40px 0; }
+        .sis-worker-teaser-shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+        .sis-worker-teaser-card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 26px;
+            padding: 26px 30px;
+            border-radius: 24px;
+            background: #ffffff;
+            box-shadow: 0 18px 50px rgba(21, 39, 84, 0.1);
+            border: 1px solid rgba(17, 39, 88, 0.08);
+        }
+        .sis-worker-teaser-photo { flex: 0 0 auto; }
+        .sis-worker-teaser-photo img {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 10px 20px rgba(173, 112, 54, 0.25);
+        }
+        .sis-worker-teaser-body { flex: 1 1 260px; min-width: 0; }
+        .sis-worker-teaser-kicker {
+            display: inline-block;
+            margin-bottom: 6px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ad7036, #c69120);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .sis-worker-teaser-body h3 { margin: 0 0 6px; font-size: 20px; line-height: 1.3; color: #102758; }
+        .sis-worker-teaser-body p { margin: 0; font-size: 15px; line-height: 1.6; color: #33415c; }
+        .sis-worker-teaser-link {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 20px;
+            border-radius: 999px;
+            background: #102758;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 14px 24px rgba(16, 39, 88, 0.2);
+        }
+        .sis-worker-teaser-link:hover { transform: translateY(-2px); }
+        @media (max-width: 700px) {
+            .sis-worker-teaser-card { flex-direction: column; text-align: center; }
+        }
+    </style>
         <script>
       // Polyfill/shim for exitFullscreen API before plugins load
       if (!document.exitFullscreen && !document.webkitExitFullscreen && !document.mozCancelFullScreen && !document.msExitFullscreen) {
@@ -54,47 +115,30 @@
                     <div class="says-mobile-menu"><a class="says-mm-menu-button says-mobile-menu-button says-mobile-button-hamburger" href="#says-mobile-menu"><span></span></a>
                         <div class="says-mm-menu-wrap says-navigation-font" id="says-mobile-menu" data-slide="right">
                             <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Homepage</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome Page</a></li>
-                                    </ul>
-                                </li>
+                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Welcome</a></li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="about-us.html">About</a></li>
-                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Team Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                       <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
-                                                    </ul>
-                                                </li>
-                                                
-                                                <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">Contact</a>
+                                           <li class="menu-item menu-item-has-children" data-size="60"><a href="index.html" class="sf-with-ul-pre">Team Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                    <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
+                                                             <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
+                                                          </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Contact Us</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item"><a href="contact.html">Contact</a></li>
-                                                <li class="menu-item"><a href="contact-2.html">Contact 2</a></li>
-                                                <li class="menu-item"><a href="contact-3.html">Contact 3</a></li>
-                                            </ul>
+                                                <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
+                                             </ul>
                                         </li>
                                      </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
+                                 </li>
+                                 <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item menu-item-has-children"><a>Lower Primary</a>
                                             <ul class="sub-menu">
@@ -127,17 +171,20 @@
                                 <li class="menu-item menu-item-has-children"><a href="apply-to-says.html">Admissions</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                        <li class="menu-item"><a href="pj_administration.html">Administration</a></li>
                                         <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
-                                        <li class="menu-item"><a href="scholarships.html">Scholarships</a></li>
-                                        <li class="menu-item"><a href="athletics.html">Athletics</a></li>
+                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
                                         <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
                                         <li class="menu-item"><a href="alumni.html">Alumni</a></li>
                                         <li class="menu-item"><a href="event-calendar.html">Event Calendar</a></li>
+                                        <li class="menu-item"><a href="ucmas.html">UCMAS</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Courses</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course-list-1.html">Course List 1</a></li>
+                                        <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item"><a href="gallery.html">Gallery</a></li>
@@ -149,7 +196,7 @@
             </div>
         </div>
         </div>
-        <div class="says-body-outer-wrapper ">
+    <div class="says-body-outer-wrapper ">
         <div class="says-body-wrapper clearfix  says-with-frame">
             <div class="says-top-bar">
                 <div class="says-top-bar-background"></div>
@@ -178,48 +225,36 @@
                         <div class="says-navigation says-item-pdlr clearfix ">
                             <div class="says-main-menu" id="says-main-menu">
                                 <ul id="menu-main-navigation-1" class="sf-menu">
-                                    <li class="menu-item menu-item-home current-menu-item menu-item-has-children says-normal-menu"><a href="index.html" class="sf-with-ul-pre">Home</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-home" data-size="60"><a href="index.html">Welcome</a></li>
-            
-                                        </ul>
-                                    </li>
+                                   <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Welcome</a></li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="about-us.html">About SIS</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Team Blog</a>
+                                            <li class="menu-item" data-size="60"><a href="about-us.html">About</a></li>
+                                              <li class="menu-item menu-item-has-children" data-size="60"><a href="index.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Teachers</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                      <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
                                                              <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                          </ul>
+                                                        </ul>
                                                     </li>
-
-                                                    
                                                 </ul>
                                             </li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
+                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact Us</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="contact.html">Map</a></li>                                          
-                                                    <li class="menu-item"><a href="contact-2.html">Enquiry</a></li>                                          
+                                                    <li class="menu-item"><a href="contact.html">Contact</a></li>                                          
+                                                    <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>                                          
                                                 </ul>
                                             </li>
-                                        
-                                       </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children says-mega-menu"><a href="academics.html" class="sf-with-ul-pre">Academics</a>
+                                        </ul>
+                                     </li>
+                                     <li class="menu-item menu-item-has-children says-mega-menu"><a href="academics.html" class="sf-with-ul-pre">Academics</a>
                                         <div class="sf-mega sf-mega-full megaimg">
                                             <ul class="sub-menu">
                                                 <li class="menu-item menu-item-has-children" data-size="15"><a class="sf-with-ul-pre">Lower Primary</a>
                                                     <ul class="sub-menu">
                                                        <li class="menu-item"><a href="Pre_school">Pre-School</a></li>
-                                                        <li class="menu-item"><a href="Creche">Crèche</a></li>
+                                                        <li class="menu-item"><a href="Crèche">Crèche</a></li>
                                                         <li class="menu-item"><a href="Nursery_one">Nursery one</a></li>
                                                         <li class="menu-item"><a href="Nursery_two">Nursery two</a></li>
                                                         <li class="menu-item"><a href="Kindergarten">Kindergarten</a></li>
@@ -243,7 +278,8 @@
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item" data-size="15">
-                                                    <div class="says-mega-menu-section-content"><img src="upload/mega-menu-logo.png" alt="" /> <span>Every Academic offerings at Says comes with a unique curriculum designed to foster critical thinking and creativity.</span></div>
+                                                    <div class="says-mega-menu-section-content"><img src="upload/mega-menu-logo.png" alt="" /> <span>Every Academic offerings at Says comes 
+                                                        with a unique curriculum designed to foster critical thinking and creativity.</span></div>
                                                 </li>
                                             </ul>
                                         </div>
@@ -251,18 +287,20 @@
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="apply-to-says.html" class="sf-with-ul-pre">Admissions</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                            <li class="menu-item"><a href="pj_administration.html">Administration</a></li>
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                            <li class="menu-item" data-size="60"><a href="athletics.html">Athletics</a></li>
+                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
                                             <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                            <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
+
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="course-list-1.html">Course List 1</a></li>
-                                            <li class="menu-item" data-size="60"><a href="course-list-2.html">Course List 2</a></li>
-                                        </ul>
+                                            <li class="menu-item" data-size="60"><a href="assessment-info.html">Assessment Info</a></li>
+                                         </ul>
                                     </li>
                                     <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
                                     <li class="menu-item says-normal-menu"><a href="campus_life.html">Campus Life</a></li>
@@ -413,7 +451,7 @@
                                                         <div class="gdlr-core-column-service-media gdlr-core-media-image"><img src="upload/icon-3.png" alt="" width="44" height="39" title="icon-3" /></div>
                                                         <div class="gdlr-core-column-service-content-wrapper">
                                                             <div class="gdlr-core-column-service-title-wrap">
-                                                                <h3 class="gdlr-core-column-service-title gdlr-core-skin-title" id="h3_1dd7_2">Athletics</h3>
+                                                                <h3 class="gdlr-core-column-service-title gdlr-core-skin-title" id="h3_1dd7_2">Sports</h3>
                                                                 <div class="gdlr-core-column-service-caption gdlr-core-info-font gdlr-core-skin-caption" id="div_1dd7_9">Sport Clubs</div>
                                                             </div>
                                                         </div>
@@ -453,8 +491,10 @@
                                     <div class="says-home-impact-intro gdlr-core-item-pdlr">
                                         <div class="says-home-impact-label">A more active campus story</div>
                                         <div class="says-home-impact-heading-wrap">
-                                            <h3 class="says-home-impact-title">Learning here should feel in motion, not just displayed.</h3>
-                                            <p class="says-home-impact-copy">Says blends academics, confidence building, faith, performance and community. This section turns that story into something visitors can feel as they scroll.</p>
+                                            <h3 class="says-home-impact-title">A place where learning comes alive every day.</h3>
+                                            <p class="says-home-impact-copy">  From academics and robotics to music, creativity and character building,
+                                                                                            we help children discover their talents, grow in confidence and prepare
+                                                                                            for a bright future.</p>
                                         </div>
                                         <div class="says-home-impact-actions">
                                             <a class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border" href="campus_life.html">Explore Campus Life</a>
@@ -466,41 +506,44 @@
                                     <div class="says-home-impact-grid gdlr-core-item-pdlr">
                                         <article class="says-home-impact-card">
                                             <span class="says-home-impact-card-kicker">01</span>
-                                            <h4>Exploration</h4>
-                                            <p>Students move between reading, STEM, arts and collaborative projects instead of staying inside one flat classroom narrative.</p>
-                                            <span class="says-home-impact-card-meta">Robotics, reading culture, creative studio</span>
+                                            <h4>Learning Through Discovery</h4>
+                                            <p>Our Students learn through reading, creative arts, STEM 
+                                               activities, music, play, and exciting classroom experiences every day.</p>
+                                            <span class="says-home-impact-card-meta">Reading • Robotics • Creativity</span>
                                         </article>
                                         <article class="says-home-impact-card">
                                             <span class="says-home-impact-card-kicker">02</span>
-                                            <h4>Belonging</h4>
-                                            <p>Families should immediately sense warmth, guidance and structure, with pathways into academics, events and school life.</p>
-                                            <span class="says-home-impact-card-meta">Parent trust, student support, visible care</span>
+                                            <h4>A Caring School Family</h4>
+                                            <p>We create a warm and safe environment where every Student feels loved,
+                                                 supported, confident, and ready to grow.</p>
+                                            <span class="says-home-impact-card-meta">Care • Discipline • Parent Partnership</span>
                                         </article>
                                         <article class="says-home-impact-card">
                                             <span class="says-home-impact-card-kicker">03</span>
-                                            <h4>Momentum</h4>
-                                            <p>The homepage now introduces movement with staged reveals, stronger cards and live counters instead of static blocks.</p>
-                                            <span class="says-home-impact-card-meta">Scroll energy, hover depth, clearer flow</span>
+                                            <h4>Growing for the Future</h4>
+                                            <p>We help children build confidence, leadership skills, creativity, and strong academic 
+                                                foundations for tomorrow.</p>
+                                            <span class="says-home-impact-card-meta">Excellence • Confidence • Leadership</span>
                                         </article>
                                     </div>
                                 </div>
                                 <div class="gdlr-core-pbf-element">
                                     <div class="says-home-impact-stats gdlr-core-item-pdlr">
                                         <div class="says-home-stat">
-                                            <span class="says-home-stat-number" data-count="12">12</span>
-                                            <span class="says-home-stat-label">student clubs and enrichment tracks</span>
+                                            <span class="says-home-stat-number" data-count="1200">1200</span>
+                                            <span class="says-home-stat-label">No. of Students</span>
                                         </div>
                                         <div class="says-home-stat">
-                                            <span class="says-home-stat-number" data-count="4">4</span>
-                                            <span class="says-home-stat-label">core growth pillars on the homepage</span>
+                                            <span class="says-home-stat-number" data-count="54">54</span>
+                                            <span class="says-home-stat-label">No. of Teachers</span>
                                         </div>
                                         <div class="says-home-stat">
-                                            <span class="says-home-stat-number" data-count="100">100</span>
-                                            <span class="says-home-stat-label">percent focus on child-centred support</span>
+                                            <span class="says-home-stat-number" data-count="42">42</span>
+                                            <span class="says-home-stat-label">No. of Non-Teachers</span>
                                         </div>
                                         <div class="says-home-stat">
-                                            <span class="says-home-stat-number" data-count="365">365</span>
-                                            <span class="says-home-stat-label">days of community, faith and learning</span>
+                                            <span class="says-home-stat-number" data-count="20">20</span>
+                                            <span class="says-home-stat-label">No. of Foreign Student</span>
                                         </div>
                                     </div>
                                 </div>
@@ -948,6 +991,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <section id="sis-worker-teaser" class="sis-worker-teaser-section">
+                        <div class="sis-worker-teaser-shell">
+                            <div class="sis-worker-teaser-card">
+                                <div class="sis-worker-teaser-photo">
+                                    <img src="upload/teachers/shutterstock_8.jpg" width="96" height="96" alt="Jennifer Botchway">
+                                </div>
+                                <div class="sis-worker-teaser-body">
+                                    <span class="sis-worker-teaser-kicker">Staff Spotlight</span>
+                                    <h3>Jennifer Botchway &ndash; Best Worker of the Month</h3>
+                                    <p>Head of Department, Pre-School &ndash; recognized for her dedication to our youngest learners.</p>
+                                </div>
+                                <a href="best_worker.html" class="sis-worker-teaser-link">Read Her Story</a>
+                            </div>
+                        </div>
+                    </section>
+
                     <div class="gdlr-core-pbf-wrapper " id="div_1dd7_72">
                         <div class="gdlr-core-pbf-background-wrap">
                             <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" id="div_1dd7_73" data-parallax-speed="0.2"></div>
@@ -1112,9 +1172,9 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" id="div_1dd7_87">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " id="h3_1dd7_29">Graduated & Professional</h3>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " id="h3_1dd7_29">Prepared For The Future</h3>
                                                     </div>
-                                                    <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" id="span_1dd7_6">says University was established by John Smith in 1920 for the public benefit and it is recognized globally.</span>
+                                                    <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" id="span_1dd7_6">SIS learners receive strong academic guidance and character training that prepare them for senior high school and lifelong success.</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1129,9 +1189,11 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" id="div_1dd7_90">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " id="h3_1dd7_30">Academic Student Support</h3>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " id="h3_1dd7_29">Prepared For The Future</h3>
                                                     </div>
-                                                    <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" id="span_1dd7_7">
+                                                    <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" id="span_1dd7_6">SIS learners receive
+                                                         strong academic
+                                                         guidance and character training that prepare them for senior high school and lifelong success.</span>
                                                         Says International School provides comprehensive Academic Student Support to ensure every learner thrives. </span>
                                                 </div>
                                             </div>
@@ -1474,8 +1536,12 @@
                 </div>
             </div>
             <!-- YouTube Section -->
-            <div class="says-youtube-section">
+            <div class="says-youtube-section says-social-updates-frame says-social-updates-frame-youtube">
                 <div class="says-container">
+                    <div class="says-social-updates-topbar says-social-updates-topbar-wide">
+                        <span class="says-social-updates-label">Social Updates</span>
+                        <span class="says-social-updates-channel">YouTube channel and video highlights</span>
+                    </div>
                     <div class="says-youtube-header">
                         <h2>Follow Us on YouTube</h2>
                         <p>Subscribe to Says International School for campus tours, student highlights, and educational content</p>
@@ -1488,6 +1554,10 @@
                                 <i class="fa fa-youtube-play"></i> Subscribe on YouTube
                             </a>
                             <p class="says-youtube-info-text">Click the notification bell to get updates on new videos</p>
+                            <div class="says-social-updates-footer says-social-updates-footer-inline">
+                                <span>Want shorter live updates too?</span>
+                                <a href="https://x.com/SInterscho1049" target="_blank" rel="noopener">Follow SIS on X</a>
+                            </div>
                         </div>
                         <div class="says-youtube-videos">
                             <h3>Latest Videos</h3>
@@ -1508,66 +1578,73 @@
                             <div id="text-2" class="widget widget_text says-widget">
                                 <div class="textwidget">
                                     <p><img src="upload/footer-logo.png" alt="" />
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_10"></span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: 5px ;"></span>
                                         <br /> Susan Enclave
-                                        <br />#1 Selorm Crescent
+                                        <br /> #1 Selorm Crescent
                                         <br /> Behind West Hills Mall</p>
-                                    <p><span id="span_1dd7_11">Tel: +233 30 294 7154</span>
-                                    <p><span id="span_1dd7_11">WhatsApp +233 50 927 5198</span>
-                                         <span class="gdlr-core-space-shortcode" id="span_1dd7_12"></span>
-                                        <br /> <a id="a_1dd7_8" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
+                                    <p><span style="font-size: 15px; color: #ffffff;">+233 30 294 7154</span>
+                                        <br /><span style="font-size: 15px; color: #ffffff;">WhatsApp +233 50 927 5198</span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: -20px ;"></span>
+                                        <br /> <a style="font-size: 15px; color: #ffffff;" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
                                     <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align">
-                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" id="div_1dd7_111"></div>
+                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #3db166 ;border-bottom-width: 2px ;"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                     
+                        <div class="says-footer-column says-item-pdlr says-column-15">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
+                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <div class="menu-our-campus-container">
+                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
+                                        <li class="menu-item"><a href="academics.html">About Us</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Administration</a></li>
+                                        <li class="menu-item"><a href="faq.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="contact.html">School Office</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
+                                        <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-3" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
                                 <div class="menu-campus-life-container">
                                     <ul id="menu-campus-life" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li><a href="about-us.html" class="menu-item">About Us</a></li>
-                                        <li><a href="faq.html" class="menu-item">FAQ</a></li>
-                                        <li><a href="contact.html" class="menu-item">Contact</a></li>
-                                        <li><a href="about-us.html" class="menu-item">Educational Quote</a></li>
+                                        <li class="menu-item"><a href="terms-of-use.html">Terms of Use</a></li>
+                                        <li class="menu-item"><a href="disclaimer.html">Disclaimer</a></li>
+                                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Student Life</a></li>
+                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
+                                        <li class="menu-item"><a href="gallery.html">Gallery</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-4" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
                                 <div class="menu-academics-container">
                                     <ul id="menu-academics" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li><a href="#" class="menu-item">Terms of Use</a></li>
-                                        <li><a href="#" class="menu-item">Privacy Policy</a></li>
-                                        <li><a href="#" class="menu-item">Disclaimer</a></li>
+                                        <li class="menu-item"><a href="academics.html">Curriculum</a></li>
+                                        <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
+                                        <li class="menu-item"><a href="event-calendar.html">School Calendar</a></li>
+                                        <li class="menu-item"><a href="ucmas.html">UCMAS</a></li>
+                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                           <div class="says-footer-column says-item-pdlr says-column-15">
-                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
-                                <div class="menu-our-campus-container">
-                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                         <li><a href="about-us.html" class="menu-item">About Us</a></li>
-                                        <li><a href="#" class="menu-item">Administration</a></li>
-                                        <li><a href="#" class="menu-item"> SIS Campus Safety</a></li>
-                                        <li><a href="#" class="menu-item">Office of the Head Master</a></li>
-                                        </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                  <div class="says-copyright-wrapper">
+                <div class="says-copyright-wrapper">
                     <div class="says-copyright-container says-container clearfix">
-                        <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2025 - All Rights Reserved - Says International School.</div>
+                        <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2026 - All Rights Reserved - Says International School.</div>
                         <div class="says-copyright-right says-item-pdlr">
+                            <a class="says-footer-credit" href="https://evans-portfolio-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" title="Visit the Nested Solutions portfolio">Powered by <strong><span class="says-footer-credit-nested">Nested</span> <span class="says-footer-credit-solutions">Solutions</span></strong></a>
                             <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" id="div_983a_50">
                                 <a href="https://facebook.com/SAYS-international-School-106769111122347" target="_blank" class="gdlr-core-social-network-icon" title="facebook">
                                     <i class="fa fa-facebook" ></i>
@@ -1633,6 +1710,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '#div_1dd7_30 .gdlr-core-column-service-item',
         '#div_1dd7_44 .gdlr-core-blog-grid',
         '#div_1dd7_44 .gdlr-core-blog-widget',
+        '#sis-worker-teaser .sis-worker-teaser-card',
         '#div_1dd7_72 .gdlr-core-image-item',
         '#div_1dd7_72 .gdlr-core-title-item',
         '#div_1dd7_72 .gdlr-core-text-box-item',
@@ -2081,7 +2159,7 @@ document.addEventListener('DOMContentLoaded', function () {
             secondaryTag: 'Academic Support',
             secondaryHref: 'academics.html',
             title: 'SIS also supports strong Ghana Education Service alignment for families who prefer a local pathway.',
-            excerpt: 'That means students build solid local academic foundations while still benefiting from the school’s wider culture of excellence.'
+            excerpt: 'That means students build solid local academic foundations while still benefiting from the school�s wider culture of excellence.'
         }
     ];
 
@@ -2434,6 +2512,30 @@ document.addEventListener('DOMContentLoaded', function () {
 	        document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
 	    } /*]]>*/
 	</script>
+<!-- scroll-to-top button -->
+<script>
+(function () {
+  if (document.querySelector('.scroll-to-top-btn')) { return; }
+  var button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'scroll-to-top-btn';
+  button.title = 'Scroll to top';
+  button.setAttribute('aria-label', 'Scroll to top');
+  button.textContent = '↑';
+  document.body.appendChild(button);
+  var threshold = 300;
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > threshold) {
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+  });
+  button.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>
 

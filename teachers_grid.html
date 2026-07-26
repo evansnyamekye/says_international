@@ -16,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 
+    <style>
+        .teachers-grid-scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .teachers-grid-scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+
 </head>
 
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js says-body says-body-front says-full  says-with-sticky-navigation  says-blockquote-style-1 gdlr-core-link-to-lightbox">
@@ -45,98 +50,80 @@
                     <div class="says-mobile-menu"><a class="says-mm-menu-button says-mobile-menu-button says-mobile-button-hamburger" href="#says-mobile-menu"><span></span></a>
                         <div class="says-mm-menu-wrap says-navigation-font" id="says-mobile-menu" data-slide="right">
                             <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome</a></li>
-                                   </ul>
-                                </li>
+                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Welcome</a></li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about-us.html">About SIS</a></li>
-                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Team Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="menu-item"><a href="about-us.html">About</a></li>
+                                           <li class="menu-item menu-item-has-children" data-size="60"><a href="teachers_grid.html" class="sf-with-ul-pre">Team Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                    <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
+                                                             <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
+                                                          </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Contact</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="contact.html">Map</a></li>
+                                                <li class="menu-item"><a href="contact.html">Contact</a></li>
                                                 <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
-                                            </ul>
+                                             </ul>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
+                                     </ul>
+                                 </li>
+                                 <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-has-children"><a>Undergraduate</a>
+                                        <li class="menu-item menu-item-has-children"><a>Lower Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Business Administration</a></li>
-                                                <li class="menu-item"><a href="school-of-law.html">School Of Law</a></li>
-                                                <li class="menu-item"><a href="engineering.html">Engineering</a></li>
-                                                <li class="menu-item"><a href="medicine.html">Medicine</a></li>
-                                                <li class="menu-item"><a href="art-science.html">Art &#038; Science</a></li>
+                                                <li class="menu-item"><a href="#">Pre-School</a></li>
+                                                <li class="menu-item"><a href="#">Crèche</a></li>
+                                                <li class="menu-item"><a href="#">Nursery one</a></li>
+                                                <li class="menu-item"><a href="#">Nursery two</a></li>
+                                                <li class="menu-item"><a href="#">Kindergarten</a></li>
+                                                <li class="menu-item"><a href="#">Grade one</a></li>
+                                                <li class="menu-item"><a href="#">Grade two</a></li>
+                                                <li class="menu-item"><a href="#">Grade three</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">Graduate Program</a>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Upper Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="hospitality-management.html">Hospitality Management</a></li>
-                                                <li class="menu-item"><a href="physics.html">Physics</a></li>
-                                                <li class="menu-item"><a href="#">Chemistry</a></li>
-                                                <li class="menu-item"><a href="#">Music</a></li>
-                                                <li class="menu-item"><a href="#">Computer Science</a></li>
+                                                <li class="menu-item"><a href="#">Grade four</a></li>
+                                                <li class="menu-item"><a href="#">Grade five</a></li>
+                                                <li class="menu-item"><a href="#">Grade six</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">Resources</a>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Junior High School</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Department Page</a></li>
-                                                <li class="menu-item"><a href="finance.html">Major Page</a></li>
-                                                <li class="menu-item"><a href="finance-faculty.html">Faculty Page</a></li>
-                                                <li class="menu-item"><a href="john-hagensy-phd.html">Single Instructor</a></li>
-                                                <li class="menu-item"><a href="introduction-to-financial-accounting.html">Single Course</a></li>
+                                                <li class="menu-item"><a href="#">JHS 1</a></li>
+                                                <li class="menu-item"><a href="#">JHS 2</a></li>
+                                                <li class="menu-item"><a href="#">JHS 3</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item"><a href="#">Logo</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="apply-to-says.html">Admissions</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
-                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
-                                        <li class="menu-item"><a href="scholarships.html">Scholarships</a></li>
-                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
-                                        <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
-                                        <li class="menu-item"><a href="alumni.html">Alumni</a></li>
-                                        <li class="menu-item"><a href="event-calendar.html">Event Calendar</a></li>
+                                        <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                            <li class="menu-item"><a href="pj_administration.html">Administration</a></li>
+                                            <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
+                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
+                                            <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
+                                            <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
+                                            <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                            <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Courses</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course-list-1.html">Course List 1</a></li>
+                                        <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item"><a href="gallery.html">Gallery</a></li>
-                                <li class="menu-item"><a href="campus.html">Campus Life</a></li>
+                                <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
                             </ul>
                         </div>
                     </div>
@@ -181,22 +168,17 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="about-us.html">About SIS</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Team Blog</a>
+                                         
+                                              <li class="menu-item" data-size="60"><a href="about-us.html">About</a></li>
+                                              <li class="menu-item menu-item-has-children" data-size="60"><a href="teachers_grid.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Teachers</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                      <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
                                                              <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                          </ul>
+                                                        </ul>
                                                     </li>
-
-                                                    
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
@@ -245,18 +227,22 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="apply-to-says.html" class="sf-with-ul-pre">Admissions</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                             <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                            <li class="menu-item"><a href="pj_administration.html">Administration</a></li>
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                            <li class="menu-item" data-size="60"><a href="athletics.html">Athletics</a></li>
+                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
                                             <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                            <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="course-list-1.html">Course List 1</a></li>
-                                            <li class="menu-item" data-size="60"><a href="course-list-2.html">Course List 2</a></li>
+                                         <ul class="sub-menu">
+                                            <li class="menu-item" data-size="60"><a href="assessment-info.html">Assessment Info</a></li>
+                                          <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
@@ -468,6 +454,34 @@
                     </div>
                 </div>
             </div>
+                  <div class="gdlr-core-pbf-wrapper " id="div_1dd7_107">
+                        <div class="gdlr-core-pbf-background-wrap" id="div_1dd7_108"></div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" id="div_1dd7_109">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix  gdlr-core-gallery-item-style-grid" id="div_1dd7_110">
+                                        <div class="gdlr-core-gallery-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-1.png" alt="" width="248" height="120" title="banner-1" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-2.png" alt="" width="248" height="120" title="banner-2" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-3.png" alt="" width="248" height="120" title="banner-3" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-4.png" alt="" width="248" height="120" title="banner-4" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-5.png" alt="" width="248" height="120" title="banner-5" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
             <footer>
                 <div class="says-footer-wrapper ">
@@ -477,12 +491,13 @@
                                 <div class="textwidget">
                                     <p><img src="upload/footer-logo.png" alt="" />
                                         <br /> <span class="gdlr-core-space-shortcode" style="margin-top: 5px ;"></span>
-                                        <br /> Box 35300
-                                        <br /> 1810 Campus Way NE
-                                        <br /> Bothell, WA 98011-8246</p>
-                                    <p><span style="font-size: 15px; color: #ffffff;">+1-2534-4456-345</span>
+                                        <br /> Susan Enclave
+                                        <br /> #1 Selorm Crescent
+                                        <br /> Behind West Hills Mall</p>
+                                    <p><span style="font-size: 15px; color: #ffffff;">+233 30 294 7154</span>
+                                        <br /><span style="font-size: 15px; color: #ffffff;">WhatsApp +233 50 927 5198</span>
                                         <br /> <span class="gdlr-core-space-shortcode" style="margin-top: -20px ;"></span>
-                                        <br /> <a style="font-size: 15px; color: #ffffff;" href="mailto:admin@saysuni.edu">admin@saysuni.edu</a></p>
+                                        <br /> <a style="font-size: 15px; color: #ffffff;" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
                                     <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align">
                                         <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #3db166 ;border-bottom-width: 2px ;"></div>
                                     </div>
@@ -491,45 +506,45 @@
                         </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
                                 <div class="menu-our-campus-container">
                                     <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#">Acedemic</a></li>
-                                        <li class="menu-item"><a href="#">Planning &#038; Administration</a></li>
-                                        <li class="menu-item"><a href="#">Campus Safety</a></li>
-                                        <li class="menu-item"><a href="#">Office of the Chancellor</a></li>
-                                        <li class="menu-item"><a href="#">Facility Services</a></li>
-                                        <li class="menu-item"><a href="#">Human Resources</a></li>
+                                        <li class="menu-item"><a href="academics.html">About Us</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Administration</a></li>
+                                        <li class="menu-item"><a href="faq.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="contact.html">School Office</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
+                                        <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-3" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Campus Life</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
                                 <div class="menu-campus-life-container">
                                     <ul id="menu-campus-life" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#">Accessibility</a></li>
-                                        <li class="menu-item"><a href="#">Financial Aid</a></li>
-                                        <li class="menu-item"><a href="#">Food Services</a></li>
-                                        <li class="menu-item"><a href="#">Housing</a></li>
-                                        <li class="menu-item"><a href="#">Information Technologies</a></li>
-                                        <li class="menu-item"><a href="#">Student Life</a></li>
+                                        <li class="menu-item"><a href="terms-of-use.html">Terms of Use</a></li>
+                                        <li class="menu-item"><a href="disclaimer.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Student Life</a></li>
+                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
+                                        <li class="menu-item"><a href="gallery.html">Gallery</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-4" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Academics</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
                                 <div class="menu-academics-container">
                                     <ul id="menu-academics" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#">Canvas</a></li>
-                                        <li class="menu-item"><a href="#">Catalyst</a></li>
-                                        <li class="menu-item"><a href="#">Library</a></li>
-                                        <li class="menu-item"><a href="#">Time Schedule</a></li>
-                                        <li class="menu-item"><a href="#">Apply For Admissions</a></li>
-                                        <li class="menu-item"><a href="#">Pay My Tuition</a></li>
+                                        <li class="menu-item"><a href="academics.html">Curriculum</a></li>
+                                        <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
+                                        <li class="menu-item"><a href="event-calendar.html">School Calendar</a></li>
+                                        <li class="menu-item"><a href="ucmas.html">Programmes</a></li>
+                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -537,33 +552,35 @@
                     </div>
                 </div>
                 
-				<div class="says-copyright-wrapper">
-					<div class="says-copyright-container says-container clearfix">
-						<div class="says-copyright-left says-item-pdlr">Copyright All Right Reserved 2019, Max Themes</div>
-						<div class="says-copyright-right says-item-pdlr">
-							<div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" style="padding-bottom: 0px ;">
-								<a href="#" target="_blank" class="gdlr-core-social-network-icon" title="facebook">
-									<i class="fa fa-facebook" ></i>
-								</a>
-								<a href="#" target="_blank" class="gdlr-core-social-network-icon" title="google-plus">
-									<i class="fa fa-google-plus" ></i>
-								</a>
-								<a href="#" target="_blank" class="gdlr-core-social-network-icon" title="linkedin">
-									<i class="fa fa-linkedin" ></i>
-								</a>
-								<a href="#" target="_blank" class="gdlr-core-social-network-icon" title="skype">
-									<i class="fa fa-skype" ></i>
-								</a>
-								<a href="#" target="_blank" class="gdlr-core-social-network-icon" title="twitter">
-									<i class="fa fa-twitter" ></i>
-								</a>
-								<a href="#" target="_blank" class="gdlr-core-social-network-icon" title="instagram">
-									<i class="fa fa-instagram" ></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				
+			    <div class="says-copyright-wrapper">
+                    <div class="says-copyright-container says-container clearfix">
+                        <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2025 - All Rights Reserved - Says International School.</div>
+                        <div class="says-copyright-right says-item-pdlr">
+                            <a class="says-footer-credit" href="https://evans-portfolio-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" title="Visit the Nested Solutions portfolio">Powered by <strong><span class="says-footer-credit-nested">Nested</span> <span class="says-footer-credit-solutions">Solutions</span></strong></a>
+                            <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" id="div_983a_50">
+                                <a href="https://facebook.com/SAYS-international-School-106769111122347" target="_blank" class="gdlr-core-social-network-icon" title="facebook">
+                                    <i class="fa fa-facebook" ></i>
+                                </a>
+                                <a href="https://saysinterschool@gmail.com" target="_blank" class="gdlr-core-social-network-icon" title="google-plus">
+                                    <i class="fa fa-envelope" ></i>
+                                </a>
+                                <!-- <a href="#" target="_blank" class="gdlr-core-social-network-icon" title="skype">
+                                    <i class="fa fa-skype" ></i>
+                                </a> -->
+                                <a href="https://x.com/SInterscho1049" target="_blank" class="gdlr-core-social-network-icon" title="twitter">
+                                    <i class="fa fa-twitter" ></i>
+                                </a>
+                                <a href="https://www.youtube.com/@Saysinterschool" target="_blank" class="gdlr-core-social-network-icon" title="youtube">
+                                    <i class="fa fa-youtube" ></i>
+                                </a>
+                                <a href="https://saysinterschool2019" target="_blank" class="gdlr-core-social-network-icon" title="instagram">
+                                    <i class="fa fa-instagram" ></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </footer>
         </div>
     </div>
@@ -590,9 +607,53 @@
         };
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
+    <!-- scroll-to-top button -->
+<script>
+(function () {
+  if (document.querySelector('.scroll-to-top-btn')) { return; }
+  var button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'scroll-to-top-btn';
+  button.title = 'Scroll to top';
+  button.setAttribute('aria-label', 'Scroll to top');
+  button.textContent = '↑';
+  document.body.appendChild(button);
+  var threshold = 300;
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > threshold) {
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+  });
+  button.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+(function () {
+  var targets = document.querySelectorAll('#says-page-wrapper section, #says-page-wrapper .gdlr-core-pbf-wrapper-content.gdlr-core-js');
+  if (!targets.length) { return; }
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  targets.forEach(function (el) { el.classList.add('teachers-grid-scroll-reveal'); });
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+  targets.forEach(function (el) { observer.observe(el); });
+})();
+</script>
 </body>
 </html>
-
 
 
 

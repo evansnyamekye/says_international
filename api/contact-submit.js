@@ -16,10 +16,9 @@ function getConnectionString() {
 
 async function getPool() {
     if (!poolPromise) {
-        poolPromise = import('pg').then(function ({ Pool }) {
-            return new Pool({
-                connectionString: getConnectionString(),
-                ssl: getConnectionString().indexOf('sslmode=') === -1 ? { rejectUnauthorized: false } : undefined
+        poolPromise = import('@vercel/postgres').then(function ({ createPool }) {
+            return createPool({
+                connectionString: getConnectionString()
             });
         });
     }
@@ -83,9 +82,9 @@ function getNotificationSettings() {
 }
 
 async function storeMessage(payload) {
-    const pool = await getPool();
+    const db = await getPool();
 
-    await pool.query(`
+    await db.query(`
         CREATE TABLE IF NOT EXISTS contact_messages (
             id SERIAL PRIMARY KEY,
             name TEXT NOT NULL,
@@ -98,7 +97,7 @@ async function storeMessage(payload) {
         );
     `);
 
-    await pool.query(`
+    await db.query(`
         INSERT INTO contact_messages (name, email, message, source_page, ip_address, user_agent)
         VALUES ($1, $2, $3, $4, $5, $6);
     `, [payload.name, payload.email, payload.message, payload.source, payload.ipAddress, payload.userAgent]);
@@ -106,6 +105,7 @@ async function storeMessage(payload) {
 
 async function sendNotificationEmail(payload) {
     const settings = getNotificationSettings();
+
     const response = await fetch(RESEND_API_URL, {
         method: 'POST',
         headers: {
@@ -155,7 +155,7 @@ export default async function handler(request, response) {
     }
 
     try {
-        if (!hasDatabaseConnection() && !hasResendConfiguration()) {
+        if (!hasResendConfiguration() && !hasDatabaseConnection()) {
             console.error('contact-submit: no delivery backend configured');
             return response.status(503).json({
                 error: 'The contact form is not connected yet. Configure the site database, a Resend API key, or both in Vercel before using this form.'
@@ -191,21 +191,48 @@ export default async function handler(request, response) {
             ipAddress
         };
 
-        const tasks = [];
+        const delivery = {
+            storedInDatabase: false,
+            emailed: false
+        };
 
         if (hasDatabaseConnection()) {
-            tasks.push(storeMessage(payload));
+            try {
+                await storeMessage(payload);
+                delivery.storedInDatabase = true;
+            } catch (error) {
+                console.error('contact-submit: database delivery failed', {
+                    message: error && error.message ? error.message : 'unknown',
+                    code: error && error.code ? error.code : 'n/a'
+                });
+            }
         }
 
         if (hasResendConfiguration()) {
-            tasks.push(sendNotificationEmail(payload));
+            try {
+                await sendNotificationEmail(payload);
+                delivery.emailed = true;
+            } catch (error) {
+                console.error('contact-submit: email delivery failed', {
+                    message: error && error.message ? error.message : 'unknown',
+                    code: error && error.code ? error.code : 'n/a'
+                });
+            }
         }
 
-        await Promise.all(tasks);
+        if (!delivery.storedInDatabase && !delivery.emailed) {
+            return response.status(500).json({
+                error: 'The contact form is temporarily unavailable. Please try again.'
+            });
+        }
 
         return response.status(201).json({
             success: true,
-            message: 'Your message has been sent. The school will get back to you soon.'
+            emailed: delivery.emailed,
+            storedInDatabase: delivery.storedInDatabase,
+            message: delivery.emailed
+                ? 'Your message has been sent. The school will get back to you soon.'
+                : 'Your message has been received successfully.'
         });
     } catch (error) {
         console.error('contact-submit: runtime error', {

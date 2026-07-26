@@ -11,15 +11,22 @@
     <link rel='stylesheet' href='plugins/revslider/public/assets/css/settings.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/style-core.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/says-style-custom.css' type='text/css' media='all' />
+    <link rel="shortcut icon" href="images/favicon.png">
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
+
+    <style>
+        .enquiry-scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .enquiry-scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
 
 </head>
 
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js says-body says-body-front says-full  says-with-sticky-navigation  says-blockquote-style-1 gdlr-core-link-to-lightbox">
     <div class="says-mobile-header-wrap">
-                 <div class="says-mobile-header-container says-container clearfix">
+        <div class="says-mobile-header says-header-background says-style-slide says-sticky-mobile-navigation " id="says-mobile-header">
+            <div class="says-mobile-header-container says-container clearfix">
                 <div class="says-logo  says-item-pdlr">
                     <div class="says-logo-inner">
                         <a class="" href="index.html"><img src="images/logo.png" alt="" /></a>
@@ -42,48 +49,35 @@
                     </div>
                     <div class="says-mobile-menu"><a class="says-mm-menu-button says-mobile-menu-button says-mobile-button-hamburger" href="#says-mobile-menu"><span></span></a>
                         <div class="says-mm-menu-wrap says-navigation-font" id="says-mobile-menu" data-slide="right">
-                            <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Home</a>
+                              <ul id="menu-main-navigation" class="m-menu">
+                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Homepage</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome</a></li>
+                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome Page</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="about-us.html">About</a></li>
-                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Team Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                       <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
-                                                    </ul>
-                                                </li>
-                                                
-                                                <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                            </ul>
-                                        </li>
+                                           <li class="menu-item menu-item-has-children" data-size="60"><a href="enquiry.html" class="sf-with-ul-pre">Team Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                    <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
+                                                             <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
+                                                          </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Contact</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="map.html">Map</a></li>
+                                                <li class="menu-item"><a href="contact.html">Contact</a></li>
                                                 <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
-                                             
-                                            </ul>
+                                             </ul>
                                         </li>
                                      </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
+                                 </li>
+                                 <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item menu-item-has-children"><a>Lower Primary</a>
                                             <ul class="sub-menu">
@@ -117,8 +111,7 @@
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
                                         <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
-                                        <li class="menu-item"><a href="scholarships.html">Scholarships</a></li>
-                                        <li class="menu-item"><a href="sports.html">sports</a></li>
+                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
                                         <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
                                         <li class="menu-item"><a href="alumni.html">Alumni</a></li>
                                         <li class="menu-item"><a href="event-calendar.html">Event Calendar</a></li>
@@ -126,7 +119,9 @@
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Courses</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course-list-1.html">Course List 1</a></li>
+                                        <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item"><a href="gallery.html">Gallery</a></li>
@@ -136,6 +131,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     <div class="says-body-outer-wrapper ">
         <div class="says-body-wrapper clearfix  says-with-frame">
@@ -143,7 +139,7 @@
                 <div class="says-top-bar-background"></div>
                 <div class="says-top-bar-container says-container ">
                     <div class="says-top-bar-container-inner clearfix">
-                        <div class="says-top-bar-left says-item-pdlr"><i class="fa fa-envelope-open-o" id="i_fd84_0"></i>info@saysinternationalschool.com<i class="fa fa-phone" id="i_fd84_1"></i> 030 294 7154</div>                    
+                        <div class="says-top-bar-left says-item-pdlr"><i class="fa fa-envelope-open-o" style="font-size: 15px ;color: #96a2b8 ;margin-right: 8px ;"></i> info@saysinternationalschool.com <i class="fa fa-phone" style="font-size: 15px ;color: #96a2b8 ;margin-left: 18px ;margin-right: 6px ;"></i> +233 30 294 7154</div>
                         <div class="says-top-bar-right says-item-pdlr">
                             <ul id="says-top-bar-menu" class="sf-menu says-top-bar-menu says-top-bar-right-menu">
                                 <li class="menu-item says-normal-menu"><a href="#">Alumni</a></li>
@@ -164,7 +160,7 @@
                             </div>
                         </div>
                         <div class="says-navigation says-item-pdlr clearfix ">
-                            <div class="says-main-menu" id="says-main-menu">
+                         <div class="says-main-menu" id="says-main-menu">
                                 <ul id="menu-main-navigation-1" class="sf-menu">
                                     <li class="menu-item menu-item-home current-menu-item menu-item-has-children says-normal-menu"><a href="index.html" class="sf-with-ul-pre">Home</a>
                                         <ul class="sub-menu">
@@ -174,40 +170,33 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="about-us.html">About SIS</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Team Blog</a>
+                                            <li class="menu-item" data-size="60"><a href="about-us.html">About</a></li>
+                                              <li class="menu-item menu-item-has-children" data-size="60"><a href="enquiry.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Teachers</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                      <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
                                                              <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                          </ul>
+                                                        </ul>
                                                     </li>
-
-                                                    
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="map.html">Map</a></li>                                          
+                                                    <li class="menu-item"><a href="contact.html">Map</a></li>                                          
                                                     <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>                                          
                                                 </ul>
                                             </li>
-                                        
-                                       </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children says-mega-menu"><a href="academics.html" class="sf-with-ul-pre">Academics</a>
+                                        </ul>
+                                     </li>
+                                     <li class="menu-item menu-item-has-children says-mega-menu"><a href="academics.html" class="sf-with-ul-pre">Academics</a>
                                         <div class="sf-mega sf-mega-full megaimg">
                                             <ul class="sub-menu">
                                                 <li class="menu-item menu-item-has-children" data-size="15"><a class="sf-with-ul-pre">Lower Primary</a>
                                                     <ul class="sub-menu">
                                                        <li class="menu-item"><a href="Pre_school">Pre-School</a></li>
-                                                        <li class="menu-item"><a href="Creche">Crèche</a></li>
+                                                        <li class="menu-item"><a href="Crèche">Crèche</a></li>
                                                         <li class="menu-item"><a href="Nursery_one">Nursery one</a></li>
                                                         <li class="menu-item"><a href="Nursery_two">Nursery two</a></li>
                                                         <li class="menu-item"><a href="Kindergarten">Kindergarten</a></li>
@@ -231,7 +220,8 @@
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item" data-size="15">
-                                                    <div class="says-mega-menu-section-content"><img src="upload/mega-menu-logo.png" alt="" /> <span>Every Academic offerings at Says comes with a unique curriculum designed to foster critical thinking and creativity.</span></div>
+                                                    <div class="says-mega-menu-section-content"><img src="upload/mega-menu-logo.png" alt="" /> <span>Every Academic offerings at Says comes 
+                                                        with a unique curriculum designed to foster critical thinking and creativity.</span></div>
                                                 </li>
                                             </ul>
                                         </div>
@@ -239,17 +229,21 @@
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="apply-to-says.html" class="sf-with-ul-pre">Admissions</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                            <li class="menu-item" data-size="60"><a href="pj_administration.html">Administration</a></li>
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                            <li class="menu-item" data-size="60"><a href="gallery.html">Gallery</a></li>
+                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
                                             <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                            <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="course-list-1.html">Course List 1</a></li>
-                                        </ul>
+                                     <ul class="sub-menu">
+                                        <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
+                                    </ul>
                                     </li>
                                     <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
                                     <li class="menu-item says-normal-menu"><a href="campus_life.html">Campus Life</a></li>
@@ -289,7 +283,7 @@
                                 <div class="gdlr-core-pbf-element">
                                     <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr">
                                         <div class="gdlr-core-title-item-title-wrap clearfix">
-                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 75px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;color: #ffffff ;">For any Enquiry</h3></div><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 25px ;font-style: normal ;color: #f2f2f2 ;margin-top: 25px ;">WhatsApp Us</span></div>
+                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 75px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;color: #ffffff ;">Enquiry</h3></div><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 25px ;font-style: normal ;color: #f2f2f2 ;margin-top: 25px ;">Get Intouch</span></div>
                                 </div>
                             </div>
                         </div>
@@ -313,14 +307,14 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px ;">
                                                     <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;">
-                                                        <p>A wonderful serenity has taken possession of my entire soul, like these.</p>
+                                                        <p>Call the school office for admissions support, enquiries and general parent assistance during working hours.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
                                                     <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;text-transform: none ;color: #3db166 ;">
-                                                        <p><a href="#">+1-2345-2345</a></p>
+                                                        <p><a href="tel:+233302947154">+233 30 294 7154</a><br /><a href="tel:+233509275198">+233 50 927 5198</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -342,14 +336,14 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px ;">
                                                     <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;">
-                                                        <p>A wonderful serenity has taken possession of my entire soul, like these.</p>
+                                                        <p>Send enquiries, admissions questions and school correspondence to the official school mailbox.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
                                                     <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;">
-                                                        <p><a href="#">Contact@goodlayers.com</a></p>
+                                                        <p><a href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -371,15 +365,16 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px ;">
                                                     <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;">
-                                                        <p>4 apt. Flawing Street. The Grand Avenue.
-                                                            <br />Liverpool, UK 33342</p>
+                                                        <p>Susan Enclave
+                                                            <br />#1 Selorm Crescent
+                                                            <br />Behind West Hills Mall</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
                                                     <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;">
-                                                        <p><a href="#">View On Google Map</a></p>
+                                                        <p><a href="map.html">View On Map</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -399,20 +394,20 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 60px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 40px ; font-weight: 400;" >Leave us your info</h3></div><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 19px ;font-style: normal ;text-transform: uppercase ;">and we will get back to you.</span></div>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 39px ;">Leave us your info</h3></div><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 19px ;font-style: normal ;text-transform: uppercase ;">and we will get back to you.</span></div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-contact-form-7-item gdlr-core-item-pdlr gdlr-core-item-pdb ">
                                                     <div role="form" class="wpcf7" id="wpcf7-f1979-p1964-o1" lang="en-US" dir="ltr">
                                                         <div class="screen-reader-response"></div>
-                                                        <form class="quform" action="plugins/quform/process.php" method="post" enctype="multipart/form-data" onclick="">
+                                                        <form class="quform says-contact-form" id="says-contact-form" action="/api/contact-submit" method="post" enctype="multipart/form-data">
 
                                                             <div class="quform-elements">
                                                                 <div class="quform-element">
                                                                     <p>Your Name (required)
                                                                         <br>
                                                                         <span class="wpcf7-form-control-wrap your-name">
-                                                                            <input id="name" type="text" name="name" size="40" class="input1" aria-required="true" aria-invalid="false">
+                                                                            <input id="name" type="text" name="name" size="40" class="input1" aria-required="true" aria-invalid="false" required maxlength="120" autocomplete="name">
                                                                         </span> 
                                                                     </p>
                                                                 </div>
@@ -420,7 +415,7 @@
                                                                     <p>Your Email (required)
                                                                         <br>
                                                                         <span class="wpcf7-form-control-wrap your-email">
-                                                                            <input id="email" type="text" name="email" size="40" class="input1" aria-required="true" aria-invalid="false">
+                                                                            <input id="email" type="email" name="email" size="40" class="input1" aria-required="true" aria-invalid="false" required maxlength="160" autocomplete="email">
                                                                         </span> 
                                                                     </p>
                                                                 </div>
@@ -428,7 +423,7 @@
                                                                     <p>Your Message
                                                                         <br>
                                                                         <span class="wpcf7-form-control-wrap your-message">
-                                                                            <textarea  id="message" name="message" cols="40" rows="10" class="input1" aria-invalid="false"></textarea>
+                                                                            <textarea id="message" name="message" cols="40" rows="10" class="input1" aria-invalid="false" required maxlength="5000"></textarea>
                                                                         </span>
                                                                     </p>
                                                                 </div>
@@ -440,6 +435,7 @@
                                                                         </div>
                                                                         <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
                                                                     </div>
+                                                                    <div class="says-contact-form-status" id="says-contact-form-status" aria-live="polite"></div>
                                                                 </p>
                                                             </div>
                                                         </form>
@@ -458,13 +454,19 @@
                                 <div class="gdlr-core-pbf-element">
                                     <div class="gdlr-core-wp-google-map-plugin-item gdlr-core-item-pdlr gdlr-core-item-pdb " style="padding-bottom: 0px ;">
 
-                                        <div style="overflow:hidden;width: 100%;position: relative;">
-                                            
-                                            <iframe style="width:100%; height:480px; " src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d19905.696399556287!2d-0.3007084089960577!3d51.417531259591925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s2334+Peterson+Street+Kingston+UK+London+H14D!5e0!3m2!1sen!2s!4v1546697086219" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                            <div style="position: absolute;width: 80%;bottom: 20px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;">
-
+                                        <div style="overflow:hidden;width:100%;position:relative;">
+                                            <iframe
+                                                style="width:100%; height:480px; border:0;"
+                                                loading="lazy"
+                                                allowfullscreen
+                                                referrerpolicy="no-referrer-when-downgrade"
+                                                src="https://www.google.com/maps?q=Says+International+School,+Susan+Enclave,+%231+Selorm+Crescent,+Weija,+Accra,+Ghana&z=17&output=embed">
+                                            </iframe>
+                                            <div style="position:absolute; bottom:20px; left:20px; background:white; padding:10px 15px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.2);">
+                                                <strong>Says International School</strong><br>
+                                                Susan Enclave, #1 Selorm Crescent<br>
+                                                Behind West Hills Mall, Weija
                                             </div>
-                                            <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
                                         </div>
 
                                     </div>
@@ -472,9 +474,46 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="gdlr-core-pbf-wrapper " style="padding: 80px 0px 50px 0px;">
+                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #ffffff ;"></div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-center-align gdlr-core-item-pdlr"><a href="mailto:#" target="_blank" class="gdlr-core-social-network-icon" title="email" style="font-size: 20px ;color: #1e1e1e ;"><i class="fa fa-envelope" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="facebook" style="font-size: 20px ;color: #1e1e1e ;margin-left: 40px ;"><i class="fa fa-facebook" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="google-plus" style="font-size: 20px ;color: #1e1e1e ;margin-left: 40px ;"><i class="fa fa-google-plus" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="skype" style="font-size: 20px ;color: #1e1e1e ;margin-left: 40px ;"><i class="fa fa-skype" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="twitter" style="font-size: 20px ;color: #1e1e1e ;margin-left: 40px ;"><i class="fa fa-twitter" ></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+               <div class="gdlr-core-pbf-wrapper " id="div_1dd7_107">
+                        <div class="gdlr-core-pbf-background-wrap" id="div_1dd7_108"></div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" id="div_1dd7_109">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix  gdlr-core-gallery-item-style-grid" id="div_1dd7_110">
+                                        <div class="gdlr-core-gallery-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-1.png" alt="" width="248" height="120" title="banner-1" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-2.png" alt="" width="248" height="120" title="banner-2" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-3.png" alt="" width="248" height="120" title="banner-3" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-4.png" alt="" width="248" height="120" title="banner-4" /></div>
+                                            </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-5.png" alt="" width="248" height="120" title="banner-5" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
             <footer>
                 <div class="says-footer-wrapper ">
@@ -483,66 +522,73 @@
                             <div id="text-2" class="widget widget_text says-widget">
                                 <div class="textwidget">
                                     <p><img src="upload/footer-logo.png" alt="" />
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_10"></span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: 5px ;"></span>
                                         <br /> Susan Enclave
-                                        <br />#1 Selorm Crescent
+                                        <br /> #1 Selorm Crescent
                                         <br /> Behind West Hills Mall</p>
-                                    <p><span id="span_1dd7_11">Tel: +233 30 294 7154</span>
-                                    <p><span id="span_1dd7_11">WhatsApp +233 50 927 5198</span>
-                                         <span class="gdlr-core-space-shortcode" id="span_1dd7_12"></span>
-                                        <br /> <a id="a_1dd7_8" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
+                                    <p><span style="font-size: 15px; color: #ffffff;">+233 30 294 7154</span>
+                                        <br /><span style="font-size: 15px; color: #ffffff;">WhatsApp +233 50 927 5198</span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: -20px ;"></span>
+                                        <br /> <a style="font-size: 15px; color: #ffffff;" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
                                     <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align">
-                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" id="div_1dd7_111"></div>
+                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #3db166 ;border-bottom-width: 2px ;"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                     
+                        <div class="says-footer-column says-item-pdlr says-column-15">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
+                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <div class="menu-our-campus-container">
+                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
+                                        <li class="menu-item"><a href="academics.html">About Us</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Administration</a></li>
+                                        <li class="menu-item"><a href="faq.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="contact.html">School Office</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
+                                        <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-3" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
                                 <div class="menu-campus-life-container">
                                     <ul id="menu-campus-life" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li><a href="about-us.html" class="menu-item">About Us</a></li>
-                                        <li><a href="faq.html" class="menu-item">FAQ</a></li>
-                                        <li><a href="contact.html" class="menu-item">Contact</a></li>
-                                        <li><a href="about-us.html" class="menu-item">Educational Quote</a></li>
+                                        <li class="menu-item"><a href="terms-of-use.html">Terms of Use</a></li>
+                                        <li class="menu-item"><a href="disclaimer.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Student Life</a></li>
+                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
+                                        <li class="menu-item"><a href="gallery.html">Gallery</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-4" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
                                 <div class="menu-academics-container">
                                     <ul id="menu-academics" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li><a href="#" class="menu-item">Terms of Use</a></li>
-                                        <li><a href="#" class="menu-item">Privacy Policy</a></li>
-                                        <li><a href="#" class="menu-item">Disclaimer</a></li>
+                                        <li class="menu-item"><a href="academics.html">Curriculum</a></li>
+                                        <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
+                                        <li class="menu-item"><a href="event-calendar.html">School Calendar</a></li>
+                                        <li class="menu-item"><a href="ucmas.html">Programmes</a></li>
+                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                           <div class="says-footer-column says-item-pdlr says-column-15">
-                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
-                                <div class="menu-our-campus-container">
-                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                         <li><a href="about-us.html" class="menu-item">About Us</a></li>
-                                        <li><a href="#" class="menu-item">Administration</a></li>
-                                        <li><a href="#" class="menu-item"> SIS Campus Safety</a></li>
-                                        <li><a href="#" class="menu-item">Office of the Head Master</a></li>
-                                        </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                  <div class="says-copyright-wrapper">
+			    <div class="says-copyright-wrapper">
                     <div class="says-copyright-container says-container clearfix">
                         <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2025 - All Rights Reserved - Says International School.</div>
                         <div class="says-copyright-right says-item-pdlr">
+                            <a class="says-footer-credit" href="https://evans-portfolio-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" title="Visit the Nested Solutions portfolio">Powered by <strong><span class="says-footer-credit-nested">Nested</span> <span class="says-footer-credit-solutions">Solutions</span></strong></a>
                             <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" id="div_983a_50">
                                 <a href="https://facebook.com/SAYS-international-School-106769111122347" target="_blank" class="gdlr-core-social-network-icon" title="facebook">
                                     <i class="fa fa-facebook" ></i>
@@ -555,6 +601,9 @@
                                 </a> -->
                                 <a href="https://x.com/SInterscho1049" target="_blank" class="gdlr-core-social-network-icon" title="twitter">
                                     <i class="fa fa-twitter" ></i>
+                                </a>
+                                <a href="https://www.youtube.com/@Saysinterschool" target="_blank" class="gdlr-core-social-network-icon" title="youtube">
+                                    <i class="fa fa-youtube" ></i>
                                 </a>
                                 <a href="https://saysinterschool2019" target="_blank" class="gdlr-core-social-network-icon" title="instagram">
                                     <i class="fa fa-instagram" ></i>
@@ -584,13 +633,59 @@
     <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
     <script type='text/javascript' src='js/jquery/ui/effect.min.js'></script>
     <script type='text/javascript'>
-        var kingster_script_core = {
+        var says_script_core = {
             "home_url": "index.html"
         };
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
     <script type='text/javascript' src='js/isotope.js'></script>
     <script type="text/javascript" src="plugins/quform/js/plugins.js"></script>
-    <script type="text/javascript" src="plugins/quform/js/scripts.js"></script>  
+    <script type="text/javascript" src="plugins/quform/js/scripts.js"></script>
+    <script type='text/javascript' src='js/contact-form.js'></script>
+        <!-- scroll-to-top button -->
+    <script>
+    (function () {
+    if (document.querySelector('.scroll-to-top-btn')) { return; }
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'scroll-to-top-btn';
+    button.title = 'Scroll to top';
+    button.setAttribute('aria-label', 'Scroll to top');
+    button.textContent = '↑';
+    document.body.appendChild(button);
+    var threshold = 300;
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > threshold) {
+        button.classList.add('visible');
+        } else {
+        button.classList.remove('visible');
+        }
+    });
+    button.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    })();
+    </script>
+<script>
+(function () {
+  var targets = document.querySelectorAll('#says-page-wrapper section, #says-page-wrapper .gdlr-core-pbf-wrapper-content.gdlr-core-js');
+  if (!targets.length) { return; }
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  targets.forEach(function (el) { el.classList.add('enquiry-scroll-reveal'); });
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+  targets.forEach(function (el) { observer.observe(el); });
+})();
+</script>
 </body>
 </html>

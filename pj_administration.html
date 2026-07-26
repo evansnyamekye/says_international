@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SIS: Admin</title>
+    <title>SIS: Administration</title>
 
     <link rel='stylesheet' href='plugins/goodlayers-core/plugins/combine/style.css' type='text/css' media='all' />
     <link rel='stylesheet' href='plugins/goodlayers-core/include/css/page-builder.css' type='text/css' media='all' />
@@ -15,6 +15,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
+
+    <style>
+        .pj-scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .pj-scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
 
 </head>
 
@@ -45,96 +50,80 @@
                     <div class="says-mobile-menu"><a class="says-mm-menu-button says-mobile-menu-button says-mobile-button-hamburger" href="#says-mobile-menu"><span></span></a>
                         <div class="says-mm-menu-wrap says-navigation-font" id="says-mobile-menu" data-slide="right">
                             <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Home</a>
+                                <li class="menu-item menu-item-home current-menu-item menu-item-has-children"><a href="index.html">Homepage</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome</a></li>
-                                     </ul>
+                                        <li class="menu-item menu-item-home"><a href="index.html">Welcome Page</a></li>
+                                    </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about-us.html">About Says</a></li>
-                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="menu-item"><a href="about-us.html">About</a></li>
+                                           <li class="menu-item menu-item-has-children" data-size="60"><a href="apply-to-says.html" class="sf-with-ul-pre">Team Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                    <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
+                                                             <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
+                                                          </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Contact</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item"><a href="contact.html">Contact</a></li>
                                                 <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
-                                               
-                                            </ul>
+                                             </ul>
                                         </li>
-                                  </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
+                                     </ul>
+                                 </li>
+                                 <li class="menu-item menu-item-has-children"><a href="academics.html">Academics</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-has-children"><a>Undergraduate</a>
+                                        <li class="menu-item menu-item-has-children"><a>Lower Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Business Administration</a></li>
-                                                <li class="menu-item"><a href="school-of-law.html">School Of Law</a></li>
-                                                <li class="menu-item"><a href="engineering.html">Engineering</a></li>
-                                                <li class="menu-item"><a href="medicine.html">Medicine</a></li>
-                                                <li class="menu-item"><a href="art-science.html">Art &#fff; Science</a></li>
+                                                <li class="menu-item"><a href="#">Pre-School</a></li>
+                                                <li class="menu-item"><a href="#">Crèche</a></li>
+                                                <li class="menu-item"><a href="#">Nursery one</a></li>
+                                                <li class="menu-item"><a href="#">Nursery two</a></li>
+                                                <li class="menu-item"><a href="#">Kindergarten</a></li>
+                                                <li class="menu-item"><a href="#">Grade one</a></li>
+                                                <li class="menu-item"><a href="#">Grade two</a></li>
+                                                <li class="menu-item"><a href="#">Grade three</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">Graduate Program</a>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Upper Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="hospitality-management.html">Hospitality Management</a></li>
-                                                <li class="menu-item"><a href="physics.html">Physics</a></li>
-                                                <li class="menu-item"><a href="#">Chemistry</a></li>
-                                                <li class="menu-item"><a href="#">Music</a></li>
-                                                <li class="menu-item"><a href="#">Computer Science</a></li>
+                                                <li class="menu-item"><a href="#">Grade four</a></li>
+                                                <li class="menu-item"><a href="#">Grade five</a></li>
+                                                <li class="menu-item"><a href="#">Grade six</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">Resources</a>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Junior High School</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Department Page</a></li>
-                                                <li class="menu-item"><a href="finance.html">Major Page</a></li>
-                                                <li class="menu-item"><a href="finance-faculty.html">Faculty Page</a></li>
-                                                <li class="menu-item"><a href="john-hagensy-phd.html">Single Instructor</a></li>
-                                                <li class="menu-item"><a href="introduction-to-financial-accounting.html">Single Course</a></li>
+                                                <li class="menu-item"><a href="#">JHS 1</a></li>
+                                                <li class="menu-item"><a href="#">JHS 2</a></li>
+                                                <li class="menu-item"><a href="#">JHS 3</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item"><a href="#">Logo</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="apply-to-says.html">Admissions</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
-                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
-                                        <li class="menu-item"><a href="scholarships.html">Scholarships</a></li>
-                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
-                                        <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
-                                        <li class="menu-item"><a href="alumni.html">Alumni</a></li>
-                                        <li class="menu-item"><a href="event-calendar.html">Event Calendar</a></li>
+                                        <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                            <li class="menu-item"><a href="pj_administration.html">Administration</a></li>
+                                            <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
+                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
+                                            <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
+                                            <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
+                                            <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                            <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children"><a href="#">Courses</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course-list-1.html">Course List 1</a></li>
-                                        <li class="menu-item"><a href="course-list-2.html">Course List 2</a></li>
+                                        <li class="menu-item"><a href="assessment-info.html">Assessment Info</a></li>
+                                        <li class="menu-item"><a href="International.html">iwise Intl.</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Leadership</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item"><a href="gallery.html">Gallery</a></li>
@@ -184,21 +173,15 @@
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item" data-size="60"><a href="about-us.html">About SIS</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Team Blog</a>
+                                              <li class="menu-item menu-item-has-children" data-size="60"><a href="apply-to-says.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Teachers</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                       </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Non-Teaching staff</a>
+                                                    <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                                      <li class="menu-item menu-item-has-children"><a href="non_teachers_grid.html" class="sf-with-ul-pre">Non-Teaching staff</a>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item"><a href="non_teachers_grid.html">Non-Teachers Grid</a></li>
                                                              <li class="menu-item"><a href="teachers_grid.html">Teachers Grid</a></li>
-                                                          </ul>
+                                                        </ul>
                                                     </li>
-
-                                                    
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
@@ -248,115 +231,23 @@
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="apply-to-says.html" class="sf-with-ul-pre">Admissions</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                            <li class="menu-item"><a href="pj_administration.html">Administration</a></li>
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
                                             <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
                                             <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                            <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="course-list-1.html">Course List 1</a></li>
+                                            <li class="menu-item" data-size="60"><a href="class-list-1.html">Course List 1</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
                                     <li class="menu-item says-normal-menu"><a href="campus-life.html">Campus Life</a></li>
-                                </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="about-us.html">About Says</a></li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog Full</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
-                                                            <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
-                                                            <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
-                                                            <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                            <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                            <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Blog Grid</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
-                                                            <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
-                                                        </ul>
-                                                    </li>
-
-                                                    <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Contact</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
-                                                    <li class="menu-item"><a href="enquiry.html">Enquiry</a></li>
-                                                    
-                                                </ul>
-                                            </li>
-
-                                         </ul>
-                                    </li>
-                                    <li class="menu-item current-menu-item menu-item-has-children says-mega-menu"><a href="bachelor-of-science-in-business-administration.html" class="sf-with-ul-pre">Academics</a>
-                                        <div class="sf-mega sf-mega-full megaimg">
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children" data-size="15"><a class="sf-with-ul-pre">Lower Primary</a>
-                                                    <ul class="sub-menu">
-                                                       <li class="menu-item"><a href="Pre_school">Pre-School</a></li>
-                                                        <li class="menu-item"><a href="Creche">Crèche</a></li>
-                                                        <li class="menu-item"><a href="Nursery_one">Nursery one</a></li>
-                                                        <li class="menu-item"><a href="Nursery_two">Nursery two</a></li>
-                                                        <li class="menu-item"><a href="Kindergarten">Kindergarten</a></li>
-                                                        <li class="menu-item"><a href="Grade_one">Grade one</a></li>
-                                                        <li class="menu-item"><a href="Grade_two">Grade two</a></li>
-                                                        <li class="menu-item"><a href="Grade_three">Grade three</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children" data-size="15"><a href="#" class="sf-with-ul-pre">Upper Primary</a>
-                                                <ul class="sub-menu">
-                                                <li class="menu-item"><a href="Grade_four">Grade four</a></li>
-                                                <li class="menu-item"><a href="Grade_five">Grade five</a></li>
-                                                <li class="menu-item"><a href="Grade_six">Grade six</a></li>
-                                            </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children" data-size="15"><a href="#" class="sf-with-ul-pre">Junior High School</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="JHS_1">JHS 1</a></li>
-                                                        <li class="menu-item"><a href="JHS_2">JHS 2</a></li>
-                                                        <li class="menu-item"><a href="JHS_3">JHS 3</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item" data-size="15">
-                                                    <div class="says-mega-menu-section-content"><img src="upload/mega-menu-logo.png" alt="" /> <span>Every Academic offerings at Says comes with a unique curriculum designed to foster critical thinking and creativity.</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children says-normal-menu"><a href="apply-to-says.html" class="sf-with-ul-pre">Admissions</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="apply-to-says.html">Apply To SIS</a></li>
-                                            <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                            <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
-                                            <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
-                                            <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
-                                            <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Courses</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item" data-size="60"><a href="course-list-1.html">Course List 1</a></li>
-                                            <li class="menu-item" data-size="60"><a href="course-list-2.html">Course List 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item says-normal-menu"><a href="gallery.html">Gallery</a></li>
-                                    <li class="menu-item says-normal-menu"><a href="campus_life.html">Campus Life</a></li>
-                                </ul>
+                                
                                 <div class="says-navigation-slide-bar" id="says-navigation-slide-bar"></div>
                             </div>
                             <div class="says-main-menu-right-wrap clearfix ">
@@ -381,283 +272,218 @@
             </header>
 
 
-            <div class="says-page-title-wrap  says-style-custom says-left-align" style="background-image: url(upload/shutterstock_59887279.jpg) ;">
+
+            <div class="says-page-title-wrap  says-style-custom says-left-align" style="background-image: url(upload/page-title-support.jpg) ;">
                 <div class="says-header-transparent-substitute"></div>
                 <div class="says-page-title-overlay"></div>
                 <div class="says-page-title-bottom-gradient"></div>
                 <div class="says-page-title-container says-container">
-                    <div class="says-page-title-content says-item-pdlr" style="padding-top: 400px ;padding-bottom: 60px ;">
-                        <div class="says-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">Undergraduate Program</div>
-                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #192f59 ;">Bachelor Of Science in Business Administration</h1></div>
+                    <div class="says-page-title-content says-item-pdlr" style="padding-top: 505px ;padding-bottom: 60px ;">
+                        <div class="says-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">School Operations</div>
+                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #677288 ;">Administration</h1></div>
                 </div>
             </div>
             <div class="says-breadcrumbs">
                 <div class="says-breadcrumbs-container says-container">
                     <div class="says-breadcrumbs-item says-item-pdlr"> <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to says." href="index.html" class="home"><span property="name">Home</span></a>
                         <meta property="position" content="1">
-                        </span>&gt;<span property="itemListElement" typeof="ListItem"><span property="name">Bachelor Of Science in Business Administration</span>
+                        </span>&gt;<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="pj_administration.html"><span property="name">Administration</span></a>
                         <meta property="position" content="2">
                         </span>
                     </div>
                 </div>
             </div>
             <div class="says-page-wrapper" id="says-page-wrapper">
-                <div class="gdlr-core-page-builder-body">
-                    <div class="gdlr-core-pbf-sidebar-wrapper " style="margin: 0px 0px 30px 0px;">
-                        <div class="gdlr-core-pbf-sidebar-container gdlr-core-line-height-0 clearfix gdlr-core-js gdlr-core-container">
-                            <div class="gdlr-core-pbf-sidebar-content  gdlr-core-column-40 gdlr-core-pbf-sidebar-padding gdlr-core-line-height gdlr-core-column-extend-left" style="padding: 35px 0px 20px 0px;">
-                                <div class="gdlr-core-pbf-sidebar-content-inner">
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                            <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 27px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Outstanding Academics essential business experience</h3></div>
-                                        </div>
+                <div class="sis-admission-modern">
+                    <section class="sis-admission-hero-section">
+                        <div class="sis-admission-shell">
+                            <div class="sis-admission-intro-card">
+                                <span class="sis-admission-kicker">School operations</span>
+                                <h2>The Administration Office</h2>
+                                <div class="sis-admission-requirement-grid">
+                                    <div class="sis-admission-copy-block">
+                                        <p>The Administration Office coordinates the day-to-day running of Says International School, working between school leadership, teaching staff, and parents to keep academic and non-academic operations running smoothly.</p>
+                                        <p>It is the first point of contact for record-keeping, correspondence, and general school business, and it liaises closely with the Registrar, Bursary, Human Resources, and Facilities teams to make sure requests are directed to the right department.</p>
                                     </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;text-transform: none ;">
-                                                <p>The Academic offers include 14 majors, 15 minors, and more than 100 in major specializations so your degree will surely reflect your interests and strengths.</p>
-                                                <p>Not only does says University provide you the practical skills that is necessary to transition seamlessly into the workforce upon your graduation, but we also make sure that you will have a good sense of social justice so that you make the transition responsibly.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 40px ;">
-                                            <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;color: #192f59 ;margin-right: 30px ;">Majors</h3>
-                                                <div class="gdlr-core-title-item-divider gdlr-core-right gdlr-core-skin-divider" style="font-size: 22px ;border-bottom-width: 3px ;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first">
-                                        <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px -7px 0px 0px;">
-                                            <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                <div class="gdlr-core-pbf-element">
-                                                    <div class="gdlr-core-feature-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                                        <div class="gdlr-core-feature-box gdlr-core-js gdlr-core-feature-box-type-outer" style="background-color: #192f59 ;border-width: 0px 0px 0px 0px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
-                                                            <div class="gdlr-core-feature-box-background" style="background-image: url(upload/shutterstock_209187682.jpg) ;opacity: 0.14 ;"></div>
-                                                            <div class="gdlr-core-feature-box-content gdlr-core-sync-height-content">
-                                                                <h3 class="gdlr-core-feature-box-item-title" style="font-size: 16px ;font-weight: 600 ;">Accounting</h3></div>
-                                                            <a class="gdlr-core-feature-box-link" href="accounting/index.html" target="_self"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-column gdlr-core-column-20">
-                                        <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px -3px 0px -3px;">
-                                            <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                <div class="gdlr-core-pbf-element">
-                                                    <div class="gdlr-core-feature-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                                        <div class="gdlr-core-feature-box gdlr-core-js gdlr-core-feature-box-type-outer" style="background-color: #192f59 ;border-width: 0px 0px 0px 0px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
-                                                            <div class="gdlr-core-feature-box-background" style="background-image: url(upload/major-bg-2.jpg) ;opacity: 0.14 ;"></div>
-                                                            <div class="gdlr-core-feature-box-content gdlr-core-sync-height-content">
-                                                                <h3 class="gdlr-core-feature-box-item-title" style="font-size: 16px ;font-weight: 600 ;">Finance</h3></div>
-                                                            <a class="gdlr-core-feature-box-link" href="finance/index.html" target="_self"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-column gdlr-core-column-20">
-                                        <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: 0px 0px 0px -7px;padding: 0px 0px 45px 0px;">
-                                            <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                <div class="gdlr-core-pbf-element">
-                                                    <div class="gdlr-core-feature-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                                        <div class="gdlr-core-feature-box gdlr-core-js gdlr-core-feature-box-type-outer" style="background-color: #192f59 ;border-width: 0px 0px 0px 0px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
-                                                            <div class="gdlr-core-feature-box-background" style="background-image: url(upload/support-image-3.jpg) ;opacity: 0.14 ;"></div>
-                                                            <div class="gdlr-core-feature-box-content gdlr-core-sync-height-content">
-                                                                <h3 class="gdlr-core-feature-box-item-title" style="font-size: 16px ;font-weight: 600 ;">Marketing</h3></div>
-                                                            <a class="gdlr-core-feature-box-link" href="#" target="_self"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 15px ;">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 21px ;text-transform: none ;color: #192f59 ;">
-                                                <p>If you&#fff;re an educational professional who are looking to progress into management and consultancy, or an educational planning or development role, this is the best degree for you.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align">
-                                            <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #192f59 ;border-bottom-width: 3px ;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 17px ;text-transform: none ;">
-                                                <p>Provided by the Says Institute of Education, this programme is available by distance learning, allowing you to study flexibly while balancing work and personal lifes. The MSc Finance (EG. Banking) deepens your understanding of banks and financial markets, and how they relate to performance. It will help you to advance your career in finance and policy.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix " style="padding-bottom: 25px ;">
-                                            <ul>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Banking</span></div>
-                                                </li>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Economic Policy</span></div>
-                                                </li>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Financial Sector Management</span></div>
-                                                </li>
-                                                <li class=" gdlr-core-skin-divider" style="margin-bottom: 18px ;"><span class="gdlr-core-icon-list-icon-wrap" style="margin-top: 5px ;"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #192f59 ;font-size: 18px ;width: 18px ;" ></i></span>
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 18px ;">Quantitative Finance</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <div class="sis-admission-copy-block">
+                                        <p>Whether you need to update a student's records, follow up on an invoice, ask about staff recruitment, or report a facilities issue, the Administration Office can point you to the right department or handle the request directly.</p>
+                                        <p>September 2026 marks SAYS International School's seventh anniversary. Over the years our administrative team has grown alongside the school to keep pace with a community that is now well established in Ghana's capital.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="gdlr-core-pbf-sidebar-right gdlr-core-column-extend-right  says-sidebar-area gdlr-core-column-20 gdlr-core-pbf-sidebar-padding  gdlr-core-line-height" style="padding: 35px 0px 30px 0px;">
-                                <div class="gdlr-core-sidebar-item gdlr-core-item-pdlr">
-                                    <div id="text-18" class="widget widget_text says-widget">
-                                        <div class="textwidget">
-                                            <div class="gdlr-core-widget-box-shortcode " style="color: #192f59 ;padding: 30px 45px;background-color: #192f59 ;">
-                                                <div class="gdlr-core-widget-box-shortcode-content">
-                                                    </p>
-                                                    <h3 style="font-size: 20px; color: #192f59; margin-bottom: 25px;">Department Contact Info</h3>
-                                                    <p><span style="color: #192f59; font-size: 16px; font-weight: 600;">Bachelor Of Science in Business Administration</span>
-                                                        <br /> <span style="font-size: 15px;"><br /> 1810 Campus Way NE<br /> Bothell, WA 98011-8246</span></p>
-                                                    <p><span style="font-size: 15px;">+1-2345-5432-45<br /> bsba@kuuniver.edu<br /> </span></p>
-                                                    <p><span style="font-size: 16px; color: #192f59;">Mon &#fff; Fri 9:00A.M. &#fff; 5:00P.M.</span></p> <span class="gdlr-core-space-shortcode" style="margin-top: 40px ;"></span>
-                                                    <h3 style="font-size: 20px; color: #192f59; margin-bottom: 15px;">Social Info</h3>
-                                                    <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" style="padding-bottom: 0px ;"><a href="#url" target="_blank" class="gdlr-core-social-network-icon" title="facebook" style="color: #192f59 ;"><i class="fa fa-facebook" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="google-plus" style="color: #192f59 ;"><i class="fa fa-google-plus" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="linkedin" style="color: #192f59 ;"><i class="fa fa-linkedin" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="skype" style="color: #192f59 ;"><i class="fa fa-skype" ></i></a><a href="#url" target="_blank" class="gdlr-core-social-network-icon" title="twitter" style="color: #192f59 ;"><i class="fa fa-twitter" ></i></a><a href="#" target="_blank" class="gdlr-core-social-network-icon" title="instagram" style="color: #192f59 ;"><i class="fa fa-instagram" ></i></a></div> <span class="gdlr-core-space-shortcode" style="margin-top: 40px ;"></span> <a class="gdlr-core-button gdlr-core-button-shortcode  gdlr-core-button-gradient gdlr-core-button-no-border" href="#" style="padding: 16px 27px 18px;margin-right: 20px;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Student Resources</span></a>
-                                                    <p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <aside class="sis-admission-contact-card">
+                                <p class="sis-admission-card-label">Administration office</p>
+                                <h3>Get In Touch</h3>
+                                <p>Susan Enclave, #1 Selorm Crescent, Behind West Hills Mall</p>
+                                <ul class="sis-admission-contact-list">
+                                    <li>030 294 7154</li>
+                                    <li>info@saysinternationalschool.com</li>
+                                    <li>Mon - Fri, 7:30A.M. - 4:00P.M.</li>
+                                </ul>
+                                <div class="sis-admission-action-row">
+                                    <a href="contact.html" class="sis-admission-primary-link">Contact The Office</a>
+                                    <a href="enquiry.html" class="sis-admission-secondary-link">Send An Enquiry</a>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <section class="sis-admission-service-section">
+                        <div class="sis-admission-shell">
+                            <div class="sis-admission-service-grid">
+                                <article class="sis-admission-service-card">
+                                    <img src="upload/col-icon-1.png" alt="Registrar's Office icon" width="41" height="41">
+                                    <h3>Registrar's Office</h3>
+                                    <p>Handles student records, enrollment documentation, transcripts, and terminal reports.</p>
+                                </article>
+                                <article class="sis-admission-service-card">
+                                    <img src="upload/col-icon-2.png" alt="Bursary and Finance icon" width="43" height="45">
+                                    <h3>Bursary &amp; Finance</h3>
+                                    <p>Manages school fees, invoicing, receipts, and other financial enquiries from parents.</p>
+                                </article>
+                                <article class="sis-admission-service-card">
+                                    <img src="upload/col-icon-3.png" alt="Human Resources icon" width="40" height="43">
+                                    <h3>Human Resources</h3>
+                                    <p>Oversees staff recruitment, welfare, and coordination of training across departments.</p>
+                                </article>
+                                <article class="sis-admission-service-card">
+                                    <img src="upload/col-icon-4.png" alt="Facilities and Operations icon" width="47" height="47">
+                                    <h3>Facilities &amp; Operations</h3>
+                                    <p>Looks after campus maintenance, security, transport, and day-to-day logistics.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="sis-admission-visual-section">
+                        <div class="sis-admission-shell sis-admission-visual-frame">
+                            <div class="sis-admission-visual-copy">
+                                <span class="sis-admission-kicker">How we work</span>
+                                <h3>Coordinated Support Across The School</h3>
+                                <p>Our administrative departments work together so that a single enquiry, whether about records, fees, staffing, or facilities, reaches the right people without needless back and forth.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="sis-admission-process-section">
+                        <div class="sis-admission-shell">
+                            <div class="sis-admission-section-head">
+                                <span class="sis-admission-kicker">Core responsibilities</span>
+                                <h3>What The Administration Office Handles</h3>
+                            </div>
+                            <div class="sis-admission-process-grid">
+                                <article class="sis-admission-process-card">
+                                    <span class="sis-admission-step-number">1</span>
+                                    <h4>Student Records &amp; Registration</h4>
+                                    <p>Maintaining accurate, up-to-date student and enrollment records across all levels of the school.</p>
+                                </article>
+                                <article class="sis-admission-process-card">
+                                    <span class="sis-admission-step-number">2</span>
+                                    <h4>Fees &amp; Financial Administration</h4>
+                                    <p>Processing school fee payments, issuing receipts, and answering billing questions from parents.</p>
+                                </article>
+                                <article class="sis-admission-process-card">
+                                    <span class="sis-admission-step-number">3</span>
+                                    <h4>Staff &amp; Human Resources Support</h4>
+                                    <p>Coordinating recruitment, onboarding, and welfare support for teaching and non-teaching staff.</p>
+                                </article>
+                                <article class="sis-admission-process-card">
+                                    <span class="sis-admission-step-number">4</span>
+                                    <h4>Facilities, Safety &amp; Logistics</h4>
+                                    <p>Keeping the campus safe, well maintained, and running smoothly day to day.</p>
+                                </article>
+                                <article class="sis-admission-process-card">
+                                    <span class="sis-admission-step-number">5</span>
+                                    <h4>Parent &amp; Community Liaison</h4>
+                                    <p>Acting as a bridge between parents, teaching staff, and school leadership on general enquiries.</p>
+                                </article>
+                                <article class="sis-admission-process-card">
+                                    <span class="sis-admission-step-number">6</span>
+                                    <h4>Policy &amp; Compliance</h4>
+                                    <p>Ensuring the school's records and procedures stay organized and in line with school policy.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="sis-admission-detail-section">
+                        <div class="sis-admission-shell sis-admission-detail-grid">
+                            <div class="sis-admission-panel">
+                                <span class="sis-admission-kicker">Who to contact</span>
+                                <h3>Finding The Right Department</h3>
+                                <p>Not sure who to speak to? Here's a quick guide to where common requests are handled:</p>
+                                <ul class="sis-admission-list">
+                                    <li>Student records, transcripts, or terminal reports – Registrar's Office.</li>
+                                    <li>School fees, invoices, or receipts – Bursary &amp; Finance.</li>
+                                    <li>Staffing, recruitment, or employment enquiries – Human Resources.</li>
+                                    <li>Campus maintenance, security, or transport – Facilities &amp; Operations.</li>
+                                </ul>
+                                <div class="sis-admission-action-row">
+                                    <a href="contact.html" class="sis-admission-primary-link">Visit the school office</a>
+                                    <a href="enquiry.html" class="sis-admission-secondary-link">Request information</a>
+                                </div>
+                            </div>
+                            <div class="sis-admission-panel sis-admission-panel-alt">
+                                <span class="sis-admission-kicker">Hours and location</span>
+                                <h3>Office Hours &amp; Location</h3>
+                                <p>The Administration Office is open year-round to support parents, students, and staff. Below are our general office hours:</p>
+                                <div class="sis-admission-table-wrap">
+                                    <table class="sis-admission-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Office</th>
+                                                <th>Days</th>
+                                                <th>Hours</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Administration &amp; Registrar</td>
+                                                <td>Monday - Friday</td>
+                                                <td>7:30 A.M. - 4:00 P.M.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bursary &amp; Finance</td>
+                                                <td>Monday - Friday</td>
+                                                <td>8:00 A.M. - 3:30 P.M.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Human Resources</td>
+                                                <td>Monday - Friday</td>
+                                                <td>8:00 A.M. - 3:30 P.M.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="sis-admission-address-block">
+                                    <h4>Where to find the Administration Office</h4>
+                                    <p>Correspondence can also be mailed to our physical address:</p>
+                                    <address>Says International School<br>Administration Office<br>Susan Enclave<br>#1 Selorm Crescent<br>Behind West Hills Mall - Weija, Accra, Ghana</address>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 90px 0px 60px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #192f59 ;"></div>
+                    </section>
+                       <div class="gdlr-core-pbf-wrapper " id="div_1dd7_107">
+                        <div class="gdlr-core-pbf-background-wrap" id="div_1dd7_108"></div>
                         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" id="div_1dd7_109">
                                 <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-tab-item gdlr-core-js gdlr-core-item-pdb  gdlr-core-left-align gdlr-core-tab-style1-horizontal gdlr-core-item-pdlr">
-                                        <div class="gdlr-core-tab-item-content-image-wrap clearfix">
-                                            <div class="gdlr-core-tab-item-image  gdlr-core-active" data-tab-id="1"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-1-1.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                            <div class="gdlr-core-tab-item-image " data-tab-id="2"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-2.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                            <div class="gdlr-core-tab-item-image " data-tab-id="3"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-3.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                            <div class="gdlr-core-tab-item-image " data-tab-id="4"><a class="gdlr-core-lightgallery gdlr-core-js " href="https://www.youtube.com/watch?v=C5pKtnmHTxg"><span class="gdlr-core-tab-item-image-background" style="background-image: url(upload/tab-4.jpg) ;"  ></span><i class="fa fa-play" ></i></a></div>
-                                        </div>
-                                        <div class="gdlr-core-tab-item-wrap">
-                                            <div class="gdlr-core-tab-item-title-wrap clearfix gdlr-core-title-font">
-                                                <div class="gdlr-core-tab-item-title  gdlr-core-active" data-tab-id="1">Benefits</div>
-                                                <div class="gdlr-core-tab-item-title " data-tab-id="2">Self Development</div>
-                                                <div class="gdlr-core-tab-item-title " data-tab-id="3">Spirituality</div>
-                                                <div class="gdlr-core-tab-item-title " data-tab-id="4">Alumni</div>
+                                    <div class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix  gdlr-core-gallery-item-style-grid" id="div_1dd7_110">
+                                        <div class="gdlr-core-gallery-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-1.png" alt="" width="248" height="120" title="banner-1" /></div>
                                             </div>
-                                            <div class="gdlr-core-tab-item-content-wrap clearfix">
-                                                <div class="gdlr-core-tab-item-content  gdlr-core-active" data-tab-id="1" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Why Choose Says?<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The says University Alumni Association is excited to announce the arrival of Says Alumni Connect. This is a new community building platform for alumni. It is the only place online where you can find, and connect with, all 90,000 says’s alumni. All alumni are automatically enrolled!</p>
-                                                    <p>says University was established by John Smith in 1920 for the public benefit and it is recognized globally. Throughout our great history, says has offered access to a wide range of academic opportunities. As a world leader in higher education, the University has pioneered change in the sector.</p>
-                                                </div>
-                                                <div class="gdlr-core-tab-item-content " data-tab-id="2" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Self Development<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The says University Alumni Association is excited to announce the arrival of Says Alumni Connect. This is a new community building platform for alumni. It is the only place online where you can find, and connect with, all 90,000 says’s alumni. All alumni are automatically enrolled!</p>
-                                                    <p>says University was established by John Smith in 1920 for the public benefit and it is recognized globally. Throughout our great history, says has offered access to a wide range of academic opportunities. As a world leader in higher education, the University has pioneered change in the sector.</p>
-                                                </div>
-                                                <div class="gdlr-core-tab-item-content " data-tab-id="3" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Spirituality<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The says University Alumni Association is excited to announce the arrival of Says Alumni Connect. This is a new community building platform for alumni. It is the only place online where you can find, and connect with, all 90,000 says’s alumni. All alumni are automatically enrolled!</p>
-                                                    <p>says University was established by John Smith in 1920 for the public benefit and it is recognized globally. Throughout our great history, says has offered access to a wide range of academic opportunities. As a world leader in higher education, the University has pioneered change in the sector.</p>
-                                                </div>
-                                                <div class="gdlr-core-tab-item-content " data-tab-id="4" style="background-color: #192f59 ;background-image: url(upload/tab-bg.png) ;background-position: top right ;">
-                                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top">
-                                                        <div class="gdlr-core-title-item-title-wrap ">
-                                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 700 ;text-transform: none ;color: #192f59 ;">Alumni<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                                    </div>
-                                                    <p>The says University Alumni Association is excited to announce the arrival of Says Alumni Connect. This is a new community building platform for alumni. It is the only place online where you can find, and connect with, all 90,000 says’s alumni. All alumni are automatically enrolled!</p>
-                                                    <p>says University was established by John Smith in 1920 for the public benefit and it is recognized globally. Throughout our great history, says has offered access to a wide range of academic opportunities. As a world leader in higher education, the University has pioneered change in the sector.</p>
-                                                </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-2.png" alt="" width="248" height="120" title="banner-2" /></div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 95px 0px 45px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 35px ;">
-                                        <div class="gdlr-core-title-item-title-wrap clearfix">
-                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 27px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Why Study Here?</h3></div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-40 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 5px ;">
-                                                    <div class="gdlr-core-text-box-item-content" style="text-transform: none ;">
-                                                        <p>The Academic offers include 14 majors, 15 minors, and more than 100 in major specializations so your degree will surely reflect your interests and strengths.</p>
-                                                    </div>
-                                                </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-3.png" alt="" width="248" height="120" title="banner-3" /></div>
                                             </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <div class="gdlr-core-text-box-item-content" style="text-transform: none ;">
-                                                        <p>Not only does says University provide you the practical skills that is necessary to transition seamlessly into the workforce upon your graduation, but we also make sure that you will have a good sense of social justice so that you make the transition responsibly.</p>
-                                                    </div>
-                                                </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-4.png" alt="" width="248" height="120" title="banner-4" /></div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 65px 0px 60px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #192f59 ;"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 45px 0px 0px 0px;">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 20px ;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 23px ;text-transform: none ;color: #192f59 ;">
-                                                        <p>The PLP in Drafting Legislation, Regulation, and Policy has been offered by the Institute of Advanced Legal Studies with considerable success since 2004.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"><a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="#" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 26px 16px 30px;text-transform: none ;margin: 0px 10px 10px 0px;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;background: #fff ;"><span class="gdlr-core-content" >Apply</span><i class="gdlr-core-pos-right fa fa-external-link" style="font-size: 14px ;"  ></i></a><a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="#" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 26px 16px 30px;text-transform: none ;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;background: #fff ;"><span class="gdlr-core-content" >Download Brochure</span><i class="gdlr-core-pos-right fa fa-file-pdf-o" style="font-size: 14px ;"  ></i></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30" id="gdlr-core-column-1">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="margin: -123px 0px 0px 0px;padding: 0px 0px 0px 40px;">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align">
-                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-rectangle" style="border-width: 0px;"><img src="upload/shutterstock_183400235-400x257.jpg" width="700" height="450"  alt="" /></div>
-                                                </div>
+                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-12 gdlr-core-item-pdlr gdlr-core-item-mgb">
+                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-5.png" alt="" width="248" height="120" title="banner-5" /></div>
                                             </div>
                                         </div>
                                     </div>
@@ -667,7 +493,6 @@
                     </div>
                 </div>
             </div>
-
 
             <footer>
                 <div class="says-footer-wrapper ">
@@ -676,68 +501,74 @@
                             <div id="text-2" class="widget widget_text says-widget">
                                 <div class="textwidget">
                                     <p><img src="upload/footer-logo.png" alt="" />
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_10"></span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: 5px ;"></span>
                                         <br /> Susan Enclave
-                                        <br />#1 Selorm Crescent
+                                        <br /> #1 Selorm Crescent
                                         <br /> Behind West Hills Mall</p>
-                                    <p><span id="span_1dd7_11">Tel: +233 30 294 7154</span>
-                                    <p><span id="span_1dd7_11">WhatsApp +233 50 927 5198</span>
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_12"></span>
-                                        <br /> <a id="a_1dd7_8" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
+                                    <p><span style="font-size: 15px; color: #ffffff;">+233 30 294 7154</span>
+                                        <br /><span style="font-size: 15px; color: #ffffff;">WhatsApp +233 50 927 5198</span>
+                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: -20px ;"></span>
+                                        <br /> <a style="font-size: 15px; color: #ffffff;" href="mailto:info@saysinternationalschool.com">info@saysinternationalschool.com</a></p>
                                     <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align">
-                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" id="div_1dd7_111"></div>
+                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #3db166 ;border-bottom-width: 2px ;"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                     
+                        <div class="says-footer-column says-item-pdlr says-column-15">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
+                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <div class="menu-our-campus-container">
+                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
+                                        <li class="menu-item"><a href="academics.html">About Us</a></li>
+                                        <li class="menu-item"><a href="leadership.html">Administration</a></li>
+                                        <li class="menu-item"><a href="faq.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="contact.html">School Office</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
+                                        <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-3" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Links</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
                                 <div class="menu-campus-life-container">
                                     <ul id="menu-campus-life" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#">About Us</a></li>
-                                        <li class="menu-item"><a href="#">FAQ</a></li>
-                                        <li class="menu-item"><a href="#">Contact</a></li>
-                                        <li class="menu-item"><a href="#">Educational Quote</a></li>
-                                     </ul>
+                                        <li class="menu-item"><a href="terms-of-use.html">Terms of Use</a></li>
+                                        <li class="menu-item"><a href="disclaimer.html">FAQ</a></li>
+                                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li class="menu-item"><a href="campus_life.html">Student Life</a></li>
+                                        <li class="menu-item"><a href="sports.html">Sports</a></li>
+                                        <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="says-footer-column says-item-pdlr says-column-15">
                             <div id="gdlr-core-custom-menu-widget-4" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Explore</h3><span class="clear"></span>
+                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
                                 <div class="menu-academics-container">
                                     <ul id="menu-academics" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#"></a></li>
-                                        <li class="menu-item"><a href="#">Terms of Use</a></li>
-                                        <li class="menu-item"><a href="#">Privacy Policy</a></li>
-                                        <li class="menu-item"><a href="#">Disclaimer</a></li>
+                                        <li class="menu-item"><a href="academics.html">Curriculum</a></li>
+                                        <li class="menu-item"><a href="apply-to-says.html">Apply To SIS</a></li>
+                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
+                                        <li class="menu-item"><a href="event-calendar.html">School Calendar</a></li>
+                                        <li class="menu-item"><a href="ucmas.html">Programmes</a></li>
+                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                           <div class="says-footer-column says-item-pdlr says-column-15">
-                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget says-widget">
-                                <h3 class="says-widget-title">Our Campus</h3><span class="clear"></span>
-                                <div class="menu-our-campus-container">
-                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item"><a href="#">Academic</a></li>
-                                        <li class="menu-item"><a href="#">Administration</a></li>
-                                        <li class="menu-item"><a href="#"> SIS Campus Safety</a></li>
-                                        <li class="menu-item"><a href="#">Office of the Head Master</a></li>
-                                        </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                  <div class="says-copyright-wrapper">
+                <div class="says-copyright-wrapper">
                     <div class="says-copyright-container says-container clearfix">
                         <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2025 - All Rights Reserved - Says International School.</div>
                         <div class="says-copyright-right says-item-pdlr">
-                             <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" id="div_983a_50">
+                            <a class="says-footer-credit" href="https://evans-portfolio-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" title="Visit the Nested Solutions portfolio">Powered by <strong><span class="says-footer-credit-nested">Nested</span> <span class="says-footer-credit-solutions">Solutions</span></strong></a>
+                            <div class="gdlr-core-social-network-item gdlr-core-item-pdb  gdlr-core-none-align" id="div_983a_50">
                                 <a href="https://facebook.com/SAYS-international-School-106769111122347" target="_blank" class="gdlr-core-social-network-icon" title="facebook">
                                     <i class="fa fa-facebook" ></i>
                                 </a>
@@ -749,6 +580,9 @@
                                 </a> -->
                                 <a href="https://x.com/SInterscho1049" target="_blank" class="gdlr-core-social-network-icon" title="twitter">
                                     <i class="fa fa-twitter" ></i>
+                                </a>
+                                <a href="https://www.youtube.com/@Saysinterschool" target="_blank" class="gdlr-core-social-network-icon" title="youtube">
+                                    <i class="fa fa-youtube" ></i>
                                 </a>
                                 <a href="https://saysinterschool2019" target="_blank" class="gdlr-core-social-network-icon" title="instagram">
                                     <i class="fa fa-instagram" ></i>
@@ -783,9 +617,55 @@
         };
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
+
+        <!-- scroll-to-top button -->
+<script>
+(function () {
+  if (document.querySelector('.scroll-to-top-btn')) { return; }
+  var button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'scroll-to-top-btn';
+  button.title = 'Scroll to top';
+  button.setAttribute('aria-label', 'Scroll to top');
+  button.textContent = '↑';
+  document.body.appendChild(button);
+  var threshold = 300;
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > threshold) {
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+  });
+  button.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+(function () {
+  var targets = document.querySelectorAll
+  ('#says-page-wrapper section, #says-page-wrapper .sis-admission-service-card, #says-page-wrapper .sis-admission-process-card, #says-page-wrapper .sis-admission-panel');
+  if (!targets.length) { return; }
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  targets.forEach(function (el) { el.classList.add('pj-scroll-reveal'); });
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
+  targets.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+
 </body>
 </html>
-
 
 
 
