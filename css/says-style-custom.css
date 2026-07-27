@@ -6850,6 +6850,43 @@ html .woocommerce span.onsale {
     width: min(100% - 24px, 1180px);
   }
 
+  .sis-alumni-intro-card,
+  .sis-alumni-contact-card,
+  .sis-alumni-outcome-panel,
+  .sis-alumni-cta-box {
+    padding: 24px;
+  }
+
+  .sis-alumni-stat-grid,
+  .sis-alumni-feature-grid,
+  .sis-alumni-event-grid,
+  .sis-alumni-visual-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .sis-alumni-visual-large {
+    min-height: 240px;
+    grid-row: auto;
+  }
+
+  .sis-alumni-intro-card h2,
+  .sis-alumni-section-head h3,
+  .sis-alumni-story-copy h3,
+  .sis-alumni-outcome-copy h3,
+  .sis-alumni-cta-box h3,
+  .sis-alumni-contact-card h3 {
+    font-size: 30px;
+  }
+
+  .sis-alumni-action-row {
+    flex-direction: column;
+  }
+
+  .sis-alumni-primary-link,
+  .sis-alumni-secondary-link {
+    width: 100%;
+  }
+
   .sis-admission-hero-section,
   .sis-admission-service-section,
   .sis-admission-visual-section,

@@ -3,16 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
     <title>Campus Tour Admin - Says International School</title>
     <link rel="stylesheet" href="css/style-core.css">
     <link rel="stylesheet" href="css/says-style-custom.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic">
     <link rel="icon" href="images/favicon.png" sizes="32x32">
     <style>
+        .sis-admin-page {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #eef3fb 0%, #ffffff 35%, #f5f8fc 100%);
+            color: #102758;
+            font-family: Poppins, Arial, sans-serif;
+        }
+
+        .sis-admin-shell {
+            width: min(1200px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 36px 0 72px;
+        }
+
+        .sis-admin-topbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .sis-admin-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .sis-admin-brand img {
+            max-height: 56px;
+            width: auto;
+        }
+
+        .sis-admin-brand-copy h1 {
+            margin: 0 0 6px;
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.05;
+            color: #08142d;
+        }
+
+        .sis-admin-brand-copy p {
+            margin: 0;
+            font-size: 15px;
+            color: #52627e;
+        }
+
+        .sis-admin-button-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            border: 0;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            background: #eef3fb;
+            color: #102758;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .sis-admin-button-secondary:hover {
+            transform: translateY(-1px);
+        }
+
+        .sis-admin-topbar-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #logout-btn {
+            font-family: Poppins, Arial, sans-serif;
+            background: #fdeaea;
+            color: #a01f2c;
+        }
+
+        @media (max-width: 640px) {
+            .sis-admin-topbar-actions {
+                width: 100%;
+            }
+
+            .sis-admin-topbar-actions > a,
+            .sis-admin-topbar-actions > button {
+                width: 100%;
+            }
+        }
+
         .admin-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0;
         }
         .admin-header {
             text-align: center;
@@ -40,13 +131,17 @@
             color: #6c757d;
             margin-top: 5px;
         }
+        .bookings-table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
         .bookings-table {
             width: 100%;
             border-collapse: collapse;
             background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
         }
         .bookings-table th,
         .bookings-table td {
@@ -185,6 +280,7 @@
             margin-right: 10px;
             border: 1px solid #ced4da;
             border-radius: 4px;
+            vertical-align: middle;
         }
         .unlock-btn {
             background: white;
@@ -194,6 +290,9 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: 500;
+            vertical-align: middle;
+            margin-top: 16px;
+            display: inline-block;
         }
         .unlock-btn:hover {
             background: #f8f9fa;
@@ -215,14 +314,7 @@
             }
 
             .bookings-table {
-                display: block;
-                overflow-x: auto;
-                width: 100%;
-            }
-
-            .bookings-table th,
-            .bookings-table td {
-                white-space: nowrap;
+                min-width: 760px;
             }
 
             .admin-container {
@@ -253,175 +345,173 @@
                 font-size: 0.95em;
             }
         }
-    </style>
-    <style>
-        .campus-tour-admin-scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
-        .campus-tour-admin-scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 700px) {
+            .bookings-table-scroll {
+                overflow-x: visible;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .bookings-table {
+                min-width: 0;
+                border-collapse: separate;
+                border-spacing: 0 12px;
+            }
+
+            .bookings-table thead {
+                display: none;
+            }
+
+            .bookings-table tbody,
+            .bookings-table tr {
+                display: block;
+                width: 100%;
+            }
+
+            .bookings-table tr {
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+
+            .bookings-table td {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 10px 14px;
+                border-bottom: 1px solid #e9ecef;
+                white-space: normal;
+                text-align: right;
+            }
+
+            .bookings-table td:last-child {
+                border-bottom: none;
+            }
+
+            .bookings-table td::before {
+                content: attr(data-label);
+                flex-shrink: 0;
+                margin-right: 12px;
+                font-weight: 600;
+                font-size: 0.8em;
+                color: #6c757d;
+                text-align: left;
+            }
+
+            .bookings-table td[data-label="Actions"] {
+                justify-content: flex-end;
+                background: #f8f9fa;
+            }
+
+            .bookings-table td[data-label="Actions"]::before {
+                display: none;
+            }
+
+            .bookings-table td[colspan] {
+                display: block;
+                text-align: center;
+            }
+
+            .bookings-table td[colspan]::before {
+                content: none;
+            }
+        }
     </style>
 
 </head>
-<body>
-    <div class="says-body-outer-wrapper">
-        <div class="says-body-wrapper">
-            <header class="says-header-wrap">
-                <div class="says-header-container says-container">
-                    <div class="says-header-content says-item-pdlr">
-                        <div class="says-logo says-item-pdb">
-                            <div class="says-logo-inner">
-                                <a href="index.html">
-                                    <img src="images/logo.png" alt="Says International School" width="150" height="50">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="says-navigation says-item-pdlr says-navigation-top says-style-center">
-                            <div class="says-main-menu" id="says-main-menu">
-                                <ul id="menu-main-navigation" class="sf-menu">
-                                    <li class="menu-item"><a href="index.html">Home</a></li>
-                                    <li class="menu-item"><a href="about-us.html">About</a></li>
-                                    <li class="menu-item"><a href="academics.html">Academics</a></li>
-                                    <li class="menu-item"><a href="apply-to-says.html">Admissions</a></li>
-                                    <li class="menu-item"><a href="campus_life.html">Campus Life</a></li>
-                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <div class="says-page-wrapper" id="says-page-wrapper">
-                <div class="gdlr-core-page-builder-body">
-                    <div class="gdlr-core-pbf-wrapper">
-                        <div class="gdlr-core-pbf-background-wrap">
-                            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js"></div>
-                        </div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb gdlr-core-center-align">
-                                        <div class="gdlr-core-title-item-title-wrap">
-                                            <h3 class="gdlr-core-title-item-title">Campus Tour Administration</h3>
-                                            <div class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">
-                                                Manage campus tour bookings and appointments
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="lock-panel" class="lock-panel">
-                                    <h3>🔒 Access Restricted</h3>
-                                    <p>Enter the administrator password to access campus tour bookings.</p>
-                                    <input type="password" id="admin-password" class="password-input" placeholder="Enter password">
-                                    <button id="unlock-btn" class="unlock-btn">Unlock</button>
-                                </div>
-
-                                <div id="admin-content" style="display: none;">
-                                    <div class="admin-container">
-                                        <div class="admin-header">
-                                            <h2>Campus Tour Bookings Management</h2>
-                                        </div>
-
-                                        <div id="stats-container" class="admin-stats">
-                                            <!-- Stats will be populated by JavaScript -->
-                                        </div>
-
-                                        <div class="search-filter">
-                                            <input type="text" id="search-input" class="search-input" placeholder="Search by name, email, or phone...">
-                                            <select id="status-filter" class="filter-select">
-                                                <option value="">All Status</option>
-                                                <option value="upcoming">Upcoming</option>
-                                                <option value="today">Today</option>
-                                                <option value="past">Past</option>
-                                            </select>
-                                            <select id="time-filter" class="filter-select">
-                                                <option value="">All Times</option>
-                                                <option value="11 a.m.">11 AM</option>
-                                                <option value="3 p.m.">3 PM</option>
-                                            </select>
-                                        </div>
-
-                                        <div id="error-message" class="error" style="display: none;"></div>
-
-                                        <div id="loading" class="loading">
-                                            <p>Loading campus tour bookings...</p>
-                                        </div>
-
-                                        <table id="bookings-table" class="bookings-table" style="display: none;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Status</th>
-                                                    <th>Submitted</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="bookings-tbody">
-                                                <!-- Bookings will be populated by JavaScript -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<body class="sis-admin-page">
+    <div class="sis-admin-shell">
+        <div class="sis-admin-topbar">
+            <div class="sis-admin-brand">
+                <img src="images/icon-logo.png" alt="Says International School">
+                <div class="sis-admin-brand-copy">
+                    <h1>Campus Tour Admin</h1>
+                    <p class="sis-admin-helper">Manage campus tour bookings and appointments.</p>
                 </div>
             </div>
+            <div class="sis-admin-topbar-actions">
+                <a href="campus-tour.html" class="sis-admin-button-secondary">Open public campus tour page</a>
+                <button type="button" id="logout-btn" class="sis-admin-button-secondary" style="display: none;">Log out</button>
+            </div>
+        </div>
 
-            <!-- Modal for viewing booking details -->
-            <div id="booking-modal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Booking Details</h3>
-                        <button class="modal-close" id="modal-close">&times;</button>
-                    </div>
-                    <div id="booking-details">
-                        <!-- Details will be populated by JavaScript -->
-                    </div>
+        <div id="lock-panel" class="lock-panel">
+            <h3>🔒 Access Restricted</h3>
+            <p>Enter the administrator password to access campus tour bookings.</p>
+            <input type="password" id="admin-password" class="password-input" placeholder="Enter password">
+            <button id="unlock-btn" class="unlock-btn">Unlock</button>
+        </div>
+
+        <div id="admin-content" style="display: none;">
+            <div class="admin-container">
+                <div class="admin-header">
+                    <h2>Campus Tour Bookings Management</h2>
+                </div>
+
+                <div id="stats-container" class="admin-stats">
+                    <!-- Stats will be populated by JavaScript -->
+                </div>
+
+                <div class="search-filter">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search by name, email, or phone...">
+                    <select id="status-filter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="today">Today</option>
+                        <option value="past">Past</option>
+                    </select>
+                    <select id="time-filter" class="filter-select">
+                        <option value="">All Times</option>
+                        <option value="11 a.m.">11 AM</option>
+                        <option value="3 p.m.">3 PM</option>
+                    </select>
+                </div>
+
+                <div id="error-message" class="error" style="display: none;"></div>
+
+                <div id="loading" class="loading">
+                    <p>Loading campus tour bookings...</p>
+                </div>
+
+                <div class="bookings-table-scroll">
+                    <table id="bookings-table" class="bookings-table" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Submitted</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-tbody">
+                            <!-- Bookings will be populated by JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-            <footer class="says-footer-wrap">
-                <div class="says-footer-container says-container">
-                    <div class="says-footer-content says-item-pdlr">
-                        <div class="says-copyright-wrapper">
-                            <div class="says-copyright-container says-container clearfix">
-                                <div class="says-copyright-left says-item-pdlr">Copyright &copy; 2025 - All Rights Reserved - Says International School.</div>
-                                <div class="says-copyright-right says-item-pdlr">
-                                    <a class="says-footer-credit" href="https://evans-portfolio-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" title="Visit the Nested Solutions portfolio">Powered by <strong><span class="says-footer-credit-nested">Nested</span> <span class="says-footer-credit-solutions">Solutions</span></strong></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 
-    <script type='text/javascript' src='js/jquery/jquery.js'></script>
-    <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
-    <script type='text/javascript' src='plugins/goodlayers-core/plugins/combine/script.js'></script>
-    <script type='text/javascript'>
-        var gdlr_core_pbf = {
-            "admin": "",
-            "video": {
-                "width": "640",
-                "height": "360"
-            },
-            "ajax_url": "#"
-        };
-    </script>
-    <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
-    <script type='text/javascript' src='js/jquery/ui/effect.min.js'></script>
-    <script type='text/javascript'>
-        var says_script_core = {
-            "home_url": "index.html"
-        };
-    </script>
-    <script type='text/javascript' src='js/reveal-on-scroll.js'></script>
+    <!-- Modal for viewing booking details -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Booking Details</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div id="booking-details">
+                <!-- Details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
 <!-- Campus Tour Admin Script -->
     <script>
     (function() {
@@ -433,11 +523,14 @@
         const adminContent = document.getElementById('admin-content');
         const passwordInput = document.getElementById('admin-password');
         const unlockBtn = document.getElementById('unlock-btn');
+        const logoutBtn = document.getElementById('logout-btn');
 
         unlockBtn.addEventListener('click', function() {
             if (passwordInput.value === ADMIN_PASSWORD) {
                 lockPanel.style.display = 'none';
                 adminContent.style.display = 'block';
+                logoutBtn.style.display = 'inline-flex';
+                passwordInput.value = '';
                 loadBookings();
             } else {
                 alert('Incorrect password. Access denied.');
@@ -449,6 +542,15 @@
             if (e.key === 'Enter') {
                 unlockBtn.click();
             }
+        });
+
+        logoutBtn.addEventListener('click', function() {
+            adminContent.style.display = 'none';
+            logoutBtn.style.display = 'none';
+            lockPanel.style.display = 'block';
+            allBookings = [];
+            passwordInput.value = '';
+            passwordInput.focus();
         });
 
         // Modal handling
@@ -580,14 +682,14 @@
 
                 return `
                     <tr>
-                        <td>${escapeHtml(booking.full_name)}</td>
-                        <td>${escapeHtml(booking.email)}</td>
-                        <td>${escapeHtml(booking.phone)}</td>
-                        <td>${formattedDate}</td>
-                        <td>${escapeHtml(booking.tour_time)}</td>
-                        <td><span class="status-badge ${statusClass}">${status.charAt(0).toUpperCase() + status.slice(1)}</span></td>
-                        <td>${formattedSubmitted}</td>
-                        <td>
+                        <td data-label="Name">${escapeHtml(booking.full_name)}</td>
+                        <td data-label="Email">${escapeHtml(booking.email)}</td>
+                        <td data-label="Phone">${escapeHtml(booking.phone)}</td>
+                        <td data-label="Date">${formattedDate}</td>
+                        <td data-label="Time">${escapeHtml(booking.tour_time)}</td>
+                        <td data-label="Status"><span class="status-badge ${statusClass}">${status.charAt(0).toUpperCase() + status.slice(1)}</span></td>
+                        <td data-label="Submitted">${formattedSubmitted}</td>
+                        <td data-label="Actions">
                             <button type="button" class="action-btn btn-view" onclick="viewBooking(${booking.id})">View</button>
                             <button type="button" class="action-btn btn-delete" onclick="deleteBooking(${booking.id})">Delete</button>
                         </td>
@@ -729,26 +831,5 @@
       });
     })();
     </script>
-<script>
-(function () {
-  var targets = document.querySelectorAll('#says-page-wrapper section, #says-page-wrapper .gdlr-core-pbf-wrapper-content.gdlr-core-js');
-  if (!targets.length) { return; }
-  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  targets.forEach(function (el) { el.classList.add('campus-tour-admin-scroll-reveal'); });
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-    targets.forEach(function (el) { el.classList.add('is-visible'); });
-    return;
-  }
-  var observer = new IntersectionObserver(function (entries, observer) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-  targets.forEach(function (el) { observer.observe(el); });
-})();
-</script>
 </body>
 </html>
