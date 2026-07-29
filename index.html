@@ -20,6 +20,55 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 
     <style>
+        .sis-announcement-bar {
+            background: linear-gradient(90deg, #102758, #173b87);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 16px;
+            position: relative;
+            z-index: 10001;
+        }
+        .sis-announcement-bar-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            max-width: 1180px;
+            margin: 0 auto;
+            font-family: Poppins, Arial, sans-serif;
+        }
+        .sis-announcement-bar-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: #f8d27b;
+            color: #102758;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .sis-announcement-bar-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .sis-announcement-bar-link {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: underline;
+            white-space: nowrap;
+        }
+        .sis-announcement-bar-link:hover {
+            color: #f8d27b;
+        }
+        @media (max-width: 600px) {
+            .sis-announcement-bar-text {
+                font-size: 13px;
+            }
+        }
+
         .sis-worker-teaser-section { padding: 40px 0; }
         .sis-worker-teaser-shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
         .sis-worker-teaser-card {
@@ -89,6 +138,13 @@
        </script>
 </head>
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js says-body says-body-front says-full  says-with-sticky-navigation  says-blockquote-style-1 gdlr-core-link-to-lightbox">
+    <div class="sis-announcement-bar">
+        <div class="sis-announcement-bar-inner">
+            <span class="sis-announcement-bar-badge">New</span>
+            <span class="sis-announcement-bar-text">Now offering Boarding, alongside our Day Programme.</span>
+            <a href="day-and-boarding.html" class="sis-announcement-bar-link">Learn more &rarr;</a>
+        </div>
+    </div>
     <div class="says-mobile-header-wrap">
         <div class="says-mobile-header says-header-background says-style-slide says-sticky-mobile-navigation " id="says-mobile-header">
             <div class="says-mobile-header-container says-container clearfix">
@@ -119,6 +175,7 @@
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="about-us.html">About</a></li>
+                                        <li class="menu-item"><a href="faq.html">FAQ</a></li>
                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="index.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
@@ -142,28 +199,28 @@
                                     <ul class="sub-menu">
                                         <li class="menu-item menu-item-has-children"><a>Lower Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="#">Pre-School</a></li>
-                                                <li class="menu-item"><a href="#">Crèche</a></li>
-                                                <li class="menu-item"><a href="#">Nursery one</a></li>
-                                                <li class="menu-item"><a href="#">Nursery two</a></li>
-                                                <li class="menu-item"><a href="#">Kindergarten</a></li>
-                                                <li class="menu-item"><a href="#">Grade one</a></li>
-                                                <li class="menu-item"><a href="#">Grade two</a></li>
-                                                <li class="menu-item"><a href="#">Grade three</a></li>
+                                                <li class="menu-item"><a href="pre-school.html">Pre-School</a></li>
+                                                <li class="menu-item"><a href="creche.html">Crèche</a></li>
+                                                <li class="menu-item"><a href="nursery-one.html">Nursery one</a></li>
+                                                <li class="menu-item"><a href="nursery-two.html">Nursery two</a></li>
+                                                <li class="menu-item"><a href="kindergarten.html">Kindergarten</a></li>
+                                                <li class="menu-item"><a href="grade-one.html">Grade one</a></li>
+                                                <li class="menu-item"><a href="grade-two.html">Grade two</a></li>
+                                                <li class="menu-item"><a href="grade-three.html">Grade three</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Upper Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="#">Grade four</a></li>
-                                                <li class="menu-item"><a href="#">Grade five</a></li>
-                                                <li class="menu-item"><a href="#">Grade six</a></li>
+                                                <li class="menu-item"><a href="grade-four.html">Grade four</a></li>
+                                                <li class="menu-item"><a href="grade-five.html">Grade five</a></li>
+                                                <li class="menu-item"><a href="grade-six.html">Grade six</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Junior High School</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="#">JHS 1</a></li>
-                                                <li class="menu-item"><a href="#">JHS 2</a></li>
-                                                <li class="menu-item"><a href="#">JHS 3</a></li>
+                                                <li class="menu-item"><a href="jhs-1.html">JHS 1</a></li>
+                                                <li class="menu-item"><a href="jhs-2.html">JHS 2</a></li>
+                                                <li class="menu-item"><a href="jhs-3.html">JHS 3</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -175,6 +232,7 @@
                                         <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
                                         <li class="menu-item"><a href="sports.html">Sports</a></li>
                                         <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
+                                        <li class="menu-item"><a href="day-and-boarding.html">Day &amp; Boarding</a></li>
                                         <li class="menu-item"><a href="alumni.html">Alumni</a></li>
                                         <li class="menu-item"><a href="event-calendar.html">Event Calendar</a></li>
                                         <li class="menu-item"><a href="ucmas.html">UCMAS</a></li>
@@ -229,6 +287,7 @@
                                     <li class="menu-item menu-item-has-children says-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item" data-size="60"><a href="about-us.html">About</a></li>
+                                            <li class="menu-item" data-size="60"><a href="faq.html">FAQ</a></li>
                                               <li class="menu-item menu-item-has-children" data-size="60"><a href="index.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
@@ -253,28 +312,28 @@
                                             <ul class="sub-menu">
                                                 <li class="menu-item menu-item-has-children" data-size="15"><a class="sf-with-ul-pre">Lower Primary</a>
                                                     <ul class="sub-menu">
-                                                       <li class="menu-item"><a href="Pre_school">Pre-School</a></li>
-                                                        <li class="menu-item"><a href="Crèche">Crèche</a></li>
-                                                        <li class="menu-item"><a href="Nursery_one">Nursery one</a></li>
-                                                        <li class="menu-item"><a href="Nursery_two">Nursery two</a></li>
-                                                        <li class="menu-item"><a href="Kindergarten">Kindergarten</a></li>
-                                                        <li class="menu-item"><a href="Grade_one">Grade one</a></li>
-                                                        <li class="menu-item"><a href="Grade_two">Grade two</a></li>
-                                                        <li class="menu-item"><a href="Grade_three">Grade three</a></li>
+                                                       <li class="menu-item"><a href="pre-school.html">Pre-School</a></li>
+                                                        <li class="menu-item"><a href="creche.html">Crèche</a></li>
+                                                        <li class="menu-item"><a href="nursery-one.html">Nursery one</a></li>
+                                                        <li class="menu-item"><a href="nursery-two.html">Nursery two</a></li>
+                                                        <li class="menu-item"><a href="kindergarten.html">Kindergarten</a></li>
+                                                        <li class="menu-item"><a href="grade-one.html">Grade one</a></li>
+                                                        <li class="menu-item"><a href="grade-two.html">Grade two</a></li>
+                                                        <li class="menu-item"><a href="grade-three.html">Grade three</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children" data-size="15"><a href="#" class="sf-with-ul-pre">Upper Primary</a>
                                                 <ul class="sub-menu">
-                                                <li class="menu-item"><a href="Grade_four">Grade four</a></li>
-                                                <li class="menu-item"><a href="Grade_five">Grade five</a></li>
-                                                <li class="menu-item"><a href="Grade_six">Grade six</a></li>
+                                                <li class="menu-item"><a href="grade-four.html">Grade four</a></li>
+                                                <li class="menu-item"><a href="grade-five.html">Grade five</a></li>
+                                                <li class="menu-item"><a href="grade-six.html">Grade six</a></li>
                                             </ul>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children" data-size="15"><a href="#" class="sf-with-ul-pre">Junior High School</a>
                                                     <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="JHS_1">JHS 1</a></li>
-                                                        <li class="menu-item"><a href="JHS_2">JHS 2</a></li>
-                                                        <li class="menu-item"><a href="JHS_3">JHS 3</a></li>
+                                                        <li class="menu-item"><a href="jhs-1.html">JHS 1</a></li>
+                                                        <li class="menu-item"><a href="jhs-2.html">JHS 2</a></li>
+                                                        <li class="menu-item"><a href="jhs-3.html">JHS 3</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item" data-size="15">
@@ -291,6 +350,7 @@
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
                                             <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
+                                            <li class="menu-item" data-size="60"><a href="day-and-boarding.html">Day &amp; Boarding</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
                                             <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
                                             <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
@@ -1464,6 +1524,9 @@
                                                                         <option value="Micheal A. Asare">Micheal A. Asare</option>
                                                                         <option value="David Afful">David Afful</option>
                                                                         <option value="Sir Gideon">Sir Gideon</option>
+                                                                        <option value="Linda Mensah">Linda Mensah</option>
+                                                                        <option value="Comfort Owusu">Comfort Owusu</option>
+                                                                        <option value="Kwame Boateng">Kwame Boateng</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -2536,6 +2599,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 </script>
+    <script type='text/javascript' src='js/site-search-index.js'></script>
+    <script type='text/javascript' src='js/site-search.js'></script>
 </body>
 </html>
 
