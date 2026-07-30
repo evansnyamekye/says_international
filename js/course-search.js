@@ -71,7 +71,7 @@
 
         form.addEventListener('submit', function (event) {
             var params = buildSearchParams(form);
-            var targetUrl = new URL('class-list-1.html', window.location.href);
+            var targetUrl = new URL('assessment-info.html', window.location.href);
 
             event.preventDefault();
 
@@ -166,7 +166,7 @@
             return false;
         }
 
-        if (activeFilters.instructor && normalizeInstructor(record.instructor) !== normalizeInstructor(activeFilters.instructor)) {
+        if (activeFilters.instructor && normalizeInstructor(record.teacher) !== normalizeInstructor(activeFilters.instructor)) {
             return false;
         }
 
@@ -184,7 +184,7 @@
             '<div class="gdlr-core-skin-caption">Category: ' + record.category + '</div>',
             '<div class="gdlr-core-skin-caption">Department: ' + record.department.replace(/_/g, ' ') + '</div>',
             '<div class="gdlr-core-skin-caption">Grade: ' + record.level + '</div>',
-            '<div class="gdlr-core-skin-caption">Teacher: ' + record.instructor + '</div>',
+            '<div class="gdlr-core-skin-caption">Teacher: ' + record.teacher + '</div>',
             '<div class="gdlr-core-skin-caption">Term: ' + record.term + '</div>',
             '<div class="gdlr-core-skin-caption">Block: ' + record.campus + '</div>',
             '<div class="gdlr-core-skin-caption">Pass Mark: ' + record.passMark + '</div>',
