@@ -51,6 +51,7 @@ async function sendAdmissionEmail(fields, attachmentSummary) {
         ['Religion', fields.religion],
         ['Nationality', fields.nationality],
         ['Grade applying for', fields.grade],
+        ['Day or boarding', fields.enrollment_type],
         ['Parent / guardian', fields.parent_name],
         ['Email', fields.email],
         ['Mobile', fields.mobile_phone],
@@ -112,14 +113,14 @@ async function storeAdmission(fields, urls, req) {
     await db.query(
         'INSERT INTO student_admissions (' +
             'student_name, gender, religion, nationality, parent_name, email,' +
-            'mobile_phone, home_phone, grade, previously_applied, previous_year,' +
+            'mobile_phone, home_phone, grade, enrollment_type, previously_applied, previous_year,' +
             'vision, hearing, speech, development_delays, allergies,' +
             'communicable_disease, emergency_care, heart_condition, medical_notes,' +
             'relative_name, relative_tel, preferred_hospital, insurance, condition_details,' +
             'birth_certificate_url, passport_photo_url, report_card_urls,' +
             'ip_address, user_agent' +
         ') VALUES (' +
-            '$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30' +
+            '$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31' +
         ')',
         [
             fields.student_name,
@@ -131,6 +132,7 @@ async function storeAdmission(fields, urls, req) {
             fields.mobile_phone,
             fields.home_phone,
             fields.grade,
+            fields.enrollment_type,
             fields.previouslyApplied,
             fields.previous_year,
             fields.vision,
