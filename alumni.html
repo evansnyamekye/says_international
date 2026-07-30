@@ -54,6 +54,7 @@
                                 <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="about-us.html">About</a></li>
+                                        <li class="menu-item"><a href="faq.html">FAQ</a></li>
                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="alumni.html" class="sf-with-ul-pre">Team Blog</a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-item"><a href="teachers_grid.html">Teachers</a></li>
@@ -89,16 +90,16 @@
                                         </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Upper Primary</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="#">Grade four</a></li>
-                                                <li class="menu-item"><a href="#">Grade five</a></li>
-                                                <li class="menu-item"><a href="#">Grade six</a></li>
+                                                <li class="menu-item"><a href="grade-four.html">Grade four</a></li>
+                                                <li class="menu-item"><a href="grade-five.html">Grade five</a></li>
+                                                <li class="menu-item"><a href="grade-six.html">Grade six</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children"><a href="#">Junior High School</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="#">JHS 1</a></li>
-                                                <li class="menu-item"><a href="#">JHS 2</a></li>
-                                                <li class="menu-item"><a href="#">JHS 3</a></li>
+                                                <li class="menu-item"><a href="jhs-1.html">JHS 1</a></li>
+                                                <li class="menu-item"><a href="jhs-2.html">JHS 2</a></li>
+                                                <li class="menu-item"><a href="jhs-3.html">JHS 3</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -109,6 +110,7 @@
                                         <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
                                         <li class="menu-item"><a href="sports.html">Sports</a></li>
                                         <li class="menu-item"><a href="give-to-says.html">Give To SIS</a></li>
+                                        <li class="menu-item"><a href="day-and-boarding.html">Day &amp; Boarding</a></li>
                                         <li class="menu-item"><a href="alumni.html">Alumni</a></li>
                                         <li class="menu-item"><a href="event-calendar.html">Event Calendar</a></li>
                                     </ul>
@@ -142,7 +144,7 @@
                                 <li class="menu-item says-normal-menu"><a href="event-calendar.html">Calendar</a></li>
                                 <li class="menu-item says-normal-menu"><a href="contact.html">Contact</a></li>
                             </ul>
-                            <div class="says-top-bar-right-social"></div><a class="says-top-bar-right-button" href="about-us.html">SAYS OUTREACH</a></div>
+                            <div class="says-top-bar-right-social"></div><a class="says-top-bar-right-button" href="give-to-says.html">SAYS OUTREACH</a></div>
                     </div>
                 </div>
             </div>
@@ -227,6 +229,7 @@
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
                                             <li class="menu-item" data-size="60"><a href="sports.html">Sports</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-says.html">Give To SIS</a></li>
+                                            <li class="menu-item" data-size="60"><a href="day-and-boarding.html">Day &amp; Boarding</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
                                             <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
                                             <li class="menu-item" data-size="60"><a href="ucmas.html">UCMAS</a></li>
@@ -272,7 +275,7 @@
                 <div class="says-page-title-container says-container">
                     <div class="says-page-title-content says-item-pdlr" style="padding-top: 400px ;padding-bottom: 60px ;">
                         <div class="says-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">SIS graduates and school community</div>
-                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #192f59 ;">Alumni Network</h1></div>
+                        <h1 class="says-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;color: #898a8b ;">Alumni Network</h1></div>
                 </div>
             </div>
             <div class="says-breadcrumbs">
@@ -616,6 +619,30 @@
         };
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
+    <!-- scroll-to-top button -->
+    <script>
+    (function () {
+      if (document.querySelector('.scroll-to-top-btn')) { return; }
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'scroll-to-top-btn';
+      button.title = 'Scroll to top';
+      button.setAttribute('aria-label', 'Scroll to top');
+      button.textContent = '↑';
+      document.body.appendChild(button);
+      var threshold = 300;
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > threshold) {
+          button.classList.add('visible');
+        } else {
+          button.classList.remove('visible');
+        }
+      });
+      button.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
 <script>
 (function () {
   var targets = document.querySelectorAll('#says-page-wrapper section, #says-page-wrapper .gdlr-core-pbf-wrapper-content.gdlr-core-js');
@@ -637,5 +664,7 @@
   targets.forEach(function (el) { observer.observe(el); });
 })();
 </script>
+    <script type='text/javascript' src='js/site-search-index.js'></script>
+    <script type='text/javascript' src='js/site-search.js'></script>
 </body>
 </html>
