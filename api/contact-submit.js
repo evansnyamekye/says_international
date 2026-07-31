@@ -72,10 +72,22 @@ function escapeHtml(value) {
         .replace(/'/g, '&#39;');
 }
 
+function parseRecipientList(value, fallback) {
+    const raw = String(value || fallback || '').trim();
+
+    if (!raw) {
+        return [];
+    }
+
+    return raw.split(',')
+        .map(function (item) { return item.trim(); })
+        .filter(Boolean);
+}
+
 function getNotificationSettings() {
     return {
         apiKey: String(process.env.RESEND_API_KEY || '').trim(),
-        to: normalizeText(process.env.CONTACT_NOTIFY_TO || 'info@saysinternationalschool.com', 160),
+        to: parseRecipientList(process.env.CONTACT_NOTIFY_TO, 'info@saysinternationalschool.com'),
         from: normalizeText(process.env.CONTACT_NOTIFY_FROM || 'Says International School <onboarding@resend.dev>', 160),
         replyTo: normalizeText(process.env.CONTACT_REPLY_TO || '', 160)
     };
@@ -114,7 +126,7 @@ async function sendNotificationEmail(payload) {
         },
         body: JSON.stringify({
             from: settings.from,
-            to: [settings.to],
+            to: settings.to,
             reply_to: settings.replyTo || payload.email,
             subject: 'New contact form message from ' + payload.name,
             text: [
