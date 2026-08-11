@@ -140,6 +140,7 @@
         }
         .bookings-table {
             width: 100%;
+            min-width: 980px;
             border-collapse: collapse;
             background: white;
         }
@@ -148,6 +149,10 @@
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #e9ecef;
+            white-space: nowrap;
+        }
+        .bookings-table td[data-label="Documents"] {
+            white-space: normal;
         }
         .bookings-table th {
             background: #f8f9fa;
@@ -340,10 +345,6 @@
             .search-filter .filter-select,
             .search-filter .search-input {
                 width: 100%;
-            }
-
-            .bookings-table {
-                min-width: 860px;
             }
 
             .admin-container {
