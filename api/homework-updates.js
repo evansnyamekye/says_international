@@ -1,4 +1,4 @@
-const PASSWORD = 'domain@SIS'; // Change this to a secure password
+const PASSWORD = 'SAYS-Homework#2026!Kx7';
 
 let poolPromise;
 
