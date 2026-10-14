@@ -37,11 +37,23 @@ function pickArray(value) {
     return [String(value)];
 }
 
+function parseRecipientList(value, fallback) {
+    const raw = String(value || fallback || '').trim();
+
+    if (!raw) {
+        return [];
+    }
+
+    return raw.split(',')
+        .map(function (item) { return item.trim(); })
+        .filter(Boolean);
+}
+
 async function sendAdmissionEmail(fields, attachmentSummary) {
     const apiKey = String(process.env.RESEND_API_KEY || '').trim();
     if (!apiKey) return false;
 
-    const to = String(process.env.APPLICATION_NOTIFY_TO || 'info@saysinternationalschool.com').trim();
+    const to = parseRecipientList(process.env.APPLICATION_NOTIFY_TO, 'info@saysinternationalschool.com');
     const from = String(process.env.APPLICATION_NOTIFY_FROM || 'Says International School <onboarding@resend.dev>').trim();
     const replyTo = String(process.env.APPLICATION_REPLY_TO || fields.email || '').trim();
 
@@ -91,7 +103,7 @@ async function sendAdmissionEmail(fields, attachmentSummary) {
         },
         body: JSON.stringify({
             from: from,
-            to: [to],
+            to: to,
             reply_to: replyTo || undefined,
             subject: 'New admission application: ' + (fields.student_name || 'Unknown student'),
             text: text,
