@@ -1,186 +1,740 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAYS Outreach Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore SAYS International School's community outreach visits and ways to support families and children.">
+    <title>SAYS Outreach | Says International School</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-blue: #0d1f4d;
-            --blue-2: #163a74;
-            --blue-3: #1f548f;
-            --cream: #f7f9fc;
-            --text: #24324a;
-            --light: #eef4ff;
+            --ink: #142a4d;
+            --ink-soft: #42536d;
+            --green: #278a52;
+            --green-dark: #17633b;
+            --green-pale: #edf6ef;
+            --gold: #e8b94b;
+            --paper: #fbfcfa;
+            --line: #dce5df;
+            --white: #ffffff;
+            --shadow: 0 18px 44px rgba(20, 42, 77, 0.12);
         }
 
         * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--text);
-            background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+            background: var(--paper);
+            color: var(--ink);
+            font-family: "Poppins", sans-serif;
+            line-height: 1.65;
         }
 
-        .page {
-            min-height: 100vh;
-            padding: 40px 20px 60px;
+        a { color: inherit; }
+
+        .site-header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            min-height: 82px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 12px max(5vw, 24px);
+            background: var(--white);
+            border-bottom: 1px solid var(--line);
         }
 
-        .card {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 18px 45px rgba(13, 31, 77, 0.12);
-            overflow: hidden;
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            min-width: 0;
+        }
+
+        .brand img {
+            display: block;
+            width: 150px;
+            max-height: 58px;
+            object-fit: contain;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .main-nav a {
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus-visible { color: var(--green); }
+
+        .main-nav .nav-gallery {
+            padding: 10px 16px;
+            border: 1px solid var(--green);
+            border-radius: 4px;
+            color: var(--green-dark);
         }
 
         .hero {
-            background: linear-gradient(120deg, var(--deep-blue), var(--blue-3));
-            color: #ffffff;
-            padding: 60px 40px;
+            position: relative;
+            display: flex;
+            min-height: 490px;
+            align-items: flex-end;
+            overflow: hidden;
+            background: #17294a url("images/outreach/outreach100.jpg") center 43% / cover no-repeat;
+            color: var(--white);
         }
 
+        .hero::before {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(10, 25, 48, 0.84), rgba(10, 25, 48, 0.3) 72%),
+                linear-gradient(0deg, rgba(10, 25, 48, 0.4), transparent 60%);
+            content: "";
+        }
+
+        .hero-content {
+            position: relative;
+            width: min(1120px, 100%);
+            margin: 0 auto;
+            padding: 88px 28px 74px;
+            animation: rise-in 700ms ease both;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: #f4d783;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1, h2, h3, p { margin-top: 0; }
+
         .hero h1 {
-            margin: 0 0 12px;
-            font-size: 2.4rem;
+            max-width: 720px;
+            margin-bottom: 16px;
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(44px, 7vw, 76px);
+            line-height: 1.05;
+            font-weight: 700;
         }
 
         .hero p {
-            margin: 0;
-            max-width: 760px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.92);
+            max-width: 620px;
+            margin-bottom: 28px;
+            color: rgba(255, 255, 255, 0.91);
+            font-size: 17px;
         }
 
-        .content {
-            padding: 40px;
-        }
-
-        .intro {
-            margin-bottom: 30px;
-            padding: 20px 22px;
-            background: var(--light);
-            border-left: 6px solid var(--deep-blue);
-            border-radius: 12px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .box {
-            background: #fff;
-            border: 1px solid #e1e9f6;
-            border-radius: 14px;
-            padding: 24px;
-        }
-
-        .box h3 {
-            margin-top: 0;
-            color: var(--deep-blue);
-            font-size: 1.15rem;
-        }
-
-        .box p, .box li {
-            line-height: 1.7;
-            color: var(--text);
-        }
-
-        .box ul {
-            margin: 0;
-            padding-left: 18px;
-        }
-
-        .cta {
-            margin-top: 28px;
+        .hero-actions,
+        .support-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
 
-        .btn {
-            display: inline-block;
-            background: var(--deep-blue);
-            color: #fff;
-            padding: 12px 18px;
-            border-radius: 999px;
+        .action-link {
+            display: inline-flex;
+            min-height: 46px;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 18px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background: var(--green);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
             text-decoration: none;
+            transition: background-color 180ms ease, transform 180ms ease;
+        }
+
+        .action-link:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+        .action-link.light {
+            border-color: rgba(255, 255, 255, 0.72);
+            background: transparent;
+            color: var(--white);
+        }
+
+        .action-link.light:hover { background: rgba(255, 255, 255, 0.14); }
+
+        .intro-section,
+        .support-section,
+        .gallery-section,
+        .closing-section {
+            padding: 78px 24px;
+        }
+
+        .content-shell {
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        .intro-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1.2fr);
+            align-items: center;
+            gap: 64px;
+        }
+
+        .section-kicker {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--green-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .intro-section h2,
+        .section-heading h2,
+        .support-copy h2 {
+            margin-bottom: 16px;
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.15;
+        }
+
+        .closing-section h2 {
+            margin-bottom: 16px;
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(30px, 4vw, 44px);
             font-weight: 600;
+            line-height: 1.15;
         }
 
-        .btn.secondary {
-            background: #fff;
-            color: var(--deep-blue);
-            border: 1px solid var(--deep-blue);
+        .intro-copy {
+            max-width: 650px;
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: 17px;
         }
 
-        .footer-note {
-            margin-top: 30px;
-            padding: 18px 20px;
-            background: var(--cream);
-            border-radius: 12px;
-            color: var(--deep-blue);
-            font-weight: 600;
+        .intro-note {
+            padding: 24px 26px;
+            border-left: 4px solid var(--gold);
+            background: var(--green-pale);
+            color: var(--ink);
+            font-size: 15px;
         }
 
-        @media (max-width: 760px) {
-            .hero { padding: 40px 24px; }
-            .content { padding: 24px; }
-            .grid { grid-template-columns: 1fr; }
+        .intro-note p { margin: 0; }
+
+        .support-section { background: #f0f4f7; }
+
+        .support-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .support-copy { max-width: 650px; }
+        .support-copy p { margin-bottom: 0; color: var(--ink-soft); }
+
+        .support-actions { justify-content: flex-end; }
+
+        .action-link.outline {
+            border-color: var(--green);
+            background: transparent;
+            color: var(--green-dark);
+        }
+
+        .action-link.outline:hover { background: var(--green-pale); }
+
+        .gallery-section { padding-bottom: 30px; }
+
+        .section-heading {
+            max-width: 680px;
+            margin-bottom: 32px;
+        }
+
+        .section-heading p { margin-bottom: 0; color: var(--ink-soft); }
+
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin: 28px 0 56px;
+        }
+
+        .category-nav a {
+            padding: 9px 14px;
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            background: var(--white);
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: border-color 180ms ease, color 180ms ease;
+        }
+
+        .category-nav a:hover,
+        .category-nav a:focus-visible { border-color: var(--green); color: var(--green-dark); }
+
+        .outreach-year {
+            padding: 38px 0 56px;
+            border-top: 1px solid var(--line);
+            scroll-margin-top: 24px;
+        }
+
+        .year-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .year-heading h3 {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        .year-heading span {
+            color: var(--green-dark);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .photo-card { min-width: 0; margin: 0; }
+
+        .photo-button {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+            border-radius: 4px;
+            background: #e1e8e3;
+            cursor: zoom-in;
+        }
+
+        .photo-button img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 350ms ease;
+        }
+
+        .photo-button:hover img,
+        .photo-button:focus-visible img { transform: scale(1.045); }
+
+        .photo-caption {
+            margin: 8px 0 0;
+            color: var(--ink-soft);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .closing-section {
+            margin-top: 24px;
+            background: var(--ink);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .closing-section .content-shell { max-width: 720px; }
+
+        .closing-section p {
+            max-width: 560px;
+            margin: 0 auto 24px;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .site-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 23px max(5vw, 24px);
+            background: #0e1d36;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 13px;
+        }
+
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links a { color: var(--white); text-decoration: none; }
+        .footer-links a:hover { text-decoration: underline; }
+
+        .lightbox[hidden] { display: none; }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            display: grid;
+            place-items: center;
+            padding: 56px 24px 70px;
+            background: rgba(5, 14, 27, 0.94);
+        }
+
+        .lightbox img {
+            display: block;
+            max-width: min(1100px, 100%);
+            max-height: 78vh;
+            object-fit: contain;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            display: grid;
+            width: 48px;
+            height: 48px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.48);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 30px;
+            line-height: 1;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-nav:hover { background: rgba(255, 255, 255, 0.22); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+
+        .lightbox-caption {
+            position: absolute;
+            right: 24px;
+            bottom: 22px;
+            left: 24px;
+            margin: 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .lightbox-counter {
+            display: block;
+            margin-top: 3px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            display: grid;
+            width: 44px;
+            height: 44px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.48);
+            border-radius: 50%;
+            background: transparent;
+            color: var(--white);
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+        @keyframes rise-in {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            .intro-layout { grid-template-columns: 1fr; gap: 24px; }
+            .support-layout { grid-template-columns: 1fr; gap: 24px; }
+            .support-actions { justify-content: flex-start; }
+            .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 560px) {
+            .site-header { min-height: 70px; padding: 10px 18px; }
+            .brand img { width: 118px; }
+            .main-nav { gap: 14px; }
+            .main-nav a { font-size: 13px; }
+            .main-nav .nav-gallery { padding: 8px 10px; }
+            .hero { min-height: 460px; background-position: 58% center; }
+            .hero-content { padding: 70px 22px 48px; }
+            .hero p { font-size: 15px; }
+            .intro-section, .support-section, .gallery-section, .closing-section { padding: 56px 20px; }
+            .category-nav { margin-bottom: 36px; }
+            .photo-grid { grid-template-columns: 1fr; gap: 12px; }
+            .photo-button { aspect-ratio: 4 / 3; }
+            .year-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
+            .site-footer { align-items: flex-start; flex-direction: column; padding: 22px 20px; }
+            .footer-links { flex-wrap: wrap; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <div class="card">
-            <div class="hero">
-                <h1>SAYS Outreach Support</h1>
-                <p>This page is dedicated to helping the school community support the needy through meaningful giving. People may contribute cash, new clothing, or any other valuable items that can bring comfort and hope to those in need.</p>
-            </div>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Says International School home">
+            <img src="images/logo.png" alt="Says International School">
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a class="nav-gallery" href="gallery.html">School Gallery</a>
+        </nav>
+    </header>
 
-            <div class="content">
-                <div class="intro">
-                    <strong>At SAYS, outreach support is about compassion in action.</strong> Every gift, whether small or significant, can make a difference in the lives of families and children who need support.
-                </div>
-
-                <div class="grid">
-                    <div class="box">
-                        <h3>Ways to contribute</h3>
-                        <ul>
-                            <li>Cash donations to support food, shelter, medical care, and school essentials</li>
-                            <li>New clothes, shoes, and blankets for children and families</li>
-                            <li>Books, school materials, and other useful items</li>
-                            <li>Any item of value that can be shared with those in need</li>
-                        </ul>
-                    </div>
-
-                    <div class="box">
-                        <h3>How the support helps</h3>
-                        <ul>
-                            <li>Provides immediate relief to vulnerable people</li>
-                            <li>Encourages generosity and community care</li>
-                            <li>Creates a lasting impact through practical support</li>
-                            <li>Shows that every act of kindness can transform lives</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cta">
-                    <a class="btn" href="contact.html">Contact SAYS</a>
-                    <a class="btn secondary" href="index.html">Return Home</a>
-                </div>
-
-                <div class="footer-note">
-                    SAYS Outreach Support is rooted in compassion, dignity, and service to the community.
+    <main>
+        <section class="hero" aria-labelledby="page-title">
+            <div class="hero-content">
+                <span class="eyebrow">Says International School</span>
+                <h1 id="page-title">SAYS Outreach</h1>
+                <p>Small acts of care can make a lasting difference. Explore moments from our visits with children, families and communities.</p>
+                <div class="hero-actions">
+                    <a class="action-link" href="#outreach-stories">Explore the outreach gallery</a>
+                    <a class="action-link light" href="#support-outreach">Give to outreach</a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="content-shell intro-layout">
+                <div>
+                    <span class="section-kicker">Compassion in action</span>
+                    <h2>Showing up for our community</h2>
+                </div>
+                <div>
+                    <p class="intro-copy">SAYS outreach brings practical support, encouragement and fellowship to children and families. 
+                        Every visit is a chance to listen, share the Gospel and remind them of how Jesus loved His Children.</p>
+                    <div class="intro-note" style="margin-top: 22px;">
+                        <p>We welcome support in the form of donations, new clothing, fairly used clothes, shoes, books, school supplies and other useful items.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="support-section" id="support-outreach">
+            <div class="content-shell support-layout">
+                <div class="support-copy">
+                    <span class="section-kicker">Be part of the work</span>
+                    <h2>Give what you can</h2>
+                    <p>Contributions help us prepare for future community visits and share meaningful support with the people we meet.</p>
+                </div>
+                <div class="support-actions">
+                    <a class="action-link" href="contact.html">Contact the school</a>
+                    <a class="action-link outline" href="index.html">Visit SAYS</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section" id="outreach-stories">
+            <div class="content-shell">
+                <div class="section-heading">
+                    <span class="section-kicker">The outreach archive</span>
+                    <h2>Stories from the community</h2>
+                    <p>Browse outreach moments by location and year. Select a photograph to see it larger.</p>
+                </div>
+
+                <nav class="category-nav" aria-label="Outreach gallery categories">
+                    <a href="#gomoa-2022">Gomoa 2022</a>
+                    <a href="#amasaman-2023">Amasaman 2023</a>
+                    <a href="#central-region-2024">Central Region 2024</a>
+                    <a href="#greater-accra-2025">Greater Accra 2025</a>
+                    <a href="#outreach-2026">Outreach 2026</a>
+                </nav>
+
+                <section class="outreach-year" id="gomoa-2022" aria-labelledby="darcoman-heading">
+                    <div class="year-heading">
+                        <h3 id="darcoman-heading">Outreach in Gomoa - Central Region</h3>
+                        <span>2022</span> 
+                    </div>
+                    <div class="photo-grid">
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach01.jpg" data-caption="A young Teacher happily sharing great moment."><img src="images/outreach/outreach_2022/outreach1.jpg" alt="A young Teacher happily sharing great moment" decoding="async"></button><figcaption class="photo-caption">A young Teacher happily sharing great moment.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach2.jpg" data-caption="Items displayed ready to be shared to the community."><img src="images/outreach/outreach_2022/outreach2.jpg" alt="Items displayed ready to be shared to the community" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Items displayed ready to be shared to the community.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach3.jpg" data-caption="Facilitators arranging items for the communities."><img src="images/outreach/outreach_2022/outreach3.jpg" alt="Facilitators arranging items for the communities" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Facilitators arranging items for the communities.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach4.jpg" data-caption="Community members preparing to receive food items."><img src="images/outreach/outreach_2022/outreach4.jpg" alt="Community members preparing to receive food items" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Community members preparing to receive food items.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach5.jpg" data-caption="A community member in great and happy moment."><img src="images/outreach/outreach_2022/outreach5.jpg" alt="A community member in great and happy moment" loading="lazy" decoding="async"></button><figcaption class="photo-caption">A community member in great and happy moment.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach5.jpg" data-caption="Community members seated during preaching of the Gosple."><img src="images/outreach/outreach_2022/outreach6.jpg" alt="Community members seated during preaching of the Gosple" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Community members seated during preaching of the Gosple.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach5.jpg" data-caption="Community members seated during session."><img src="images/outreach/outreach_2022/outreach7.jpg" alt="Community members seated during session" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Community members seated during session.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach5.jpg" data-caption="Teaching materials and books ready to be shared among kids in the community."><img src="images/outreach/outreach_2022/outreach8.jpg" alt="Teaching materials and books ready to be shared among kids in the community" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Teaching materials and books ready to be shared among kids in the community.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach5.jpg" data-caption="Elders of the community seated."><img src="images/outreach/outreach_2022/outreach9.jpg" alt="Elders of the community seated" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Elders of the community seated.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach5.jpg" data-caption="Many community members gather for the outreach durbar."><img src="images/outreach/outreach_2022/outreach10.jpg" alt="Many community members gather for the outreach durbar" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Many community members gather for the outreach durbar.</figcaption></figure>
+                    </div>
+                </section>
+
+                <section class="outreach-year" id="amasaman-2023" aria-labelledby="amasaman-heading">
+                    <div class="year-heading">
+                        <h3 id="amasaman-heading">Outreach in Amasaman</h3>
+                        <span>2023</span>
+                    </div> 
+                    <div class="photo-grid">
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach10.jpg" data-caption="Children take part in a shared community activity."><img src="images/outreach/outreach10.jpg" alt="Children taking part in a community activity" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Health personals ready to offer their services to the community.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach11.jpg" data-caption="Health professionals engaging community members before screening."><img src="images/outreach/outreach11.jpg" alt="Health professionals engaging community members before screening" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Health professionals engaging community members before screening.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach12.jpg" data-caption="Screening begins with health professional."><img src="images/outreach/outreach12.jpg" alt="Screening begins with health professional" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Screening begins with health professional.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach13.jpg" data-caption="Community members seated and ready to be screened."><img src="images/outreach/outreach13.jpg" alt="Community members seated and ready to be screened" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Community members seated and ready to be screened.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach14.jpg" data-caption="A community member been taken through vitals."><img src="images/outreach/outreach14.jpg" alt="A community member been taken through vitals" loading="lazy" decoding="async"></button><figcaption class="photo-caption">A community member been taken through vitals.</figcaption></figure>
+                    </div>
+                </section>
+
+                <section class="outreach-year" id="central-region-2024" aria-labelledby="central-heading">
+                    <div class="year-heading">
+                        <h3 id="central-heading">Outreach in the Central Region</h3>
+                        <span>2024</span>
+                    </div>
+                    <div class="photo-grid">
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach50.jpg" data-caption="Young people share a moment during the community visit."><img src="images/outreach/outreach50.jpg" alt="Young people at a community outreach visit" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Young people share a moment during the community visit.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach51.jpg" data-caption="Listening, learning and spending time together."><img src="images/outreach/outreach51.jpg" alt="Community members listening together" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Listening, learning and spending time together.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach52.jpg" data-caption="A shared visit creates space for conversation and care."><img src="images/outreach/outreach52.jpg" alt="A conversation during a SAYS outreach visit" loading="lazy" decoding="async"></button><figcaption class="photo-caption">A shared visit creates space for conversation and care.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach53.jpg" data-caption="Families and volunteers gather for a day of fellowship."><img src="images/outreach/outreach53.jpg" alt="Families and volunteers gathered together" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Families and volunteers gather for a day of fellowship.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach54.jpg" data-caption="Children and volunteers gather during the visit."><img src="images/outreach/outreach54.jpg" alt="Children and volunteers gathered during an outreach" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Children and volunteers gather during the visit.</figcaption></figure>
+                    </div>
+                </section>
+
+                <section class="outreach-year" id="greater-accra-2025" aria-labelledby="accra-heading">
+                    <div class="year-heading">
+                        <h3 id="accra-heading">Outreach in Greater Accra</h3>
+                        <span>2025</span>
+                    </div>
+                    <div class="photo-grid">
+                        <figure class="photo-card">
+                        <button class="photo-button" type="button" data-full="images/outreach/outreach100.jpg" data-caption="Community members come together for an outreach activity.">
+                        <img src="images/outreach/outreach100.jpg" alt="Community members at an outreach activity" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption class="photo-caption">Community members come together for an outreach activity.</figcaption>
+                       </figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach101.jpg" data-caption="A young visitor receives attention and encouragement."><img src="images/outreach/outreach101.jpg" alt="A young visitor with the outreach team" loading="lazy" decoding="async"></button><figcaption class="photo-caption">A young visitor receives attention and encouragement.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach102.jpg" data-caption="The SAYS team shares a message of hope with the community."><img src="images/outreach/outreach102.jpg" alt="The SAYS team sharing a message with community members" loading="lazy" decoding="async"></button><figcaption class="photo-caption">The SAYS team shares a message of hope with the community.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach103.jpg" data-caption="Practical gifts help make the visit meaningful for families."><img src="images/outreach/outreach103.jpg" alt="Gifts prepared for an outreach visit" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Practical gifts help make the visit meaningful for families.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach104.jpg" data-caption="A moment of encouragement and fellowship."><img src="images/outreach/outreach104.jpg" alt="Community members sharing a moment during an outreach" loading="lazy" decoding="async"></button><figcaption class="photo-caption">A moment of encouragement and fellowship.</figcaption></figure>
+                    </div>
+                </section>
+
+                <section class="outreach-year" id="outreach-2026" aria-labelledby="year-2020-heading">
+                    <div class="year-heading">
+                        <h3 id="year-2020-heading">Outreach Highlights</h3>
+                        <span>2026</span>
+                    </div>
+                    <div class="photo-grid">
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach150.jpg" data-caption="Children and volunteers share a joyful moment together."><img src="images/outreach/outreach150.jpg" alt="Children and volunteers sharing a moment" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Children and volunteers share a joyful moment together.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach151.jpg" data-caption="A community visit is built around listening and connection."><img src="images/outreach/outreach151.jpg" alt="Prayer and healing  session at evening crusade" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Prayer and healing  session at evening crusade.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach152.jpg" data-caption="Sharing useful items with care and respect."><img src="images/outreach/outreach152.jpg" alt="Useful items shared during a community visit" loading="lazy" decoding="async"></button><figcaption class="photo-caption">Sharing useful items with care and respect.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach153.jpg" data-caption="A day of fellowship leaves lasting memories."><img src="images/outreach/outreach153.jpg" alt="A group gathered during a SAYS outreach" loading="lazy" decoding="async"></button><figcaption class="photo-caption">A day of fellowship leaves lasting memories.</figcaption></figure>
+                        <figure class="photo-card"><button class="photo-button" type="button" data-full="images/outreach/outreach154.jpg" data-caption="The outreach team shares a joyful moment with the community."><img src="images/outreach/outreach154.jpg" alt="The outreach team with community members" loading="lazy" decoding="async"></button><figcaption class="photo-caption">The outreach team shares a joyful moment with the community.</figcaption></figure>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="closing-section">
+            <div class="content-shell">
+                <span class="eyebrow">Thank you for giving</span>
+                <h2>Kindness travels further when we share it.</h2>
+                <p>For contributions or questions about SAYS outreach, please get in touch with the school.</p>
+                <a class="action-link" href="contact.html">Contact SAYS</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span>Copyright &copy; 2026 Says International School</span>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">School Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </footer>
+
+    <div class="lightbox" id="outreach-lightbox" role="dialog" aria-modal="true" aria-label="Outreach photograph" hidden>
+        <button class="lightbox-close" type="button" id="lightbox-close" aria-label="Close photograph">&times;</button>
+        <button class="lightbox-nav lightbox-prev" type="button" id="lightbox-prev" aria-label="Previous photograph" title="Previous photograph">&#8592;</button>
+        <img id="lightbox-image" src="" alt="">
+        <button class="lightbox-nav lightbox-next" type="button" id="lightbox-next" aria-label="Next photograph" title="Next photograph">&#8594;</button>
+        <p class="lightbox-caption"><span id="lightbox-caption"></span><span class="lightbox-counter" id="lightbox-counter" aria-live="polite"></span></p>
     </div>
+
+    <script>
+        (function () {
+            const lightbox = document.getElementById('outreach-lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+            const closeButton = document.getElementById('lightbox-close');
+            const previousButton = document.getElementById('lightbox-prev');
+            const nextButton = document.getElementById('lightbox-next');
+            const lastFocusedElement = null;
+            const sectionImages = [];
+            const currentImageIndex = 0;
+
+            function showImage(index) {
+                currentImageIndex = (index + sectionImages.length) % sectionImages.length;
+                const button = sectionImages[currentImageIndex];
+                const image = button.querySelector('img');
+                lightboxImage.src = button.dataset.full;
+                lightboxImage.alt = image.alt;
+                lightboxCaption.textContent = button.dataset.caption;
+                lightboxCounter.textContent = (currentImageIndex + 1) + ' of ' + sectionImages.length;
+                lightbox.setAttribute('aria-label', image.alt);
+            }
+
+            function closeLightbox() {
+                lightbox.hidden = true;
+                document.body.style.overflow = '';
+                if (lastFocusedElement) lastFocusedElement.focus();
+            }
+
+            document.querySelectorAll('.photo-button').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    lastFocusedElement = button;
+                    sectionImages = Array.from(button.closest('.outreach-year').querySelectorAll('.photo-button'));
+                    showImage(sectionImages.indexOf(button));
+                    lightbox.hidden = false;
+                    document.body.style.overflow = 'hidden';
+                    closeButton.focus();
+                });
+            });
+
+            previousButton.addEventListener('click', function () {
+                showImage(currentImageIndex - 1);
+            });
+            nextButton.addEventListener('click', function () {
+                showImage(currentImageIndex + 1);
+            });
+            closeButton.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function (event) {
+                if (event.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', function (event) {
+                if (lightbox.hidden) return;
+                if (event.key === 'Escape') closeLightbox();
+                if (event.key === 'ArrowLeft') showImage(currentImageIndex - 1);
+                if (event.key === 'ArrowRight') showImage(currentImageIndex + 1);
+            });
+        })();
+    </script>
 </body>
 </html>
