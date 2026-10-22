@@ -299,6 +299,10 @@
 
 
                                         <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2  filter-container clearfix" data-layout="fitrows" id="sis-student-gallery-grid"></div>
+                                        <div class="says-gallery-outreach-cta" id="says-gallery-outreach-cta" hidden>
+                                            <p>Want to help make future community visits possible?</p>
+                                            <a href="give-to-says.html">Support SAYS Outreach</a>
+                                        </div>
                                         <script>
                                             (function() {
                                                 var studentImages = [
@@ -403,7 +407,7 @@
                                                 ];
                                                  var outReachImages = [
                                                     { imagePath: "images/outreach/outreach01.jpg", title: "preach out the gosple" },
-                                                    { imagePath: "images/outreach/outreach2.jpg", title: "outreact to the needy" },
+                                                    { imagePath: "images/outreach/outreach2.jpg", title: "Christ been preached to people in the rural areas" },
                                                     { imagePath: "images/outreach/outreach3.jpg", title: "outreact to the needy" },
                                                     { imagePath: "images/outreach/outreach4.jpg", title: "outreact to the needy" },
                                                     { imagePath: "images/outreach/outreach5.jpg", title: "outreact to the needy" },
@@ -654,6 +658,13 @@
                                                         '</div>' +
                                                     '</div>';
                                                 }).join('');
+
+                                                var outreachCta = document.getElementById('says-gallery-outreach-cta');
+                                                document.querySelectorAll('.sis-gallery-showcase .gdlr-core-filterer-wrap a[data-filter]').forEach(function(filterLink) {
+                                                    filterLink.addEventListener('click', function() {
+                                                        outreachCta.hidden = filterLink.getAttribute('data-filter') !== '.class5';
+                                                    });
+                                                });
                                             })();
                                         </script>
                                     </div>
