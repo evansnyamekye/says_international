@@ -6,9 +6,9 @@
   const closeButton = document.getElementById("lightbox-close");
   const previousButton = document.getElementById("lightbox-prev");
   const nextButton = document.getElementById("lightbox-next");
-  const lastFocusedElement = null;
-  const sectionImages = [];
-  const currentImageIndex = 0;
+  var lastFocusedElement = null;
+  var sectionImages = [];
+  var currentImageIndex = 0;
 
   function showImage(index) {
     currentImageIndex = (index + sectionImages.length) % sectionImages.length;
