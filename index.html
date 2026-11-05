@@ -20,15 +20,6 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 
-        <script>
-      // Polyfill/shim for exitFullscreen API before plugins load
-      if (!document.exitFullscreen && !document.webkitExitFullscreen && !document.mozCancelFullScreen && !document.msExitFullscreen) {
-        document.exitFullscreen = function() { return Promise.resolve(); };
-      }
-      if (Element && !Element.prototype.requestFullscreen) {
-        Element.prototype.requestFullscreen = function() { return Promise.resolve(); };
-      }
-       </script>
 </head>
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js says-body says-body-front says-full  says-with-sticky-navigation  says-blockquote-style-1 gdlr-core-link-to-lightbox">
     <div class="sis-announcement-bar">
@@ -1632,29 +1623,11 @@
 <script type='text/javascript' src='js/local-news-feed.js'></script>
 <script type='text/javascript' src='js/youtube-integration.js'></script>
 <script type='text/javascript' src='js/course-search.js'></script>
+<script type="text/javascript" src="js/home_index.js"></script>
+<script type="text/javascript" src="js/says_live.js"></script>
+
 <script>
-function checkForLive() {
-    const liveBox = document.querySelector('#fb-live');
-    const placeholder = document.getElementById('live-placeholder');
-    const player = document.getElementById('fb-player');
-
- 
-
-    // No live yet ? keep showing placeholder
-    placeholder.style.display = 'block';
-    player.style.display = 'none';
-
-    // Check again in 5 seconds
-    setTimeout(checkForLive, 5000);
-}
-
-// Start checking after page load
-window.addEventListener('load', () => {
-    setTimeout(checkForLive, 3000); // Start after 3 seconds to give embeds time
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', function () {
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var selectors = [
         '#says-home-impact .says-home-impact-intro',
@@ -2188,18 +2161,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     loadOfficialUpdates();
-});
+ });
 </script>
-<!-- 
-        <script>
-            setTimeout(() => {
-                const iframe = document.querySelector('.fb-video iframe');
-                if (iframe) {
-                document.getElementById('live-banner').style.display = 'block';
-                document.getElementById('fb-live').style.display = 'block';
-                }
-            }, 5000);
-        </script> -->
 
 	<script type='text/javascript' src='js/jquery/jquery.js'></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
