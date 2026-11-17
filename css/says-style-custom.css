@@ -5047,6 +5047,10 @@ html .woocommerce span.onsale {
   border: 1px solid rgba(16, 39, 88, 0.08);
 }
 
+.sis-alumni-cta-section .sis-alumni-shell > .sis-alumni-cta-box {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .sis-academics-stage-grid,
 .sis-academics-pillar-grid {
   display: grid;
